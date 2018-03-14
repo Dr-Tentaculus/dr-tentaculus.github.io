@@ -1,3 +1,3 @@
-# etignis.tentaculus.io
-# dr-tentaculus.github.io
-# dr-tentaculus.github.io
+# Зеркало сайта tentaculus.ru
+
+e-mail для связи: <a href="mailto:mail@tentaculus.ru">mail@tentaculus.ru</a>
