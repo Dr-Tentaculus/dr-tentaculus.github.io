@@ -19,7 +19,9 @@ magic-items/node*
 
 monsters/.git*
 
-names/.git*
+names/.git/
+names/.gitattributes
+names/.gitignore
 
 random/.git*
 
