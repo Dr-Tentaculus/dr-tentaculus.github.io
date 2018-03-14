@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <title>Генератор имен</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> <!-- for monile -->
+  <meta name="description" content="Генератор имен различных рас и народов на основе заданых имен">
+  <meta name="Keywords" content="ДнД, имена, люди, орки, гномы, эльфы">
+  <link rel="stylesheet" type="text/css" href="css/style.css"><!-- include css styles  -->
+  <link href="../_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon2.ico" /><!-- include icon for browser -->
+  
+  <meta property="og:image" content="img/og_hor2.jpg" />
+  <meta property="og:image" content="img/og.jpg" />
+  <meta property="og:title" content="Генератор имен" />
+  <meta property="og:description" content="Имена для разных рас, генерируемые на основе заданных примеров" />
+
+  <!-- IE must understand HTML5: -->
+  <!--[if IE]>
+   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <style>
+   article, aside, details, figcaption, figure, footer,header,
+   hgroup, menu, nav, section, div { display: block; }
+  </style>
+</head>
+
+<body>
+
+<div id="info_text" class='center max_width_800'>
+	<h1>
+		Генератор имен
+	</h1>
+	<p>
+		Этот генератор позволяет создавать новые имена по примеру уже существующих. Необходимо выбрать хотя бы одну расу из списка и нажать кнопку [Сгенерировать] в верхней панели. При этом сгенерируется список из пяти имен. Если выбрать несколько рас, будет сгенерировано по пять имен для каждой. 
+	</p>
+	<p>
+		По умолчанию представлены расы  D&D5 (и, по правде говоря, имен там немного). При желании, можно выбрать другой список рас (в верхней панели выпадающий список после кнопки [Сгенерировать]).
+	</p>
+	<p>
+		Есть возможность задавать собственный список имен для примера. Для этого необходимо нажать кнопку [Задать список] в верхей панели, в текстовое поле ввести список имен через запятую (пока что лучше использовать только кириллицу, если есть желание работать на эльфийскои или клингонском - <a style='color: #0288D1' href='https://tentaculus.ru/message?theme=dndnames'>пишите</a>) и нажать кнопку [Применить] внизу окна ввода. После этого, в конце списка рас появится новый элемет "Свой список". Если выбрать его и нажать кнопку [Сгенерировать], будут созданы пять имен по обазцу введенных в списке.
+	</p>
+	<p>
+		Кроме имен генерировать можно, что угодно. Например названия стран или городов. Или еще что-нибудь...
+	</p>
+  <p>
+    Стоит помнить, что имена что-то означают на своем родном языке. А имена, полученные с помощью генератора, могут либо не значить ничего, либо значить что-то не особо хорошее.
+  </p>
+</div>
+
+  <script type='text/javascript' src='js/jquery-1.11.3.min.js' defer></script><!-- jQuery -->
+  <script type='text/javascript' src='js/names.js?v=0.2' defer></script>
+  <script type='text/javascript' src='js/script2.js?v=0.3' defer></script>
+ <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter42911239 = new Ya.Metrika({
+                    id:42911239,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/42911239" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-94082824-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

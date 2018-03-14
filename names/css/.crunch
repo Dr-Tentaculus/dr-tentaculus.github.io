@@ -1,0 +1,30 @@
+{
+	"files": {
+		"style.less": {
+			"engines": [
+				{
+					"compiler": "less",
+					"output": "style.css",
+					"options": {
+						"compress": false,
+						"ieCompat": false,
+						"strictMath": false,
+						"strictUnits": false,
+						"javascriptEnabled": false,
+						"sourceMap": true,
+						"sourcemap": true
+					}
+				}
+			],
+			"sources": [
+				"frame.less",
+				"grid.less",
+				"names.less",
+				"sceleton.less",
+				"select.less",
+				"usefull.less",
+				"vars.less"
+			]
+		}
+	}
+}
