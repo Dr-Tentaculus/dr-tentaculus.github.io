@@ -9,3 +9,6 @@ messgae/*
 node_modules/*
 tavern-map/*
 message/
+
+tavern/.git*
+tavern/fonts*
