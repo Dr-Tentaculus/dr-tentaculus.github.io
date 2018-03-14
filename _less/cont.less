@@ -1,0 +1,140 @@
+.cont{
+    //background: @bg-lght;
+    .seg{
+        display: block;
+        height: 12em;
+        position: relative;
+        margin-bottom: 1px;
+        
+        background-color: @l-gray;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        opacity: .89;
+        .transit(opacity, .3s,  ease-out,  0s);
+        
+        
+        &:hover{
+            opacity: 1;
+        }
+        
+        .label{
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: @bgLight;
+            
+            h1{
+                margin: 0;
+                padding: .2em;
+                font-size: 150%;
+                
+                color: @white;
+                border-bottom: none;
+                cursor: pointer;
+            }
+            h2{
+                margin: 0;
+                padding: .2em;
+                font-size: 100%;
+                
+                color: @white;
+                cursor: pointer;
+            }
+        }
+    }
+    .master{
+        position: relative;
+        color: red;
+        &:after{
+            position: absolute;
+            content: "Для ведущего";
+            background: @bt-error;
+            color: @white;
+            padding: .4em;
+            font-size: 95%;
+            top: 2em;
+            right: 0;
+        }
+    }
+    .beta{
+        position: relative;
+        color: red;
+        
+        &:before{
+            position: absolute;
+            content: "β";
+            background: @m-gray;
+            color: @white;
+            padding: .4em;
+            font-size: 95%;
+            top: .5em;
+            right: 0;
+        }
+        
+        &:hover{
+             &:before{
+                content:"β-версия";
+             }
+        }
+    }
+    
+    .tavern{
+        background-color: #43220e;
+        background-image: url('../tavern/img/t1.jpg');
+    }
+    .whoopee{   
+        background-color: #62352d;
+        background-image: url('../whoopee/img/t1.jpg');
+    } 
+    .topography{ 
+        background-color: #361c33;        
+        background-image: url('../topography/img/f1.jpg');
+    }   
+    .background{
+        background-color: #1e2d69;
+        background-image: url('../background/img/t1.jpg');        
+    } 
+    .random{
+        background-color: #a8310d;
+        background-image: url('../random/img/bg_main.jpg');
+    }
+    .monsters{
+        background-color: #6b344b;
+        background-image: url('../monsters/img/t1.jpg');
+    }
+    .spells{
+        background-color: #4a7383;
+        background-image: url('../spells/img/og.jpg');
+    }
+    .magicItems{ 
+        background-color: #836e32;
+        background-image: url('../magic-items/img/og.jpg');
+    }
+    .names{
+        background-color: #384a4c;
+        background-image: url('../names/img/og_hor2.jpg');
+    }
+    .arch_tables{
+        background-color: #62371e;
+        background-image: url('../_img/archive_tables.jpg');
+    }
+    .arch_articles{
+        background-color: #f2c074;
+        background-image: url('../_img/archive_articles.jpg');
+    }
+    .arch_other{
+        background-color: #f2c074;
+        background-image: url('../_img/archive_other.jpg');
+    }
+}
+.cont_media_767(){
+    .cont{
+        .seg{
+            display: inline-block;
+            width: 49.5%;
+        }
+    }
+}

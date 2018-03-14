@@ -1,0 +1,178 @@
+.bg-size(@size: 100%){
+    -moz-background-size: @size; 
+    -webkit-background-size: @size; 
+    -o-background-size: @size; 
+    background-size: @size; 
+}  
+.clear{
+    float: none!important;
+    clear: both!important;  
+    display: block!important;
+    width: 0!important;
+    height: 0!important;
+    margin:0!important;
+    padding:0!important;
+}
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.transit(@prop: all, @tm: 1s, @fn: ease-out, @tm2: 0){
+    -webkit-transition: @prop @tm @fn @tm2;
+       -moz-transition: @prop @tm @fn @tm2;
+        -ms-transition: @prop @tm @fn @tm2;
+         -o-transition: @prop @tm @fn @tm2;
+            transition: @prop @tm @fn @tm2;
+}
+.transition(@tm:0.3s){
+    -webkit-transition: all @tm ease;
+       -moz-transition: all @tm ease;
+         -o-transition: all @tm ease;
+        -ms-transition: all @tm ease;
+            transition: all @tm ease;
+}
+.border-rad-4(@rad1:1em, @rad2:1em, @rad3:1em, @rad4:1em){
+    -webkit-border-radius: @rad1 @rad2 @rad3 @rad4;
+    -moz-border-radius: @rad1 @rad2 @rad3 @rad4;
+    border-radius: @rad1 @rad2 @rad3 @rad4;  
+}
+.border-rad(@rad:1em){
+    .border-rad-4(@rad, @rad, @rad, @rad);
+}
+.box-shadow(@px1:0, @px2:0, @px3:0, @px4:0, @col:#fff){
+    -webkit-box-shadow: @px1 @px2 @px3 @px4 @col;
+     -khtml-box-shadow: @px1 @px2 @px3 @px4 @col;
+       -moz-box-shadow: @px1 @px2 @px3 @px4 @col;
+            box-shadow: @px1 @px2 @px3 @px4 @col;
+}
+
+#bg-dark{
+    position: fixed;
+    top: -40%;
+    left: -40%;
+    right: -40%;
+    bottom: -40%;
+    background: rgba(0,0,0,0.6);
+    
+    
+    display: none;
+}
+/*
+@track-color: #424242;
+@thumb-color: #555bc8;
+
+@thumb-radius: 8px;
+@thumb-height: 30px;
+@thumb-width: 30px;
+@thumb-shadow-size: 1px;
+@thumb-shadow-blur: 1px;
+@thumb-shadow-color: #111;
+@thumb-border-width: 1px;
+@thumb-border-color: white;
+
+@track-width: 100%;
+@track-height: 10px;
+@track-shadow-size: 2px;
+@track-shadow-blur: 2px;
+@track-shadow-color: #222;
+@track-border-width: 1px;
+@track-border-color: black;
+
+@track-radius: 5px;
+@contrast: 5%;
+
+.shadow(@shadow-size,@shadow-blur,@shadow-color) {
+  box-shadow: @shadow-size @shadow-size @shadow-blur @shadow-color, 0px 0px @shadow-size lighten(@shadow-color,5%);
+}
+
+.track() {
+  width: @track-width;
+  height: @track-height;
+  cursor: pointer;
+  animate: 0.2s;
+}
+
+.thumb() {
+  .shadow(@thumb-shadow-size,@thumb-shadow-blur,@thumb-shadow-color);
+  border: @thumb-border-width solid @thumb-border-color;
+  height: @thumb-height;
+  width: @thumb-width;
+  border-radius: @thumb-radius;
+  background: @thumb-color;
+  cursor: pointer;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: @thumb-height/2 0;
+  width: @track-width;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    .track();
+    .shadow(@track-shadow-size,@track-shadow-blur,@track-shadow-color);
+    background: @track-color;
+    border-radius: @track-radius;
+    border: @track-border-width solid @track-border-color;
+  }
+  
+  &::-webkit-slider-thumb {
+    .thumb();
+    -webkit-appearance: none;
+    margin-top: ((-@track-border-width * 2 + @track-height) / 2) - (@thumb-height / 2);
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    background: lighten(@track-color, @contrast);
+  }
+
+  &::-moz-range-track {
+    .track();
+    .shadow(@track-shadow-size,@track-shadow-blur,@track-shadow-color);
+    background: @track-color;
+    border-radius: @track-radius;
+     border: @track-border-width solid @track-border-color;
+  }
+  &::-moz-range-thumb {
+     .thumb();
+  }
+
+  &::-ms-track {
+    .track(); 
+    background: transparent;
+    border-color: transparent;
+    border-width: @thumb-width 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    background: darken(@track-color, @contrast);
+    border: @track-border-width solid @track-border-color;
+    border-radius: @track-radius*2;
+    .shadow(@track-shadow-size,@track-shadow-blur,@track-shadow-color);
+  }
+  &::-ms-fill-upper {
+    background: @track-color;
+    border: @track-border-width solid @track-border-color;
+    border-radius: @track-radius*2;
+    .shadow(@track-shadow-size,@track-shadow-blur,@track-shadow-color);
+  }
+  &::-ms-thumb {
+    .thumb();
+  }
+  &:focus::-ms-fill-lower {
+    background: @track-color;
+  }
+  &:focus::-ms-fill-upper {
+    background: lighten(@track-color, @contrast);
+  }
+}
+*/

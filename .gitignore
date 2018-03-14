@@ -1,0 +1,11 @@
+
+.htaccess
+.idea/*
+_php/*
+DnD5_charlist/*
+fate/*
+hackerman/*
+messgae/*
+node_modules/*
+tavern-map/*
+message/

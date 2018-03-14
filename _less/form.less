@@ -1,0 +1,36 @@
+#form{
+    .frame();
+    .box-shadow('',0, 3px, 10px, 1px, rgba(0,0,0,0.3));
+    max-width: 40em;
+    width: 100%;
+    min-width: 20em;
+    margin: 1em auto 0;
+    padding: 1em;
+    
+    input[type='text'], textarea{
+        //border: 1px solid @l-gray;
+        border: none;
+        border-bottom: 1px solid @l-gray;
+        padding: .2em;
+        width: 100%;
+            //.transit(border-bottom-color, .3s, ease-out, 0s);
+            .transition_string(~"border-bottom-color .4s ease-out 0s, background .4s ease-out 0s");
+        
+        &:focuse{
+            border: 1px solid @m-gray;   
+        }
+        &:hover{
+            //background: #f9f9f9;
+            border-bottom-color: @color; 
+            .transition_string(~"border-bottom-color .2s ease-out 0s, background .2s ease-out 0s");
+        }
+        &:active, &:focus{
+            outline: none;
+            background: @color + #333; /* Для старых браузров */
+            background: linear-gradient(to top, lighten(@color, 40%) 0%, rgba(255,255,255,0) 40%);
+            border-bottom-color: @color; 
+            //.transit(border-bottom-color, 1s, ease-out, 0s);
+            //.transition_string("border-bottom-color 1s ease-out 0, background 1s ease-out 0");
+        }
+    }
+}

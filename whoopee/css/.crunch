@@ -1,0 +1,27 @@
+{
+	"files": {
+		"whoopee.less": {
+			"engines": [
+				{
+					"compiler": "less",
+					"output": "whoopee.css",
+					"options": {
+						"compress": false,
+						"ieCompat": false,
+						"strictMath": false,
+						"strictUnits": false,
+						"javascriptEnabled": false,
+						"sourceMap": true
+					}
+				}
+			],
+			"sources": [
+				"frame.less",
+				"page.less",
+				"sceleton.less",
+				"usefull.less",
+				"vars.less"
+			]
+		}
+	}
+}

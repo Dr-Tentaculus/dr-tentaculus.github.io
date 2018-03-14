@@ -1,0 +1,43 @@
+.april1{
+    animation-name: drukr;
+    animation-duration: 9s;
+}
+.rainbowColor:hover{
+    animation-name: rainbowColor;
+    animation-duration: 14s;
+}
+.rainbowShadow:hover{
+    animation-name: rainbowShadow;
+    animation-duration: 14s;
+}
+@keyframes drukr {
+    0% {
+        transform: scale(1,1);
+    }
+    25% {
+        transform: scale(.98,1) rotate(1deg);
+    }
+    75% {
+        transform: scale(1,.98) rotate(-1deg);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+
+@keyframes rainbowColor {
+    10% {color: red !important;}
+    30% {color: yellow !important;}
+    40% {color: green !important;}
+    50% {color: blue !important;}
+    60% {color: purple !important;}
+}
+
+@keyframes rainbowShadow {
+    10% {text-shadow: 4px 0 5px red !important;}
+    30% {text-shadow: 0px 8px 5px yellow !important;}
+    40% {text-shadow: 2px 2px 5px green !important;}
+    50% {text-shadow: 8px 0 5px blue !important;}
+    60% {text-shadow: 1px 3px 5px purple !important;}
+}

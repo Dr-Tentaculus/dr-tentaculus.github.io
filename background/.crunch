@@ -1,0 +1,28 @@
+{
+	"files": {
+		"css/background.less": {
+			"engines": [
+				{
+					"compiler": "less",
+					"output": "background.css",
+					"options": {
+						"compress": false,
+						"ieCompat": false,
+						"strictMath": false,
+						"strictUnits": false,
+						"javascriptEnabled": false,
+						"sourceMap": true,
+						"sourcemap": true
+					}
+				}
+			],
+			"sources": [
+				"frame.less",
+				"page.less",
+				"sceleton.less",
+				"usefull.less",
+				"vars.less"
+			]
+		}
+	}
+}

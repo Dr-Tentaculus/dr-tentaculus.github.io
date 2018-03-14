@@ -1,0 +1,35 @@
+{
+	"files": {
+		"style.less": {
+			"engines": [
+				{
+					"compiler": "less",
+					"output": "style.css",
+					"options": {
+						"compress": false,
+						"ieCompat": false,
+						"strictMath": false,
+						"strictUnits": false,
+						"javascriptEnabled": false,
+						"sourceMap": true,
+						"sourcemap": true
+					}
+				}
+			],
+			"sources": [
+				"buttons.less",
+				"cont.less",
+				"dummy.less",
+				"emphasizedPage.less",
+				"form.less",
+				"frame.less",
+				"grid.less",
+				"media.less",
+				"other.less",
+				"sceleton.less",
+				"usefull.less",
+				"vars.less"
+			]
+		}
+	}
+}
