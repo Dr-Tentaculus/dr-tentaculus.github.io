@@ -1,0 +1,260 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <title>Добавление деталей в сцену</title>
+  <script>
+	if(window.location.protocol == "file:") {
+		document.write("<base href='"+ window.location.protocol +'//' + window.location.pathname.replace(/\/site\/.+/, "/site/") + "' >"); // replace("/site/index.html", "/site/")
+	} else{
+		document.write("<base href='"+ window.location.protocol +'//' + window.location.host + "' >");
+	}
+  </script>
+  <meta name="theme-color" content="#0288D1">
+  <meta name="msapplication-navbutton-color" content="#0288D1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="DodgerBlue">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> 
+  <meta name="description" content="В этой заметке приводится несколько советов о том, как можно добавить деталей в сцену, чтобы сделать игру интереснее для вас, ваших товарищей и Мастера, также это может помочь вам преуспеть в бросках, связав их с историей."> 
+  <meta name="Keywords" content="Генераторы, заклинания, монстры, тавена, персонаж"> 
+  <link rel="stylesheet" type="text/css" href="_less/style.css">
+  <link href="_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
+  <!--link rel="shortcut icon" href="favicon.ico" /-->
+  <link rel="alternate" hreflang="x-default" href="https://tentaculus.ru/archive/articles/Adding_stuff_to_a_scene.html">
+  <link rel="canonical" href="https://tentaculus.ru/archive/articles/Adding_stuff_to_a_scene.html">
+  
+  <link rel="icon" href="_img/icon-32.png" sizes="32x32">
+	<link rel="icon" href="_img/icon-192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" href="_img/icon-180.png">
+	<meta name="msapplication-TileImage" content="_img/icon-270.png">
+	
+	<meta property="og:site_name" content="Dr.Tentaculus">
+	<meta property="og:title" content="Добавление деталей в сцену">
+	<meta property="og:description" content="В этой заметке приводится несколько советов о том, как можно добавить деталей в сцену, чтобы сделать игру интереснее для вас, ваших товарищей и Мастера, также это может помочь вам преуспеть в бросках, связав их с историей.">
+	<meta property="og:image" content="archive/img/articles/adding_staff_to_scene.jpg">
+	<meta property="og:image" content="archive/img/articles/adding_staff_to_scene__800.jpg">
+	<meta property="og:image" content="archive/img/articles/adding_staff_to_scene__500.jpg">
+	<meta property="og:image" content="archive/img/articles/adding_staff_to_scene__300.jpg">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://tentaculus.ru">
+	<meta property="og:locale" content="ru_ru">
+	  
+  <script type="text/javascript" src="//vk.com/js/api/openapi.js?142" async defer></script>
+  <!-- <script type="text/javascript" src="//vk.com/js/api/openapi.js?147"></script> -->
+
+  <!-- <script type="text/javascript"> -->
+    <!-- VK.init({apiId: 6197190, onlyWidgets: true}); -->
+  <!-- </script> -->
+  
+  <!-- IE must understand HTML5: -->
+  <!--[if IE]>
+   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <style>
+   article, aside, details, figcaption, figure, footer,header,
+   hgroup, menu, nav, section, div { display: block; }
+  </style>
+</head>
+
+<body class="maxWidth880">
+
+ <div id="wrapper">
+	<div id="top_panel">
+		<div id="logo_row">
+			<div class="max_width">
+				<a href="#" id="logo_place">
+					<img src="_img/logo.jpg">
+				</a>
+					
+				<ul id="main_menu">
+					<li>
+						<a href="#generater"><i class="fa fa-bolt" aria-hidden="true"></i> Генераторы</a>
+					</li>
+					<li>
+						<a href="#catalog"><i class="fa fa-book" aria-hidden="true"></i> Справочники</a>
+					</li>
+					<li>
+						<a href="#archive"><i class="fa fa-archive" aria-hidden="true"></i> Архив</a>
+					</li>
+					<li class="separator">
+					</li>
+					<li>
+						<a href="https://tentaculus.ru/message"><i class="fa fa-envelope-o" aria-hidden="true"></i> Обратная связь</a>
+					</li>
+					<li>
+						<a href="https://vk.com/dr.tentaculus"><i class="fa fa-vk" aria-hidden="true"></i> Группа В Контакте</a>
+					</li>					
+					<!-- <li> -->
+						<!-- <a href='https://twitter.com/DrTentaculus'><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a> -->
+					<!-- </li> -->
+				</ul>
+				
+				<a href="#" id="menu_toggle">
+					<i class="fa fa-bars" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div>					
+	</div>
+	<div id="main_block">
+		<div class="max_width">
+			<div id="content" class="ephasizedPage"><article><h1 id="добавление-деталей-в-сцену">Добавление деталей в сцену</h1>
+<p class="noRedString breadcrumps"><a href="/">🐙</a><span style="color: #999">/</span><a href="/archive">Архив</a><span style="color: #999">/</span><a href="/archive/articles">Статьи</a><span style="color: #999">/</span>Добавление деталей в сцену</p>
+<p class="noRedString"><img src="archive/img/articles/adding_staff_to_scene__300.jpg" alt="" srcset="archive/img/articles/adding_staff_to_scene__500.jpg 500w, archive/img/articles/adding_staff_to_scene__800.jpg 800w"></p>
+<p>В этой заметке приводится несколько советов о том, как можно добавить деталей в сцену, чтобы сделать игру интереснее для вас, ваших товарищей и Мастера, также это может помочь вам преуспеть в бросках, связав их с историей.</p>
+<h2 id="сначала-согласуй-с-мастером">Сначала согласуй с Мастером</h2>
+<p>Перво-наперво, убедитесь, что Мастер одобряет желание игроков дополнять описание сцены, это не всегда может быть к месту. Если ваша мысль будет выражена в форме вопроса, вероятнее всего она будет одобрена.</p>
+<blockquote>
+  <p>Итак, мы в конюшне позади таверны, есть ли где-нибудь здесь поилка для животных?</p>
+</blockquote>
+<h2 id="убедитесь,-что-ваше-дополнение-не-противоречит-утвержденным-ранее-фактам">Убедитесь, что ваше дополнение не противоречит утвержденным ранее фактам</h2>
+<p>Если Мастер уже объявил какие-то факты в сцене на пытайтесь им противоречить, или как-то обойти их, постарайтесь включить их в свое дополнение. Мастер с большей вероятностью вознаградит вас за работу <strong>с</strong> повествованием, на не <strong>против</strong> него.</p>
+<blockquote>
+  <p>Ну ладно, четверо стражников приближаются к конюшне, может они патрулируют уже всю ночь? Замерзшие и усталые они не обнаруживают нас сразу же в темноте конюшне.</p>
+</blockquote>
+<h2 id="убедитесь,-что-ваше-дополнение-соответствует-окружению-и-ситуации">Убедитесь, что ваше дополнение соответствует окружению и ситуации</h2>
+<p>Если вы в "типичном фэнтези" не спрашивайте, лежит ли рядом какое-нибудь оружие или огнестрел, подумайте, что из того, что может находиться в месте, где вы находитесь, и что из этого можно использовать для своих целей.</p>
+<blockquote>
+  <p>Если в конюшне есть сено для животных, наверно тут же лежат и вилы или что они используют, чтобы забросить сено в стойла?</p>
+</blockquote>
+<h2 id="используйте-свои-дополнения-в-своих-действиях">Используйте свои дополнения в своих действиях</h2>
+<p>Даже если вы столкнулись с трудностями при добавлении деталей или их описании, не бросайте их просто так, используйте эти элементы в сражении или, когда предпринимаете другие действия.</p>
+<blockquote>
+  <p>Так как стражники приближаются к конюшне, я хватаю вилы и прячусь за поилкой на корточках .</p>
+</blockquote>
+<h2 id="спрашивайте-мастера,-можете-ли-вы-получить-бонус-за-такое-действие">Спрашивайте Мастера, можете ли вы получить бонус за такое действие</h2>
+<p>Если уж вам удалось использовать добавленные вами на сцену элементы, не стесняйтесь спросить Мастера можете ли вы получить какой-то бонус за такое действие, в худшем случае Мастер просто скажет "нет", а вы все равно уже добавили крутую деталь в игру. Однако, если ваши действия идут игре на пользу, Мастер с большим энтузиазмом разрешит вам получить бонус.</p>
+<blockquote>
+  <p>Раз стражники обходят поилку, я вскакиваю, пинаю ее, разливая воду на землю им под ноги и атакую вилами, получу ли я бонус, раз атакую неожиданно, а стражники могут поскользнуться на мокрых булыжниках?</p>
+</blockquote>
+<p class="date noRedString">Дата публикации: <time pubdate="" datetime="2018-01-10">10.01.2018</time></p>
+<p class="hashtags">DnD, Player, Advice, Describing</p>
+<p class="noRedString">Источник: <a href="https://reddicediaries.com/player-tips/player-tips-adding-stuff-to-a-scene/">Red Dice Diaries - Player Tips: Adding stuff to a scene</a></p>
+<p class="noRedString">Автор арта: <a href="https://www.artstation.com/rhads">Artem RHADS</a></p><hr>
+<p class="noRedString breadcrumps"><a href="/">🐙</a><span style="color: #999">/</span><a href="/archive">Архив</a><span style="color: #999">/</span><a href="/archive/articles">Статьи</a><span style="color: #999">/</span>Добавление деталей в сцену</p>
+<p class="taglist noRedString" style="margin-top: .1em"><a href="/archive#q=DnD" class="tag c6">DnD</a> <a href="/archive#q=Player" class="tag c1">Player</a> <a href="/archive#q=Advice" class="tag c8">Advice</a> <a href="/archive#q=Describing" class="tag c8">Describing</a></p>
+<p class="noRedString"></p><div id="vk_like"></div><p></p><!--script type="text/javascript">VK.Widgets.Like("vk_like", {type: "full", pageUrl: "https://tentaculus.ru/archive/articles/Adding_stuff_to_a_scene.html", pageTitle: "Dr.Tentaculus - Добавление деталей в сцену", pageImage: "https://tentaculus.ru/archive/img/articles/adding_staff_to_scene.jpg"}, "https://tentaculus.ru/archive/articles/Adding_stuff_to_a_scene.html");</script-->
+<div id="vk_comments" style="position: relative; min-height: 2rem;"><span style="color: #bbb; position: absolute; left: .4em; z-index: -1">Если у вас не отображаются комментарии, значит либо запрещен доступ к сайту vk.com, либо стоит блокировщик всякого такого.</span></div><p></p><!--script type="text/javascript">VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*", pageUrl: "https://tentaculus.ru/archive/articles/Adding_stuff_to_a_scene.html"}, "https://tentaculus.ru/archive/articles/Adding_stuff_to_a_scene.html");</script--></article></div>
+			<div id="sidebar">		
+				<ul id="side_menu">
+					<li>
+						<a href="#">Генераторы</a>
+					</li>
+					<li>
+						<a href="#">Справочники</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">		
+		<div class="max_width">
+			<div class="flex_container">
+				<div class="flex_footer vk_placeholder flex_left">
+					<div class="padding">
+						<script type="text/javascript" src="//vk.com/js/api/openapi.js?142" async defer></script>
+
+						<!-- VK Widget -->
+						<div id="vk_groups"></div>
+							<!-- <script type="text/javascript"> -->
+								<!-- VK.Widgets.Group("vk_groups", {mode: 4, wide: 1, height: "400"}, 67030284); -->
+							<!-- </script> -->
+					</div>
+				</div>
+				<div class="flex_footer flex_right">
+					<div class="padding">
+						<ul class="links">
+							<li>
+								Dr.Tentaculus
+							</li>
+							<li>
+								<a href="message"><i class="fa fa-envelope-o" aria-hidden="true"></i> Обратная связь</a>
+							</li> 
+							<li>
+								<a href="https://vk.com/dr.tentaculus"><i class="fa fa-vk" aria-hidden="true"></i> Группа В Контакте</a>
+							</li>
+							<!-- <li> -->
+								<!-- <a href='https://twitter.com/DrTentaculus'><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a> -->
+							<!-- </li> -->
+						</ul>
+					</div> 
+					<div class="padding">
+						<p class="text">
+							Dr.Tentaculus предлагает вам разнообразные инструменты для Настольных Ролевых Игр. Не нашли то, что искали? Есть идеи по улучшению? <a href="message">Пишите нам</a>, и мы постараемся помочь! 
+						</p>						
+					</div>					
+				</div>
+				<div class="flex_footer flex_left" style="max-width: 26rem;">
+					<div class="padding">
+						<h4>Карта ролевых клубов РФ и ближайших галактик</h4>
+						<a href="http://ролевыеклубы.рф"><i class="fa fa-map-marker"></i> РолевыеКлубы.рф</a>
+					</div> 
+					
+				</div>
+				<div class="flex_footer flex_right">
+					
+					<div class="padding">						
+						<p class="greed">
+							
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </div>
+ 
+  <script type="text/javascript" src="_js/jquery-m.js"></script><!-- jQuery -->
+  <script type="text/javascript" src="_js/script.js?v=0.21"></script><!-- your script -->
+  <script type="text/javascript" src="_js/outer.js" async defer></script><!-- your script -->
+  
+ <!-- Yandex.Metrika counter -->
+<!-- <script type="text/javascript"> -->
+    <!-- (function (d, w, c) { -->
+        <!-- (w[c] = w[c] || []).push(function() { -->
+            <!-- try { -->
+                <!-- w.yaCounter42911239 = new Ya.Metrika({ -->
+                    <!-- id:42911239, -->
+                    <!-- clickmap:true, -->
+                    <!-- trackLinks:true, -->
+                    <!-- accurateTrackBounce:true, -->
+                    <!-- webvisor:true, -->
+                    <!-- trackHash:true -->
+                <!-- }); -->
+            <!-- } catch(e) { } -->
+        <!-- }); -->
+
+        <!-- var n = d.getElementsByTagName("script")[0], -->
+            <!-- s = d.createElement("script"), -->
+            <!-- f = function () { n.parentNode.insertBefore(s, n); }; -->
+        <!-- s.type = "text/javascript"; -->
+        <!-- s.async = true; -->
+        <!-- s.src = "https://mc.yandex.ru/metrika/watch.js"; -->
+
+        <!-- if (w.opera == "[object Opera]") { -->
+            <!-- d.addEventListener("DOMContentLoaded", f, false); -->
+        <!-- } else { f(); } -->
+    <!-- })(document, window, "yandex_metrika_callbacks"); -->
+<!-- </script> -->
+<noscript><div><img src="https://mc.yandex.ru/watch/42911239" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+<!-- VK Widget -->
+<div id="vk_community_messages"></div>
+<!-- <script type="text/javascript"> -->
+<!-- VK.Widgets.CommunityMessages("vk_community_messages", 67030284, {disableExpandChatSound: "1",disableButtonTooltip: "1"}); -->
+<!-- </script> -->
+
+<!-- <script> -->
+  <!-- (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
+  <!-- (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
+  <!-- m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
+  <!-- })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); -->
+
+  <!-- ga('create', 'UA-94082824-1', 'auto'); -->
+  <!-- ga('send', 'pageview'); -->
+
+<!-- </script> -->
+
+</body></html>
