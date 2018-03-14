@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+  <title>Таверна</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> <!-- for monile -->
+  <meta name="description" content="Поможет получить ворох самых разных деталей о таверне, куда зашла патька"> 
+  <meta name="Keywords" content="таверна, генератор, dnd, d&d, rpg, tavern"> 
+  <link href="../_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/tavern.css"><!-- include css styles  -->
+  <link rel="shortcut icon" href="favicon.ico" /><!-- include icon for browser -->
+  <script type='text/javascript' src='js/jquery-1.11.3.min.js'></script><!-- jQuery -->
+  <script type='text/javascript' src='js/whoopy.js'></script>
+  <script type='text/javascript' src='js/tavern.js'></script>
+  <script type='text/javascript' src='https://tentaculus.ru/tavern/js/update.js'></script><!-- your script -->
+  
+  <meta property="og:image" content="img/og_big.jpg" />
+  <meta property="og:image" content="img/og_big_hor.jpg" />
+  <meta property="og:image" content="img/og.jpg" />
+  <meta property="og:title" content="Генератор таверн" />
+  <meta property="og:description" content="Поможет получить ворох самых разных деталей о таверне, куда зашла патька" />
+  
+  <!-- IE must understand HTML5: -->
+  <!--[if IE]>
+   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <style>
+   article, aside, details, figcaption, figure, footer,header,
+   hgroup, menu, nav, section, div { display: block; }
+  </style>
+</head>
+
+<body>
+	<div id='mainContainer'>
+		<div id='tavern'>
+		</div>
+		<div id='result'>
+		</div>
+		<div id='info_text' class='noprint'>
+			<p>
+				Генератор таверн помогает получить массу подробностей о таверне - начиная с личности хозяина и фирменных блюди и заканчивая настроением посетителей и случайными событиями.
+			</p>
+			<p>
+				 Кнопка [Сгенерировать] генерирует полностью новую таверну.
+			</p>
+			<p>
+				 Кнопка [Перегенерировать]  обновляет значения полей, у которых не отмечен чекбокс. Отмеченные чекбоксами считаются закрепленными
+			</p>
+			<p>
+				Кнопка [<i class="fa  fa-refresh" title="Обновить"></i>] напртив каждой стоки обновляет значение поля.
+			</p>
+			<p>
+				Чекбоксы [<i class="fa fa-lock" title="Закреплен"></i>] закрепляют значения полей. Поля, отмеченные чекбоксами, не будут обновляться при нажатии кнопки 'Перегенерировать'.
+			</p>
+			<p>
+			Если есть вопросы или предложения - <a style="color: #0288D1" href="https://tentaculus.ru/message?theme=dndtavern">пишите</a>.
+			</p>
+			<p>
+			<a style="color: #0288D1"  href="https://github.com/Etignis/Tavern_Generator" target="_blanc">Страница проекта на GitHub.</a>
+			</p>
+		</div>
+	</div>
+
+	 <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter42911239 = new Ya.Metrika({
+                    id:42911239,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/42911239" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

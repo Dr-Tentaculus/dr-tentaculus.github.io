@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+html {
+    height:100%;
+	margin: 0;
+	padding:0;
+	color: #555;
+	font-size: 14px;
+}
+body {
+    margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;	
+	background-color: @d-gray;
+	background: url('../img/t1.jpg') center center;	
+	background-attachment: fixed;
+	background-size: cover;
+	color: #555;
+	width: 100%;
+	height: 100%;
+	
+	position: relative;
+	
+	font-family: sans-serif;
+	/*font-family: Comic Sans MS, Comic Sans MS5, cursive; /* you can delete this =) */
+}
+img{
+	border: none;
+}
+
+@bt_wh: 2em;
+
+button, .bt{
+    .fr-convex;
+    background: @m-gray;
+    padding: .2em;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    font-size: 100%;
+    &:hover{
+        background: @m-gray + #111;    
+    }
+    &:active{
+        background:  @m-gray - #111;    
+    }
+}
+input[type=checkbox]{
+    display: none;
+}
+input[type=checkbox]+ label{
+    .fr-convex;           
+    background: @m-gray + #111;
+    display: inline-block;
+    padding: .35em;
+    text-align: center;
+    &:hover{
+        background: @m-gray + #222;    
+    }
+    &:active{
+        background:  @m-gray;    
+    }
+    input{
+        display: none;
+    }
+}
+input[type=checkbox]:checked + label{
+    .fr-concave;
+    background:  @m-gray - #222;  
+    padding: .39em;  
+}
+
+.mod_win{
+    .fr-concave;
+    display: block;
+    position: absolute;
+    width: 20em;
+    min-height: 15em;
+    top: 1em;
+    //margin: 0 auto;
+    z-index: 999;
+    background: @white;
+    color: @d-gray;
+    cursor: default;
+    font-weight: normal;
+}
+#dbg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: 88;
+    background: rgba(0,0,0,.7);
+}
+
+#mainContainer{
+    margin: 0 auto;
+    //max-width: 50rem;
+}
+#menu{
+	font-size: 115%;
+}
+#tavern{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.table{
+    float: none;
+    clear: both;
+    overflow: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 44rem;
+    padding: .5rem;
+    //max-width: 750px;
+    min-width: 300px;
+         
+    @bt_wh: 2rem;
+    button{
+        font-size: 85%;
+        width: @bt_wh;
+        height: @bt_wh;
+        text-shadow: 1px 1px 2px black;   
+    }
+    input[type=checkbox]+ label{
+        font-size: 85%;
+        width: @bt_wh;
+        height: @bt_wh;
+    }
+    
+    &:after, &:before{
+        .clear();
+    }
+    .line{   
+    	.noPrintBreak();
+        .all(){
+            min-height: 1px;
+            padding-left: .2em;
+            padding-right: .2em;
+            /*padding-top: 2%;
+            padding-bottom: 2%;*/
+        }
+        float: left;
+        width: 100%;
+        background: rgba(0,0,0,0.6);
+        color: @l-gray;
+        font-size: 150%;
+        //padding: 4px 4px;
+       
+        text-shadow: 1px 1px 2px black;   
+        margin: 0 0 .2em;
+        
+        transition: background .3s;
+        &:hover{
+            background: rgba(0,0,0,0.8);
+        }
+        
+        .header{
+            .all();
+            float: left;
+            width: 24%;
+            
+            font-weight: bold; 
+            padding-top: 8px;
+            padding-bottom: 8px;
+    
+        }
+        .value{
+            .all();
+            float: left;   
+            width: 62%;
+            
+            padding-top: 8px;
+            padding-bottom: 8px;            
+        }
+        .bt_place{
+            .all();
+            float: right;   
+            width: 7%;
+            text-align: right;
+        }
+    }
+}
+
+#infoText{
+    padding: .6rem;
+    background: rgba(0,0,0,.7);
+    color: @l-gray;
+}
+
+select{
+    background: transparent;
+    color: @white;
+    text-shadow: 1px 1px 2px black; 
+    padding: .2em;
+    z-index: 4;
+    position: relative;
+    border: 1px solid rgba(255,255,255,.3);
+    
+    option{
+        background: rgba(0,0,0,.9); 
+        color: @white;
+        text-shadow: 1px 1px 2px black; 
+        padding: .2em;
+    }
+}
+
+//////// media
+@media only screen and (min-width: 1500px) {	
+    html, body{
+        font-size: 16px;
+    }
+    #mainContainer{
+    	//max-width: 100rem;
+    }
+}
+@media only screen and (max-width: 600px) {	
+    .table{
+        .line{
+            .header{
+                width: 80%;    
+            }
+            .value{
+                width: 100%;    
+            }
+            .bt_place{
+                width: 10%;
+            }
+        }    
+    }   
+    #tavern{
+        float: none;
+        clear: both;
+        overflow: auto;
+        &:before, &:after{
+            .clear();
+        }
+        button, .bt{
+            min-height: 2rem;
+            width: 2rem;
+            float: left;
+        }
+    }
+}
+
+@media only screen and (max-width: 435px) {	
+    .table{
+        .line{
+            .header{
+                width: 60%;    
+            }
+            .value{
+                width: 100%;    
+            }
+            .bt_place{
+                width: 20%;
+            }
+        }    
+    }   
+    #tavern{
+        button, .bt{
+            min-height: 1rem;
+            display: block;
+            width: 2rem;
+            float: none;
+            //font-size: 120%;
+        }
+    }
+}

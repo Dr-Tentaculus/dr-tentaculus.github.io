@@ -10,5 +10,24 @@ node_modules/*
 tavern-map/*
 message/
 
+archive/.git*
+archive/node*
+archive/source*
+
+magic-items/.git*
+magic-items/node*
+
+monsters/.git*
+
+names/.git*
+
+random/.git*
+
+spells/.git*
+spells/node*
+
 tavern/.git*
 tavern/fonts*
+
+topography/.git*
+

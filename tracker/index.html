@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <title>Трекер инициативы</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=0.8">
+  <meta name="description" content="Треккер инициативы">
+  <link href="../_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <!-- <meta property="og:image" content="img/bg2.jpg" /> -->
+  <meta property="og:image" content="img/og.jpg" />
+  <meta property="og:title" content="Треккер инициативы" />
+  <meta property="og:description" content="Треккер инициативы" />
+    <!-- IE must understand HTML5: -->
+  <!--[if IE]>
+   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <style>
+   article, aside, details, figcaption, figure, footer,header,
+   hgroup, menu, nav, section, div { display: block; }
+  </style>
+</head>
+<body>
+
+  <div class='wrap'>
+    <div class='pageColumn'>
+      <div id='selectedOne'>
+        
+      </div>
+      
+      <div id='manageButtons'>
+        <!-- <a href='#' id='prevOne'> -->
+          <!-- Предыдущий -->
+        <!-- </a>       -->
+        <a href='#' id='nextOne'>
+          Следующий
+        </a>    
+      </div>
+      
+      <ul id='allOnes'>
+
+      </ul>
+    </div>
+    
+    <div class='pageColumn'>
+      <div id='info_text'>
+        <h1>Трекер инициативы</h1>
+        
+        <p>
+          Подходит для игр, где ходы делаются по определенной очередности.
+        </p>
+        
+        <p>
+          Через кнопки с плюсом [+] добавляются новые персонажи/монстры. В диалоговом окне можно ввести текст - имя, описание или еще что-нибудь важное, числовое значение инициативы, выбрать иконку и цвет, чтобы было проще различать персонажей.
+        </p>
+        
+        <p>
+          Двойной клик по элементу откроет окно с настройками, теми же, что и при добавлении. Так же элементы можно переставлять, зажав левой кнопкой мыши.
+        </p>
+        
+        <p>
+          Кнопка [Следующий] сделает активным персонажа, который вверху списка. Список зациклен.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script type='text/javascript' src='../_js/jquery-1.11.3.min.js'></script>
+  <!-- <script type='text/javascript' src='https://tentaculus.ru/_js/jquery.mobile.custom.min.js' defer></script> -->
+  <script type='text/javascript' src='js/script.js?v=0.3' defer></script>
+  <script type='text/javascript' src='js/Sortable.js'></script><!-- Sortable Drag'n'Drop-->
+<!--   <script type='text/javascript' src='https://tentaculus.ru/items/js/update.js' defer></script> -->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter42911239 = new Ya.Metrika({
+                    id:42911239,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/42911239" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

@@ -1,0 +1,560 @@
+@mainColor: #e01a10;
+@radius: 5px;
+.row{
+    float: none;
+    clear: both;
+    &:before, &:after{
+        content:"";
+        .clear();
+    }
+    
+    .cell{
+        float: left;
+        width: 50%;  
+    }
+}
+#lockedSpellsArea{
+    margin-bottom: .3em;
+    position: relative;
+    
+    .topHeader, .bottomHeader, .bUnlockAll{
+        font-weight: 600;
+       // display: block;
+        padding: .2em;
+        text-shadow: 0 0 4px rgba(255,255,255,.9);
+        background: rgba(255,255,255,.5);
+        color: @d-gray;
+        border-radius: .1em;
+    }
+    .bUnlockAll{
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        
+        &:hover{
+            background: rgba(255,255,255,.7);
+        }
+    }
+    .topHeader{
+        cursor: pointer;        
+        &:hover{
+            background: rgba(255,255,255,.7);
+        }
+        &:before{
+            content: "Закрепленные заклинания "
+        }
+        
+    }
+    .bottomHeader{
+        &:before{
+            content: "Каталог заклинаний "
+        }
+        
+    }
+    .content{
+        margin-bottom: .3em;
+    }
+    .bHideSpell{
+        display: none;
+    }
+}
+.bHideSpell, .bLockSpell, .bUnlockSpell{
+  position: absolute;
+  top: -.1em;
+  color: @l-gray;
+  cursor: pointer;
+  transition: color .3s;
+
+  &:hover{
+    color: @color + #222;
+  }
+  &:active{
+    color: @color;
+  }
+}
+.bHideSpell{
+  right: .1em;
+}
+.bLockSpell, .bUnlockSpell{
+  left: .1em;
+}
+.spellContainer{
+  position: relative;
+  &:before{
+    content: attr(data-spellcount);
+    position: absolute;
+    padding: .1em;
+    top: -1.4rem;
+    right: 1.9em;
+    font-weight: bold;
+    background: rgba(255,255,255,0.3);
+  }
+}
+.textContainer{
+  page-break-inside: avoid;
+  float: none;
+  width: auto;
+  max-width: 90rem;
+  margin: 0 auto 1rem;
+  padding: 0.4rem;
+  background: rgba(255, 255, 234, 0.99);
+  border: 1px solid @l-gray;
+  border-radius: @r-rad;
+  position: relative;
+
+  h1{
+    font-size: 120%;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: normal;
+    color: #770002;
+  }
+  .source{
+    position: absolute;
+    top: 0.8rem;
+    right: 0.4rem;
+    font-size: 80%;
+    font-weight: bold;
+  }
+  .school_level{
+    font-style: italic;
+    margin: 0 0 0.2em;
+  }
+  .subtitle{
+    font-weight: bold;
+    &:after{
+      content: ": "
+    }
+  }
+  .text{
+    margin: 0.3rem 0 0;
+  }
+}
+
+.textCardContainer{
+  page-break-inside: avoid;
+  float: none;
+  width: auto;
+  max-width: 90rem;
+  margin: 0 auto 1.3rem;
+  .inner {
+    margin: 0.3rem;
+    padding: 0.2rem 1.7rem 0.9rem;
+    background: rgba(255, 255, 247, 0.98);
+    border: 1px solid @l-gray;
+    border-radius: @r-rad;
+    position: relative;
+  }
+
+  .flex{
+    display: flex;
+    flex-wrap: wrap;
+    //justify-content: space-around;
+    //align-content: space-around;
+  }
+  .column{
+    flex-direction: column;
+    //justify-content: space-around;
+    &:not(:last-child){
+      padding-right: 0.5rem;
+    }
+  }
+  .primal{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 30%;
+    min-width: 190px;
+    margin-bottom: 1em;
+  }
+  .secondal{
+    flex-grow: 6;
+    flex-basis: 70%;
+    flex-shrink: 1;
+  }
+  .thirdal{
+   // flex-shrink: 3;
+    flex-basis: 50%;
+    min-width: 22rem;
+  }
+
+  h1{
+    font-size: 120%;
+    text-transform: uppercase;
+    margin: 0;// 1em 0 0;
+    font-weight: normal;
+    color: #770002;
+  }
+  .source{
+    position: absolute;
+    bottom: 0.4rem;
+    right: 0.4rem;
+    font-size: 90%;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: @m-gray;
+    //float: right;
+  }
+  .school_level{
+    font-style: italic;
+    //margin: 0 0 0.2em;
+    text-transform: lowercase;
+  }
+  .subtitle{
+    font-weight: bold;
+    //&:after{
+    //  content: ": "
+    //}
+  }
+  .text{
+    border-top: 2px solid fade(@l-gray, 20%);
+    padding: 0.9rem 0 0;
+    margin-top: 0.9rem;
+  }
+  .material_components{
+    font-size: 90%;
+    margin-top: 1.2rem;
+    font-style: italic;
+    text-transform: lowercase;
+  }
+}
+
+.cardContainer{
+    page-break-inside: avoid;
+    width: 2.5in;
+    margin-right: 1px;
+    margin-top: 1px;
+    float: left; 
+    .row{
+        border-bottom: 2px solid @mainColor; 
+        display: flex;
+        flex-direction: row;
+        align-content: stretch;
+        .cell{  
+            float: none;
+            text-align: center;
+            font-size: 65%;      
+            
+            &:first-of-type{
+                border-right: 1px solid @mainColor;      
+            }
+            &:last-of-type{
+                border-left: 1px solid @mainColor;      
+            }
+            span, b{
+                display: block;
+            }
+            b{
+                text-transform: uppercase;
+                font-size: 90%;
+                padding: 2px 0 0;
+            }
+        }
+    }
+
+}
+
+.spellCard{
+    height: 3.5in;
+    background: @mainColor;
+    border: 9px solid @mainColor;
+    border-bottom-width: 25px;
+    //overflow: hidden;
+    position: relative;
+    color: @m-gray - #111;
+    
+    &.selected{
+    	transform: scale(0.94);
+    	outline: 5px rgba(250,250,250,.8) solid;
+    	transition: outline .2s;
+    	&:hover{
+    		outline-color: @color;
+    	}
+    }
+    
+
+    .content{
+        border-radius: @radius;
+        background: @white;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+    }
+    .cell{
+        span{
+            font-size: 109%;
+        }
+    }
+    h1{
+        font-size: 95%;
+        margin: 0;
+        padding: 0;
+        padding-left: .9em;
+        padding-right: .9em;
+        text-align: center;
+        text-transform: uppercase;
+        border-bottom: 2px solid @mainColor;
+    }
+    .materials{
+        color: @white;
+        background: @mainColor !important;
+        font-size: 75%;
+        padding: 0 2px;
+        font-style: oblique;
+    }
+    .text{
+        font-size: 75%;
+        padding: 2px;
+        overflow-y: auto;
+        flex-shrink: 99;
+        line-height: normal;
+        .scrollbars(5px, @m-gray, @l-gray);
+    }
+    .sizeButtonsContainer{
+    	position: absolute;
+    	bottom: 0;
+    	left: .1em;
+    	right: .1em;
+    	display: flex;
+        flex-direction: row;
+        align-content: stretch;
+        justify-content: space-between;
+    	.textMin, .textMax{
+    		padding: 0 .5em;
+    		font-size: 120%;
+    		//color: @d-gray;
+    		//opacity: 0.3;
+    		color: @l-gray - #111;
+    		font-weight: bold;
+    		text-decoration: none;
+    		transition: color 0.2s;
+    		&:hover{
+    			color: @color;
+    		}
+    	}
+    }
+    .class{
+        position: absolute;
+        left: 1px;
+        bottom: -20px;
+        font-size: 70%;
+        color: @white;
+        cursor: default;
+    }
+    .school{
+        position: absolute;
+        right: 1px;
+        bottom: -20px;
+        font-size: 70%;
+        color: @white;
+        cursor: default;
+    }
+
+}
+
+.lockedSpell{
+    .bLockSpell{
+        color: @black;
+        text-shadow: 0 0 2px @color;
+    }
+}
+
+.Bard{
+    .spellCard{
+        @mainColor: #e91e63;
+        background-color: @mainColor;
+        border-color: @mainColor;
+        h1{
+            border-bottom-color: @mainColor;
+        }
+        .materials{
+            background: @mainColor !important;
+        }
+        .row{
+            border-bottom-color: @mainColor; 
+            .cell{ 
+                &:first-of-type{
+                    border-right-color: @mainColor;      
+                }
+                &:last-of-type{
+                    border-left-color: @mainColor;      
+                }                
+            }
+        }
+    }
+}
+.Cleric{
+    .spellCard{
+        @mainColor: #FDD835;
+        background-color: @mainColor;
+        border-color: @mainColor;
+        h1{
+            border-bottom-color: @mainColor;
+        }
+        .materials{
+            background: @mainColor !important;
+        }
+        .row{
+            border-bottom-color: @mainColor; 
+            .cell{ 
+                &:first-of-type{
+                    border-right-color: @mainColor;      
+                }
+                &:last-of-type{
+                    border-left-color: @mainColor;      
+                }                
+            }
+        }
+    }
+}
+.Druid{
+    .spellCard{
+        @mainColor: #795548;
+        background-color: @mainColor;
+        border-color: @mainColor;
+        h1{
+            border-bottom-color: @mainColor;
+        }
+        .materials{
+            background: @mainColor !important;
+        }
+        .row{
+            border-bottom-color: @mainColor; 
+            .cell{ 
+                &:first-of-type{
+                    border-right-color: @mainColor;      
+                }
+                &:last-of-type{
+                    border-left-color: @mainColor;      
+                }                
+            }
+        }
+    }
+}
+.Paladin{
+    .spellCard{
+        @mainColor: #2196f3;
+        background-color: @mainColor;
+        border-color: @mainColor;
+        h1{
+            border-bottom-color: @mainColor;
+        }
+        .materials{
+            background: @mainColor !important;
+        }
+        .row{
+            border-bottom-color: @mainColor; 
+            .cell{ 
+                &:first-of-type{
+                    border-right-color: @mainColor;      
+                }
+                &:last-of-type{
+                    border-left-color: @mainColor;      
+                }                
+            }
+        }
+    }
+}
+.Ranger{
+    .spellCard{
+        @mainColor: #4caf50;
+        background-color: @mainColor;
+        border-color: @mainColor;
+        h1{
+            border-bottom-color: @mainColor;
+        }
+        .materials{
+            background: @mainColor !important;
+        }
+        .row{
+            border-bottom-color: @mainColor; 
+            .cell{ 
+                &:first-of-type{
+                    border-right-color: @mainColor;      
+                }
+                &:last-of-type{
+                    border-left-color: @mainColor;      
+                }                
+            }
+        }
+    }
+}
+.Sorcerer{
+    .spellCard{
+        @mainColor: #ff9800;
+        background-color: @mainColor;
+        border-color: @mainColor;
+        h1{
+            border-bottom-color: @mainColor;
+        }
+        .materials{
+            background: @mainColor !important;
+        }
+        .row{
+            border-bottom-color: @mainColor; 
+            .cell{ 
+                &:first-of-type{
+                    border-right-color: @mainColor;      
+                }
+                &:last-of-type{
+                    border-left-color: @mainColor;      
+                }                
+            }
+        }
+    }
+}
+.Warlock{
+    .spellCard{
+        @mainColor: #673ab7;
+        background-color: @mainColor;
+        border-color: @mainColor;
+        h1{
+            border-bottom-color: @mainColor;
+        }
+        .materials{
+            background: @mainColor !important;
+        }
+        .row{
+            border-bottom-color: @mainColor; 
+            .cell{ 
+                &:first-of-type{
+                    border-right-color: @mainColor;      
+                }
+                &:last-of-type{
+                    border-left-color: @mainColor;      
+                }                
+            }
+        }
+    }
+}
+.Wizard{
+    .spellCard{
+        @mainColor: #f44336;
+        background-color: @mainColor;
+        border-color: @mainColor;
+        h1{
+            border-bottom-color: @mainColor;
+        }
+        .materials{
+            background: @mainColor !important;
+        }
+        .row{
+            border-bottom-color: @mainColor; 
+            .cell{ 
+                &:first-of-type{
+                    border-right-color: @mainColor;      
+                }
+                &:last-of-type{
+                    border-left-color: @mainColor;      
+                }                
+            }
+        }
+    }
+}

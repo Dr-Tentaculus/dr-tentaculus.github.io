@@ -1,0 +1,34 @@
+{
+	"files": {
+		"style.less": {
+			"engines": [
+				{
+					"compiler": "less",
+					"output": "style.css",
+					"options": {
+						"compress": false,
+						"ieCompat": false,
+						"strictMath": false,
+						"strictUnits": false,
+						"javascriptEnabled": false,
+						"sourceMap": true,
+						"sourcemap": true
+					}
+				}
+			],
+			"sources": [
+				"card.less",
+				"combobox.less",
+				"frame.less",
+				"loader.less",
+				"page.less",
+				"print.less",
+				"select.less",
+				"side.less",
+				"start.less",
+				"usefull.less",
+				"var.less"
+			]
+		}
+	}
+}

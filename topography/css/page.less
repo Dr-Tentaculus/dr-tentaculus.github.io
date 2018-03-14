@@ -1,0 +1,183 @@
+
+.m_head{
+    font-weight: bold;
+}
+small{
+    color: @l-gray - #111;
+    font-size: 70%
+}
+button img, .i-qw, .i-rf{
+    width: 16px;
+    height: 16px;
+    vertical-align: bottom;
+}
+#panel, #result{
+    z-index: 5;
+}
+#result{    
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+#background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    
+    background: #333;
+    background: url("../img/f2.jpg") center center;
+    background-size: cover;
+    
+    @animT: .5s;
+    .canvas{
+        position: absolute;
+        width: 106%;
+        height: 106%;
+        margin-left: -3%;
+        margin-top: -3%;
+        left: 0;
+        top: 0;
+        transition: left @animT ease-out, top @animT ease-out;
+        }  
+        
+    #c_work{
+        background: #000;
+    }
+}
+.blur{
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+#confWin{
+    /* .frame(1px); */
+    /* display: table; */
+    /* font-size: 140%; */
+    /* margin: 1em auto; */
+    /* background: white; */
+    /* padding: 1em; */
+    label{
+        cursor: pointer;
+    }
+}
+.center{
+    text-align: center;
+}
+
+
+
+#milepost{
+    font-size: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    #milepost_label{
+        position: relative;
+        
+        margin: 0 auto;
+        display: table;
+        padding: .8em 1.4em;
+        background: #eaab68;
+        //#8b0
+        background: linear-gradient(135deg, transparent, rgba(234, 171, 104, 1) 90%),
+        linear-gradient(135deg, rgba(183, 126, 65, .9), transparent 50%),
+        repeating-linear-gradient(3deg, transparent, transparent 5px, rgba(217, 154, 87, .9) 23px) 0 10px,
+        repeating-linear-gradient(3deg, transparent, transparent 7px, rgba(217, 154, 87, .9) 19px),
+        repeating-linear-gradient(3deg, transparent, transparent 11px, rgba(217, 154, 87, .9) 17px),
+        rgba(234, 171, 104, 1);
+        
+        // 234, 171, 104
+        border-color: #eaab68;
+       /*
+        border-left: .01em solid #eaab68;
+        border-bottom: .01em solid #eaab68;
+        border-left-color: #eaab68 - #333;
+        border-bottom-color: #eaab68 - #333; 
+        */
+        color: #eaab68 - #333;
+        //color: transparent;
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.62), 0 1px 2px rgba(253, 252, 252, 0.7);
+
+        font-weight: bold;
+        text-align: center;
+        z-index: 6;
+        
+        -webkit-perspective: 500px; 
+        perspective: 500px;
+        -webkit-perspective-origin: center center; 
+        perspective-origin: center center;
+        -webkit-transform-style: preserve-3d; 
+        transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden; 
+        backface-visibility: hidden;
+        
+        //box-shadow: 0 0 9px 3px rgba(0,0,0,.4);
+        //text-shadow: 
+            @w: 0.98em;
+        &:before{            
+            content: "";
+            position: absolute;
+            right: -0.94em;
+            top: @w*0.4;
+            width: 0;
+            height: 0;
+            /* background: #eaab68; */
+            z-index: -1;
+            transform: rotate(-135deg);
+            border: @w solid rgba(0, 0, 0, 0);
+            border-left: @w solid #eaab68;
+            border-bottom: @w solid #eaab68;
+            border-left-color: inherit;
+            border-bottom-color: inherit;
+        }
+       
+    }   
+    #milepost_pole{
+        margin: 0 auto;
+        height: 8em;
+        width: 1em;
+        border-left: .01em solid #eaab68 - #333;
+        background: linear-gradient(to top, transparent 70%, #eaab68 - #333), 
+        repeating-linear-gradient(88deg, transparent, transparent 5px, rgba(217, 154, 87, .3) 17px),
+        repeating-linear-gradient(88deg, transparent, transparent 3px, rgba(217, 154, 87, .6) 19px),
+        rgba(234, 171, 104, 1);    
+        position: relative;
+        top: -2px;
+        }
+    
+}
+@media only screen and (max-width: 600px),  screen and (max-height: 500px){
+    #milepost{
+        position: relative;
+        margin-top: .5em;
+        #milepost_label{
+            display: block;
+            padding: .8em 0;
+            transform: none !important;
+            &:before{
+                display: none;
+            }
+        }
+        #milepost_pole{
+            display: none;
+        }    
+    }
+    #confWin{      
+       .frame(1px);
+        font-size: 140%;
+        background: white;
+        padding: 1em;
+        margin: 0;
+        label{
+            cursor: pointer;
+        }
+    }
+    .center{
+        text-align: left;
+    }
+}
