@@ -67,7 +67,7 @@ $(document).ready(function(){
 	if(sLinkStart != sCanonicalLink) {
 		$("#main_block a").each(function(){
 			var sLink = $(this).attr("href");
-			if(sLinkStart != "https://tentaculus.ru" && sLink.indexof("https://tentaculus.ru")>-1) {
+			if(sLinkStart != "https://tentaculus.ru" && sLink.indexOf("https://tentaculus.ru")>-1) {
 				sLink = sLink.replace(/https:\/\/tentaculus.ru/, "$1");
 			}
 		});
