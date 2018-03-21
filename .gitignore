@@ -1,39 +1,38 @@
 
 .htaccess
+.gitignore	
 .idea/*
 _php/*
-DnD5_charlist/*
-fate/*
-hackerman/*
-messgae/*
+/DnD5_charlist/
+/fate/*
+/hackerman/
+/messgae/*
 node_modules/*
-tavern-map/*
-message/
+/tavern-map/*
+/message/
 
-archive/.git*
-archive/node*
-archive/source*
+/archive/.git*
+/archive/.git/
+/archive/node/
+/archive/source/
+!archive/tables/100_wild_magic_effects.html
 
-magic-items/.git*
-magic-items/node*
+/magic-items/.git*
+/magic-items/node*
 
-monsters/.git*
+/monsters/.git*
 
-names/.git/
-names/.gitattributes
-names/.gitignore
+/names/.git/
+/names/.gitattributes
+/names/.gitignore
 
-random/.git*
+/random/.git*
 
-spells/.git*
-spells/node*
+/spells/.git*
+/spells/node*
 
-tavern/.git*
-tavern/fonts*
+/tavern/.git*
+/tavern/fonts*
 
-topography/.git*
+/topography/.git*
 
-
-
-DnD5_charlist/
-hackerman/
