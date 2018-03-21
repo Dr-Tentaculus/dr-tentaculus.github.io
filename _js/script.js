@@ -60,6 +60,20 @@
 	
 	hideMenu();
 	getUserId();
+	
+$(document).ready(function(){
+	var sLinkStart = $("head base").attr("href");
+	var sCanonicalLink = "https://tentaculus.ru";
+	if(sLinkStart != sCanonicalLink) {
+		$("#main_block a").each(function(){
+			var sLink = $(this).attr("href");
+			if(sLinkStart != "https://tentaculus.ru" && sLink.indexof("https://tentaculus.ru")>-1) {
+				sLink = sLink.replace(/https:\/\/tentaculus.ru/, "$1");
+			}
+		});
+	}
+});	
+	
 $(window).load(function(){
 	
 	
