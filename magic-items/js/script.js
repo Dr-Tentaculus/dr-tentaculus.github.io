@@ -1468,15 +1468,18 @@ window.onload = function(){
 	$.when(createSidebar()).done(
 		function(){
       //$("body").css("border-top", "1px solid blue");
+			if(window.location.hash.length>0 || getConfig("infoIsShown")==true){
+				getHash();
+			}
 			$("#showAllItems").slideDown();
-			if(getViewPortSize("width") > 600){
-				if(getConfig("infoIsShown")==true)
-					getHash();
-					//filterItems();
-			} else{
-        //setTimeout(getHash, 1000);
-        getHash();
-      }
+			// if(getViewPortSize("width") > 600){
+				// if(getConfig("infoIsShown")==true)
+					// getHash();
+					// filterItems();
+			// } else{
+        // setTimeout(getHash, 1000);
+        // getHash();
+      // }
 		}
 	);
 };
