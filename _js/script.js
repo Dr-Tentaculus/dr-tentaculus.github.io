@@ -68,7 +68,8 @@ $(document).ready(function(){
 		$("#main_block a").each(function(){
 			var sLink = $(this).attr("href");
 			if(sLinkStart != "https://tentaculus.ru" && sLink.indexOf("https://tentaculus.ru")>-1) {
-				sLink = sLink.replace(/https:\/\/tentaculus.ru/, "$1");
+				sLink = sLink.replace(/https:\/\/tentaculus.ru/, $1);
+				$(this).attr("href", sLink);
 			}
 		});
 	}
