@@ -1,4 +1,6 @@
-
+	function randd(min, max) {
+		return Math.floor(Math.random() * (max - min )) + min;
+	}
 	function getUserId(){
 		function guid() {
 		  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
@@ -61,41 +63,265 @@
 	hideMenu();
 	getUserId();
 	
+	///////////////////////// game
+	var fMobClickable = false;
+	var sMobId = "#aprilMob", nScore=0, nMobLoose=0;
+	if(localStorage.getItem('aprilGame2018')) {
+		nScore = JSON.parse(localStorage.getItem('aprilGame2018')).score;
+	}
+	var nMobDir=0;
+	var oTimerStopgame;
+	var nMobHeight = 200, nMobWidth=100;
+	function killMob(){
+		if(fMobClickable){
+			fMobClickable=false;
+			$(sMobId).animate(
+				{
+					"opacity": 0			
+				},{
+					"duration": 100,
+					"queue": true
+				}
+			);
+			$(sMobId).animate(
+				{
+					"opacity": 1			
+				},{
+					"duration": 100,
+					"queue": true
+				}
+			);
+			$(sMobId).animate(
+				{
+					"opacity": 0			
+				},{
+					"duration": 100,
+					"queue": true
+				}
+			);
+			$(sMobId).animate(
+				{
+					"opacity": 1			
+				},{
+					"duration": 100,
+					"queue": true
+				}
+			);
+			$(sMobId).animate(
+				{
+					"opacity": 0			
+				},{
+					"duration": 100,
+					"queue": true
+				}
+			);
+			// $(sMobId).animate(
+				// {
+					// "bottom": -300			
+				// },{
+					// "duration": 100,
+					// "easing": "swing",
+					// "complete": function(){}
+				// }
+			// );
+		}
+	}
+	function hideMob(){
+		fMobClickable=false;
+		switch(nMobDir) {
+			case 0: //nLeft = randd(0, (nScreenWidth-100)); nBottom = '-300px'; 
+				oCss={
+					bottom: '-'+(nMobHeight+50)+'px'
+				};
+				break;
+			case 1: //nLeft = '-300px'; nTop=randd(0, (nScreenHeight-100)); 
+				oCss={
+					left: '-'+(nMobHeight+50)+'px'
+				};
+				break;
+			case 2: //nLeft = randd(0, (nScreenWidth-100)); nTop = '-300px';
+				oCss={					
+					top: '-'+(nMobHeight+50)+'px'
+				};
+				
+				break;
+			case 3:// nRight = '-300px'; nTop = randd(0, (nScreenWidth-100)); 
+				oCss={
+					right: '-'+(nMobHeight+50)+'px'
+				};
+				break;
+		}	
+		$(sMobId).animate(
+			oCss,
+			{
+				"duration": 100,
+				"easing": "swing",
+				"complete": function(){}
+			}
+		);
+
+	}
+	function stopGame(){
+		hideMob();
+	}
+	function addMob(){
+		fMobClickable = false;
+		$(sMobId).remove();
+		var sMob = "<div id='aprilMob' style='display: none'></div>";
+		$("body").append(sMob);
+		var aWindow=getViewPortSize().split("~");
+		var nScreenWidth = aWindow[0];
+		var nScreenHeight = aWindow[1];
+		nMobDir=0;
+		var nLeft, nTop, nBottom;
+		if(nScore>600) {
+			nMobDir=randd(0,4);
+		}
+		var oCss={
+			'left': 0,
+			'bottom': -300
+		},
+		oResultCss = {
+			"bottom": "0"
+		};
+		switch(nMobDir) {
+			case 0: //nLeft = randd(0, (nScreenWidth-100)); nBottom = '-300px'; 
+				oCss={
+					left: randd(0, (nScreenWidth-100)),
+					bottom: '-'+(nMobHeight+50)+'px',
+					transform: "rotate(0)"
+				};
+				oResultCss = {
+					"bottom": "0"
+				};
+				break;
+			case 1: //nLeft = '-300px'; nTop=randd(0, (nScreenHeight-100)); 
+				oCss={
+					left: '-'+(nMobHeight+50)+'px',
+					top: randd(0, (nScreenHeight-100)),
+					transform: "rotate(90deg)"
+				};
+				oResultCss = {
+					"left": "0"
+				};
+				break;
+			case 2: //nLeft = randd(0, (nScreenWidth-100)); nTop = '-300px';
+				oCss={
+					left: randd(0, (nScreenWidth-100)),
+					top: '-'+(nMobHeight+50)+'px',
+					transform: "rotate(180deg)"
+				};
+				oResultCss = {
+					"top": "0"
+				};
+				break;
+			case 3:// nRight = '-300px'; nTop = randd(0, (nScreenWidth-100)); 
+				oCss={
+					right: '-'+(nMobHeight+50)+'px',
+					top: randd(0, (nScreenHeight-100)),
+					transform: "rotate(270deg)"
+				};
+				oResultCss = {
+					"right": "0"
+				};
+				break;
+		}
+		//var nLeft = randd(0, (nScreenWidth-100));
+		$(sMobId).css(oCss);
+		$(sMobId).css({			
+			'display': 'block',
+			'width': nMobWidth+'px',
+			'height': nMobHeight+'px',
+			/*'background': 'red', */
+			'background-image': 'url(_img/1april/g'+randd(1,8)+'.png)',
+			'background-repeat': 'no-repeat',
+			'position': 'fixed', 
+			'cursor': 'pointer',
+			'z-index': '9999999'
+			});
+		
+		$(sMobId).animate(
+			oResultCss,
+			{
+				"duration": 300,
+				"easing": "swing",
+				"complete": function(){
+					fMobClickable=true; 
+					oTimerStopgame = setTimeout(function(){
+						hideMob();
+						nMobLoose++; 
+						if(nMobLoose<3){
+							setTimeout(addMob(), 1000)
+						} else {
+							$("#mobScore").remove();
+						}
+					}, 3000);
+				}
+			}
+		);
+		
+	}
+	function showScore(){
+		if(!$("#mobScore").length) {
+			$('body').append("<div id='mobScore' style='cursor: pointer; padding: 10px; font-weight: bold; position: fixed; top: 10px; left: 10px; background: gold'></div>");
+		}
+		$("#mobScore").text(nScore);
+		localStorage.setItem('aprilGame2018', JSON.stringify({score: nScore}));
+	}
+	// mob click
+	$('body').live('click', sMobId, function() {
+		nScore+=100;
+		nMobLoose=0;
+		showScore();
+		clearTimeout(oTimerStopgame); 
+		killMob(); 
+		setTimeout(function(){addMob();},randd(15,30)*50);
+		return false;
+	});
+	// score click
+	// $('body').live('click', "#mobScore", function() {
+		// stopGame();
+		// $("#mobScore").remove();
+		// return false;
+	// });
+	
+	
+	/////////////////////////////////////////////////////////////////////////////
+	
+	function check1april() {
+		//return true;
+		var now = new Date();
+		var month = now.getMonth();
+		var day = now.getDate();
+		if (month==3 && day==1) {
+			return true;
+		}
+	}
+	
+	if(check1april() || true){
+		aImg=[];
+		for(var i=1; i<=7; i++) {
+			aImg.push("<img src='_img/1april/g"+i+".png' style='display: none'>");
+		}
+		$("body").append(aImg.join(""));
+	}
+	
 $(document).ready(function(){
+	
+	/// links mutation
 	var sLinkStart = $("head base").attr("href");
 	var sCanonicalLink = "https://tentaculus.ru";
 	if(sLinkStart != sCanonicalLink) {
 		$("#main_block a").each(function(){
 			var sLink = $(this).attr("href");
-			if(sLinkStart != sCanonicalLink && sLink.indexOf("https://tentaculus.ru")>-1) {
+			if(sLink && sLinkStart != sCanonicalLink && sLink.indexOf("https://tentaculus.ru")>-1) {
 				sLink = sLink.replace(sCanonicalLink, sLinkStart);
 				$(this).attr("href", sLink);
 			}
 		});
 	}
-});	
-	
-$(window).load(function(){
-	
-	
+	///////
 
-
-	$( window ).resize(function(){
-		hideMenu()
-	});
-	
-	function check1april() {
-		var now = new Date();
-		var month = now.getMonth();
-		var day = now.getDate();
-		if (month==3 && day==1) {
-			$("#wrapper").toggleClass("april1");
-		}
-	}
-	
-	function randd(min, max) {
-		return Math.floor(Math.random() * (max - min )) + min;
-	}
 	function addMoneyForm() {
 		var aTexts = [
 			"На отопление Омута",
@@ -117,6 +343,16 @@ $(window).load(function(){
 	$("#menu_toggle").click(function(){
 		$("#main_menu").slideToggle();
     return false;
+	});
+	
+	hideMenu();
+	addMoneyForm();
+});	
+	
+$(window).load(function(){
+
+	$( window ).resize(function(){
+		hideMenu()
 	});
 	
 	function gifs() {
@@ -201,8 +437,9 @@ $(window).load(function(){
 		setFreezer();
 	}
   
-	hideMenu();
-	check1april();
-	addMoneyForm();
 	gifs();
+	if(check1april()){
+		addMob();
+		oTimerStopgame = setTimeout(function(){stopGame();}, 3000);
+	};
 }); 
