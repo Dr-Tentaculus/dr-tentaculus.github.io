@@ -64,6 +64,7 @@
 	getUserId();
 	
 	///////////////////////// game
+	/*/
 	var fMobClickable = false;
 	var sMobId = "#aprilMob", nScore=0, nMobLoose=0;
 	if(localStorage.getItem('aprilGame2018')) {
@@ -232,7 +233,6 @@
 			'display': 'block',
 			'width': nMobWidth+'px',
 			'height': nMobHeight+'px',
-			/*'background': 'red', */
 			'background-image': 'url(_img/1april/g'+randd(1,8)+'.png)',
 			'background-repeat': 'no-repeat',
 			'position': 'fixed', 
@@ -305,6 +305,8 @@
 		}
 		$("body").append(aImg.join(""));
 	}
+	
+	/**/
 	
 $(document).ready(function(){
 	
