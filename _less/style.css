@@ -460,7 +460,7 @@ a:hover {
   padding: 0.5rem;
   color: #444;
 }
-#content a[href*="//"]:not([href*="tentaculus.ru"]):before {
+#content a[href*="//"]:not([href*="tentaculus"]):before {
   content: "\f14c";
   padding-right: .3em;
   font: normal normal normal 14px/1 FontAwesome;
