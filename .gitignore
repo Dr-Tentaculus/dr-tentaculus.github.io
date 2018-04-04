@@ -36,3 +36,7 @@ node_modules/*
 
 /topography/.git*
 
+archive/python/__pycache__/settings.cpython-36.pyc
+archive/python/session_name.session
+archive/python/settings.py
+archive/python/var.txt
