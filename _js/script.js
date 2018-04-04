@@ -321,6 +321,13 @@ $(document).ready(function(){
 				$(this).attr("href", sLink);
 			}
 		});
+		$("#a[data-urlChange='true']").each(function(){
+			var sLink = $(this).attr("href");
+			if(sLink && sLinkStart != sCanonicalLink && sLink.indexOf("https://tentaculus.ru")>-1) {
+				sLink = sLink.replace(sCanonicalLink, sLinkStart);
+				$(this).attr("href", sLink);
+			}
+		});
 	}
 	///////
 
