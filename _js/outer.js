@@ -44,6 +44,8 @@ $(window).load(function(){
 		
 		// VK comments
 		VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*", pageUrl: pageLink}, pageID);
+	} else {
+		$("#vk_comments").hide();
 	}
 	// google
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
