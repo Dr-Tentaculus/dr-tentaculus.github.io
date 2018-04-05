@@ -32,7 +32,7 @@ def sprint(string, *args, **kwargs):
 import codecs
 import pprint
 import sys
-
+import re
 
 messages = client.get_messages(client.get_input_entity(channel_name), limit=100);
 
@@ -61,6 +61,16 @@ for msg in reversed(messages):
 		
 		sprint('[{}:{}] (ID={}) {}: {}'.format(
 			msg.date.hour, msg.date.minute, msg.id, name, u""+content + u"\n === \n"))
+		
+		# find links
+		'''
+		newChatLink = "";
+		m = re.search('t.me/([\d\w_/-]+)', content)
+		if(m.group(0)):
+			newChatLink = m.group(0)
+			newChatData = client.get_entity(newChatLink)
+			print(newChatData.stringify())
+		'''
 		
 		#sys.stdout.write(content);
 		with codecs.open(file_name, "a", "utf-8") as stream:   # or utf-8
