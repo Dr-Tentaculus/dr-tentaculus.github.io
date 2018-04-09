@@ -224,7 +224,7 @@ function generate_word(source, oParameters) {
 
     var tmpArr=[];
     var arr = shuffle(source.l.split(";").map(function(item){
-     var p = item.match(/{{s*(\d+)s*}}/);
+     var p = item.match(/{{\s*(\d+)\s*}}/);
      var num = 1;
      if(p) {
       num = p[1];
@@ -238,6 +238,18 @@ function generate_word(source, oParameters) {
     }).concat(tmpArr));
 
     sResultString = arr[0].trim();
+		var oDuble = sResultString.match(/{{\s*x(\d+)\s*}}/);
+		if(oDuble) {
+			var dNum = oDuble[1];
+			sResultString = "";
+			aResult = [];
+			for(var i=1; i<arr.length && aResult.length<dNum; i++) {
+				if(!/{{\s*[\d\w]+\s*}}/.test(arr[i])) {
+					aResult.push(arr[i]);
+				}
+			}
+			sResultString = aResult.join(", ");
+		}
   } else {
     var oSource = source;
     var sLink = source.link;
@@ -301,6 +313,9 @@ function generateRandomItem(src, type, subtype, nCount) {
           if(schemes.length>1) {
             for (var q=0; q<nCount; q++) {
               var nQ = q; //(q>=aWords.length)? q-aWords.length: q;
+							if(nQ>=schemes.length) (
+								nQ = randd(0, schemes.length-1)
+							)
               var schema = schemes[nQ];
               var aItems = schema.split(" ");
               var source = cur.src;
@@ -312,9 +327,10 @@ function generateRandomItem(src, type, subtype, nCount) {
                       /**/
                       word = generate_word(source[j]);
 
+											var textBefore = source[j].hasOwnProperty('showTitle')? "<b>"+source[j].title+"</b>: ": "";
                       var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
                       var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
-                      sResultString+= prefix+ word +postfix
+                      sResultString+= textBefore + prefix+ word +postfix
 
                       /**/
 
@@ -382,9 +398,10 @@ function generateRandomItem(src, type, subtype, nCount) {
                       word = generate_word(source[j]);
                       var nQ = (q>=aWords.length)? q-aWords.length: q;
                       var sWord = aWords[nQ].trim();
+											var textBefore = textBefore = source[j].hasOwnProperty('showTitle')? "<b>"+source[j].title+"</b>: ": "";
                       var sPrefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
                       var sPostfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
-                      aResult.push(sPrefix+ sWord +sPostfix);
+                      aResult.push(textBefore + sPrefix+ sWord +sPostfix);
                     }
                     break;
                   }
