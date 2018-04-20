@@ -333,6 +333,20 @@ a:hover {
   z-index: 88;
   background: rgba(0, 0, 0, 0.7);
 }
+.spoiler_body {
+  overflow: hidden;
+  border: 1px solid #eee;
+  position: relative;
+  padding: 0.6rem;
+}
+.spoiler_body:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2rem;
+  background: linear-gradient(rgba(255, 255, 255, 0), #fafafa);
+}
 .errorLine {
   position: relative;
 }

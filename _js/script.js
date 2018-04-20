@@ -354,6 +354,19 @@ $(document).ready(function(){
     return false;
 	});
 	
+	// spoiler 
+	$(".spoiler_body").css('height', '21rem');
+	$(".spoiler_toggle").click(function(){
+		var oSp = $(this).next(".spoiler_body");
+		if(oSp.attr('style') == 'height: 21rem;') {
+			oSp.css("height", "auto");
+		} else {
+			oSp.css("height", "21rem");
+		}
+		return false;
+	});
+	///
+	
 	hideMenu();
 	addMoneyForm();
 });	
