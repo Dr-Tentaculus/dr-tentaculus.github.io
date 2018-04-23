@@ -221,20 +221,19 @@ function getNumerousItems(oSrc, sType, sSubtype, nCount) {
 function generate_word(source, oParameters) {
   var sResultString;
   if (source.l && (source.type == 'list' || oParameters && oParameters.type == 'list' || randd(0,1)>0)) {
-
     var tmpArr=[];
     var arr = shuffle(source.l.split(";").map(function(item){
-     var p = item.match(/{{\s*(\d+)\s*}}/);
-     var num = 1;
-     if(p) {
+		var p = item.match(/{{\s*(\d+)\s*}}/);
+		var num = 1;
+    if(p) {
       num = p[1];
       item = item.replace(/\s*{{\s*\d+\s*}}\s*/, ""); // \s*_/
       for(; num>0; num--) {
         if(item.length > 0)
           tmpArr.push(item);
       }
-     }
-     return item;
+    }
+    return item;
     }).concat(tmpArr));
 
     sResultString = arr[0].trim();
@@ -299,6 +298,40 @@ function generate_word(source, oParameters) {
   return sResultString;
 }
 
+function test_word_link(sText, oSource){
+	
+}
+
+function generate_from_scheme(schema, cur) {
+	var sResultString = '';
+	var aItems = schema.split(" ");
+	var source = cur.src;
+	sResultString= '';
+	for (var i in aItems) {
+		for( var j in source) {
+			if(source[j].name==aItems[i]) {
+				if (source[j].random? randd(0,source[j].random)==0 : 1) {
+					
+					word = generate_word(source[j]);
+
+					//word = test_word_link(word, source[j]);
+					
+					var textBefore = source[j].hasOwnProperty('showTitle')? "<b>"+source[j].title+"</b>: ": "";
+					var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
+					var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
+					sResultString+= textBefore + prefix+ word +postfix
+
+					
+
+					break;
+				}
+			}
+		}
+	}
+	
+	return sResultString;
+}
+
 function generateRandomItem(src, type, subtype, nCount) {
   var aResult = [];
   var sResultString = '';
@@ -317,6 +350,16 @@ function generateRandomItem(src, type, subtype, nCount) {
 								nQ = randd(0, schemes.length-1)
 							)
               var schema = schemes[nQ];
+							var tmpResult = generate_from_scheme(schema, cur);
+							var oFLink = /\[\[:([\w\d_-]+)\]\]/.exec(tmpResult);
+							/**/
+						  if (oFLink[1]) {
+							//if (tmpResult.match(/\[\[:[\w\d_-]+\]\]/)) {
+								//debugger;
+								var tmpResult = generate_from_scheme(oFLink[1], cur);
+							}
+							/**/
+							/*/
               var aItems = schema.split(" ");
               var source = cur.src;
               sResultString= '';
@@ -324,21 +367,25 @@ function generateRandomItem(src, type, subtype, nCount) {
                 for( var j in source) {
                   if(source[j].name==aItems[i]) {
                     if (source[j].random? randd(0,source[j].random)==0 : 1) {
-                      /**/
+                      
                       word = generate_word(source[j]);
 
+											//word = test_word_link(word, source[j]);
+											
 											var textBefore = source[j].hasOwnProperty('showTitle')? "<b>"+source[j].title+"</b>: ": "";
                       var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
                       var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
                       sResultString+= textBefore + prefix+ word +postfix
 
-                      /**/
+                      
 
                       break;
                     }
                   }
                 }
               }
+							/**/
+							sResultString = tmpResult;
               aResult.push(sResultString);
             }
 
