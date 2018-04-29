@@ -1,4 +1,4 @@
-$(window).load(function(){
+$(document).ready(function(){
 	// yandex
 	 (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
