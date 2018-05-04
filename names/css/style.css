@@ -246,6 +246,20 @@ img {
 .bt:active {
   background: #666666;
 }
+.simple_button {
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0.2rem;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.simple_button:hover {
+  border-color: #777;
+}
+.simple_button:active {
+  background: #cccccc;
+}
 .mod_win {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
@@ -305,9 +319,20 @@ img {
   z-index: 88;
   background: rgba(0, 0, 0, 0.7);
 }
+table {
+  font-size: 120%;
+  border-radius: 3px;
+  border: 0px solid #777;
+  border-bottom-width: 2px;
+  box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  background: #ddd;
+  padding: 0.1rem;
+  margin: 0 auto;
+  cursor: default;
+}
 th,
 td {
-  background: #ddd;
+  border-bottom: 1px solid #cccccc;
   color: #222;
 }
 th {
@@ -346,6 +371,9 @@ select option {
 #result p {
   margin: 1rem;
   color: #bbbbbb;
+}
+#nameLog {
+  margin-top: 1rem;
 }
 #panel {
   padding-bottom: .2em;
@@ -711,5 +739,3 @@ select option {
     margin: 1rem 3rem;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

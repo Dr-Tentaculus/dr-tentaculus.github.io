@@ -44,6 +44,22 @@ img{
         background:  @m-gray - #111;    
     }
 }
+.simple_button{
+	border: 1px solid transparent;
+	background: transparent;
+	padding: 0.2rem;
+	cursor: pointer;
+	border-radius: 3px;
+	
+	transition: border-color .3s, background .3s;
+	
+	&:hover{
+		border-color: @m-gray;
+	}
+	&:active{
+		background:  @l-gray - #111;    
+	}	
+}
 
 .mod_win{
     .fr-concave;
@@ -79,9 +95,21 @@ img{
 }
 
 table{
+	font-size: 120%;
+	//.fr-convex;
+	border-radius: 3px;
+	border: 0px solid @m-gray;
+	border-bottom-width: 2px;
+	box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+    
+	background: @l-gray;
+	padding: 0.1rem;
+	margin: 0 auto;
+	cursor: default;
 }
 th, td{
-   background: @l-gray;
+   //background: @l-gray;
+	 border-bottom: 1px solid @l-gray - #111;
    color: @d-gray;
 }
 th{
