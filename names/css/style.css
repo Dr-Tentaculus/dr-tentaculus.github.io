@@ -338,6 +338,9 @@ td {
 th {
   font-weight: bold;
 }
+tr:last-child td {
+  border-bottom: none;
+}
 select {
   /*
     background: transparent;

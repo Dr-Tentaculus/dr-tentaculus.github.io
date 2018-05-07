@@ -96,7 +96,6 @@ img{
 
 table{
 	font-size: 120%;
-	//.fr-convex;
 	border-radius: 3px;
 	border: 0px solid @m-gray;
 	border-bottom-width: 2px;
@@ -108,12 +107,16 @@ table{
 	cursor: default;
 }
 th, td{
-   //background: @l-gray;
 	 border-bottom: 1px solid @l-gray - #111;
    color: @d-gray;
 }
 th{
     font-weight: bold;
+}
+tr:last-child{
+	td{
+		border-bottom: none;
+	}	
 }
 
 select{
