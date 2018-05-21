@@ -87,7 +87,7 @@ img{
     z-index: 88;
     background: rgba(0,0,0,.7);
 }
-
+/*
 table{
 }
 th, td{
@@ -97,7 +97,31 @@ th, td{
 th{
     font-weight: bold;
 }
-
+*/
+table{
+	font-size: 120%;
+	border-radius: 3px;
+	border: 0px solid @m-gray;
+	border-bottom-width: 2px;
+	box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+    
+	background: @l-gray;
+	padding: 0.1rem;
+	margin: 0 auto;
+	cursor: default;
+}
+th, td{
+	 border-bottom: 1px solid @l-gray - #111;
+   color: @d-gray;
+}
+th{
+    font-weight: bold;
+}
+tr:last-child{
+	td{
+		border-bottom: none;
+	}	
+}
 
 #wrapper{
     z-index: 9;

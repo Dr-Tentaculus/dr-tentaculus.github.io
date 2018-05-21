@@ -353,7 +353,7 @@ function generateRandomItem(src, type, subtype, nCount) {
 							var tmpResult = generate_from_scheme(schema, cur);
 							var oFLink = /\[\[:([\w\d_-]+)\]\]/.exec(tmpResult);
 							/**/
-						  if (oFLink[1]) {
+						  if (oFLink && oFLink[1]) {
 							//if (tmpResult.match(/\[\[:[\w\d_-]+\]\]/)) {
 								//debugger;
 								var tmpResult = generate_from_scheme(oFLink[1], cur);

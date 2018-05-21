@@ -5,7 +5,6 @@
 }
 #result{    
     counter-reset: result - 1;
-   // margin-left: 1.7rem;
     table{        
         margin-left: 1.2rem;
     }
@@ -14,10 +13,14 @@
     }
     tr{        
         counter-increment: result;
+				transition: background .3s;
+				&:hover{
+					background: rgba(255,255,255, .3);
+				}
     }
     td{
         //padding-left: 2em;
-        
+        padding: 0.35rem;
         position: relative;
         
         &:before{
@@ -26,8 +29,8 @@
             width: 1.5rem;
             display: block;
             text-align: right;
-            left: -1.7rem;
-            top: 0.1em;    
+            left: -1.9rem;
+            top: 0.21em;    
             
             color: @l-gray;
             text-shadow: 0 1px 2px rgba(0,0,0,.4),  
