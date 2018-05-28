@@ -235,8 +235,13 @@ function generate_word(source, oParameters) {
     }
     return item;
     }).concat(tmpArr));
-
-    sResultString = arr[0].trim();
+		let sResultWord = arr[0].trim();
+		if(source.letterMode == "lowerCase") {
+			sResultWord = sResultWord.toLowerCase();
+		}
+    sResultString = sResultWord;
+		
+		
 		var oDuble = sResultString.match(/{{\s*x(\d+)\s*}}/);
 		if(oDuble) {
 			var dNum = oDuble[1];
@@ -244,7 +249,11 @@ function generate_word(source, oParameters) {
 			aResult = [];
 			for(var i=1; i<arr.length && aResult.length<dNum; i++) {
 				if(!/{{\s*[\d\w]+\s*}}/.test(arr[i])) {
-					aResult.push(arr[i]);
+					let sResultWord = arr[0].trim();
+					if(source.letterMode == "lowerCase") {
+						sResultWord = sResultWord.toLowerCase();
+					}
+					aResult.push(sResultWord/*arr[i]*/);
 				}
 			}
 			sResultString = aResult.join(", ");

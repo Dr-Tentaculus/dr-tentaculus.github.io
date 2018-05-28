@@ -913,6 +913,7 @@ a:hover {
   padding: .2em .3em;
   padding-right: .6em;
   white-space: nowrap;
+  width: 5rem;
 }
 @media only screen and (min-width: 767px) {
   #vk_community_messages {
