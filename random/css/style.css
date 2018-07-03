@@ -211,11 +211,10 @@ img {
 table{
 }
 th, td{
-   background: @l-gray;
-   color: @d-gray;
+   
 }
 th{
-    font-weight: bold;
+    
 }
 */
 table {
@@ -269,7 +268,8 @@ tr:last-child td {
 }
 #result td,
 #result th {
-  padding: .2em;
+  background: #ddd;
+  color: #222;
 }
 #result tr {
   counter-increment: result;
@@ -279,8 +279,9 @@ tr:last-child td {
   background: rgba(255, 255, 255, 0.3);
 }
 #result td {
-  padding: 0.35rem;
+  padding: 0.45rem 0.35rem;
   position: relative;
+  border-bottom: 1px solid #b5b5b5;
 }
 #result td:before {
   content: counter(result);
@@ -294,9 +295,16 @@ tr:last-child td {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 -1px 2px rgba(0, 0, 0, 0.4), 1px 0px 2px rgba(0, 0, 0, 0.4), -1px 0px 2px rgba(0, 0, 0, 0.4);
   font-weight: bold;
 }
+#result td hr {
+  border-color: #c3c3c357;
+  border-style: dashed;
+  margin: 0.1em;
+}
 #result th {
   background: #bbbbbb;
   color: #111111;
+  font-weight: bold;
+  padding: .2em;
 }
 #panel {
   padding-bottom: .2rem;

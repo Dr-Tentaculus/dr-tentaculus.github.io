@@ -318,17 +318,22 @@ function generate_from_scheme(schema, cur) {
 	sResultString= '';
 	for (var i in aItems) {
 		for( var j in source) {
-			if(source[j].name==aItems[i]) {
+			var sTmpPostfix = aItems[i].match(/[\.,]+/) || "";
+			if(source[j].name==aItems[i].replace(/[\.,]+/g, "")) {
 				if (source[j].random? randd(0,source[j].random)==0 : 1) {
 					
 					word = generate_word(source[j]);
 
-					//word = test_word_link(word, source[j]);
+					// if link, clear title
+					var oFLink = /\[\[:([\w\d_-]+)\]\]/.exec(word);
+					if (oFLink && oFLink[0]) { 
+						word = oFLink[0];
+					}
 					
 					var textBefore = source[j].hasOwnProperty('showTitle')? "<b>"+source[j].title+"</b>: ": "";
 					var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
-					var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
-					sResultString+= textBefore + prefix+ word +postfix
+					var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : "";
+					sResultString+= textBefore + prefix+ word +postfix + sTmpPostfix + " "
 
 					
 
@@ -361,12 +366,12 @@ function generateRandomItem(src, type, subtype, nCount) {
               var schema = schemes[nQ];
 							var tmpResult = generate_from_scheme(schema, cur);
 							var oFLink = /\[\[:([\w\d_-]+)\]\]/.exec(tmpResult);
-							/**/
-						  if (oFLink && oFLink[1]) {
-							//if (tmpResult.match(/\[\[:[\w\d_-]+\]\]/)) {
-								//debugger;
-								var tmpResult = generate_from_scheme(oFLink[1], cur);
-							}
+							do{
+								if (oFLink && oFLink[1]) {
+									var oRE = new RegExp(oFLink[0]);
+									var tmpResult = tmpResult.replace(oFLink[0], generate_from_scheme(oFLink[1], cur));
+								}
+							}while (oFLink = /\[\[:([\w\d_-]+)\]\]/.exec(tmpResult))
 							/**/
 							/*/
               var aItems = schema.split(" ");

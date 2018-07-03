@@ -9,7 +9,9 @@
         margin-left: 1.2rem;
     }
     td, th{
-        padding: .2em;
+        //padding: .2em;
+				background: @l-gray;
+				color: @d-gray;
     }
     tr{        
         counter-increment: result;
@@ -20,8 +22,9 @@
     }
     td{
         //padding-left: 2em;
-        padding: 0.35rem;
+        padding: 0.45rem 0.35rem;
         position: relative;
+				border-bottom: 1px solid #b5b5b5;
         
         &:before{
             content: counter(result);
@@ -39,10 +42,18 @@
                 -1px 0px 2px rgba(0,0,0,.4);
             font-weight: bold;
         }
+				
+				hr{
+					border-color: #c3c3c357;
+					border-style: dashed;
+					margin: 0.1em;
+				}
     }
     th{
         background: @l-gray - #222;
         color: @d-gray - #111;
+				font-weight: bold;
+				padding: .2em;
     }
 }
 
