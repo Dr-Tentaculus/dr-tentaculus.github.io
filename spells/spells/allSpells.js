@@ -9484,7 +9484,7 @@ var allSpells = [
       "components": "V, S, M",
       "materials": "a bit of sponge",
       "duration": "Instantaneous",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Жуткое увядание Аби-Дальцима",
@@ -9495,8 +9495,7 @@ var allSpells = [
       "range": "150 футов",
       "components": "В, С, М",
       "materials": "кусочек губки",
-      "duration": "Мгновенно",
-      "source": "TOEE"
+      "duration": "Мгновенно"
     }
   },
   {
@@ -9510,7 +9509,7 @@ var allSpells = [
       "components": "S",
       "materials": "",
       "duration": "1 round",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
 	"ru": {
       "name": "Впитать элементы",
@@ -9521,8 +9520,7 @@ var allSpells = [
       "range": "На себя",
       "components": "С",
       "materials": "",
-      "duration": "1 раунд",
-      "source": "TOEE"
+      "duration": "1 раунд"
     }
   },
   {
@@ -9562,7 +9560,7 @@ var allSpells = [
       "components": "V, S, M",
       "materials": "a bit of fur wrapped in a cloth",
       "duration": "Concentration, up to 10 minutes",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Свясь со Зверем",
@@ -9573,8 +9571,7 @@ var allSpells = [
       "range": "Касание",
       "components": "В, С, М",
       "materials": "кусочен меха, завернутый в ткань",
-      "duration": "Концентрация до 10 минут",
-      "source": "TOEE"
+      "duration": "Концентрация до 10 минут"
     }
   },
   {
@@ -9588,7 +9585,7 @@ var allSpells = [
       "components": "V, S",
       "materials": "t",
       "duration": "Instantaneous",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Кости земли",
@@ -9599,8 +9596,7 @@ var allSpells = [
       "range": "120 футов",
       "components": "В, С",
       "materials": "",
-      "duration": "Мгновенно",
-      "source": "TOEE"
+      "duration": "Мгновенно"
     }
   },
   {
@@ -9614,7 +9610,7 @@ var allSpells = [
       "components": "S",
       "materials": "",
       "duration": "Instantaneous",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
 	"ru": {
       "name": "Катапульта",
@@ -9625,8 +9621,7 @@ var allSpells = [
       "range": "150 футов",
       "components": "С",
       "materials": "",
-      "duration": "Мгновенно",
-      "source": "TOEE"
+      "duration": "Мгновенно"
     }
   },
   {
@@ -9640,7 +9635,7 @@ var allSpells = [
       "components": "S",
       "materials": "",
       "duration": "Instantaneous or 1 hour (see below)",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Управление пламенем",
@@ -9651,8 +9646,7 @@ var allSpells = [
       "range": "60 футов",
       "components": "С",
       "materials": "",
-      "duration": "Мгновенно или 1 час",
-      "source": "TOEE"
+      "duration": "Мгновенно или 1 час"
     }
   },
   {
@@ -9666,7 +9660,7 @@ var allSpells = [
       "components": "V, S",
       "materials": "",
       "duration": "Concentration, up to 1 hour",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Управление ветром",
@@ -9677,8 +9671,7 @@ var allSpells = [
       "range": "300 футов",
       "components": "В, С",
       "materials": "",
-      "duration": "Концентрация до 1 часа",
-      "source": "TOEE"
+      "duration": "Концентрация до 1 часа"
     }
   },
   {
@@ -9692,7 +9685,7 @@ var allSpells = [
       "components": "V, S",
       "materials": "2d8",
       "duration": "Concentration, up to 1 minute",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Создать костер",
@@ -9703,8 +9696,7 @@ var allSpells = [
       "range": "60 футов",
       "components": "В, С",
       "materials": "",
-      "duration": "Концентрация до 1 минуты",
-      "source": "TOEE"
+      "duration": "Концентрация до 1 минуты"
     }
   },
   {
@@ -9718,7 +9710,7 @@ var allSpells = [
       "components": "V, S, M",
       "materials": "a pinch of dust",
       "duration": "Concentration, up to 1 minute",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Пылевой дьявол",
@@ -9729,8 +9721,7 @@ var allSpells = [
       "range": "60 футов",
       "components": "В, С, М",
       "materials": "щепотка пыли",
-      "duration": "Концентрация до 1 минуты",
-      "source": "TOEE"
+      "duration": "Концентрация до 1 минуты"
     }
   },
   {
@@ -9744,7 +9735,7 @@ var allSpells = [
       "components": "V, S",
       "materials": "",
       "duration": "Instantaneous",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Дрожь земли",
@@ -9755,8 +9746,7 @@ var allSpells = [
       "range": "На себя (радиус 10 футов)",
       "components": "В, С",
       "materials": "",
-      "duration": "Мгновенно",
-      "source": "TOEE"
+      "duration": "Мгновенно"
     }
   },
   {
@@ -9770,7 +9760,7 @@ var allSpells = [
       "components": "V",
       "materials": "if any",
       "duration": "Concentration, up to 1 minute",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Приземление",
@@ -9781,8 +9771,7 @@ var allSpells = [
       "range": "300 футов",
       "components": "В",
       "materials": "",
-      "duration": "Концентрация до 1 минуты",
-      "source": "TOEE"
+      "duration": "Концентрация до 1 минуты"
     }
   },
   {
@@ -9796,7 +9785,7 @@ var allSpells = [
       "components": "V, S",
       "materials": "",
       "duration": "Concentration, up to 1 minute",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Стихийная кара",
@@ -9807,8 +9796,7 @@ var allSpells = [
       "range": "90 футов",
       "components": "В, С",
       "materials": "",
-      "duration": "Концентрация до 1 минуты",
-      "source": "TOEE"
+      "duration": "Концентрация до 1 минуты"
     }
   },
   {
@@ -9822,7 +9810,7 @@ var allSpells = [
       "components": "V, S, M",
       "materials": "a piece of obsidian",
       "duration": "Instantaneous",
-      "source": "TOEE"
+      "source": "TOEE, XGTE"
     },
     "ru": {
       "name": "Извержение земли",
@@ -9832,8 +9820,7 @@ var allSpells = [
       "castingTime": "1 действие",
       "range": "120 В, С, М",
       "materials": "кусочек обсидиана",
-      "duration": "Мгновенное",
-      "source": "TOEE"
+      "duration": "Мгновенное"
     }
   },
   {
@@ -11311,57 +11298,40 @@ var allSpells = [
   },
 	
 	
-  {
-    "en": {
-      "name": "AEI-DALZIM’S HORRID WILTING",
-      "level": "8",
-      "school": "necromancy",
-      "castingTime": "1 action",
-      "range": "150 feet",
-      "components": "V, S, M",
-      "materials": "(a bit of sponge)",
-      "duration": "Instantaneous",
-      "text": "You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren’t affected, and plants and water elementals make this saving throw with disadvantage. A creature takes 12d8 necrotic damage on a failed save, or half as much damage on a successful one.<br> Nonmagical plants in the area that aren’t creatures, such as trees and shrubs, wither and die instantly.",
-      "source": "XGTE"
-    },
-    "ru": {
-      "name": "ДРЕВЕСНЫЙ ЗАХВАТ",
-      "level": "4",
-      "text": "Вы приказываете дереву с помощью ветвей, схватить, притянуть и удерживать существо в пределах 10 футов от него. Цель должна преуспеть в спасброске Ловкости или получит 6к8 дробящего урона, будет притянуто к дереву и опутано ветвями. Удерживаемое существо может действием совершить проверку Силы или Ловкости на выбор существа, против сложности вашего заклинания, чтобы освободиться.",
-      "school": "Преобразование",
-      "castingTime": "1 действие",
-      "range": "30 футов",
-      "components": "В,С,М",
-      "materials": "(маленькая веточка)",
-      "duration": "Концентрация, вплоть до 1 минуты",
-      "source": "XGTE"
-    }
-  },
-  {
-    "en": {
-      "name": "ABSORB ELEMENTS",
-      "level": "1",
-      "school": "abjuration",
-      "castingTime": "1 reaction",
-      "range": "Self",
-      "components": "S",
-      "duration": "1 round",
-      "text": "Reaction, which you take when you take acid, cold, fire, lightning, or thunder damage. <br>The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.<br> <b>At Higher Levels.</b> When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above lst.",
-      "source": "XGTE"
-    },
-    "ru": {
-      "name": "ДРЕВЕСНЫЙ ЗАХВАТ",
-      "level": "4",
-      "text": "Вы приказываете дереву с помощью ветвей, схватить, притянуть и удерживать существо в пределах 10 футов от него. Цель должна преуспеть в спасброске Ловкости или получит 6к8 дробящего урона, будет притянуто к дереву и опутано ветвями. Удерживаемое существо может действием совершить проверку Силы или Ловкости на выбор существа, против сложности вашего заклинания, чтобы освободиться.",
-      "school": "Преобразование",
-      "castingTime": "1 действие",
-      "range": "30 футов",
-      "components": "В,С,М",
-      "materials": "(маленькая веточка)",
-      "duration": "Концентрация, вплоть до 1 минуты",
-      "source": "XGTE"
-    }
-  },
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
   {
     "en": {
       "name": "AGANAEZAR’S SCORCHER",
@@ -11376,92 +11346,14 @@ var allSpells = [
       "source": "XGTE"
     },
     "ru": {
-      "name": "ДРЕВЕСНЫЙ ЗАХВАТ",
-      "level": "4",
-      "text": "Вы приказываете дереву с помощью ветвей, схватить, притянуть и удерживать существо в пределах 10 футов от него. Цель должна преуспеть в спасброске Ловкости или получит 6к8 дробящего урона, будет притянуто к дереву и опутано ветвями. Удерживаемое существо может действием совершить проверку Силы или Ловкости на выбор существа, против сложности вашего заклинания, чтобы освободиться.",
-      "school": "Преобразование",
+      "name": "Пекло Аганаззара",
+      "text": "Вы выпускаете линию ревущего пламени длиной 30 футов и шириной 5 футов в выбранном направлении. Все существа в области действия должны совершить спасбросок Ловкости. В случае провала существо получает урон огнём 3к8, а в случае успеха – половину этого урона. <br><b>На более высоких уровнях.</b> Если вы сотворяете это заклинание, используя ячейку 3 уровня или выше, то урон увеличивается на 1к8 за каждый уровень ячейки выше 2.",
+      "school": "воплощение",
       "castingTime": "1 действие",
       "range": "30 футов",
       "components": "В,С,М",
-      "materials": "(маленькая веточка)",
-      "duration": "Концентрация, вплоть до 1 минуты",
-      "source": "XGTE"
-    }
-  },
-  {
-    "en": {
-      "name": "BEAST BOND",
-      "level": "1",
-      "school": "divination",
-      "castingTime": "1 action",
-      "range": "Touch",
-      "components": "V, S, M",
-      "materials": "(a bit of fur wrapped in a cloth)",
-      "duration": "Concentration, up to 10 minutes",
-      "text": "You establish a telepathic link with one beast you touch that is friendly to you or charmed by you. The spell fails if the beasts Intelligence score is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it can telepathically communicate simple emotions and concepts back to you. While the link is active, the beast gains advantage on attack rolls against any creature within 5 feet of you that you can see.",
-      "source": "XGTE"
-    },
-    "ru": {
-      "name": "ДРЕВЕСНЫЙ ЗАХВАТ",
-      "level": "4",
-      "text": "Вы приказываете дереву с помощью ветвей, схватить, притянуть и удерживать существо в пределах 10 футов от него. Цель должна преуспеть в спасброске Ловкости или получит 6к8 дробящего урона, будет притянуто к дереву и опутано ветвями. Удерживаемое существо может действием совершить проверку Силы или Ловкости на выбор существа, против сложности вашего заклинания, чтобы освободиться.",
-      "school": "Преобразование",
-      "castingTime": "1 действие",
-      "range": "30 футов",
-      "components": "В,С,М",
-      "materials": "(маленькая веточка)",
-      "duration": "Концентрация, вплоть до 1 минуты",
-      "source": "XGTE"
-    }
-  },
-  {
-    "en": {
-      "name": "BONES of THE EARTH",
-      "level": "6",
-      "school": "transmutation",
-      "castingTime": "1 action",
-      "range": "120 feet",
-      "components": "V, S",
-      "duration": "Instantaneouss",
-      "text": "You cause up to six pillars of stone to burst from places on the ground that you can see within range. Each pillar is a cylinder that has a diameter of 5 feet and a height of up to 30 feet. The ground where a pillar appears must be wide enough for its diameter, and you can target the ground under a creature if that creature is Medium or smaller. Each pillar has AC 5 and 30 hit points. When reduced to 0 hit points, a pillar crumbles into rubble, which creates an area of difficult terrain with a 10-foot radius that lasts until the rubble is cleared. Each 5—foot-diameter portion of the area requires at least 1 minute to clear by hand.<br> If a pillar is created under a creature, that creature must succeed on a Dexterity saving throw or be lifted by the pillar. A creature can choose to fail the save.<br> If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar takes 6d6 bludgeoning damage and is restrained, pinched between the pillar and the obstacle. The restrained creature can use an action to make a Strength or Dexterity check (the creature’s choice) against the spell’s save DC. On a success, the creature is no longer restrained and must either move off the pillar or fall off it. <b>At Higher Levels.</b> When you cast this spell using a spell slot of 7th level or higher, you can create two additional pillars for each slot level above 6th.",
-      "source": "XGTE"
-    },
-    "ru": {
-      "name": "ДРЕВЕСНЫЙ ЗАХВАТ",
-      "level": "4",
-      "text": "Вы приказываете дереву с помощью ветвей, схватить, притянуть и удерживать существо в пределах 10 футов от него. Цель должна преуспеть в спасброске Ловкости или получит 6к8 дробящего урона, будет притянуто к дереву и опутано ветвями. Удерживаемое существо может действием совершить проверку Силы или Ловкости на выбор существа, против сложности вашего заклинания, чтобы освободиться.",
-      "school": "Преобразование",
-      "castingTime": "1 действие",
-      "range": "30 футов",
-      "components": "В,С,М",
-      "materials": "(маленькая веточка)",
-      "duration": "Концентрация, вплоть до 1 минуты",
-      "source": "XGTE"
-    }
-  },
-  {
-    "en": {
-      "name": "CATAPULT",
-      "level": "1",
-      "school": "transmutation",
-      "castingTime": "1 action",
-      "range": "60 feet",
-      "components": "S",
-      "duration": "Instantaneous",
-      "text": "Choose one object weighing 1 to 5 pounds within range that isn’t being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage.<br> <b>At Higher Levels.</b> When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage increases by 1d8, for each slot level above Ist.",
-      "source": "XGTE"
-    },
-    "ru": {
-      "name": "ДРЕВЕСНЫЙ ЗАХВАТ",
-      "level": "4",
-      "text": "Вы приказываете дереву с помощью ветвей, схватить, притянуть и удерживать существо в пределах 10 футов от него. Цель должна преуспеть в спасброске Ловкости или получит 6к8 дробящего урона, будет притянуто к дереву и опутано ветвями. Удерживаемое существо может действием совершить проверку Силы или Ловкости на выбор существа, против сложности вашего заклинания, чтобы освободиться.",
-      "school": "Преобразование",
-      "castingTime": "1 действие",
-      "range": "30 футов",
-      "components": "В,С,М",
-      "materials": "(маленькая веточка)",
-      "duration": "Концентрация, вплоть до 1 минуты",
-      "source": "XGTE"
+      "materials": "(чешуя красного дракона)",
+      "duration": "мгновенно"
     }
   },
   {
@@ -11478,16 +11370,13 @@ var allSpells = [
       "source": "XGTE"
     },
     "ru": {
-      "name": "ДРЕВЕСНЫЙ ЗАХВАТ",
-      "level": "4",
-      "text": "Вы приказываете дереву с помощью ветвей, схватить, притянуть и удерживать существо в пределах 10 футов от него. Цель должна преуспеть в спасброске Ловкости или получит 6к8 дробящего урона, будет притянуто к дереву и опутано ветвями. Удерживаемое существо может действием совершить проверку Силы или Ловкости на выбор существа, против сложности вашего заклинания, чтобы освободиться.",
-      "school": "Преобразование",
+      "name": "Дрёма",
+      "text": "Вы делаете успокаивающий жест, и до трех согласных существ по вашему выбору, которых вы можете видеть в пределах дистанции, падают без сознания на время действия заклинания. Заклинание заканчивается на цели раньше, если она получает урон или кто-то использует действие, чтобы потрясти её или дать ей пощёчину. Если цель остается без сознания в течение всего времени действия заклинания, она получает все преимущества короткого отдыха, и не может быть подвержена этому заклинанию снова, пока не закончит продолжительный отдых. <br><b>На более высоких уровнях.</b> Когда вы сотворяете это заклинание, используя ячейку 4 уровня или выше, вы можете сделать целью дополнительно ещё одно существо за каждый уровень ячейки выше 3.",
       "castingTime": "1 действие",
       "range": "30 футов",
-      "components": "В,С,М",
-      "materials": "(маленькая веточка)",
-      "duration": "Концентрация, вплоть до 1 минуты",
-      "source": "XGTE"
+      "components": "С,М",
+      "materials": "(щепотка песка)",
+      "duration": "10 минут"
     }
   },
   {
@@ -11504,16 +11393,288 @@ var allSpells = [
       "source": "XGTE"
     },
     "ru": {
-      "name": "ДРЕВЕСНЫЙ ЗАХВАТ",
-      "level": "4",
-      "text": "Вы приказываете дереву с помощью ветвей, схватить, притянуть и удерживать существо в пределах 10 футов от него. Цель должна преуспеть в спасброске Ловкости или получит 6к8 дробящего урона, будет притянуто к дереву и опутано ветвями. Удерживаемое существо может действием совершить проверку Силы или Ловкости на выбор существа, против сложности вашего заклинания, чтобы освободиться.",
+      "name": "Кости земли",
+      "text": "Вы вызываете до шести каменных столбов, вырывающихся из земли в тех местах, которые вы можете видеть в пределах дистанции. Каждый столб представляет собой цилиндр диаметром 5 футов и высотой до 30 футов. Земля, на которой появляется столб, должна быть достаточно широкой для этого диаметра, и вы можете сделать целью землю под существом, если это существо Среднего размера или меньше. <b>У каждого столба КД 5 и 30 хитов. При уменьшении хитов до 0 столб крошится на камни, что создает труднопроходимую местность в радиусе 10 футов. Местность остается труднопроходимой, пока камни не будут убраны. Для очистки вручную области диаметром 5 футов требуется не менее 1 минуты. <br>Если столб создан под существом, то это существо должно преуспеть в спасброске ловкости, или будет поднято столбом. Существо может добровольно провалить спасбросок. <br>Если столбу не удается достичь полной высоты из-за потолка или другого препятствия, существо на столбе получает 6к6 дробящего урона и становится опутанным, будучи зажатым между столбом и препятствием. Удерживаемое существо может использовать действие, чтобы сделать проверку силы или ловкости (на свой выбор) против Сл спасброска от ваших заклинаний. При успехе существо перестаёт быть опутанным и должно либо слезть со столба, либо упасть с него. <br><b>На более высоких уровнях.</b> Когда вы сотворяете это заклинание с помощью ячейки 7 уровня или выше, вы можете создать два дополнительных столба за каждый уровень ячейки выше 6.",
       "school": "Преобразование",
       "castingTime": "1 действие",
-      "range": "30 футов",
-      "components": "В,С,М",
-      "materials": "(маленькая веточка)",
-      "duration": "Концентрация, вплоть до 1 минуты",
+      "range": "120 футов",
+      "components": "В,С",
+      "duration": "мгновенная"
+    }
+  },
+  {
+    "en": {
+      "name": "CAUSE FEAR",
+      "level": "1",
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V",
+      "duration": "Concentration, up to 1 minute",
+      "text": "You establish a telepathic link with one beast you touch that is friendly to you or charmed by you. The spell fails if the beasts Intelligence score is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it can telepathically communicate simple emotions and concepts back to you. While the link is active, the beast gains advantage on attack rolls against any creature within 5 feet of you that you can see.",
       "source": "XGTE"
+    },
+    "ru": {
+      "name": "Вызов страха",
+      "text": "Вы пробуждаете ощущение смертности у одного существа, которое можете видеть в пределах дистанции. Конструкт или нежить невосприимчивы к этому эффекту. Цель должна преуспеть в спасброске по Мудрости или становится напуганной вами пока заклинание не окончится. Напуганное существо может повторять спасброски в конце каждого своего хода, оканчивая эффект на себе при успехе. <br><b>На более высоких уровнях.</b> Когда вы сотворяете это заклинание, используя ячейку 2 уровня или выше, вы можете сделать целью дополнительно ещё одно существо за каждый уровень ячейки выше 1. Существа должны находиться в пределах 30 футов друг от друга, когда вы выбираете их.",
+      "school": "некромантия",
+      "castingTime": "1 действие",
+      "range": "60 футов",
+      "components": "В,",
+      "duration": "Концентрация, вплоть до 1 минуты"
+    }
+  },
+  {
+    "en": {
+      "name": "CEREMONY",
+      "ritual": "ritual",
+      "level": "1",
+      "school": "abjurarion",
+      "castingTime": "1 hour",
+      "range": "Touch",
+      "components": "V, S, M",
+      "materials": "(25 gp worth of powdered silver, which the spell consumes)",
+      "duration": "Instantaneous",
+      "text": "You perform a special religious ceremony that is infused with magic. When you cast the spell, choose one of the following rites, the target of which must be within 10 feet of you throughout the casting. <br><b>Atonement.</b> You touch one willing creature whose alignment has changed, and you make a DC 20 Wisdom (Insight) check. On a successful check, you restore the target to its original alignment. <br><b>Bless Water.</b> You touch one vial of water and cause it to become holy water. <br><b>Coming oа Age.</b> You touch one humanoid who is a young adult. For the next 24 hours, whenever the target makes an ability check, it can roll a d4 and add the number rolled to the ability check. A creature can benefit from this rite only once. <br><b>Dedication.</b> You touch one humanoid who wishes to be dedicated to your god’s service. For the next 24 hours, whenever the target makes a saving throw, it can roll a d4 and add the number rolled to the save. A creature can benefit from this rite only once. <br><b>Funeral Rite.</b> You touch one corpse, and for the next 7 days, the target can’t become undead by any means short of a wish spell. <br><b>Wedding.</b> You touch adult humanoids willing to be bonded together in marriage. For the next 7 days, each target gains a +2 bonus to AC while they are within 30 feet of each other. A creature can benefit from this rite again only if widowed.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Церемония",
+      "text": "Вы совершаете особую религиозную церемонию, наполненную магией. Когда вы произносите заклинание, выберите один из следующих обрядов, цель которого должна находиться в пределах 10 футов от вас во время накладывания. <br><b>Искупление.</b> Вы касаетесь одного согласного существа, чьё мировоззрение было изменено, и совершаете проверку Мудрости (Проницательность) против Сл 20. При успехе вы возвращаете цели её изначальное мировоззрение. <br><b>Благословение Воды.</b> Вы прикасаетесь к одной фляге воды и делаете ее Святой Водой. <br><b>Становление.</b> Вы касаетесь одного взрослого гуманоида, который достиг совершеннолетия. На следующие 24 часа, каждый раз, когда цель совершает проверку характеристики, она может бросить к4 и добавить выпавшее число к результату. Существо может получить преимущества от этого заклинания только единожды. <br><b>Посвящение.</b> Вы касаетесь одного гуманоида, который хочет посвятить себя служению вашему богу. На следующие 24 часа, каждый раз, когда цель совершает спасбросок, она может бросить к4 и добавить выпавшее число к результату. Существо может получить преимущества от этого заклинания только единожды. <br><b>Заупокойный обряд.</b> Вы касаетесь одного трупа, и в течение следующих 7 дней цель не может стать нежитью, кроме как с помощью заклинания исполнения желаний [wish]. <br><b>Венчание.</b> Вы касаетесь взрослых гуманоидов, желающих связать себя узами брака. в течение следующих 7 дней каждая цель получает бонус +2 к КД пока они находятся в пределах 30 футов друг от друга. Существо может получить преимущества от этого заклинания снова, только если оно овдовело.",
+      "school": "ограждение",
+      "castingTime": "1 час",
+      "range": "касание",
+      "components": "В,С,М",
+      "materials": "(порошок серебра стоимостью 25 зм, расходуемый заклинанием)",
+      "duration": "Мгновенная"
+    }
+  },
+  {
+    "en": {
+      "name": "CHAOS BOLT",
+      "level": "1",
+      "school": "evocation",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "text": "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the dSs. The number rolled on that die determines the attacks damage type, as shown below.<br><table>  <tr>  <th>d8</th>  <th>Damage Type</th>  </tr>  <tr>  <td>1</td>  <td>Acid</td>  </tr>  <tr>  <td>2</td>  <td>Cold</td>  </tr>  <tr>  <td>3</td>  <td>Fire</td>  </tr>  <tr>  <td>4</td>  <td>Force</td>  </tr>  <tr>  <td>5</td>  <td>Lightning</td>  </tr>  <tr>  <td>6</td>  <td>Poison</td>  </tr>  <tr>  <td>7</td>  <td>Psychic</td>  </tr>  <tr>  <td>8</td>  <td>Thunder</td>  </tr> </table> <br> <br>If you roll the same number on both d85, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again. <br>A creature can be targeted only once by each casting of this spell. <br><b>At Higher Levels.</b> When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Снаряд Хаоса",
+      "text": "Вы бросаете волнистую, трепещущую массу хаотической энергии в одно существо в радиусе действия. Совершите дальнобойную атаку заклинанием по существу. При попадании цель получает 2к8 + 1к6 урона. Выберите одно из к8. Выпавшее число определяет тип урона атаки, как показано ниже. <br> <table>  <tr>  <th>d8</th>  <th>Тип урона</th>  </tr>  <tr>  <td>1</td>  <td>Кислота</td>  </tr>  <tr>  <td>2</td>  <td>Холод</td>  </tr>  <tr>  <td>3</td>  <td>Огонь</td>  </tr>  <tr>  <td>4</td>  <td>Энергия</td>  </tr>  <tr>  <td>5</td>  <td>Электричество</td>  </tr>  <tr>  <td>6</td>  <td>Яд</td>  </tr>  <tr>  <td>7</td>  <td>Психическая энерг</td>  </tr>  <tr>  <td>8</td>  <td>Звук</td>  </tr> </table> <br> <br>сли вы выбрасываете одинаковое значение на обоих к8, хаотическая энергия прыгает с цели на другое существо по вашему выбору в пределах 30 футов от него. Совершите новую атаку против новой цели и сделайте новый бросок урона, который может привести к тому, что хаотическая энергия снова перескочит. <br>Существо может быть целью только один раз за каждое произношение этого заклинания. <br><b>На более высоких уровнях.</b> Если вы сотворяете это заклинание, используя ячейку 2 уровня или выше, каждая цель получает дополнительно 1к6 урона за каждый уровень ячейки выше 1.",
+      "school": "воплощение",
+      "castingTime": "1 действие",
+      "range": "120 футов",
+      "components": "В,С",
+      "duration": "мгновенная",
+    }
+  },
+  {
+    "en": {
+      "name": "CHARM MONSTER",
+      "level": "4",
+      "school": "enchantment",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "1 hour",
+      "text": "You attempt to charm a creature you can see within range. It must make a Wisdom saving throw, and it does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature is friendly to you. When the spell ends, the creature knows it was charmed by you. <br><b>At Higher Levels.</b> When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Очарование монстра",
+      "text": "Вы пытаетесь очаровать существо, которое вы можете видеть в пределах дистанции. Оно должно совершить спасбросок Мудрости, с преимуществом, если вы или ваши спутники сражаетесь с ним. Если оно проваливает спасбросок, оно очаровано вами до тех пор, пока заклинание активно или пока вы или ваши спутники не причиняете ему вред. Очарованное существо считает вас своим другом. Когда заклинание оканчивается, существо знает, что было очаровано вами. <br><b>На более высоких уровнях. </b>Если вы сотворяете это заклинание, используя ячейку 5 уровня или выше, вы можете сделать целью одно дополнительное существо за каждый уровень ячейки выше 4. Эти существа должны находиться в пределах 30 футов друг от друга, когда вы выбираете их целями.",
+      "school": "очарование",
+      "castingTime": "1 действие",
+      "range": "30 футов",
+      "components": "В,С",
+      "duration": "1 час"
+    }
+  },
+  {
+    "en": {
+      "name": "CREATE HOMUNCULUS",
+      "level": "6",
+      "school": "transmutation",
+      "castingTime": "1 hour",
+      "range": "Touch",
+      "components": "V, S, M",
+      "materials": "(clay, ash, and mandrake root, all of which the spell consumes, and a jewel-encrusted dagger worth at least 1,000 gp)",
+      "duration": "Instantaneous",
+      "text": "While speaking an intricate incantation, you cut your— self with a jewel-encrusted dagger, taking 2d4 piercing damage that can’t be reduced in any way. You then drip your blood on the spell’s other components and touch them, transforming them into a special construct called a homunculus.<br> The statistics of the homunculus are in the Monster Manual. It is your faithful companion, and it dies ifyou die. Whenever you finish a long rest, you can spend up to half your Hit Dice if the homunculus is on the same plane of existence as you. When you do so, roll each die and add your Constitution modifier to it. Your hit point maximum is reduced by the total, and the homunculus’s hit point maximum and current hit points are both increased by it. This process can reduce you to no lower than 1 hit point. and the change to your and the homunculus’s hit points ends when you finish your next long rest. The reduction to your hit point maximum can’t be removed by any means before then, except by the homunculus‘ s death.<br> You can have only one homunculus at a time. If you cast this spell while your homunculus lives, the spell fails.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Сотворение гомункула",
+      "text": "Произнося сложное заклинание, вы режете себя кинжалом, украшенным драгоценными камнями, и получаете 2d4 колющего урона, который никоим образом не может быть уменьшен. Затем вы капаете свою кровь на другие компоненты заклинания и прикасаетесь к ним, превращая их в особого конструкта, называемого гомункулом. <br>Параметры гомункула есть в Бестиарии. Это ваш преданный спутник, и он умирает, если умираете вы. Всякий раз, когда вы заканчиваете продолжительный отдых, вы можете потратить до половины своих Костей Хитов, если гомункул находится на том же плане существования, что и вы. Когда вы это делаете, бросьте каждую Кость Хитов и добавьте к ней свой модификатор Телосложения. <br>Максимум ваших хитов понижается на получившуюся сумму, а максимум хитов гомункула вместе с текущим количеством хитов увеличивается на это же значение. Этот процесс не может понизить ваши хиты ниже 1, и этот обмен хитами между вами и гомункулом заканчивается после того как вы завершите следующий продолжительный отдых. До этого момента понижение максимума ваших хитов не может быть отменено никаким другим образом, кроме смерти гомункула. <br>Вы можете иметь только одного гомункула в каждый момент времени. Если вы произносите это заклинание, пока ваш гомункул жив, заклинание терпит неудачу.",
+      "school": "Преобразование",
+      "castingTime": "1 час",
+      "range": "касание",
+      "components": "В,С,М",
+      "materials": "(Глина, пепел и корень мандрагоры, расходуемые заклинанием, и кинжал с инкрустированными драгоценными камнями стоимостью не менее 1000 зм)",
+      "duration": "Мгновенная"
+    }
+  },
+  {
+    "en": {
+      "name": "CROWN OF STARS",
+      "level": "7",
+      "school": "evocation",
+      "castingTime": "1 action",
+      "range": "Self",
+      "components": "V, S",
+      "duration": "1 hour",
+      "text": "Seven star-like motes of light appear and orbit your head until the spell ends. You can use a bonus action to send one of the motes streaking toward one creature or object within 120 feet of you. When you do so, make a ranged spell attack. On a hit. the target takes 4d12 radiant damage. Whether you hit or miss, the mote is expended. The spell ends early if you expend the last mote.<br> If you have four or more motes remaining, they shed bright light in a 30-foot radius and dim light for an additional 30 feet. Ifyou have one to three motes remaining, they shed dim light in a 30—foot radius. <br><b>At Higher Levels.</b> When you cast this spell using a spell slot of 8th level or higher, the number of motes created increases by two for each slot level above 7th.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Корона звёзд",
+      "text": "Семь похожих на звезды частиц света начинают вращаться вокруг вашей головы, пока заклинание не закончится. Бонусным действием вы можете отправить одну из частиц к одному существу или объекту на расстояние 120 футов от вас. Если вы так делаете, совершите дальнобойную атаку заклинанием. При попадании цель получает 4к12 урона излучением. <br>Независимо от того, попали вы или нет, частица света исчезает. Действие заклинания оканчивается, когда исчезнет последняя частица света. <br>Пока у вас остается четыре или более частиц, они испускают яркий свет в радиусе 30 футов и тусклый свет в пределах еще 30 футов. Если у вас осталось три или менее частиц, то они испускают тусклый свет в радиусе 30 футов. <br><b>На более высоких уровнях.</b> Если вы сотворяете это заклинание, используя ячейку заклинания 8 уровня или выше, количество создаваемых частиц света увеличивается на две за каждый уровень ячейки выше 7.",
+      "school": "воплощение",
+      "castingTime": "1 действие",
+      "range": "на себя",
+      "components": "В,С",
+      "duration": "1 час"
+    }
+  },
+  {
+    "en": {
+      "name": "DANSE MACABRE",
+      "level": "5",
+      "school": "necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 hour",
+      "text": "Threads of dark power leap from your fingers to pierce up to five Small or Medium corpses you can see within range. Each corpse immediately stands up and becomes undead. You decide whether it is a <a href='https://tentaculus.ru/monsters/index.html#q=zombie&size=M'>zombie</a> or a <a href='https://tentaculus.ru/monsters/index.html#q=skeleton&size=M'>skeleton</a> , and it gains a bonus to its attack and damage rolls equal to your spellcasting ability modifier. You can use a bonus action to mentally command the creatures you make with this spell, issuing the same command to all of them. To receive the command, a creature must be within 60 feet of you. You decide what action the creatures will take and where they will move during their next turn, or you can issue a general command, such as to guard a chamber or passageway against your foes. lf you issue no commands, the creatures do nothing except defend themselves against hostile creatures. Once given an order, the creatures continue to follow it until their task is complete. The creatures are under your control until the spell ends, after which they become inanimate once more. At Higher Levels. When you cast this spell using a spell slot‘ of 6th level or higher, you animate up to two additional corpses for each slot level above 5th.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Пляска смерти",
+      "text": "Нити темной силы прыгают с ваших пальцев, чтобы пронзить до пяти Маленьких или Средних трупов, которые вы можете видеть в пределах дистанции. Каждый труп немедленно встает и становится нежитью. Вы решаете, является ли он зомби или скелетом (параметры зомби и скелетов есть в Бестиарии), и он получает бонус к атаке и броскам урона, равный модификатору вашей заклинательной характеристики. <br>Вы можете использовать бонусное действие, чтобы мысленно управлять существами, которых вы создали этим заклинанием, выдавая одну и ту же команду каждому всем им. Чтобы получить команду, существо должно находиться в пределах 60 футов от вас. Вы решаете, какие действия предпримут существа и куда они будут двигаться в следующий ход, или вы можете выдать команду общего характера, например, охранять помещение или проход от ваших врагов. <br>Если вы не выдаете никаких команд, существа ничего не предпринимают, кроме самозащиты от враждебных существ. После получения команды существа продолжают следовать им, пока их задача не будет выполнена. <br>Существа находятся под вашим контролем до тех пор, пока заклинание не закончится, после чего они снова станут трупами. <br><b>На более высоких уровнях.</b> Когда вы сотворяете это заклинание, используя ячейку заклинания 6 уровня или выше, вы можете оживить до двух дополнительных трупов для каждого уровня ячейки выше 5.",
+      "school": "некромантия",
+      "castingTime": "1 действие",
+      "range": "60 футов",
+      "components": "В,С",
+      "duration": "Концентрация, вплоть до 1 часа"
+    }
+  },
+  {
+    "en": {
+      "name": "DAWN",
+      "level": "5",
+      "school": "evocation",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M",
+      "materials": "(a sunburst pendant worth at least 100 gp)",
+      "duration": "Concentration, up to 1 minute",
+      "text": "The light of dawn shines down on a location you specify within range. Until the spell ends, a 30—foot-radius. 40-foot-high cylinder of bright light glimmers there. This light is sunlight. <br>When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10 radiant damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw whenever it ends its turn in the cylinder. <br>If you’re within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action on your turn.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Рассвет",
+      "text": "Рассветные лучи освещают место, которое вы указали в пределах дистанции. Пока заклинание активно, в этом месте ярким светом мерцает цилиндр с радиусом 30 футов и высотой 40 футов. Этот свет считается солнечным. <br>Когда цилиндр появляется, каждое существо в нём должно совершить спасбросок Телосложения, получая 4к10 урона излучением при провале или половину этого урона при успехе. Существо также должно совершать этот спасбросок, каждый раз, когда заканчивает свой ход в границах цилиндра. <br>Если вы находитесь в пределах 60 футов от цилиндра, в свой ход вы можете бонусным действием переместить его на расстояние до 60 футов.",
+      "school": "воплощение",
+      "castingTime": "1 действие",
+      "range": "60 футов",
+      "components": "В,С,М",
+      "materials": "(кулон солнечных лучей, стоимостью не менее 100 зм)",
+      "duration": "Концентрация, вплоть до 1 минуты"
+    }
+  },
+  {
+    "en": {
+      "name": "DRAGON’S BREATH",
+      "level": "2",
+      "school": "transmutation",
+      "castingTime": "1 bonus action",
+      "range": "Touch",
+      "components": "V, S, M",
+      "materials": "(a hot pepper)",
+      "duration": "Concentration, up to 1 minute",
+      "text": "You touch one willing creature and imbue it with the power to spew magical energy from its mouth, provided it has one. Choose acid, cold, fire, lightning, or poison. Until the spell ends, the creature can use an action to exhale energy of the chosen type in a 15-foot cone. Each creature in that area must make a Dexterity saving throw, taking 3d6 damage of the chosen type on a failed save, or half as much damage on a successful one. <br><b>At Higher Levels.<b> When you cast this spell using a spell slot of 3rd level or higher, the damage increases by ldé for each slot level above 2nd.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Дыхание дракона",
+      "text": "Вы касаетесь одного согласного существа и наделяете его силой изрыгать магическую энергию изо рта, при условии, что у существа есть рот. Выберите кислоту, холод, огонь, молнию или яд. Пока заклинание не закончится, существо может использовать действие, чтобы выдыхать энергию выбранного типа в 15-футовом конусе. <br>Каждое существо в области должно совершить спасбросок Ловкости, и получить 3к6 урона выбранного типа при неудачном спасброске или вдвое меньший урон при удачном. <br><b>На более высоких уровнях.</b> Если вы сотворяете это заклинание, используя ячейку заклинания 3 уровня или выше, урон увеличивается на 1к6 за каждый уровень ячейки выше 2.",
+      "school": "Преобразование",
+      "castingTime": "1 бонусное действие",
+      "range": "касание",
+      "components": "В,С,М",
+      "materials": "(Острый перец)",
+      "duration": "Концентрация, вплоть до 1 минуты"
+    }
+  },
+  {
+    "en": {
+      "name": "DRUID GROVE",
+      "level": "6",
+      "school": "abjuration",
+      "castingTime": "10 minutes",
+      "range": "Touch",
+      "components": "V, S, M",
+      "materials": "(mistletoe, which the spell consumes, that was harvested with a golden sickle under the light of a full moon)",
+      "duration": "24 hours",
+      "text": "You invoke the spirits of nature to protect an area outdoors or underground. The area can be as small as a 30—foot cube or as large as a 90-foot cube. Buildings and other structures are excluded from the affected area. If you cast this spell in the same area every day for a year, the spell lasts until dispelled. <br>The spell creates the following effects within the area. When you cast this spell, you can specify creatures as friends who are immune to the effects. You can also specify a password that, when spoken aloud, makes the speaker immune to these effects. <br>The entire warded area radiates magic. A dispel magic cast on the area, if successful, removes only one of the following effects, not the entire area. That spell’s caster chooses which effect to end. Only when all its effects are gone is this spell dispelled. <br><b>Solid Fog.</b> You can fill any number of 5-foot squares on the ground with thick fog, making them heavily obscured. The fog reaches 10 feet high. In addition, every foot of movement through the fog costs 2 extra feet. To a creature immune to this effect, the fog obscures nothing and looks like soft mist, with motes of green light floating in the air. <br><b>Grasping Undergrowth.</b> You can fill any number of 5-foot squares on the ground that aren’t filled with fog with grasping weeds and vines, as if they were affected by an entangle spell. To a creature immune to this effect, the weeds and vines feel soft and reshape themselves to serve as temporary seats or beds. <br><b>Grove Guardians.</b> You can animate up to four trees in the area, causing them to uproot themselves from the ground. These trees have the same statistics as an awakened tree, which appears in the Monster Manual, except they can’t speak, and their bark is covered with druidic symbols. If any creature not immune to this effect enters the warded area, the grove guardians fight until they have driven off or slain the intruders. The grove guardians also obey your spoken commands (no action required by you) that you issue while in the area. Ifyou don't give them commands and no intruders are present, the grove guardians do nothing. The grove guardians can‘t leave the warded area. When the spell ends, the magic animating them disappears, and the trees take root again if possible. <br><b>Additional Spell Effect.</b> You can place your choice of one of the following magical effects within the warded area:<ul> <li>A constant gust of Wind in two locations of your choice</li> <li>Spike growth in one location of your choice</li> <li>Wind wall in two locations of your choice</li></ul> <br>To a creature immune to this effect, the winds are a fragrant, gentle breeze, and the area of spike growth is harmless.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Роща друида",
+      "text": "Вы призываете духов природы для защиты области на открытом воздухе или под землей. Эта область может быть кубом с длиной ребра от 30 до 90 футов. Здания и другие сооружения исключаются из этой области. Если вы сотворяете это заклинание в одном и том же месте каждый день в течение года, заклинание длится до тех пор, пока не будет рассеяно. <br>Заклинание создает следующие эффекты в пределах области. Когда вы накладываете это заклинание, вы можетеуказать существ как друзей, которые будут невосприимчивы к эффектам заклинания. Вы также можете указать кодовое слово, которое, при произношении, делает говорящего невосприимчивым к этим эффектам. Вся защищённая область источает магию. Магия рассеивания, наложенная на область, при успехе удаляет только один из нижеследующих эффектов, а не всю область. Заклинатель выбирает, какой эффект окончить. Только когда все эффекты окончены, заклинание рассеивается. <br><b>Непроглядный туман.</b> Вы можете заполнить любое количество 5-футовых квадратов на земле густым туманом, делая их сильно заслонённой областью. Туман достигает 10 футов в высоту. Кроме того, каждый фут движения через туман стоит 2 дополнительных фута. Для существа, невосприимчивого к данному эффекту, туман ничего не скрывает и выглядит как лёгкая дымка с песчинками зеленого света, плавающими в воздухе. <br><b>епкий подлесок. </b>Вы можете заполнить любое количество 5-футовых квадратов на земле, которые не заполнены туманом, цепкими сорняками и лозой, как если бы они были созданы заклинанием Опутывание. Для существа, невосприимчивого к данному эффекту, сорняки и лоза ощущаются мягкими и меняют свою форму, чтобы служить временными сидениями или постелями. <br><b>Хранители рощи. </b>Вы можете оживить до четырех деревьев в этой области, заставляя их выкорчевать себя из земли. Эти деревья имеют ту же статистику, что и Пробуждённое дерево, которое представлено в Бестиарии, за исключением того, что они не могут говорить, и их кора покрыта друидическими символами. Если любое существо, не иммунное к этому эффекту, заходит в защищаемую область, хранители рощи сражаются, пока не прогонят или не убьют вторженцев. <br>Хранители рощи также подчиняются вашим устным командам (действие не требуется), которые вы произносите в этой области. Если вы не даёте им команд, и в области нет незваных гостей, хранители рощи бездействуют. Хранители рощи не могут покинуть охраняемую область. Когда заклинание оканчивается, магия, оживляющая их, исчезает, и деревья снова укореняются, если это возможно. <br><b>Дополнительный эффект от заклинания.</b> Вы можете выбрать один из следующих магических эффектов в защищенной области:<br> <ul> <li>Постоянный порыв ветра [gust of wind] в двух местах по вашему выбору</li> <li>Шипы [spike growth] в одном месте по вашему выбору</li> <li>Стена ветров [wind wall] в двух местах по вашему выбору</li> Для существа, невосприимчивого к данному эффекту, ветры – это приятный легкий бриз, а шипы безвредны.",
+      "school": "ограждение",
+      "castingTime": "10 минут",
+      "range": "касание",
+      "components": "В,С,М",
+      "materials": "(омела, расходуемая заклинанием, которая была собрана золотым серпом под светом полной луны)",
+      "duration": "24 часа"
+    }
+  },
+  {
+    "en": {
+      "name": "ENEMIES ABOUND",
+      "level": "3",
+      "school": "enchantment",
+      "castingTime": "1 action",
+      "range": "120 fee",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "text": "You reach into the mind of one creature you can see and force it to make an Intelligence saving throw. A creature automatically succeeds if it is immune to being frightened. On a failed save, the target loses the ability to distinguish friend from foe, regarding all creatures it can see as enemies until the spell ends. Each time the target takes damage, it can repeat the saving throw, ending the effect on itself on a success. <br> Whenever the affected creature chooses another creature as a target, it must choose the target at random from among the creatures it can see within range of the attack, spell, or other ability it’s using. If an enemy provokes an opportunity attack from the affected creature, the creature must make that attack if it is able to.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Изобилие врагов",
+      "text": "Вы достигаете сознания одного существа, которое вы можете видеть, и заставляете его сделать спасбросок Интеллекта. Существо автоматически преуспевает, если оно невосприимчиво к испугу. В случае неудачного спасброска цель теряет способность отличать друзей от врагов, относясь ко всем существам, которых она может видеть, как к врагам, пока заклинание не закончится. Каждый раз, когда цель получает урон, она может повторить спасбросок, окончив эффект на себе при успехе. <br>Всякий раз, когда существо под действием заклинания выбирает другое существо в качестве цели, оно должно выбирать цель случайным образом среди существ, которых она может видеть в пределах дистанции атаки, заклинания или других способностей, которые она использует. Если враг провоцирует атаку от существа под действием заклинания, существо должно совершить эту атаку, если это возможно.",
+      "school": "очарование",
+      "castingTime": "1 действие",
+      "range": "120 футов",
+      "components": "В,С",
+      "duration": "Концентрация, вплоть до 1 минуты"
+    }
+  },
+  {
+    "en": {
+      "name": "ENERVATION",
+      "level": "5",
+      "school": "necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, Up to 1 minute",
+      "text": "tendril of inky darkness reaches out from you, touching a creature you can see within range to drain life from it. The target must make a Dexterity saving throw. On a successful save, the target takes 2d8 necrotic damage, and the spell ends. On a failed save, the target takes 4d8 necrotic damage, and until the spell ends, you can use your action on each of your turns to automatically deal 4d8 necrotic damage to the target. The spell ends ifyou use your action to do anything else, ifthe target is ever outside the spell’s range, or if the target has total cover from you. <br>Whenever the spell deals damage to a target, you re gain hit points equal to half the amount of necrotic damage the target takes. <br><b>At Higher Levels.<b> When you cast this spell using a spell slot of 6th level or higher, the damage increases by MB for each slot level above 5th.",
+      "source": "XGTE"
+    },
+    "ru": {
+      "name": "Обессиливание",
+      "text": "Из вас тянется отросток чернильной тьмы, касаясь существа, которое вы можете видеть в пределах дистанции, и вытягивая его жизненные силы. Цель должна совершить спасбросок Ловкости. При успешном спасброске цель получает 2к8 урона некротической энергией, и заклинание заканчивается. При неудачном спасброске цель получает 4к8 урона некротической энергией, и до тех пор, пока заклинание не закончится, вы можете в каждый свой ход действием наносить цели урон некротической энергией 4к8. Заклинание заканчивается, если вы используете свое действие, чтобы делать что-либо еще, если цель окажется за пределами дистанции заклинания или получит от вас полное укрытие. <br>Всякий раз, когда заклинание наносит урон цели, вы восстанавливаете хиты, равные половине количества урона некротической энергией, наносимого цели. <br><b>На более высоких уровнях.</b> Когда вы произносите это заклинание, используя ячейку заклинания 6 уровня или выше, урон увеличивается на 1к8 за каждый уровень ячейки выше 5.",
+      "school": "некромантия",
+      "castingTime": "1 действие",
+      "range": "60 футов",
+      "components": "В,С",
+      "duration": "Концентрация, вплоть до 1 минуты"
     }
   }
 ]
