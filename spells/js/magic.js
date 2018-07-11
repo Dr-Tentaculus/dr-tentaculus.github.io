@@ -471,7 +471,7 @@ window.onload = function(){
 		if (sName && sName!=='ritual' && sName!=='ритуал') {
 			sName = sName.toLowerCase().trim();
 			filteredSpells = filteredSpells.filter(function(spell){
-				return (spell.en.name.toLowerCase().trim().indexOf(sName)>=0 || (spell.ru && spell.ru.name.toLowerCase().trim().indexOf(sName)>=0));
+				return (spell.en.name.toLowerCase().trim().indexOf(sName)>=0 || (spell.ru && spell.ru.name.toLowerCase().trim().indexOf(sName)>=0) || (spell.ru && spell.ru.nic && spell.ru.nic.toLowerCase().trim().indexOf(sName)>=0));
 			});
 		}
 
