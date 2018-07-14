@@ -28,6 +28,16 @@ var oSources = {
         "title": "Гробница Аннигиляции"
       }
     }
+  },
+  "XGTE": {
+    "text": {
+      "en": {
+        "title": "Xanathar's Guide to Everything"
+      },
+      "ru": {
+        "title": "Справочник Занатара Обо Всем"
+      }
+    }
   }
 }
 var oTypes = {
@@ -5311,5 +5321,722 @@ var allItems = [
       "attunement": "(требует настройки чародеем, колдуном или волшебником)",
       "text": "Этот искривленный посох вырезан из кости, а навершием ему служит череп забытого архимага, уничтоженного Ацерераком давным-давно. На лбу у черепа вырезана руна Ацерерака, которая известна во многих мирах как символ смерти. <br> <b>Полезные свойства.</b> Покуда вы пользуетесь этим посохом, получаете следующие преимущества: <br> • Ваш Бонус Мастерства при проверке Интеллекта (Арканы и Истории) удваивается.<br> • Вы не можете быть ослеплены, очарованы, оглушены, напуганы, обездвижены или ошеломлены.<br> • Нежить с уровнем вызова 2 и ниже не может навредить вам, пока вы ее не атаковали.<br> • Посох можно использовать как оружие ближнего боя +3, которое наносит дополнительно 10(3d6) некротического урона при попадании. <br><b>Наложение проклятия.</b> У посоха есть 7 зарядов и он восстанавливает 1d4+3 ежедневно на рассвете. Если ы держите посох, действием можно потратить 1 заряд и выбрать целью видимое вам существо в пределах 60 футов от вас. Существо должно преуспеть в спасброске по  Телосложению (сложность спасброска от ваших заклинаний) или будет проклято. Проклятое таким образом существо не может восстанавливать хиты и получает уязвимость к некротическому урону. <a href='https://tentaculus.ru/spells/#q=greater_restoration'>Улучшенное восстановление</a>, <a href='https://tentaculus.ru/spells/#q=remove_curse'>снятие проклятия</a> или подобные заклинания снимают проклятие с цели. <br><b>Забытый</b> Бестелесная жизненная сила мертвого архимага дает силу посоху и его владельцу. Руна на черепе защищает Ацерерака от мести этого духа. Если ко-то помимо Ацерерака расходует заряды посоха, то есть 50% шанс что дух попытается захватить тело использующего посох. Владелец посоха должен преуспеть в спасброске по Харизме (сложность 20), в противном случае он становится одержим духом мертвого архимага и становится НПСом под управлением ДМа. Если одержимый становится целью заклинания <a href='https://tentaculus.ru/spells/#q=dispel_evil_and_good'>развеять зло и добро</a>, дух снова оказывается заперт в посох. Когда дух овладевает другим созданием, он пытается уничтожить посох. <br><b>Уничтожение посоха.</b> Владеющее посохом существо может действием сломать его о колено или любую твердую поверхность. Посох уничтожается и высвобождает оставшуюся магию во взрыве, который заполняет сферу радиусом 30 футов с центром на посохе. Каждое создание в сфере должносовершить спасбосок по Ловкости (сложность 18), получая 132 (24d10) урона силой при провале или половину при успехе. После уничтожения посоха дух Забытого освобождается и отправляется в загробную жизнь. Куда именно он отправляется можно только догадываться. Если бросить посох в Сферу Аннигиляции, и посох, и дух Забытого уничтожается, но взрыва не будет. Однако, в таком случае уничтожиться и Сфера."
     }
+  },
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{
+  "en": {
+   "name": "ARMOR 0E GLEAMING",
+	 "img": "ARMOR_OF_GLEAMING.jpg",
+   "type": "Armor",
+   "typeAdditions": "(any medium or heavy)",
+   "rarity": "1",
+   "text": "This armor never gets dirty.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Сверкающий доспех",
+   "text": "Этот доспех никогда не покрывается грязью."
   }
+ },
+ {
+  "en": {
+   "name": "BEAD OF NOURISHMENT",
+	 "img": "BEAD_OF_NOURISHMENT.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This spongy, flavorless, gelatinous bead dissolves onyour tongue and provides as much nourishment as 1 dayof rations.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Бусина насыщения",
+   "text": "Эта пористая безвкусная студенистая бусина растворяется у вас на языке и насыщает вас на 1 день."
+  }
+ },
+ {
+  "en": {
+   "name": "BEAD OF REERESHMENT",
+	 "img": "BEAD_OF_REERESHMENT.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This spongy, flavorless, gelatinous bead dissolves inliquid, transforming up to a pint of the liquid into fresh,cold drinking water. The head has no effect on magicalliquids or harmful substances such as poison.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Освежающая бусина",
+   "text": "Эта пористая безвкусная студенистая бусина растворяется в жидкости, превращая до пинты жидкости в свежую чистую холодную воду. Бусина не оказывает эффект на магические жидкости или опасные вещтва типа яда."
+  }
+ },
+ {
+  "en": {
+   "name": "BOOTS OF FALSE TRACKS",
+	 "img": "BOOTS_OF_FALSE_TRACKS.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "Only humanoids can wear these boots. While wearingthe boots, you can choose to have them leave tracks likethose of another kind of humanoid of your size.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Сапоги ложных следов",
+   "text": "Только гуманоиды могут носить эти сапоги. Когда выих носите, то можете их заставить оставлять следы других гуманоидов вашего размера."
+  }
+ },
+ {
+  "en": {
+   "name": "CANDLE OF THE DEEP",
+	 "img": "CANDLE_OF_THE_DEEP.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "The flame of this candle is not extinguished whenimmersed in water. It gives off light and heat like a normalcandle.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Свеча глубин",
+   "text": "Пламя этой свечи не гаснет при погружении в воду.<br>Она излучает свет и тепло как обычная свеча."
+  }
+ },
+ {
+  "en": {
+   "name": "CAST—OFF ARMOR",
+	 "img": "CAST_OFF_ARMOR.jpg",
+   "type": "Armor",
+   "typeAdditions": "(light, medium. or heavy)",
+   "rarity": 1,
+   "text": "You can doff this armor as an action.",
+	 "source": "XGTE"
+  },
+	"ru": {
+		"name": "Доспех быстрого снятия",
+		"text": "Вы можете снять этот доспех действием."
+	}
+ },
+ {
+  "en": {
+   "name": "CHARLATAN’S DIE",
+	 "img": "CHARLATANS_DIE.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "attunement": "(requires attunement)",
+   "text": "Whenever you roll this six—sided die, you can controlwhich number it rolls.",
+	 "source": "XGTE"
+  },
+	 "ru": {
+   "name": "Кость шарлатана",
+   "attunement": "(требует настройки)",
+   "text": "Когда вы бросаете эту 6-гранную кость, вы можетевыбрать, какой гранью она выпадет."
+  }
+ },
+ {
+  "en": {
+   "name": "CLOAK OF BILLOWING",
+	 "img": "CLOAK_OF_BILLOWING.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "While wearing this cloak, you can use a bonus action tomake it billow dramatically.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Развевающийся плащ",
+   "text": "Когда вы носите этот плащ, вы можете бонуснымдействием заставить его драматично развеваться."
+  }
+ },
+ {
+  "en": {
+   "name": "CLOAK OF MANY FASHIONS",
+	 "img": "CLOAK_OF_MANY_FASHIONS.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "While wearing this cloak, you can use a bonus action tochange the style, color, and apparent quality of the garment.<br>The cloak’s weight doesn’t change. Regardless ofits appearance, the cloak can’t be anything but a cloak.<br>Although it can duplicate the appearance of other magiccloaks, it doesn’t gain their magical properties.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Плащ множества стилей",
+   "text": "Когда вы носите этот плащ, вы можете бонуснымдействием заставить его изменить стиль, цвет ивидимое качество. Вес плаща не меняется. Независимо от внешнего вида, он может быть только плащом.<br>Хотя он может принимать вид других магическихплащей, их свойств он не получает."
+  }
+ },
+ {
+  "en": {
+   "name": "CLOCKWORK AMULET",
+	 "img": "CLOCKWORK_AMULET.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This copper amulet contains tiny interlocking gearsand is powered by magic from Mechanus, a plane ofclockwork predictability. A creature that puts an ear tothe amulet can hear faint ticking and whirring noisescoming from within.<br>When you make an attack roll while wearing the am—ulet, you can forgo rolling the d20 to get a 10 on the die.<br>Once used. this property can’t be used again until thenext dawn.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Механистический амулет",
+	 "img": "CHARLATANS_DIE.jpg",
+   "text": "Этот медный амулет содержит очень маленькиешестерёнки, находящиеся в постоянном движении изаряженные магией Механуса – плана механической предопределённости. Существо, которое прикладывает амулет к уху, может услышать тихое тиканье ишуршание шестерёнок.<br>Когда вы носите этот амулет и совершаете бросокатаки, вы можете не бросать к20 и просто выбрать значение 10 на кости. Это свойство нельзя использовать повторно до следующего рассвета."
+  }
+ },
+ {
+  "en": {
+   "name": "CLOTHES OF MENDING",
+	 "img": "CLOTHES_OF_MENDING.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This elegant outfit of traveler’s clothes magically mendsitself to counteract daily wear and tear. Pieces of the outfitthat are destroyed can’t be repaired in this way.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Самочинящаяся одежда",
+   "text": "Эта элегантная одежда путешественника волшебным образом восстанавливает износ и разрывы. Кускиткани, которые были уничтожены, не могут самостоятельно восстановиться."
+  }
+ },
+ {
+  "en": {
+   "name": "DARK SHARD AMULET",
+	 "img": "DARK_SHARD_AMULET.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "attunement": "(requires attunement by a wariock)",
+   "text": "This amulet is fashioned from a single shard of resilientextraplanar material originating from the realm of yourwarlock patron. While you are wearing it, you gain thefollowing benefits:<ul> <li>You can use the amulet as a spellcasting focus foryour warlock spells.</li><li>You can try to cast a cantrip that you don’t know. Thecantrip must be on the warlock spell list, and youmust make a DC 10 Intelligence (Arcana) check. If thecheck succeeds, you cast the spell. If the check fails, so does the spell, and the action used to cast the spellis wasted. In either case, you can’t use this propertyagain until you finish a long rest.</li></ul>",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Амулет тёмного осколка",
+   "nic": "Амулет темного осколка",
+   "attunement": "(требуется настройка колдуном)",
+   "text": "Этот амулет выполнен из цельного осколка упругого экстрапланарного материала, происходящего из царства покровителя вашего колдуна. Пока он надет навас, вы получаете следующие преимущества: <ul> <li>Вы можете использовать этот амулет как магическую фокусировку для своих заклинаний колдуна. </li><li>Вы можете попробовать сотворить заговор, которого не знаете. Этот заговор должен быть в списке заклинаний колдуна, и вы должны пройти проверку Интеллекта (Магия) Сл 10. При успехе вытворите заклинание. При провале и заклинание, идействие, которое было предназначено для сотворения заклинания, теряется. В любом случае вы неможете снова использовать это свойство, пока незавершите продолжительный отдых.</li></ul>"
+  }
+ },
+ {
+  "en": {
+   "name": "DREAD HELM",
+	 "img": "DREAD_HELM.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This fearsome steel helm makes your eyes glow redwhile you wear it.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Шлем ужаса",
+   "text": "Этот жуткий стальной шлем заставляет ваши глаза светиться красным, когда вы его носите."
+  }
+ },
+ {
+  "en": {
+   "name": "EAR HORN OF HEARING",
+	 "img": "EAR_HORN_OF_HEARING.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "While held up to your ear, this horn suppresses the ef—fects of the deafened condition on you, allowing you tohear normally.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Слуховой рог",
+   "text": "Будучи поднесённым к уху, этот рог подавляет на вас эффекты состояния оглохший и позволяет слышать нормально."
+  }
+ },
+ {
+  "en": {
+   "name": "ENDURING SPELLBOOK",
+	 "img": "ENDURING_SPELLBOOK.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This spellbook, along with anything written on itspages, can’t be damaged by fire or immersion in water.<br>In addition, the spellbook doesn't deteriorate with age.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Износостойкая книга заклинаний",
+   "text": "Эта книга заклинаний, включая все в ней записанное, не может быть повреждена огнём или погружением в воду. Кроме того, она не портится со временем."
+  }
+ },
+ {
+  "en": {
+   "name": "ERSATZ EYE",
+	 "img": "ERSATZ_EYE.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "attunement": "(requires attunement)",
+   "text": "This artificial eye replaces a real one that was lost orremoved. While the ersata eye is embedded in your eyesocket, it can’t be removed by anyone other than you,and you can see through the tiny orb as though it were anormal eye.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Запасной глаз",
+   "attunement": "(требует настройки)",
+   "text": "Этот искусственный глаз заменяет настоящий, который был потерян или удалён. Когда запасной глаз вставлен в глазницу, его не может удалить никто, кроме вас, и вы можете видеть сквозь этот крошечный шарик, как будто это обычный глаз."
+  }
+ },
+ {
+  "en": {
+   "name": "HAT OF VERMIN",
+	 "img": "HAT_OF_VERMIN.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This hat has 3 charges. While holding the hat, you canuse an action to expend 1 of its charges and speak acommand word that summons your choice ofa hat, afrog, or a rat (see the Player’s Handbook or the Monster<br>Manual for statistics). The summoned creature magicallyappears in the hat and tries to get away from youas quickly as possible. The creature is neither friendlynor hostile, and it isn’t under your control. It behaves asan ordinary creature of its kind and disappears after 1hour or when it drops to 0 hit points. The hat regains allexpended charges daily at dawn.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Шляпа вредителей",
+   "text": "У этой шляпы три заряда. Держа шляпу, вы можете действием потратить один заряд и произнести командное слово, которое по вашему выбору вызовет летучую <a href='https://tentaculus.ru/monsters/index.html#cr=0&q=bat'>мышь<a>, <a href='https://tentaculus.ru/monsters/index.html#cr=0&q=frog'>лягушку</a>  или <a href='https://tentaculus.ru/monsters/index.html#cr=0&q=rat'>крысу</a>.<br>Вызванное существо появляется в шляпе и пытается уйти от вас с максимально возможной скоростью.<br>Существо ни дружественно, ни враждебно, и не находится под вашим контролем. Оно ведёт себя как обычное существо своего вида и исчезает через 1 час или, когда его здоровье падает до 0. Шляпа восстанавливает израсходованные заряды ежедневно на рассвете."
+  }
+ },
+ {
+  "en": {
+   "name": "HAT OF WIZARDRY",
+	 "img": "HAT_OF_WIZARDRY.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "attunement": "(requires attunemenr by a Wizard)",
+   "text": "This antiquated, cone—shaped hat is adorned with goldcrescent moons and stars. While you are wearing it, yougain the following benefits:<ul><li>You can use the hat as a spellcasting focus for yourwizard spells.</li><li> You can try to cast a cantrip that you don’t know. Thecantrip must be on the wizard spell list, and you mustmake a DC 10 Intelligence (Arcana) check. If thecheck succeeds, you cast the spell. If the check fails,so does the spell, and the action used to cast the spellis wasted. In either case, you can’t use this propertyagain until you finish a long rest.</li></ul>",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Шляпа волшебства",
+   "attunement": "(необходима настройка волшебником)",
+   "text": "Эта старинная конусообразная шляпа украшена золотыми полумесяцами и звёздами. Пока она надетана вас, вы получаете следующие преимущества:<ul><li>Вы можете использовать эту шляпу как заклинательную фокусировку для своих заклинаний волшебника.</li><li>Вы можете попытаться сотворить заговор, которого не знаете. Заговор должен присутствоватьв списке заклинаний волшебника, и вы должны пройти проверку Интеллекта (Магия) Сл 10. При успехе вы творите заклинание. При провале и заклинание, и действие, которое было предназначено для сотворения заклинания, теряется. В любом случае вы не можете снова использовать этосвойство, пока не завершите продолжительныйотдых.</li></ul>"
+  }
+ },
+ {
+  "en": {
+   "name": "HEWARD’S HANDY SPICE POUCH",
+	 "img": "HEWARDS_HANDY_SPICE_POUCH.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This belt pouch appears empty and has 10 charges.<br>While holding the pouch, you can use an action to expendl of its charges, speak the name of any nonmagicalfood seasoning (such as salt, pepper, saffron, orcilantro), and remove a pinch of the desired seasoningfrom the pouch. A pinch is enough to season a singlemeal. The pouch regains 1d6 + 4 expended chargesdaily at dawn.",
+	 "source": "XGTE"
+  },
+	 "ru": {
+   "name": "Удобный мешочек специй Хеварда",
+   "text": "Этот мешочек пуст, и у него 10 зарядов. Держа егов руке, вы можете действием потратить один заряд,назвать любую немагическую пищевую приправу (например, соль, перец, шафран или кинза), и вытащитьщепотку приправы из мешочка. Щепотки достаточно, чтобы приправить одну порцию еды. Мешок ежедневно восстанавливает 1к6+4 потраченных зарядовна рассвете."
+  }
+ },
+ {
+  "en": {
+   "name": "HORN OF SILENT ALARM",
+	 "img": "HORN_OF_SILENT_ALARM.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This horn has 4 charges. When you use an action toblow it, one creature of your choice can hear the hornsblare, provided the creature is within 600 feet of thehorn and not deafened. No other creature hears soundcoming from the horn. The horn regains ld4 expendedcharges daily at dawn.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Рог беззвучного сигнала",
+   "text": "У этого рога 4 заряда. Когда вы используете действие, чтобы подуть в него, одно существо по вашему выбору может слышать трубный звук рога, при условии, что оно находится не более, чем в 600 футах от рога, и не оглохшее. Никакие другие существа не слышатзвук рога. Рог восстанавливает 1к4 потраченных зарядов ежедневно на рассвете."
+  }
+ },
+ {
+  "en": {
+   "name": "INSTRUMENT OF ILLUSIONS",
+	 "img": "INSTRUMENT_OF_ILLUSIONS.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "attunement": "(requires attunement)",
+   "text": "While you are playing this musical instrument, youcan create harmless, illusory visual effects within a5—foot—radius sphere centered on the instrument. Ifyou are a bard, the radius increases to 15 feet. Sample<br>Visual effects include luminous musical notes, a spec—tral dancer, butterflies, and gently falling snow. Themagical effects have neither substance nor sound, andthey are obviously illusory. The effects end when youstop playing.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Инструмент иллюзий",
+   "attunement": "(требует настройки)",
+   "text": "Когда вы играете на этом инструменте, вы можете создавать безвредные иллюзорные визуальные эффекты в пределах сферы радиусом 5 футов с центром на инструменте. Если вы бард, радиус возрастает до 15 футов. Примеры визуальных эффектов – светящиесяноты в воздухе, призрачная танцовщица, бабочки или медленно падающие хлопья снега. Магические эффекты неосязаемы и не издают звуков, кроме того, их иллюзорность очевидна. Эффекты заканчиваются, когда вы перестаёте играть."
+  }
+ },
+ {
+  "en": {
+   "name": "INSTRUMENT OF SGRIBING",
+	 "img": "INSTRUMENT_OF_SGRIBING.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "attunement": "(requires attunement)",
+   "text": "This musical instrument has 3 charges. While you areplaying it, you can use an action to expend 1 chargefrom the instrument and write a magical message ona nonmagical object or surface that you can see within30 feet of you. The message can be up to six words longand is written in a language you know. If you are a bard,you can scribe an additional seven words and chooseto make the message glow faintly, allowing it to be seenin nonmagical darkness. Casting dispel magic on themessage erases it. Otherwise, the message fades awayafter 24 hours.<br>The instrument regains all expended chargesdaily at dawn.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Инструмент надписей",
+   "attunement": "(требует настройки)",
+   "text": "У этого инструмента 3 заряда. Играя на нём, вы можете действием потратить один заряд инструмента, чтобы написать магическое послание на немагическом предмете или поверхности, которые вы можете видеть в пределах 30 футов от вас.<br>Послание не может превышать 6 слов и должно быть написано на известном вам языке. Если вы бард, то можете увеличить длину сообщения ещё на 7 слов, и по вашему выбору слова могут слабо светиться, что позволит прочесть их в немагической темноте.<br>Применение заклинания <a href='https://tentaculus.ru/spells/index.html#q=dispel_magic'>рассеивание магии</a> на слова стирает их. В противном случае сообщение пропадает через 24 часа.<br>Инструмент восстанавливает все потраченные заряды ежедневно на рассвете."
+  }
+ },
+ {
+  "en": {
+   "name": "LOCK OF TRICKERY",
+	 "img": "LOCK_OF_TRICKERY.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This lock appears to be an ordinary lock (of the typedescribed in chapter 5 of the Player’s Handbook) andcomes with a single key. The tumblers in this lock magi.-cally adjust to thwart burglars. Dexterity checks made topick the lock have disadvantage.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Плутовской замок",
+   "text": "Этот замок выглядит как обычный замок (описанныйв главе 5 Книги игрока), и к нему прилагается один ключ. Внутренний механизм замка магическим образом двигается, чтобы предотвратить попытки взлома. Проверки Ловкости с целью вскрыть этот замок совершаются с помехой."
+  }
+ },
+ {
+  "en": {
+   "name": "MOON—TOUCHED SWORD",
+	 "img": "MOON_TOUCHED_SWORD.jpg",
+   "type": "Weapon",
+   "typeAdditions": "(any sword)",
+   "rarity": 1,
+   "text": "In darkness, the unsheathed blade of this sword. shedsmoonlight, creating bright light in a 15-foot radius anddim light for an additional 15 feet.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Осенённый луной меч",
+   "text": "В темноте обнажённое лезвие этого меча излучает лунный свет, создавая яркий свет в радиусе 15 футови тусклый свет в радиусе ещё 15 футов."
+  }
+ },
+ {
+  "en": {
+   "name": "MYSTERY KEY",
+	 "img": "MYSTERY_KEY.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "A question mark is worked into the head of this key. Thekey has a 5 percent chance of unlocking any lock intowhich it’s inserted. Once it unlocks something, the keydisappears.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Таинственный ключ",
+   "text": "Головка этого ключа выполнена в виде вопросительного знака. Существует шанс 5%, что ключ откроет любой замок, в который был вставлен. Однажды открыв что либо, ключ пропадает."
+  }
+ },
+ {
+  "en": {
+   "name": "ORB OF DIRECTION",
+	 "img": "ORB_OF_DIRECTION.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "While holding this orb, you can use an action to determinewhich way is north. This property functions onlyon the Material Plane.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Сфера направления",
+   "text": "Держа эту сферу, вы можете действием определить направление на север. Это свойство работает только на материальном плане."
+  }
+ },
+ {
+  "en": {
+   "name": "ORB OF TIME",
+	 "img": "ORB_OF_TIME.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "While holding this orb, you can use an action to determinewhether it is morning, afternoon, evening, ornighttime outside. This property functions only on the<br>Material Plane.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Сфера времени",
+   "text": "Держа эту сферу, вы можете использовать действиемопределить время суток на улице (утро, день, вечерили ночь). Это свойство работает только на материальном плане."
+  }
+ },
+ {
+  "en": {
+   "name": "PERFUME OF BEWITCHING",
+	 "img": "PERFUME_OF_BEWITCHING.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This tiny vial contains magic perfume, enough for oneuse. You can use an action to apply the perfume to yourself,and its effect lasts 1 hour. For the duration, youhave advantage on all Charisma checks directed at humanoidsof challenge rating 1 or lower. Those subjectedto the perfume’s effect are not aware that they’ve beeninfluenced by magic.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Духи очарования",
+   "nic": "Парфюм очарования",
+   "text": "Этот крошечный пузырёк содержит магический парфюм в количестве, достаточном для одного использования. Действием вы можете нанести парфюм насебя, и его эффект будет длиться один час. В течение этого времени вы совершаете все проверки Харизмы, направленные на гуманоидов с рейтингом опасности 1 и ниже, с преимуществом. Те, на кого воздействует эффект парфюма, не понимают, что подверглись воздействию магии."
+  }
+ },
+ {
+  "en": {
+   "name": "PIPE OF SMOKE MONSTERS",
+	 "img": "PIPE_OF_SMOKE_MONSTERS.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "While smoking this pipe, you can use an action to exhalea puff of smoke that takes the form of a single crea—ture, such as a dragon, a flumph, or a froghemoth. Theform must be small enough to fit in a 1-foot cube andloses its shape after a few seconds, becoming an ordinarypuff of smoke.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Трубка дымных монстров",
+   "text": "Куря эту трубку, вы можете действием выдохнуть облако дыма, которое принимает форму одного существа, например, дракона, фламфа или лягемота. Эта форма должна быть достаточно маленькой, чтобы уместиться в 1-футовый куб, и теряет очертания спустя несколько секунд, превращаясь в обычное облако дыма."
+  }
+ },
+ {
+  "en": {
+   "name": "POLE OF ANGLING",
+	 "img": "POLE_OF_ANGLING.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "While holding this 10—foot pole, you can speak a commandword and transform it into a fishing pole with ahook, a line, and a reel. Speaking the command wordagain changes the fishing pole back into a normal10—foot pole.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Шест рыболовства",
+   "text": "Держа этот 10-футовый шест, вы можете произнести командное слово и трансформировать его в врыболовную удочку с крючком, леской и поплавком.<br>Повторное произнесение слова снова превращает егов 10-футовый шест."
+  }
+ },
+ {
+  "en": {
+   "name": "POLE OF COLLAPSING",
+	 "img": "POLE_OF_COLLAPSING.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "While holding this 10—foot pole, you can use an actionto speak a command word and cause it to collapse intoa l-foot-long rod, for ease of storage. The poles weightdoesn’t change. You can use an action to speak a differentcommand word and cause the rod to revert to apole; however, the rod will elongate only as far as thesurrounding space allows.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Складной шест",
+   "text": "Держа этот 10-футовый шест, вы можете действием произнести командное слово и сложить шест в 1-футовый жезл для удобства хранения. Вес шеста не меняется. Вы можете действием произнести другое командное слово и заставить жезл снова превратиться в шест, однако шест удлинится только настолько, насколько позволяет окружающее пространство."
+  }
+ },
+ {
+  "en": {
+   "name": "POT OF AWAKENING",
+	 "img": "POT_OF_AWAKENING.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "lf you plant an ordinary shrub in this lO-pound clay potand let it grow for 30 days, the shrub magically transformsinto an awakened shrub (see the Monster Manualfor statistics) at the end of that time. When the shrubawakens, its roots break the pot, destroying it.The awakened shrub is friendly toward you. Absentcommands from you, it does nothing.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Горшок пробуждения",
+   "text": "Если вы посадите обычный куст в этот 10-фунтовый глиняный горшок и будете выращивать его в течение 30 дней, к концу этого времени куст магическим образом превратится в <a href='https://tentaculus.ru/monsters/index.html#q=Awakened_Shrub'>Пробуждённый куст</a>. При пробуждении кустломает корнями горшок, уничтожая его.<br>Пробуждённый куст дружественен к вам. Куст ничего не делает в отсутствие команд от вас."
+  }
+ },
+ {
+  "en": {
+   "name": "ROPE OF MENDING",
+	 "img": "ROPE_OF_MENDING.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "You can cut this 50-foot coil of hempen rope into anynumber of smaller pieces, and then use an action tospeak a command word and cause the pieces to knitback together. The pieces must be in contact with eachother and not otherwise in use. A rope ofmending is forevershortened if a section of it is lost or destroyed.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Срастающаяся верёвка",
+   "text": "Вы можете разрезать этот 50-футовый моток верёвки на любое количество частей, а затем действием сказать командное слово и заставить их соединиться обратно. Части должны соприкасаться друг с другоми не должны использоваться в данный момент. Срастающаяся верёвка навсегда укорачивается если её часть потеряна или уничтожена."
+  }
+ },
+ {
+  "en": {
+   "name": "RUBY OF THE WAR MAGE",
+	 "img": "RUBY_OF_THE_WAR_MAGE.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "attunement": "(requires attunement by a speilcaster)",
+   "text": "Etched with eldritch runes, this l—inch-diameter rubyallows you to use a simple or martial weapon as a spell—casting focus for your spells. For this property to work,you must attach the ruby to the weapon by pressing theruby against it for at least 10 minutes. Thereafter, theruby can’t be removed unless you detach it as an actionor the weapon is destroyed. Not even an antimagic fieidcauses it to fall off. The ruby does fall off the weapon ifyour attunement to the ruby ends.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Рубин боевого мага",
+   "attunement": "(требуется настройка заклинателем)",
+   "text": "Испещрённый магическими рунами, этот рубин диаметром 1 дюйм позволяет использовать простое или воинское оружие в качестве магической фокусировки. Чтобы это сделать, вы должны прикрепить рубин к оружию, прижимая его к оружию не менее 10 минут. После этого удалить рубин можно будет только действием или уничтожив оружие. Даже преград амагии не заставит его отсоединиться. Рубин падает с оружия, если ваша настройка на него оканчивается."
+  }
+ },
+ {
+  "en": {
+   "name": "SHIELD OF EXPRESSION",
+	 "img": "SHIELD_OF_EXPRESSION.jpg",
+   "type": "Armor",
+   "typeAdditions": "(shie1d)",
+   "rarity": 1,
+   "text": "The front of this shield is shaped in the likeness of aface. While bearing the shield, you can use a bonus ac—tion to alter the faces expression.",
+	 "source": "XGTE"
+  },
+	"ru": {
+		"name": "Щит экспрессии",
+		"text": "Передняя сторона щита имеет форму лица. Когда вы носите щит, вы можете бонусным действием поменять выражение лица."
+	}
+ },
+ {
+  "en": {
+   "name": "SMOLDERING ARMOR",
+	 "img": "PERFUME_OF_BEWITCHING.jpg",
+	 "img": "SMOLDERING_ARMOR.jpg",
+   "type": "Armor",
+   "typeAdditions": "(any)",
+   "rarity": 1,
+   "text": "Wisps of harmless, odorless smoke rise from this armorwhile it is worn.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Дымящий доспех",
+   "text": "Когда этот доспех надет, он источает клубы не имеющего запаха безвредного дыма."
+  }
+ },
+ {
+  "en": {
+   "name": "STAFF OF ADORNMENT",
+	 "img": "STAFF_OF_ADORNMENT.jpg",
+   "type": "Staff",
+   "rarity": 1,
+   "text": "If you place an object weighing no more than 1 pound(such as a shard of crystal, an egg, or a stone) abovethe tip of the staff while holding it, the object floats aninch from the staff’s tip and remains there until it isremoved or until the staff is no longer in your possession.<br>The staff can have up to three such objects floatingover its tip at any given time. While holding the staff,you can make one or more of the objects slowly spin orturn in place.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Посох украшения",
+   "text": "Если вы размещаете объект, весящий не более 1 фунта (такой как осколок кристалла, яйцо или камень)выше навершия посоха, пока держите его, объект поднимается на дюйм от навершия посоха и остаётсятам до тех пор, пока не будет перемещён или пока посох находится у вас. Посох может одновременно удерживать до трёх таких объектов плавающими надего навершием. Пока вы держите посох, вы можете заставить один из объектов медленно вращаться или изменить своё местоположение."
+  }
+ },
+ {
+  "en": {
+   "name": "STAFF OF BIRDCALLS",
+	 "img": "STAFF_OF_BIRDCALLS.jpg",
+   "type": "Staff",
+   "rarity": 1,
+   "text": "This wooden staff is decorated with bird carvings. It has10 charges. While holding it, you can use an action toexpend 1 charge from the staff and cause it to create oneof the following sounds out to a range of 60 feet: a finch’schirp, a raven's caw, a duck’s quack, a chicken’s cluck, agoose‘s book, a loon’s call, a turkey’s gobble, a seagull’scry, an owl’s hoot, or an eagle’s shriek.<br>The staff regains 1d6 + 4 expended charges daily atdawn. If you expend the last charge, roll a d20. On a 1,the staff explodes in a harmless cloud of bird feathersand is lost forever.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Посох птичьего щебета",
+   "text": "Этот деревянный посох украшен резьбой в видептиц. У него 10 зарядов. Держа посох, вы можете действием потратить один заряд и создать на расстоянии до 60 футов один из следующих звуков: чириканье вьюрка, карканье ворона, кряканье утки, кудахтанье курицы, гогот гуся, клич гагары, кулдыканье индюка, плач чайки, уханье совы или крик орла.<br>Посох ежедневно восстанавливает 1к6 +4 зарядана рассвете. Если вы потратили последний заряд,бросьте к20. Если выпадет 1, посох взрывается безвредным облаком птичьих перьев и пропадает навсегда."
+  }
+ },
+ {
+  "en": {
+   "name": "STAFF OF FLOWERS",
+	 "img": "STAFF_OF_FLOWERS.jpg",
+   "type": "Sraflf commo",
+   "rarity": 1,
+   "text": "This wooden staff has 10 charges. While holding it, youcan use an action to expend 1 charge from the staff andcause a flower to sprout from a patch of earth or soilwithin 5 feet of you, or from the staff itself. Unless youchoose a specific kind of flower, the staff creates a mildscenteddaisy. The flower is harmless and nonmagical,and it grows or withers as a normal flower would.<br>The staff regains 1d6 + 4 expended charges daily atdawn. Ifyou expend the last charge, roll a d20. On a 1,the staff turns into flower petals and is lost forever.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Посох цветов",
+   "text": "У этого деревянного посоха 10 зарядов. Держа посох, вы можете действием потратить один заряд. Пробуждённый силой посоха цветок вырастет на почве или грязи в пределах 5 футов от вас или на самом посохе. Если вы не выбрали тип цветка, посох создаёт маргаритку с лёгким запахом. Цветок безвредный и немагический. Он растёт и увядает как обычныйцветок.<br>Посох ежедневно восстанавливает 1к6 +4 зарядана рассвете. Если вы потратили последний заряд, бросьте к20. Если выпадет 1, посох превращается в лепестки цветов и пропадает навсегда."
+  }
+ },
+ {
+  "en": {
+   "name": "TALKING DOLL",
+	 "img": "TALKING_DOLL.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "attunement": "(requires attunement)",
+   "text": "While this stuffed doll is within 5 feet of you, you canspend a short rest telling it to say up to six phrases, noneof which can be more than six words long, and set a con—dition under which the doll speaks each phrase. You canalso replace old phrases with new ones. Whatever thecondition, it must occur within 5 feet of the doll to makeit speak. For example, whenever someone picks up thedoll, it might say, “I want a piece of candy.” The doll’sphrases are lost when your attunement to the doll ends.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Говорящая кукла",
+   "attunement": "(требуется настройка)",
+   "text": "Пока кукла находится в пределах 5 футов от вас, вы можете во время короткого отдыха сказать ей до шести фраз, ни одна из которых не может быть длиннее шести слов, и установить условия, при которых кукла будет говорить каждую фразу. Каким бы ни было условие, оно должно совершиться в пределах 5 футов от куклы, чтобы она заговорила. Например, когда кто-то поднимет куклу, она может сказать: «Я хочу конфетку». Фразы куклы теряются, когда ваша настройка на неё заканчивается."
+  }
+ },
+ {
+  "en": {
+   "name": "TANKARD OF SOBRIETY",
+	 "img": "TANKARD_OF_SOBRIETY.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "This tankard has a stern face sculpted into one side. Youcan drink ale, wine, or any other nonmagical alcoholicbeverage poured into it without becoming inebriated.<br>The tankard has no effect on magical liquids or harmfulsubstances such as poison.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Кружка трезвости",
+   "text": "На одной стороне этой кружки изображено суровое лицо. Вы можете пить из этой кружки эль, вино или любой другой немагический алкоголь и не пьянеть.<br>Кружка не оказывает никакого эффекта на магический алкоголь и вредные вещества, такие как яд."
+  }
+ },
+ {
+  "en": {
+   "name": "UNBREAKABLE ARROW",
+	 "img": "UNBREAKABLE_ARROW.jpg",
+   "type": "Weapon",
+   "typeAdditions": "(arrow)",
+   "rarity": 1,
+   "text": "This arrow can’t be broken, except when it is within anantjmag'ic‘ field.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Несломимая стрела",
+   "text": "Эта стрела не может быть сломана, кроме как в области антимагии."
+  }
+ },
+ {
+  "en": {
+   "name": "VETERAN’S CANE",
+	 "img": "VETERANS_CANE.jpg",
+   "type": "Wondrous item",
+   "rarity": 1,
+   "text": "When you grasp this walking cane and use a bonus actionto speak the command word, it transforms into anordinary longsword and ceases to be magical.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Трость ветерана",
+   "text": "Когда вы перехватываете эту трость и бонусным действием произносите командное слово, трость превращается в обычный длинный меч и перестаёт быть магической."
+  }
+ },
+ {
+  "en": {
+   "name": "WALLOPING AMMUNITION",
+	 "img": "WALLOPING_AMMUNITION.jpg",
+   "type": "Weapon",
+   "typeAdditions": "(any ammunition)",
+   "rarity": 1,
+   "text": "This ammunition packs a wallop. A creature hit by theammunition must succeed on a DC 10 Strength savingthrow or be knocked prone.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Опрокидывающий боеприпас",
+   "text": "Существо, в которое попал такой боеприпас, должно преуспеть в спасброске Силы со Сл 10, иначе будет сбито с ног."
+  }
+ },
+ {
+  "en": {
+   "name": "WAND OF CONDUCTING",
+	 "img": "WAND_OF_CONDUCTING.jpg",
+   "type": "Wand",
+   "rarity": 1,
+   "text": "This wand has 3 charges. While holding it, you can usean action to expend 1 of its charges and create orches—tral music by waving it around. The music can be heardout to a range of 60 feet and ends when you stop wavingthe wand.<br>The wand regains all expended charges daily at dawn.<br>If you expend the wand’s last charge, roll a d20. On a1, a sad tuba sound plays as the wand crumbles to dustand is destroyed.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Дирижёрская палочка",
+   "text": "У этой волшебной палочки 3 заряда. Если вы её держите, вы можете действием потратить 1 заряд,чтобы создать оркестровую музыку, размахивая ею. Музыку слышно на расстоянии 60 футов, и она заканчивается, когда вы перестанете размахивать палочкой.<br>Палочка ежедневно восстанавливает все заряды на рассвете. Если вы потратили последний заряд,бросьте к20. Если выпадет 1, играет грустный тромбон, а палочка рассыпается в пыль и уничтожается."
+  }	
+ },
+ {
+  "en": {
+   "name": "WAND OF PYROTECHNICS",
+	 "img": "WAND_OF_PYROTECHNICS.jpg",
+   "type": "Wand",
+   "rarity": 1,
+   "text": "This wand has 7 charges. While holding it, you can usean action to expend 1 of its charges and create a harmlessburst of multicolored light at a point you can seeup to 60 feet away. The burst of light is accompaniedby a crackling noise that can be heard up to 300 feetaway. The light is as bright as a torch flame but lastsonly a second.<br>The wand regains 1d6 + 1 expended charges daily atdawn. Ifyou expend the wand’s last charge, roll a d20.<br>On a 1, the wand erupts in a harmless pyrotechnic displayand is destroyed.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Палочка пиротехники",
+   "text": "У этой волшебной палочки 7 зарядов. Если вы её держите, вы можете действием потратить 1 заряд, чтобы создать безвредную разноцветную вспышку света в точке в пределах 60 футов. Эта вспышка сопровождается потрескивающим шумом, слышимымна расстоянии 300 футов. Свет такой же яркий, какпламя факела, но длится всего секунду.<br>Палочка ежедневно восстанавливает все 1к6+1 заряд на рассвете. Если вы потратили последний заряд, бросьте к20. Если выпадет 1, палочка взрывается безвредным пиротехническим всполохом и уничтожается."
+  }
+ },
+ {
+  "en": {
+   "name": "WAND OF SCOWLS",
+	 "img": "WAND_OF_SCOWLS.jpg",
+   "type": "Wand",
+   "rarity": 1,
+   "text": "This wand has 3 charges. While holding it, you can usean action to expend 1 of its charges and target a human—oid you can see within 30 feet of you. The target mustsucceed on a DC 10 Charisma saving throw or be forcedto scowl for 1 minute.<br>The wand regains all expended charges daily at dawn.<br>If you expend the wand’s last charge, roll a d20. On a 1,the wand transforms into a wand of smiles.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Палочка хмурых взглядов",
+   "text": "У этой волшебной палочки 3 заряда. Если вы её держите, вы можете действием потратить 1 заряд и выбрать в качестве цели гуманоида, которого видите впределах 30 футов. Цель должна преуспеть в спасброске Харизмы со Сл 10, иначе она будет хмуриться 1 минуту.<br>Палочка восстанавливает все заряды на рассвете.<br>Если вы потратили последний заряд, бросьте к20.<br>Если выпадет 1, палочка превращается в Палочку улыбок."
+  }
+ },
+ {
+  "en": {
+   "name": "WAND OF SMILES",
+	 "img": "WAND_OF_SMILES.jpg",
+   "type": "Wand",
+   "rarity": 1,
+   "text": "This wand has 3 charges. While holding it, you can use an action to expend 1 of its charges and target a humanoid you can see within 30 feet of you. The target must succeed on a DC 10 Charisma saving throw or be forced to smile for 1 minute. <br>The wand regains all expended charges daily at dawn. If you expend the wand’s last charge, roll a d20. On a 1, the wand transforms into a wand ofscowls.",
+	 "source": "XGTE"
+  },
+	"ru": {
+   "name": "Палочка улыбок",
+   "text": "У этой волшебной палочки 3 заряда. Если вы её держите, вы можете действием потратить 1 заряд и выбрать в качестве цели гуманоида, которого видите впределах 30 футов. Цель должна преуспеть в спасброске Харизмы со Сл 10, иначе она будет улыбаться 1минуту.<br>Палочка восстанавливает все заряды на рассвете.<br>Если вы потратили последний заряд, бросьте к20.<br>Если выпадет 1, палочка превращается в Палочку хмурых взглядов."
+  }
+ }
 ]

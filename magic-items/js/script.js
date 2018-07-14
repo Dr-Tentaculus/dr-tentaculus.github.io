@@ -352,7 +352,7 @@ window.onload = function(){
             "</div>"+
             s_coast+ 
             '<span class="sf_text"> <i class="fa fa-info-circle" aria-hidden="true"></i></span>'+
-						"<div class='source' title=\"Источник: "+ s_source+"\">"+ s_source+"</div>"+
+						"<div class='source' title=\"Источник: "+ oSources[s_source].text[lang].title+"\">"+ s_source+"</div>"+
 					'</div>'+
 				'</div>'+
 			'</div>';
@@ -401,7 +401,11 @@ window.onload = function(){
 		if (sName) {
 			sName = sName.toLowerCase().trim();
 			filteredItems = filteredItems.filter(function(Item){
-				return (Item.en.name.toLowerCase().trim().indexOf(sName)>=0 || (Item.ru && Item.ru.name.toLowerCase().trim().indexOf(sName)>=0));
+				return (
+					(Item.en.name.toLowerCase().trim().indexOf(sName)>=0) || 
+					(Item.ru && Item.ru.name.toLowerCase().trim().indexOf(sName)>=0) ||
+					(Item.ru && Item.ru.nic && Item.ru.nic.toLowerCase().trim().indexOf(sName)>=0)					
+					);
 			});
 		}
 
