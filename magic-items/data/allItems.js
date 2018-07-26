@@ -895,13 +895,13 @@ var allItems = [
       "type": "Wondrous item",
       "rarity": 2,
       "attunement": "(requires attunement)",
-      "text": "While wearing this brooch, you have resistance to force damage, and you have immunity to damage from the <a href='https://tentaculus.ru/spells/#q=magic_missilel'>magic missile</a> spell.",
+      "text": "While wearing this brooch, you have resistance to force damage, and you have immunity to damage from the <a href='https://tentaculus.ru/spells/#q=magic_missile'>magic missile</a> spell.",
       "source": "DMG",
       "img": "BROOCH_OF_SHIELDING.jpg"
     },
     "ru": {
       "name": "Брошь защиты",
-      "text": "Пока вы носите эту брошь, вы обладаете сопротивлением к урону силовым полем и иммунитетом к урону от заклинания <a href='https://tentaculus.ru/spells/#q=magic_missilel'>волшебная стрела</a>.",
+      "text": "Пока вы носите эту брошь, вы обладаете сопротивлением к урону силовым полем и иммунитетом к урону от заклинания <a href='https://tentaculus.ru/spells/#q=magic_missile'>волшебная стрела</a>.",
       "attunement": "(требуется настройка)"
     }
   },
