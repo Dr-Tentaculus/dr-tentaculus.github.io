@@ -4,6 +4,7 @@ var oConfig = {}; // global app config data
 function setConfig(prop, val) {
 	if(prop && val != undefined && oConfig) {
 		oConfig[prop] = val;
+		if(oConfig.oInitiativeTrackerData.list[0].id == undefined) debugger;
 		localStorage.setItem("config", JSON.stringify(oConfig));
 	}
 }
@@ -231,6 +232,7 @@ window.onload = function(){
     oData.initiative = oItem.find(".initiative").text();
     oData.ico = oItem.find(".ico").attr('data-ico');
     oData.color = oItem.find(".ico_bord").attr('data-color');
+    oData.id = oItem.find(".name").attr('data-id');
     
     return oData;
   }
