@@ -1,5 +1,7 @@
 var TENTACULUS_APP_VERSION = "1.0.0";
 
+var bNextClickable = true; 
+
 var oConfig = {}; // global app config data
 function setConfig(prop, val) {
 	if(prop && val != undefined && oConfig) {
@@ -360,6 +362,7 @@ window.onload = function(){
           saveData();
           makeDraggable();
           setSeparators();
+					bNextClickable = true;
         }
       )
     } else {
@@ -476,8 +479,10 @@ window.onload = function(){
     return false;
   });
   $(".manageButtons").on("click", "#nextOne", function(){
-		
-    chooseNext();
+		if(bNextClickable) {
+			bNextClickable = false;
+			chooseNext();
+		}
     return false;
   });
   $(".wrap").on("click", ".minus", function(){
