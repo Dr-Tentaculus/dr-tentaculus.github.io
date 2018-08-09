@@ -366,6 +366,30 @@ window.onload = function(){
 			alert("Сначала добавьте кого-нибудь через 'плюсик'");
 		}
   }
+	
+	function sortItems(){
+		function sort_li(a, b){
+			return (Number($(b).find('.initiative').text()) > Number($(a).find('.initiative').text())) ? 1 : -1;    
+		}
+		if($("#allOnes .place").length > 0){
+			var nSelectedI = Number($("#selectedOne").find(".initiative").text());
+			var aItems = $("#allOnes .place").sort(sort_li);
+			var aIndexes = [];
+			aItems.each(
+				function(){
+					aIndexes.push(Number($(this).find('.initiative').text()))
+				}
+			)
+			var aNewItems = aItems.splice(0, aIndexes.findIndex(function(n){return n<nSelectedI;}))
+			//$("#allOnes .place").sort(sort_li).appendTo('#allOnes'); 
+			//onListReordered();
+			//aNewItems.concat(aItems).appendTo('#allOnes');
+			$('#allOnes').append(aItems);
+			$('#allOnes').append(aNewItems);
+		} else {
+			alert("Сначала добавьте кого-нибудь через 'плюсик'");
+		}
+	}
   
   function getDataFromView(){
     var oData = {};
@@ -387,7 +411,7 @@ window.onload = function(){
   function makeDraggable(){
     var list = document.getElementById("allOnes");
     Sortable.create(list, {
-      handle: ".place",
+      handle: ".ico_bord",
       ghostClass: "ghost",
       dragClass: "drag",
       onEnd: onListReordered
@@ -446,7 +470,12 @@ window.onload = function(){
     return q.getTime()
   }
   
-  $("#manageButtons").on("click", "#nextOne", function(){
+  $(".manageButtons").on("click", "#sortItems", function(){
+		
+    sortItems();
+    return false;
+  });
+  $(".manageButtons").on("click", "#nextOne", function(){
 		
     chooseNext();
     return false;
@@ -478,6 +507,13 @@ window.onload = function(){
     var oData = getItemData(nIndex);
     showAddWin(oData, nIndex);    
   });
+  $("body").on("taphold", ".wrap .place", function(){
+    var nIndex = $(this).index(".place");
+    //alert(nIndex);
+    var oData = getItemData(nIndex);
+    showAddWin(oData, nIndex);    
+  });
+
   
   $("body").on('click', ".bApplay", function(){
     var sName = $("#sWinName").val();

@@ -798,13 +798,13 @@ table td:first-child {
   min-height: 8rem;
   overflow: hidden;
 }
-#manageButtons {
+.manageButtons {
   display: flex;
   border-radius: 0.5rem;
   overflow: hidden;
   margin: 1.6rem 0.5rem;
 }
-#manageButtons #prevOne {
+.manageButtons .mButton {
   padding: 0.9rem;
   background: #777;
   color: #ddd;
@@ -812,26 +812,17 @@ table td:first-child {
   font-weight: bold;
   display: block;
 }
-#manageButtons #prevOne:hover {
+.manageButtons .mButton:hover {
   background: #5e5e5e;
 }
-#manageButtons #prevOne:active {
+.manageButtons .mButton:active {
   background: #444444;
 }
-#manageButtons #nextOne {
-  padding: 0.9rem;
-  background: #777;
-  color: #ddd;
-  text-decoration: none;
-  font-weight: bold;
-  display: block;
+.manageButtons #sortItems {
+  flex-grow: 55;
+}
+.manageButtons #nextOne {
   flex-grow: 99;
-}
-#manageButtons #nextOne:hover {
-  background: #5e5e5e;
-}
-#manageButtons #nextOne:active {
-  background: #444444;
 }
 .place {
   margin: 0;

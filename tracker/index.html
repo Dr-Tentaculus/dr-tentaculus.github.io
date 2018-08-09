@@ -4,7 +4,7 @@
   <title>Трекер инициативы</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=0.8">
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=0.9">
   <meta name="description" content="Трекер инициативы">
   <link href="../_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="favicon.ico" />
@@ -34,11 +34,11 @@
         
       </div>
       
-      <div id='manageButtons'>
+      <div id='manageButtons' class='manageButtons'>
         <!-- <a href='#' id='prevOne'> -->
           <!-- Предыдущий -->
-        <!-- </a>       -->
-        <a href='#' id='nextOne'>
+        <!-- </a>       -->   
+        <a href='#' id='nextOne' class='mButton'>
           Следующий
         </a>    
       </div>
@@ -46,6 +46,15 @@
       <ul id='allOnes'>
 
       </ul>
+			
+      <div id='subManageButtons' class='manageButtons'>
+        <!-- <a href='#' id='prevOne'> -->
+          <!-- Предыдущий -->
+        <!-- </a>       -->
+        <a href='#' id='sortItems' class='mButton'>
+          Отсортировать
+        </a>      
+      </div>
     </div>
     
     <div class='pageColumn'>
@@ -61,7 +70,7 @@
         </p>
         
         <p>
-          Двойной клик по элементу откроет окно с настройками, теми же, что и при добавлении. Так же элементы можно переставлять, зажав левой кнопкой мыши.
+          Двойной клик (длинный тап на телефоне) по элементу откроет окно с настройками, теми же, что и при добавлении. Так же элементы можно переставлять, зажав иконку левой кнопкой мыши.
         </p>
         
         <p>
@@ -80,8 +89,8 @@
 	</div>
 
   <script type='text/javascript' src='../_js/jquery-1.11.3.min.js'></script>
-  <!-- <script type='text/javascript' src='https://tentaculus.ru/_js/jquery.mobile.custom.min.js' defer></script> -->
-  <script type='text/javascript' src='js/script.js?v=0.41' defer></script>
+  <script type='text/javascript' src='https://tentaculus.ru/_js/jquery.mobile.custom.min.js' defer></script>
+  <script type='text/javascript' src='js/script.js?v=0.42' defer></script>
   <script type='text/javascript' src='js/Sortable.js'></script><!-- Sortable Drag'n'Drop-->
 <!--   <script type='text/javascript' src='https://tentaculus.ru/items/js/update.js' defer></script> -->
 <!-- Yandex.Metrika counter -->
