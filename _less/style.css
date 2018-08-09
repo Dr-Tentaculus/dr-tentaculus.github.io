@@ -723,6 +723,10 @@ a:hover {
   background-color: #62352d;
   background-image: url('../whoopee/img/t1.jpg');
 }
+.cont .initiative {
+  background-color: #3d3b47;
+  background-image: url('../tracker/img/f1.jpg');
+}
 .cont .topography {
   background-color: #361c33;
   background-image: url('../topography/img/f1.jpg');
