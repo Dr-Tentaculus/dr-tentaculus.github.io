@@ -105,6 +105,7 @@
         color: @d-gray;
         cursor: default;
         font-weight: normal;
+				 .outLinks();
     }
     .bCloseInfoWin{
         position: absolute;
@@ -119,6 +120,16 @@
             color: rgba(0,0,0,.4);
         }
     }
+}
+.artifProp{
+		margin: 0.3rem;
+		padding: 0.6rem;
+		cursor: pointer;
+		transition: background .2s;
+		
+		/* &:hover{ */
+			/* background: fade(@color, 50%); */
+		/* } */
 }
 
 #dbg{
@@ -136,7 +147,7 @@
     cursor: pointer;
 }
 #infoWin{
-    
+   
 }
 .filterLabel{
     width: 100%;

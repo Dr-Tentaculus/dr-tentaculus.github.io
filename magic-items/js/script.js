@@ -18,7 +18,14 @@ function getConfig(prop) {
 function randd(min, max) {
   return Math.floor(arguments.length > 1 ? (max - min + 1) * Math.random() + min : (min + 1) * Math.random());
 };
-
+function shuffle(o){
+	if (o) {
+		if ((o.length == undefined || typeof o != 'object'))
+		  return [0];
+		for(var j, x, k = o.length; k; j = Math.floor(Math.random() * k), x = o[--k], o[k] = o[j], o[j] = x);
+	}
+    return o;
+};
 window.onload = function(){
 	var fCtrlIsPressed = false;
 
@@ -281,6 +288,22 @@ window.onload = function(){
     return aReturn.join(", ");
 	}
 
+	function prepareRandomProps(sText){
+		var sButton = "<button class='randomPropButton'>🎲</button>";
+		
+		sText = sText.replace(/((\d) мал[а-я]+ положитель[а-я]+ свойст[а-я]+)/ig, "<span data-count='$2' data-kind='minorBenefit' class='randomProp'>$1</span> "+sButton+"");
+		sText = sText.replace(/((\d) основ[а-я]+ положитель[а-я]+ свойст[а-я]+)/ig, "<span data-count='$2' data-kind='majorBenefit' class='randomProp'>$1</span> "+sButton+"");
+		sText = sText.replace(/((\d) мал[а-я]+ отрицатель[а-я]+ свойст[а-я]+)/ig, "<span data-count='$2' data-kind='minorDetrim' class='randomProp'>$1</span> "+sButton+"");
+		sText = sText.replace(/((\d) основ[а-я]+ отрицатель[а-я]+ свойст[а-я]+)/ig, "<span data-count='$2' data-kind='minorDetrim' class='randomProp'>$1</span> "+sButton+"");
+		
+		sText = sText.replace(/((\d) minor beneficial propert[a-z]+)/ig, "<span data-count='$2' data-kind='minorBenefit' class='randomProp'>$1</span> "+sButton+"");
+		sText = sText.replace(/((\d) major beneficial propert[a-z]+)/ig, "<span data-count='$2' data-kind='majorBenefit' class='randomProp'>$1</span> "+sButton+"");
+		sText = sText.replace(/((\d) minor detrimental propert[a-z]+)/ig, "<span data-count='$2' data-kind='minorDetrim' class='randomProp'>$1</span> "+sButton+"");
+		sText = sText.replace(/((\d) major detrimental propert[a-z]+)/ig, "<span data-count='$2' data-kind='minorDetrim' class='randomProp'>$1</span> "+sButton+"");
+		
+		return sText;
+	}
+	
 	function createCard(oItem, lang, sLockedItem, sView) {
 		if (oItem[lang] || (lang="en", oItem[lang])) {
 			var o = oItem[lang];
@@ -292,7 +315,7 @@ window.onload = function(){
 			var s_attunement = getItemAttr(oItem, "attunement", lang);
       var s_typeAdditions = getItemAttr(oItem, "typeAdditions", lang);
 			var s_notes = getItemAttr(oItem, "notes", lang);
-			var s_text = getItemAttr(oItem, "text", lang).split("<br>").map(item => "<p>"+item+"</p>").join("");
+			var s_text = prepareRandomProps(getItemAttr(oItem, "text", lang).split("<br>").map(item => "<p>"+item+"</p>").join(""));
 			var s_source = getItemAttr(oItem, "source", "en");
 			var s_sourcePage = getItemAttr(oItem, "sourcePage", lang);
       var fText = (sView == 'text');
@@ -510,6 +533,7 @@ window.onload = function(){
 	}
 
 	function filterItems(oParams){
+		if(!(oParams && oParams.fIgnoreFilters == true)){
 		 var sName = $("#NameInput input").val();
 		 var aTypes = $("#TypeCombobox .combo_box_title").attr("data-val");
 		 var aRarity = $("#RarityCombobox .combo_box_title").attr("data-val");
@@ -522,7 +546,7 @@ window.onload = function(){
 		 var fRandom = (oParams && oParams.fRandom == true)? true: false;
      
 		 var fHidden = (aHiddenItems.length>0)? true: false;
-
+		}
 		setConfig("language", sLang);
 		setConfig("view", sView);
 		//setConfig("schoolOpen", $("#SchoolCombobox").attr("data-content-open"));
@@ -1297,41 +1321,84 @@ window.onload = function(){
 	});
 
   // show/hide card info
-  $("body").on("click", ".sf_text", function(){
-    // var oInfo =  $(this).parent().find(".info");
-    
-    // if(oInfo.hasClass("show")) {// hide      
-      // oInfo.removeClass("show");
-    // } else {// show      
-      // oInfo.addClass("show");
-    // }
-    
+  $("body").on("click", ".sf_text", function(){      
     var sInfo = $(this).parent().find(".text").html();
     var sName = $(this).parent().find("h1").html();
 		showDBG();
 		showInfoWin("<h1>"+sName+"</h1>"+sInfo);
 		return false;
-    
-    
-    //return false;
   });
 
   // get random item
-  $("body").on("click", "#bRandom", function(){
-    //filterItems({fRandom: true}); // filteredItems
-    // if(!/&random\b/.test(window.location.hash)) {
-      // var sHash = window.location.hash + "&random";// aFilters.join("&");
-      // window.location.hash = sHash;
-    // }
-    //$("#NameInput input").val("");
-    //var sName = filteredItems[0, randd(0, filteredItems.length-1)].en.name.toLowerCase();
-    //$("#NameInput input").val(sName).focusout();
-    //updateHash();
+  $("body").on("click", "#bRandom", function(){   
     $("#NameInput input").val("");
     getHash({fRandom: true});
     return false;
   });
-
+	
+	// get random artefakt prop
+	$("body").on("click", ".randomPropButton", function(){
+		var oButton = $(this);
+		var oText = oButton.prev(".randomProp");
+		var nCount = oText.attr('data-count');
+		var sKind = oText.attr('data-kind');
+		var sLang = $("#LangSelect .label").attr("data-selected-key");
+		var aProps = [], aSource=[];
+		switch(sKind) {
+			case "minorBenefit":
+				aSource = shuffle(aMinorBeneficial[sLang]);		
+				break;
+			case "majorBenefit": 
+				aSource = shuffle(aMajorBeneficial[sLang]);
+				break;
+			case "minorDetrim": 
+				aSource = shuffle(aMinorDetrimenal[sLang]);
+				break;
+			case "majorDetrim": 
+				aSource = shuffle(aMajorDetrimental[sLang]);
+				break;
+		}
+		for(var i=0; i<nCount; i++) {
+			aProps.push(aSource[i]);
+		}
+		oText.html(aProps.join("<br>"));
+	});
+	// get random artefakt prop list
+	$("body").on("click", ".randomProp", function(){
+		var oText = $(this);
+		var sKind = oText.attr('data-kind');
+		var sLang = $("#LangSelect .label").attr("data-selected-key");
+		var aSource = [];
+		var sName="";
+		
+		switch(sKind) {
+			case "minorBenefit":
+				aSource = aMinorBeneficial[sLang];
+				sName= sLang=="ru"? "Малые положительные свойства" : "Minor Beneficial";				
+				break;
+			case "majorBenefit": 
+				aSource = aMajorBeneficial[sLang];
+				sName= sLang=="ru"? "Основные положительные свойства" : "Major Beneficial";			
+				break;
+			case "minorDetrim": 
+				aSource = aMinorDetrimenal[sLang];
+				sName= sLang=="ru"? "Малые отрицательные свйоства" : "Minor Detrimenal";			
+				break;
+			case "majorDetrim": 
+				aSource = aMajorDetrimental[sLang];
+				sName= sLang=="ru"? "Основные отрицательные свйоства" : "Major Detrimental";			
+				break;
+		}
+		
+		showDBG();
+		var sInfo = "<ul>"+aSource.map(function(el){return "<li class='artifProp'>"+el+"</li>";}).join("")+"</ul>";
+		showInfoWin("<h1>"+sName+"</h1>"+sInfo);
+	});
+	// select artefakt prop
+	$("body").on("click", ".artifProp", function(){
+		
+	});
+	
 // url filters
 	function updateHash() {
 		// text
@@ -1386,11 +1453,11 @@ window.onload = function(){
     var sHash = window.location.hash.slice(1); // /archive#q=Item_name
     sHash = decodeURIComponent(sHash);
     if(oParams || sHash && !/[^А-Яа-яЁё\w\d\/&\[\]?|,_=-]/.test(sHash)) {
-      var sName = (oParams && oParams.fRandom==true)? "" :sHash.match(/\bq=([А-Яа-яЁё\/\w\d_]+)/);
+      var sName = (oParams && oParams.fRandom==true)? "" :sHash.match(/\bq=([А-Яа-яЁё\/\w\d_-]+)/);
 
-      var sLang = sHash.match(/\blang=([\w]+)/);
-      var sView = sHash.match(/\bview=([\w]+)/);
-      var sSort = sHash.match(/\bsort=([\w_]+)/);
+      var sLang = sHash.match(/\blang=([\w]+)/) || ["","ru"];
+      var sView = sHash.match(/\bview=([\w]+)/) || ["","text"];
+      var sSort = sHash.match(/\bsort=([\w_]+)/) || ["","rarity_alpha"];
 
       var sRarities = sHash.match(/\brarity=([\w,]+)/);
       var sTypes = sHash.match(/\btype=([\w,]+)/);
@@ -1400,11 +1467,13 @@ window.onload = function(){
 
       if(sName && sName[1]) {
       	$("#NameInput input").val(sName[1].replace(/[_]+/g," "));
-      }
+      } else {
+				$("#NameInput input").val("");
+			}
 
       if(sLang && sLang[1]) {
       	$("#LangSelect .label").attr("data-selected-key", sLang[1]).html($("#LangSelect li[data-key='"+sLang[1]+"']").text().replace(/[_]+/g," "));
-      }
+      } 
       if(sView && sView[1]) {
       	$("#CardViewSelect .label").attr("data-selected-key", sView[1]).html($("#CardViewSelect li[data-key='"+sView[1]+"']").text().replace(/[_]+/g," "));
       }
@@ -1423,7 +1492,11 @@ window.onload = function(){
       		}
       	});
       	$("#SourceCombobox .combo_box_title").attr("data-val", sSources[1].replace("_", " "))
-      }
+      } else {
+				$("#SourceCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
+      	$("#SourceCombobox .combo_box_title").attr("data-val", "")
+			}
+			
       if(sRarities && sRarities[1]) {
       	var aRarities = sRarities[1].replace("_", " ").split(",");
 
@@ -1435,10 +1508,14 @@ window.onload = function(){
       		}
       	});
       	$("#RarityCombobox .combo_box_title").attr("data-val", sRarities[1].replace("_", " "))
-      }
+      } else {
+				$("#RarityCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
+				$("#RarityCombobox .combo_box_title").attr("data-val", "")
+			}
+			
       if(sTypes && sTypes[1]) {
       	var aTypes = sTypes[1].replace("_", " ").split(",");
-        ////$("#TypeCombobox .combo_box_title").attr("data-val")
+				
       	$("#TypeCombobox .combo_box_content input[type='checkbox']").each(function(){
       		if(aTypes.indexOf($(this).val())>-1) {
       			$(this).prop('checked', true);
@@ -1447,7 +1524,10 @@ window.onload = function(){
       		}
       	});
       	$("#TypeCombobox .combo_box_title").attr("data-val", sTypes[1].replace("_", " "))
-      }
+      } else {
+				$("#TypeCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
+				$("#TypeCombobox .combo_box_title").attr("data-val", "")
+			}
 
       // if(sLang && sLang[1]) {
       // 	$("#LangSelect .label").attr("data-selected-key", sLang[1]).html($("#LangSelect li[data-key='"+sLang[1]+"']").html().replace("<br>", " | "));
@@ -1466,6 +1546,7 @@ window.onload = function(){
   }
   //window.onhashchange = getHash;
 
+window.onhashchange = getHash;
 // /url filters
 
 

@@ -257,20 +257,7 @@
       background: @white;
       line-height: normal;
 
-      a{
-        font-style: italic;
-        text-decoration: none;
-        color: darken(@color, 15%);
-        border-bottom: 1px fade(@color, 0%) dashed;
-        transition: border 0.2s;
-        &:hover{
-          //color: @color;
-          border-bottom: 1px @color dashed;
-        }
-        &:visited{
-          color: darken(@color, 15%);
-        }
-      }
+			.outLinks();
 
       .scrollbars(5px, @m-gray, @l-gray);
 
