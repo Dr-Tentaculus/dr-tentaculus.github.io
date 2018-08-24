@@ -1394,6 +1394,10 @@ window.onload = function(){
 		var sInfo = "<ul>"+aSource.map(function(el){return "<li class='artifProp'>"+el+"</li>";}).join("")+"</ul>";
 		showInfoWin("<h1>"+sName+"</h1>"+sInfo);
 	});
+	
+	$("body").on("click", ".randomProp a", function(oEvent){
+		oEvent.stopPropagation();
+	});
 	// select artefakt prop
 	$("body").on("click", ".artifProp", function(){
 		
