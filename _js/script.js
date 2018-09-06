@@ -20,6 +20,7 @@
 		}
 		return sUserId;
 	}
+	
 	function getViewPortSize(mod) {
 		var viewportwidth;
 		var viewportheight;
@@ -52,6 +53,7 @@
 		
 		return viewportwidth + "~" + viewportheight;
 	}
+	
 	function hideMenu(){
 		if(getViewPortSize("width")<767){
 			$("#main_menu").hide();
@@ -60,9 +62,26 @@
 		}
 	}
 	
-	hideMenu();
-	getUserId();
+	function user_message(sUser){
+		function show(sText){
+			if($("#user_mess").length==0) {
+				$("#content").before("<div id='user_mess' style='font-size: 90%; color: #666; padding: 0.5em; background: #e7f2ff; border-radius: 3px; '>"+sText+"</div>");
+			}
+			$("#user_mess").eq(0).html(sText);
+		}
+		var o={
+			"c1dbe942-d010-1069-22d8-63d30a18324b": {
+				text: "Совет. Если хочется сохранить результаты работы генератора или набор в каталоге, нажмите [Ctrl]+[P] или выберете 'Печать' через меню браузера и там выберите печать в PDF. В полученном файле будет информация о таврне.<br>Удобнее всего это делать через Chrome - там наглядно показывается, каким получится файл."
+			}
+		}
+		if(o[sUser]) {
+			show(o[sUser].text);
+		}
+	}
 	
+	hideMenu();
+	var sUser = getUserId();
+	user_message(sUser);
 	
 $(document).ready(function(){
 	
@@ -137,8 +156,19 @@ $(document).ready(function(){
 	});
 	///
 	
+	// print url
+	function add_printUrl(){
+		var sUrl = window.location.href;
+		var sTitle = document.title;
+		var oTag = $("#page_url");
+		if(oTag.length>0) {
+			oTag.html(sTitle+"<br>"+sUrl);
+		}
+	}
+	
 	hideMenu();
 	addMoneyForm();
+	//add_printUrl();
 });	
 	
 $(window).load(function(){
