@@ -1,4 +1,4 @@
-$(window).load(function(){  
+$(document).ready(function(){
 
   /*
    * get hash 
@@ -10,7 +10,7 @@ $(window).load(function(){
       var sTags = sHash.match(/q=([\w\d]+)/);
       if(sTags && sTags[1]) {
         filterLists(sTags[1]);
-        showClerFilter();
+        showClerFilter(sTags[1]);
       } else {
         $('html, body').animate({
           scrollTop: $("#"+sHash).offset().top
@@ -18,7 +18,7 @@ $(window).load(function(){
       }
     } else {
       removeHash();
-      hideClerFilter();
+      hideClearFilter();
     }     
   }
   
@@ -29,16 +29,17 @@ $(window).load(function(){
       {console.dir(err);}
     return false;
   }
-  function showClerFilter(){
+  function showClerFilter(sTag){
     $("h1, h2").each(function(){
       if($(this).find("a.clearFilter").length < 1) {
         $(this).append("<a href='/archive' class='clearFilter'>Очистить фильтр</a>")
       } else {
         $(this).find("a.clearFilter").show();
       }
+			$(this).find("a.clearFilter").text("Убрать фильтр '"+sTag+"'");
     });
   }
-  function hideClerFilter(){
+  function hideClearFilter(){
     $("a.clearFilter").hide();
   }
   
@@ -83,17 +84,13 @@ $(window).load(function(){
   $(".clearFilter").live('click', function(){
     removeHash();
     filterLists("");
-    hideClerFilter();
+    hideClearFilter();
     return false;
   });
   $(".tag").live('click', function(){
     var sURL = window.location.href; // "https://tentaculus.ru/archive/#q=DnD
     var sHash =  /#([\w\d_=,&-]+)/.exec($(this).attr('href'))[1];
     if(!/\/archive\/[\w\d_]+/.testsURL) {
-      //var sTag = $(this).text();
-
-      //filterLists(sTag);
-      //showClerFilter();
       window.location.hash = sHash;
       return false;
     }
@@ -102,10 +99,6 @@ $(window).load(function(){
     var sURL = window.location.href; // "https://tentaculus.ru/archive/#q=DnD
     var sHash =  /#([\w\d_=,&-]+)/.exec($(this).attr('href'))[1];
     if(!/\/archive\/[\w\d_]+/.testsURL) {
-      //var sTag = $(this).text();
-
-      //filterLists(sTag);
-      //showClerFilter();
       window.location.hash = sHash;
       return false;
     }
