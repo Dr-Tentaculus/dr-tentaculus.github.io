@@ -180,16 +180,18 @@ $(window).load(function(){
 				var h = c.height = i.height;
 				c.getContext('2d').drawImage(i, 0, 0, w, h);
 				var ctx = c.getContext('2d');
+				var c_cent_x = ~~(w/2);
+				var c_cent_y = ~~(h/2);
 				ctx.fillStyle = "rgba(220,220,220, 0.0)";
 				ctx.strokeStyle = "rgba(220,220,220, 0.6)";;//"rgba(40,40,40, 0.8)";
 				ctx.lineWidth = 25;
 				ctx.lineJoin = "round";
 				ctx.lineCap="round"
 				ctx.beginPath();
-				ctx.moveTo(60,50);
-				ctx.lineTo(25,75);
-				ctx.lineTo(25,25);
-				ctx.lineTo(60,50);	
+				ctx.moveTo(c_cent_x+20,c_cent_y+10);//ctx.moveTo(60,50);
+				ctx.lineTo(c_cent_x-15,c_cent_y+35);//ctx.lineTo(25,75);
+				ctx.lineTo(c_cent_x-15,c_cent_y-15);//ctx.lineTo(25,25);
+				ctx.lineTo(c_cent_x+20,c_cent_y+10);//ctx.lineTo(60,50);	
 				ctx.stroke();
 				ctx.fill();		
 				ctx.shadowBlur=10;
@@ -203,11 +205,13 @@ $(window).load(function(){
 					} catch(err){
 						console.log("Error: gif image click")
 					}
+					return false;
 				};
 				c.onclick = function(oEvent){
 					var с = this;
 					c.parentNode.firstChild.style.display = 'inline-block';
 					c.style.display = 'none';
+					return false;
 				};
 				// try {
 					// i.src = c.toDataURL("image/gif"); // if possible, retain all css aspects
@@ -216,8 +220,11 @@ $(window).load(function(){
 				// }
 				
 				for (var j = 0, a; a = i.attributes[j]; j++){
+					if(a.name!=='width' && a.name!='height' && a.name!='title'){
 						c.setAttribute(a.name, a.value);
+					}
 				}
+				c.setAttribute("title", "Запустить gif");
 			   // i.parentNode.replaceChild(c, i);
 				i.style.display = 'none';
 				i.style.cursor = 'pointer';
