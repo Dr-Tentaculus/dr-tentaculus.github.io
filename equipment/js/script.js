@@ -350,7 +350,7 @@ window.onload = function(){
 			// weight
 			var s_weight = getItemAttr(oItem, "weight", lang);
 			if(s_weight){
-        s_weight = "<div class='weight'>, вес: "+s_weight+" "+((lang == "ru")? "фнт.":"lb.")+"</div>";
+        s_weight = "<div class='weight'>вес: "+s_weight+" "+((lang == "ru")? "фнт.":"lb.")+"</div>";
       }
 			
 			// weapon props
@@ -377,7 +377,8 @@ window.onload = function(){
         oRarity[oItem.en.rarity] && oRarity[oItem.en.rarity].coast ||
         "";
       if(s_coast){
-        s_coast = "<div class='coast'><div class='coin'>"+s_coast+"</div></div>";
+        //s_coast = "<div class='coast'><div class='coin'>"+s_coast+"</div></div>";
+        s_coast = "<div class='coast'>"+s_coast+"</div>";
       }
       try{
         
@@ -410,7 +411,7 @@ window.onload = function(){
       var sImg = fText? "" :'style="background-image: url('+s_img+');"';
       //s_text = fText? s_text.split("<br>").map(item => "<p>"+item+"</p>").join(""): s_text;
 
-			ret = '<div class="cardContainer '+(fText? "textView " : "") + sLockedItem +  +'" '+ style +' data-name="' + oItem.en.name + '"  data-name-ru="' + oItem.ru.name + '"  data-lang="' + lang + '">'+
+			ret = '<div class="cardContainer '+(fText? "textView " : "") + sLockedItem +'" '+ style +' data-name="' + oItem.en.name.trim() + '"  data-name-ru="' + oItem.ru.name + '"  data-lang="' + lang + '">'+
 				'<div class="ItemCard">'+
 					'<div class="content" '+sImg+'>'+
             bLockItem +
@@ -424,6 +425,9 @@ window.onload = function(){
 							s_damage +
 							"<div class='sub'>"+
 								s_props + 
+							"</div>" +
+							"<div class='sub' style='display: flex; justify-content: space-between'>"+
+								s_coast+ s_weight + 
 						"</div></div>"+
             "<div class='info'>"+
               oImg+
