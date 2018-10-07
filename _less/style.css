@@ -751,6 +751,10 @@ a:hover {
   background-color: #836e32;
   background-image: url('../magic-items/img/og.jpg');
 }
+.cont .equipment {
+  background-color: #955e40;
+  background-image: url('../equipment/img/og.jpg');
+}
 .cont .names {
   background-color: #384a4c;
   background-image: url('../names/img/og_hor2.jpg');

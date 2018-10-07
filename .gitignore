@@ -6,10 +6,9 @@ _php/*
 /DnD5_charlist/
 /fate/*
 /hackerman/
-/messgae/*
+/message/*
 node_modules/*
 /tavern-map/*
-/message/
 
 /archive/.git*
 /archive/.git/
