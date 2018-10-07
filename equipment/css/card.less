@@ -1,0 +1,453 @@
+@mainColor: #000;//#e01a10;
+@radius: 5px;
+@bgwhite: rgba(255,255,255,0.7);
+.row{
+    float: none;
+    clear: both;
+    &:before, &:after{
+        content:"";
+        .clear();
+    }
+    
+    .cell{
+        float: left;
+        width: 50%;  
+    }
+}
+#lockedItemsArea{
+    margin-bottom: .3em;
+    position: relative;
+    
+    .topHeader, .bottomHeader, .bUnlockAll{
+        font-weight: 600;
+       // display: block;
+        padding: .2em;
+        text-shadow: 0 0 4px rgba(255,255,255,.9);
+        background: rgba(255,255,255,.5);
+        color: @d-gray;
+        border-radius: .1em;
+    }
+    .bUnlockAll{
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        
+        &:hover{
+            background: rgba(255,255,255,.7);
+        }
+    }
+    .topHeader{
+        cursor: pointer;        
+        &:hover{
+            background: rgba(255,255,255,.7);
+        }
+        &:before{
+            content: "Закрепленные предметы "
+        }
+        
+    }
+    .bottomHeader{
+        &:before{
+            content: "Каталог предметов "
+        }
+        
+    }
+    .content{
+        margin-bottom: .3em;
+    }
+    .bHideItem{
+        display: none;
+    }
+}
+.ItemContainer {
+  position: relative;
+  &:before {
+    content: attr(data-itemcount) !important;
+    position: absolute;
+    padding: .1em;
+    top: 0;
+    right: 1.9em;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+.cardContainer{
+    page-break-inside: avoid;
+    width: 2.5in;
+    margin-right: 1px;
+    margin-top: 1px;
+    float: left;
+
+		.ac, .props, .damage{
+			display: block;
+			padding: 0.1em 0.9em;
+		}
+		.weight{
+			margin-left: .2em;
+		}
+		.bottomPanel{
+			position: absolute;
+      text-align: center;
+      bottom: 2rem;
+      right: 1.4rem;
+      left: 1.4rem;
+			
+			display: flex; 
+		}
+    &.textView{
+      float: none;
+      width: auto;
+      max-width: 90rem;
+      margin: 0 auto;
+      .ItemCard {
+        height: auto;
+        //background: @mainColor;
+        //border: 2px solid @mainColor;
+        border-width: 3px;
+        position: relative;
+        color: @m-gray - #111;
+        margin-bottom: 1.5rem;
+
+        .content{
+          position: relative;
+          min-height: 19rem;
+          background-image: none;
+         // background-position: right top;
+        }
+        .header_info{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          border-bottom: 1px solid @mainColor;
+
+          div, h1{
+            margin-right: 0.5rem;
+            margin-left: 0.1rem;
+          }
+          .subtitle{
+            margin-left: 1.4rem;
+            margin-right: 1.4rem;
+            text-align: left;
+          }
+        }
+
+        .info{
+          display: block;
+          margin-top: 0;
+          padding: 0.9em;
+          margin-bottom: 2rem;
+          padding-bottom: 0;
+          max-height: 900rem;
+          line-height: 140%;
+        }
+				
+        .text{
+          max-height: 555rem;
+          display: block;
+        }
+        .sf_text{
+          display: none;
+        }
+        .img{
+          display: inline;
+          float: right;
+          max-height: 19rem;
+        }
+        .coast{
+          position: relative;
+          text-align: left;
+        }
+      }
+    }
+}
+
+.ItemCard{
+    height: 3.5in;
+    background: @mainColor;
+    border: 9px solid @mainColor;
+    //border-bottom-width: 25px;
+    //overflow: hidden;
+    position: relative;
+    color: @m-gray - #111;
+
+    &.selected{
+        transform: scale(0.94);
+        outline: 5px rgba(250,250,250,.8) solid;
+        transition: outline .2s;
+        &:hover{
+            outline-color: @color;
+        }
+    }
+
+    .bHideItem, .bLockItem, .bUnlockItem{
+        position: absolute;
+        top: -.1em;
+        color: @l-gray;
+        cursor: pointer;
+        transition: color .3s;
+
+        &:hover{
+            color: @color + #222;
+        }
+        &:active{
+            color: @color;
+        }
+    }
+    .bHideItem{
+        right: .1em;
+    }
+    .bLockItem, .bUnlockItem{
+        left: .1em;
+    }
+    &:hover{
+      .sf_text{
+        opacity: 0.4;
+      }
+    }
+    .content{
+        border-radius: @radius;
+        background: @white;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+
+        background-repeat: no-repeat;
+        background-position: center center /*5em*/;
+        background-size: contain;
+    }
+    .header_info{
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+    }
+    .bottom_info{
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+			position: absolute;
+			bottom: 1em;
+			left: 0;
+			right: 0;
+			text-align: center;
+      background: @bgwhite;
+    }
+		.sub{
+			font-size: 90%;
+		}
+    h1{
+        font-size: 95%;
+        margin: 0;
+        padding: 0;
+        padding-left: .9em;
+        padding-right: .9em;
+        text-align: center;
+        text-transform: uppercase;
+        background: @bgwhite;
+        // border-bottom: 2px solid @mainColor;
+    }
+    .subtitle{
+        text-align: center;
+        background: @bgwhite;
+    }
+    .coast{
+      /*position: absolute;
+      text-align: center;
+      bottom: 2rem;
+      right: 1.4rem;
+      left: 1.4rem;*/
+      text-shadow: 0 -1px 1px @white,
+        1px -1px 1px @white,
+        1px 0px 1px @white,
+        1px 1px 1px @white,
+        0 1px 1px @white,
+        -1px 1px 1px @white,
+        -1px 0px 1px @white;
+      //padding: 0 0 1em 0;
+    }
+
+    .info{
+      //font-size: 75%;
+      margin-top: auto;
+      margin-bottom: 1.6rem;
+      //margin-bottom: 1.5em;
+      overflow-y: auto;
+      color: @black;
+      //z-index: 99;
+      display: none;
+      //flex-shrink: 99;
+      //flex-grow: 99;
+      background: @white;
+      line-height: normal;
+
+			.outLinks();
+
+      .scrollbars(5px, @m-gray, @l-gray);
+
+      &.show{
+        display: block;
+        border-top: 1px solid @l-gray;
+        .text{
+          max-height: 555rem;
+          display: block;
+        }
+        //.sf_text{
+        //  position: absolute;
+        //  bottom: 0;
+        //}
+      }
+    }
+    .text{
+      max-height:0;// 11rem;
+      padding: 2px;
+    }
+    .img{
+      display: none;
+    }
+    .sf_text{
+      color: @m-gray;
+      cursor: pointer;
+      opacity: 0;
+      text-align: center;
+      transition: opacity 0.2s, color 0.3s;
+      display: inline-block;
+      //margin-bottom: 1.3em;
+      //margin-left: 0.3em;
+      font-size: 250%;
+      background: @bgwhite;
+      z-index: 99;
+      width: 1.5em;
+      border: 1px solid @m-gray;
+      border-radius: 50%;
+      //transform: rotate(45deg);
+      position: absolute;
+      right: 0.0em;
+      bottom: 0.0em;
+      &:hover{
+        color: @color;
+        opacity: 1;
+      }
+
+    }
+    .sizeButtonsContainer{
+        position: absolute;
+        bottom: 0;
+        left: .1em;
+        right: .1em;
+        display: flex;
+        flex-direction: row;
+        align-content: stretch;
+        justify-content: space-between;
+        .textMin, .textMax{
+            padding: 0 .5em;
+            font-size: 120%;
+            //color: @d-gray;
+            //opacity: 0.3;
+            color: @l-gray - #111;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.2s;
+            &:hover{
+                color: @color;
+            }
+        }
+    }
+    .source{
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+        left: 4rem;
+        right: 4rem;
+        font-size: 90%;
+        font-weight: bold;
+        color: darken(@l-gray, 10%);
+    }
+}
+
+.lockedItem{
+    .bLockItem{
+        color: @black;
+        text-shadow: 0 0 2px @color;
+    }
+}
+
+.common{
+  @mainColor: #607d8b;
+    .ItemCard{
+        background-color: @mainColor;
+        border-color: @mainColor;
+    }
+  &.textView{
+    h1{
+      color: @mainColor;
+    }
+  }
+}
+.uncommon{
+  @mainColor: #8bc34a;
+    .ItemCard{
+        background-color: @mainColor;
+        border-color: @mainColor;
+    }
+  &.textView{
+    h1{
+      color: @mainColor;
+    }
+  }
+}
+.rare{
+  @mainColor: #03a9f4;
+    .ItemCard{
+        background-color: @mainColor;
+        border-color: @mainColor;
+    }
+  &.textView{
+    h1{
+      color: @mainColor;
+    }
+  }
+}
+.very_rare{
+  @mainColor: #9c27b0;
+    .ItemCard{
+        background-color: @mainColor;
+        border-color: @mainColor;
+    }
+  &.textView{
+    h1{
+      color: @mainColor;
+    }
+  }
+}
+.legendary{
+  @mainColor: #ffc107;
+  .ItemCard {
+    background-color: @mainColor;
+    border-color: @mainColor;
+  }
+  &.textView{
+    h1{
+      color: @mainColor;
+    }
+  }
+}
+.artifact{
+  @mainColor: #795548;
+  .ItemCard {
+    background-color: @mainColor;
+    border-color: @mainColor;
+  }
+  &.textView{
+    h1{
+      color: @mainColor;
+    }
+  }
+}
+
