@@ -19,6 +19,11 @@ node_modules/*
 /magic-items/.git*
 /magic-items/node*
 
+/equipment/.git*
+/equipment/node*
+/equipment/.gitattributes
+/equipment/.gitignore
+
 /monsters/.git*
 
 /names/.git/
