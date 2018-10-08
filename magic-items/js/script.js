@@ -1221,7 +1221,7 @@ window.onload = function(){
 			$('.cardContainer').width(width);
 			setConfig("cardWidth", width);
 		}
-
+		return false;
 	});
 	$("body").on("click", ".cardWidthMax", function() {
 		var width;
@@ -1238,6 +1238,7 @@ window.onload = function(){
 			$('.cardContainer').width(width);
 			setConfig("cardWidth", width);
 		}
+		return false;
 	});
 	$("body").on("click", ".cardWidthNorm", function() {
 		var width = "2.5in";
@@ -1250,6 +1251,7 @@ window.onload = function(){
 			$('.cardContainer').width(width);
 			setConfig("cardWidth", width);
 		}
+		return false;
 	});
 
   // autoszie Text in the cards

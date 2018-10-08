@@ -900,7 +900,7 @@ var allItems = [
 			"weight": "32",
 			"damageVal": "1d6",
 			"damageType": "piercing",
-			"props": ["Thrown (range 20/60)", "versatile (ld8)"]
+			"props": ["Thrown (range 20/60)", "versatile (1d8)"]
 		},
 		"ru": {
 			"name": "Копьё",
@@ -936,6 +936,8 @@ var allItems = [
 			"source": "PHB",
 			"img": "CROSSBOW_LIGHT.jpg",
 			"weight": "5",
+			"damageVal": "1d8",
+			"damageType": "piercing",
 			"props": ["Ammunition (range 80/320)", "loading", "two-handed"]
 		},
 		"ru": {
@@ -954,6 +956,8 @@ var allItems = [
 			"source": "PHB",
 			"img": "DART.jpg",
 			"weight": "1/4",
+			"damageVal": "1d4",
+			"damageType": "piercing",
 			"props": ["Finesse", "thrown (range 20/60)"]
 		},
 		"ru": {
@@ -972,6 +976,8 @@ var allItems = [
 			"source": "PHB",
 			"img": "SHORTBOW.jpg",
 			"weight": "2",
+			"damageVal": "1d6",
+			"damageType": "piercing",
 			"props": ["Ammunition (range 80/320)", "two-handed"]
 		},
 		"ru": {
@@ -1012,7 +1018,7 @@ var allItems = [
 			"weight": "4",
 			"damageVal": "1d8",
 			"damageType": "slashing",
-			"props": ["Versatile (ld10)"]
+			"props": ["Versatile (1d10)"]
 		},
 		"ru": {
 			"name": "Боевой топор",
@@ -1151,7 +1157,7 @@ var allItems = [
 			"weight": "3",
 			"damageVal": "1d8",
 			"damageType": "slashing",
-			"props": ["Versatile (ldl0)"]
+			"props": ["Versatile (1dl0)"]
 		},
 		"ru": {
 			"name": "Длинный меч",
@@ -1290,7 +1296,7 @@ var allItems = [
 			"weight": "4",
 			"damageVal": "1d6",
 			"damageType": "piercing",
-			"props": ["Thrown (range 20/60)", "versatile (ld8)"]
+			"props": ["Thrown (range 20/60)", "versatile (1d8)"]
 		},
 		"ru": {
 			"name": "Трезубец",
@@ -1349,7 +1355,7 @@ var allItems = [
 			"weight": "2",
 			"damageVal": "1d8",
 			"damageType": "bludgeoning",
-			"props": ["Versatile (ld10)"]
+			"props": ["Versatile (1d10)"]
 		},
 		"ru": {
 			"name": "Боевой молот",
