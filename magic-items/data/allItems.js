@@ -3273,7 +3273,7 @@ var allItems = [
     },
     "ru": {
       "name": "Зелье лечения",
-      "text": "Вы восстанавливаете d4 + 2  хита, когда выпиваете это зелье. Зелье представляет собой красную жидкость, сверкающую при встряхивании."
+      "text": "Вы восстанавливаете 2d4 + 2  хита, когда выпиваете это зелье. Зелье представляет собой красную жидкость, сверкающую при встряхивании."
     }
   },
   {
@@ -3287,7 +3287,7 @@ var allItems = [
     },
     "ru": {
       "name": "Зелье большого лечения",
-      "text": "Вы восстанавливаете d4 + 4 хита, когда выпиваете это зелье. Зелье представляет собой красную жидкость, сверкающую при встряхивании."
+      "text": "Вы восстанавливаете 4d4 + 4 хита, когда выпиваете это зелье. Зелье представляет собой красную жидкость, сверкающую при встряхивании."
     }
   },
   {
@@ -3323,7 +3323,7 @@ var allItems = [
       "name": "POTION OF HEROISM",
       "type": "Potion",
       "rarity": 3,
-      "text": "HP Regained 2d4 + 2 4d4 + 4 8d4 + 8 10d4 + 20 <br>For 1 hour after drinking it, you gain 10 temporary hit points that last for 1 hour. For the same duration, you are under the effect of the <a href='https://tentaculus.ru/spells/#q=bless'>bless</a> spell (no concentration required). This blue potion bubbles and steams as if boiling.",
+      "text": "For 1 hour after drinking it, you gain 10 temporary hit points that last for 1 hour. For the same duration, you are under the effect of the <a href='https://tentaculus.ru/spells/#q=bless'>bless</a> spell (no concentration required). This blue potion bubbles and steams as if boiling.",
       "source": "DMG",
       "img": "POTION_OF_HEROISM.jpg"
     },
