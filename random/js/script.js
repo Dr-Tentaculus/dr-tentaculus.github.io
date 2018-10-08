@@ -11,12 +11,28 @@ function randd(min, max) {
 };
 // перемешивание
 function shuffle(o){
+	if(o){
     if (o.length == undefined || typeof o != 'object')
       return [0];
     for(var j, x, k = o.length; k; j = Math.floor(Math.random() * k), x = o[--k], o[k] = o[j], o[j] = x);
-    return o;
+	}
+  return o;
 };
-
+function getFr(a, n){
+	if(a) {
+	  var tmp = a.length;
+	  var ret='';
+	  if (n == undefined) {
+		n = tmp>10?10:tmp/2;
+		n = n<1?1:n;
+	  }
+	  tmp=0;
+	  for (var slog in a) {
+		ret = a[slog].fr>tmp?a[slog].slog:ret;
+	  }
+	  return ret;
+	}
+}
 function getViewPortSize(mod)
 {
     var viewportwidth;
@@ -289,6 +305,7 @@ function generate_word(source, oParameters) {
     }
   } else {
       //debugger;
+			/*/
     var maxLength = randd(0,4);
     sResultString = getFr(shuffle(oSource.end));
 
@@ -301,6 +318,8 @@ function generate_word(source, oParameters) {
       sResultString = tmp + sResultString;
     }
     sh = shuffle(oSource.st);
+		/**/
+		sResultString = shuffle(oSource.l.split(";").map(el=>el.trim()))[0];
     //sResultString = fixName(getSim(sResultString, sh, 2) + sResultString);
   }
   }
@@ -775,6 +794,7 @@ $("body").on('click', "#bGetList", function(){
 
   $("#dbg").click();
 
+	$("#ch_customList_custom").next("label").click();//.prop( "checked", true );
 });
 
 $("body").on('click', "#info", function(){
