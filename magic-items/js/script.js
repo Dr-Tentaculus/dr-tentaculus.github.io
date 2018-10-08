@@ -761,7 +761,7 @@ window.onload = function(){
 		hideInfoWin();
 	});
 	$("body").on("click", ".mod_win", function() {
-		return false;
+		//return false;
 	});
 
 	//custom Select
