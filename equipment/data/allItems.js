@@ -1345,7 +1345,7 @@ var allItems = [
 			"text": "",
 			"coast": "15 gp",
 			"source": "PHB",
-			"img": "WARHAMMER.JPG",
+			"img": "WARHAMMER.jpg",
 			"weight": "2",
 			"damageVal": "1d8",
 			"damageType": "bludgeoning",

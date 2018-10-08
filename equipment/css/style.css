@@ -1097,6 +1097,7 @@ table td:first-child {
   right: 0;
   text-align: center;
   background: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 -1px 1px #fff, 1px -1px 1px #fff, 1px 0px 1px #fff, 1px 1px 1px #fff, 0 1px 1px #fff, -1px 1px 1px #fff, -1px 0px 1px #fff;
 }
 .ItemCard .sub {
   font-size: 90%;
@@ -1121,7 +1122,6 @@ table td:first-child {
       bottom: 2rem;
       right: 1.4rem;
       left: 1.4rem;*/
-  text-shadow: 0 -1px 1px #fff, 1px -1px 1px #fff, 1px 0px 1px #fff, 1px 1px 1px #fff, 0 1px 1px #fff, -1px 1px 1px #fff, -1px 0px 1px #fff;
 }
 .ItemCard .info {
   margin-top: auto;
