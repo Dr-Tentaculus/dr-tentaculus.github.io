@@ -154,6 +154,7 @@ window.onload = function(){
 		var ret = '';
 		var id =  param.id? "id='"+param.id+"'": "";
 		var title = param.title? param.title: "Выберите";
+		var sItemsList = param.sList;
 		var checked = param.checkAll? "checked": "";
 		var isOpen = (param.isOpen!=undefined) ? param.isOpen : true;
 		var arrow, display = "", content_open=true;
@@ -180,15 +181,17 @@ window.onload = function(){
 			}
 		} else {
 			for(key in src) {
-				var type = src[key];
-				var max = Math.max(type.text.en.title.length, type.text.ru.title.length)/2;
-				if (max > min_width) {
-					min_width = max;
+				if(sItemsList && sItemsList.indexOf(key)>-1 || !sItemsList){
+					var type = src[key];
+					var max = Math.max(type.text.en.title.length, type.text.ru.title.length)/2;
+					if (max > min_width) {
+						min_width = max;
+					}
+
+					var sOptionValue = key;
+
+					ret+="<input "+checked+" type='checkbox' value='"+sOptionValue+"' id='ch_"+sOptionValue.replace(" ", "_")+"'><label for='ch_"+sOptionValue.replace(" ", "_")+"' data-hierarchy='root'>"+type.text.en.title+"<br>"+type.text.ru.title+"</label>";
 				}
-
-				var sOptionValue = key;
-
-				ret+="<input "+checked+" type='checkbox' value='"+sOptionValue+"' id='ch_"+sOptionValue.replace(" ", "_")+"'><label for='ch_"+sOptionValue.replace(" ", "_")+"' data-hierarchy='root'>"+type.text.en.title+"<br>"+type.text.ru.title+"</label>";
 			}
 		}
 
@@ -667,22 +670,53 @@ window.onload = function(){
 	function createTypeCombobox(isOpen) {
 		if(isOpen == undefined)
 			isOpen = false;
-		var s1=createComboBox(oTypes, {id: "TypeCombobox", title: "Тип", checkAll: false, isOpen: isOpen});
-		$(".p_side").append("<div class='mediaWidth'>" + s1 + "</div>");
+			var s1=createComboBox(oTypes, {id: "TypeCombobox", title: "Тип", checkAll: false, isOpen: isOpen});
+			$(".p_side").append("<div class='mediaWidth'>" + s1 + "</div>");
+		
 	}
 
-	function createPropsCombobox(isOpen) {
+	function createPropsCombobox(bShow, isOpen) {
 		if(isOpen == undefined)
 			isOpen = false;
-		var s1=createComboBox(oWeaponProps, {id: "PropsCombobox", title: "Свойства", checkAll: false, isOpen: isOpen});
-		$(".p_side").append("<div class='mediaWidth'>" + s1 + "</div>");
+		if(bShow) {
+			if (!$("#PropsCombobox").length){
+				var s1=createComboBox(oWeaponProps, {id: "PropsCombobox", title: "Свойства оружия", checkAll: false, isOpen: isOpen});
+				$("#SourceCombobox").parent().before("<div class='mediaWidth'>" + s1 + "</div>");
+			}
+		} else if ($("#PropsCombobox").length) {
+			$("#PropsCombobox").parent().remove();
+		}
 	}
 	
-	function createTypeAddCombobox(isOpen) {
+	function createArmorSubTypeCombobox(bShow, isOpen) {
 		if(isOpen == undefined)
 			isOpen = false;
-		var s1=createComboBox(oTypeAdditions, {id: "TypeAddCombobox", title: "Подтип", checkAll: false, isOpen: isOpen});
-		$(".p_side").append("<div class='mediaWidth'>" + s1 + "</div>");
+		if(bShow){
+			if(!$("#ArmorTypeAddCombobox").length) {
+				var aSubTypes = oTypes.armor.subTypes;
+				var s1=createComboBox(oTypeAdditions, {id: "ArmorTypeAddCombobox", title: "Подтип брони", checkAll: false, isOpen: isOpen, sList: aSubTypes});
+				$("#TypeCombobox").parent().after("<div class='mediaWidth'>" + s1 + "</div>");
+			}
+		} else if ($("#ArmorTypeAddCombobox").length) {
+			$("#ArmorTypeAddCombobox").each(function(){
+				$(this).parent().remove();
+			})
+		}
+	}
+	function createWeaponSubTypeCombobox(bShow, isOpen) {
+		if(isOpen == undefined)
+			isOpen = false;
+		if(bShow){
+			if (!$("#WeaponTypeAddCombobox").length){
+				var aSubTypes = oTypes.weapon.subTypes;
+				var s1=createComboBox(oTypeAdditions, {id: "WeaponTypeAddCombobox", title: "Подтип оружия", checkAll: false, isOpen: isOpen, sList: aSubTypes});
+				$("#TypeCombobox").parent().after("<div class='mediaWidth'>" + s1 + "</div>");
+			}
+		} else if ($("#WeaponTypeAddCombobox").length) {
+			$("#WeaponTypeAddCombobox").each(function(){
+				$(this).parent().remove();
+			})
+		}
 	}
 	
 	function createSourceCombobox(isOpen) {
@@ -824,9 +858,9 @@ window.onload = function(){
 		createButtons();
 		createNameFilter();
 		createTypeCombobox();
-		createTypeAddCombobox();
+		//createTypeAddCombobox();
 		//createRarityCombobox();
-		createPropsCombobox();
+		//createPropsCombobox();
 
 		createSourceCombobox();
 		createCardWidthButtons();
@@ -1054,11 +1088,17 @@ window.onload = function(){
 		}, nTimerSeconds*3);
 	});
 
-	// tipe combobox
+	// type combobox
 	$("body").on('click', "#TypeCombobox label", function(){
 		clearTimeout(oTimer);
 		oTimer = setTimeout(function(){
 			updateHash();
+			var sTypes = $("#TypeCombobox .combo_box_title").attr("data-val");
+
+			createArmorSubTypeCombobox(sTypes.indexOf("armor")>-1);
+			createWeaponSubTypeCombobox(sTypes.indexOf("weapon")>-1);
+			createPropsCombobox(sTypes.indexOf("weapon")>-1);
+			
 			filterItems();
 		}, nTimerSeconds);
 	});
@@ -1521,8 +1561,10 @@ window.onload = function(){
 			if(aTypes) aTypes = aTypes.split(",").map(function(item){return item.trim()});
 		/*var aRarities = $("#RarityCombobox .combo_box_title").attr("data-val");
 			if(aRarities) aRarities = aRarities.split(",").map(function(item){return item.trim()});*/
-		var aAddTypes = $("#TypeAddCombobox .combo_box_title").attr("data-val");
-			if(aAddTypes) aAddTypes = aAddTypes.split(",").map(function(item){return item.trim()});
+		var aArmorAddTypes = $("#ArmorTypeAddCombobox .combo_box_title").attr("data-val");
+			if(aArmorAddTypes) aArmorAddTypes = aArmorAddTypes.split(",").map(function(item){return item.trim()});
+		var aWeaponAddTypes = $("#WeaponTypeAddCombobox .combo_box_title").attr("data-val");
+			if(aWeaponAddTypes) aWeaponAddTypes = aWeaponAddTypes.split(",").map(function(item){return item.trim()});
 		var aPropsTypes = $("#PropsTypeCombobox .combo_box_title").attr("data-val");
 			if(aPropsTypes) aPropsTypes = aPropsTypes.split(",").map(function(item){return item.trim()});
 		// select
@@ -1541,11 +1583,11 @@ window.onload = function(){
 		if(aSources && aSources.length>0 && $("#SourceCombobox .combo_box_content input").length > aSources.length) {
 			aFilters.push("source="+aSources.join(",").replace(/\s+/g, "_"));
 		}
-		/*if(aRarities && aRarities.length>0 && $("#RarityCombobox .combo_box_content input").length > aRarities.length) {
-			aFilters.push("rarity="+aRarities.join(",").replace(/\s+/g, "_"));
-		}*/
-		if(aAddTypes && aAddTypes.length>0 && $("#TypeAddCombobox .combo_box_content input").length > aAddTypes.length) {
-			aFilters.push("addtype="+aAddTypes.join(",").replace(/\s+/g, "_"));
+		if(aArmorAddTypes && aArmorAddTypes.length>0 && $("#TypeAddCombobox .combo_box_content input").length > aArmorAddTypes.length) {
+			aFilters.push("armoraddtype="+aArmorAddTypes.join(",").replace(/\s+/g, "_"));
+		}
+		if(aWeaponAddTypes && aWeaponAddTypes.length>0 && $("#TypeAddCombobox .combo_box_content input").length > aWeaponAddTypes.length) {
+			aFilters.push("weaponaddtype="+aWeaponAddTypes.join(",").replace(/\s+/g, "_"));
 		}
 		if(aPropsTypes && aPropsTypes.length>0 && $("#PropsTypeCombobox .combo_box_content input").length > aPropsTypes.length) {
 			aFilters.push("props="+aPropsTypes.join(",").replace(/\s+/g, "_"));
@@ -1580,7 +1622,8 @@ window.onload = function(){
       var sSort = sHash.match(/\bsort=([\w_]+)/) || ["","rarity_alpha"];
 
      // var sRarities = sHash.match(/\brarity=([\w,]+)/);
-		  var sAddType = sHash.match(/\baddtype=([\w,]+)/);
+		  var aArmorAddTypes = sHash.match(/\barmoraddtype=([\w_,-]+)/);
+		  var aWeaponAddTypes = sHash.match(/\bweaponaddtype=([\w_,-]+)/);
 		  var aPropsTypes = sHash.match(/\bprops=([\w,]+)/);
       var sTypes = sHash.match(/\btype=([\w,]+)/);
       var sSources = sHash.match(/\bsource=([\w,_]+)/);
@@ -1601,74 +1644,10 @@ window.onload = function(){
       }
       if(sSort && sSort[1]) {
       	$("#SortSelect .label").attr("data-selected-key", sSort[1]).html($("#SortSelect li[data-key='"+sSort[1]+"']").text().replace(/[_]+/g," "));
-      }
-
-      if(sSources && sSources[1]) {
-      	var aSources = sSources[1].replace("_", " ").split(",");
-
-      	$("#SourceCombobox .combo_box_content input[type='checkbox']").each(function(){
-      		if(aSources.indexOf($(this).val())>-1) {
-      			$(this).prop('checked', true);
-      		} else {
-      			$(this).prop('checked', false);
-      		}
-      	});
-      	$("#SourceCombobox .combo_box_title").attr("data-val", sSources[1].replace("_", " "))
-      } else {
-				$("#SourceCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
-      	$("#SourceCombobox .combo_box_title").attr("data-val", "")
-			}
-			
-      /*if(sRarities && sRarities[1]) {
-      	var aRarities = sRarities[1].replace("_", " ").split(",");
-
-      	$("#RarityCombobox .combo_box_content input[type='checkbox']").each(function(){
-      		if(aRarities.indexOf($(this).val())>-1) {
-      			$(this).prop('checked', true);
-      		} else {
-      			$(this).prop('checked', false);
-      		}
-      	});
-      	$("#RarityCombobox .combo_box_title").attr("data-val", sRarities[1].replace("_", " "))
-      } else {
-				$("#RarityCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
-				$("#RarityCombobox .combo_box_title").attr("data-val", "")
-			}*/      
-			
-      if(sAddType && sAddType[1]) {
-      	var aRarities = sAddType[1].replace("_", " ").split(",");
-
-      	$("#AddTypeCombobox .combo_box_content input[type='checkbox']").each(function(){
-      		if(aRarities.indexOf($(this).val())>-1) {
-      			$(this).prop('checked', true);
-      		} else {
-      			$(this).prop('checked', false);
-      		}
-      	});
-      	$("#AddTypeCombobox .combo_box_title").attr("data-val", sAddType[1].replace("_", " "))
-      } else {
-				$("#AddTypeCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
-				$("#AddTypeCombobox .combo_box_title").attr("data-val", "")
-			}
-			
-      if(aPropsTypes && aPropsTypes[1]) {
-      	var aRarities = aPropsTypes[1].replace("_", " ").split(",");
-
-      	$("#PropsCombobox .combo_box_content input[type='checkbox']").each(function(){
-      		if(aRarities.indexOf($(this).val())>-1) {
-      			$(this).prop('checked', true);
-      		} else {
-      			$(this).prop('checked', false);
-      		}
-      	});
-      	$("#PropsCombobox .combo_box_title").attr("data-val", aPropsTypes[1].replace("_", " "))
-      } else {
-				$("#PropsCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
-				$("#PropsCombobox .combo_box_title").attr("data-val", "")
-			}
-			
+      }			
+						
       if(sTypes && sTypes[1]) {
-      	var aTypes = sTypes[1].replace("_", " ").split(",");
+      	var aTypes = sTypes[1].replace(/_/g, " ").split(",");
 				
       	$("#TypeCombobox .combo_box_content input[type='checkbox']").each(function(){
       		if(aTypes.indexOf($(this).val())>-1) {
@@ -1677,12 +1656,89 @@ window.onload = function(){
       			$(this).prop('checked', false);
       		}
       	});
-      	$("#TypeCombobox .combo_box_title").attr("data-val", sTypes[1].replace("_", " "))
+      	$("#TypeCombobox .combo_box_title").attr("data-val", sTypes[1].replace(/_/g, " "))
+				if(sTypes[1].indexOf("armor")>-1) {
+					createArmorSubTypeCombobox(true);
+				}
+				if(sTypes[1].indexOf("weapon")>-1) {
+					createWeaponSubTypeCombobox(true);
+					createPropsCombobox(true);
+				}
       } else {
 				$("#TypeCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
-				$("#TypeCombobox .combo_box_title").attr("data-val", "")
+				$("#TypeCombobox .combo_box_title").attr("data-val", "");
+				createArmorSubTypeCombobox(false);
+				createWeaponSubTypeCombobox(false);
+				createPropsCombobox(false);
 			}
 
+			
+      if(aArmorAddTypes && aArmorAddTypes[1]) {
+				//createArmorSubTypeCombobox(true);
+				
+      	var aArmorAddTypes = aArmorAddTypes[1].replace(/_/g, " ").split(",");
+
+      	$("#ArmorTypeAddCombobox .combo_box_content input[type='checkbox']").each(function(){
+      		if(aArmorAddTypes.indexOf($(this).val())>-1) {
+      			$(this).prop('checked', true);
+      		} else {
+      			$(this).prop('checked', false);
+      		}
+      	});
+      	$("#ArmorTypeAddCombobox .combo_box_title").attr("data-val", aArmorAddTypes[1].replace(/_/g, " "))
+      } else {
+				$("#ArmorTypeAddCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
+				$("#ArmorTypeAddCombobox .combo_box_title").attr("data-val", "")
+			}		
+      if(aWeaponAddTypes && aWeaponAddTypes[1]) {
+				//createWeaponSubTypeCombobox(true);
+      	var aWeaponAddTypes = aWeaponAddTypes[1].replace(/_/g, " ").split(",");
+
+      	$("#WeaponTypeAddCombobox .combo_box_content input[type='checkbox']").each(function(){
+      		if(aWeaponAddTypes.indexOf($(this).val())>-1) {
+      			$(this).prop('checked', true);
+      		} else {
+      			$(this).prop('checked', false);
+      		}
+      	});
+      	$("#WeaponTypeAddCombobox .combo_box_title").attr("data-val", aWeaponAddTypes[1].replace(/_/g, " "))
+      } else {
+				$("#WeaponTypeAddCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
+				$("#WeaponTypeAddCombobox .combo_box_title").attr("data-val", "")
+			}
+			
+      if(aPropsTypes && aPropsTypes[1]) {
+		//		createPropsCombobox(true);
+      	var aRarities = aPropsTypes[1].replace(/_/g, " ").split(",");
+
+      	$("#PropsCombobox .combo_box_content input[type='checkbox']").each(function(){
+      		if(aRarities.indexOf($(this).val())>-1) {
+      			$(this).prop('checked', true);
+      		} else {
+      			$(this).prop('checked', false);
+      		}
+      	});
+      	$("#PropsCombobox .combo_box_title").attr("data-val", aPropsTypes[1].replace(/_/g, " "))
+      } else {
+				$("#PropsCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
+				$("#PropsCombobox .combo_box_title").attr("data-val", "")
+			}
+			
+      if(sSources && sSources[1]) {
+      	var aSources = sSources[1].replace(/_/g, " ").split(",");
+
+      	$("#SourceCombobox .combo_box_content input[type='checkbox']").each(function(){
+      		if(aSources.indexOf($(this).val())>-1) {
+      			$(this).prop('checked', true);
+      		} else {
+      			$(this).prop('checked', false);
+      		}
+      	});
+      	$("#SourceCombobox .combo_box_title").attr("data-val", sSources[1].replace(/_/g, " "))
+      } else {
+				$("#SourceCombobox .combo_box_content input[type='checkbox']").prop('checked', false);
+      	$("#SourceCombobox .combo_box_title").attr("data-val", "")
+			}
       // if(sLang && sLang[1]) {
       // 	$("#LangSelect .label").attr("data-selected-key", sLang[1]).html($("#LangSelect li[data-key='"+sLang[1]+"']").html().replace("<br>", " | "));
       // }

@@ -1,4 +1,4 @@
-
+*.psd
 .htaccess
 .gitignore	
 .idea/*
