@@ -377,7 +377,6 @@ window.onload = function(){
       //var s_rarity_class = getItemAttrFromDB(oRarity, {attr: getItemAttr(oItem, "rarity", "en"), subattr: s_gender, lang: "en"}).toLowerCase().replace(" ", "_").trim();
 
       var s_coast = getItemAttr(oItem, "coast", lang) ||
-        oRarity[oItem.en.rarity] && oRarity[oItem.en.rarity].coast ||
         "";
       if(s_coast){
         //s_coast = "<div class='coast'><div class='coin'>"+s_coast+"</div></div>";
@@ -412,7 +411,6 @@ window.onload = function(){
 
 			var sNeedHelp = (lang == "ru")?  getItemAttr(oItem, "name", "en") : getItemAttr(oItem, "name", "ru");
       var sImg = fText? "" :'style="background-image: url('+s_img+');"';
-      //s_text = fText? s_text.split("<br>").map(item => "<p>"+item+"</p>").join(""): s_text;
 
 			ret = '<div class="cardContainer '+(fText? "textView " : "") + sLockedItem +'" '+ style +' data-name="' + oItem.en.name.trim() + '"  data-name-ru="' + oItem.ru.name + '"  data-lang="' + lang + '">'+
 				'<div class="ItemCard">'+
@@ -437,8 +435,7 @@ window.onload = function(){
               '<div class="text">' + s_text + '</div>	'+
               textSizeButtons +
             "</div>"+
-            //"<div class='bottomPanel'>" + s_coast+ s_weight+ "</div>" +
-            '<span class="sf_text"> <i class="fa fa-info-circle" aria-hidden="true"></i></span>'+
+            ((s_text.length>7)?'<span class="sf_text"> <i class="fa fa-info-circle" aria-hidden="true"></i></span>':'')+
 						"<div class='source' title=\"Источник: "+ oSources[s_source].text[lang].title+"\">"+ s_source+"</div>"+
 					'</div>'+
 				'</div>'+
