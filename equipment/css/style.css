@@ -1022,6 +1022,9 @@ table td:first-child {
   position: relative;
   text-align: left;
 }
+.cardContainer.textView .ItemCard .bottom_info {
+  bottom: 1em;
+}
 .ItemCard {
   height: 3.5in;
   background: #000;
@@ -1092,11 +1095,11 @@ table td:first-child {
   flex-wrap: nowrap;
   align-items: stretch;
   position: absolute;
-  bottom: 1em;
+  bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
-  background: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.7) 9px);
   text-shadow: 0 -1px 1px #fff, 1px -1px 1px #fff, 1px 0px 1px #fff, 1px 1px 1px #fff, 0 1px 1px #fff, -1px 1px 1px #fff, -1px 0px 1px #fff;
 }
 .ItemCard .sub {
@@ -1122,6 +1125,10 @@ table td:first-child {
       bottom: 2rem;
       right: 1.4rem;
       left: 1.4rem;*/
+  padding-left: 0.1em;
+}
+.ItemCard .weight {
+  padding-right: 0.1em;
 }
 .ItemCard .info {
   margin-top: auto;
