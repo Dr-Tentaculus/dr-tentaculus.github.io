@@ -32,6 +32,8 @@ node_modules/*
 
 /random/.git*
 
+/feats/*
+
 /spells/.git*
 /spells/node*
 
