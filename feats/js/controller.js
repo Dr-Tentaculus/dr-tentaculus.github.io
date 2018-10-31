@@ -370,7 +370,7 @@ Vue.component('card', {
 			return "ItemCard";
 		},
 		prerequisite: function(){
-			return this.pre.length>0? "<span title='Требования необходимые для возможности получения черты'>("+this.pre+")</span>": "";
+			return this.pre.length>0? "<span title='Требования необходимые для возможности получения черты'>["+this.pre+"]</span>": "";
 		}
 	},
 	methods: {
