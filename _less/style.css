@@ -755,6 +755,10 @@ a:hover {
   background-color: #955e40;
   background-image: url('../equipment/img/og.jpg');
 }
+.cont .feats {
+  background-color: #3e89ab;
+  background-image: url('../feats/img/og.jpg');
+}
 .cont .names {
   background-color: #384a4c;
   background-image: url('../names/img/og_hor2.jpg');

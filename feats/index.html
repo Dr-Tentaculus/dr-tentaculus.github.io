@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+<head>
+  <title>Черты D&D5</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=0.5">
+  <meta name="description" content="Черты D&D5">
+  <link href="../_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="canonical" href="https://tentaculus.ru/feats" />
+	
+  <meta property="og:image" content="img/bg2.jpg" />
+  <meta property="og:image" content="img/og.jpg" />
+  <meta property="og:title" content="Черты D&D5" />
+  <meta property="og:description" content="Каталог черт" />
+    <!-- IE must understand HTML5: -->
+  <!--[if IE]>
+   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <style>
+   article, aside, details, figcaption, figure, footer,header,
+   hgroup, menu, nav, section, div { display: block; }
+  </style>
+</head>
+<body>
+
+<div class='wrap'  id='app' @keyup.ctrl.65="selectAll">
+	<div class='p_side'>
+		<div class="mediaWidth flexParent">
+			<a href="/" class="bt flexChild" title="На главную страницу"><i class="fa fa-home"></i></a>
+			<a href="#" class="bt flexChild" id="bInfo" title="Справка" @click="showInfo"><i class="fa fa-question-circle"></i></a>
+			<a href="#" class="bt flexChild" id="bPrint" title="Распечатать" @click="print"><i class="fa fa-print" aria-hidden="true"></i></a>
+		</div>
+		<div class='mediaWidth'>
+			<searchfield
+				id="NameInput"
+				title="Название"
+				:value="sSearch"
+				@input="onSearchName"
+				@searchrndom="getRandomItem"
+			>
+			</searchfield>
+		</div>
+		<div class='mediaWidth'>
+			<combobox
+				id="TypeCombobox"
+				title="Типы"
+				:items="aTypeList"
+				@iclick="onTypeChange($event)"
+			>
+			</combobox>
+		</div>
+		<div class='mediaWidth'>
+			<combobox
+				id="SourceCombobox"
+				title="Источники"
+				:items="aSrcList"
+				@iclick="onSourceChange($event)"
+			>
+		</combobox>
+		</div>
+		<div class='mediaWidth'>
+			<custom-select
+				id="SortSelect"
+				title="Сортировка"
+				:selected="sSortSelected"
+				:items="aSortList"
+				@iclick="onSortChange($event)"
+			>
+			</custom-select>
+		</div>
+		<div class='mediaWidth'>
+			<custom-select
+				id="LangSelect"
+				title="Язык"
+				:selected="sLangSelected"
+				:items="aLanguageList"
+				@iclick="onLanguageChange($event)"
+			>
+			</custom-select>
+		</div>
+		<div class='mediaWidth' v-show="aHiddenItemsList.length>0">
+			<label class="filterLabel">Скрытые черты ({{aHiddenItemsList.length}})</label>
+			<div id="HiddenItems">
+				<a href='#' class='bReturnUnvisible' @click.stop="unhideAll">Вернуть все обратно</a>
+				<hiddenitem 
+					v-for="item in aHiddenItemsList"
+					:key="item.id"
+					:id="item.id"
+					:title="item.title"
+					:tooltip="item.tooltip"
+					@unhide="unhideCard(item.id)"
+				>
+				</hiddenitem>
+			</custom-select>
+			</div>
+		</div>
+	</div>
+	<div class='p_cont'>
+	
+		<div id='lockedItemsArea' v-show="aLockedItemsList.length>0">
+			<div class='flex_row noprint'>
+				<span class='topHeader'>Закрепленные черты ({{aLockedItemsList.length}})</span>
+				<span class='bUnlockAll' @click="unlockAll">Открепить все</span>
+			</div>
+			<div class='content row'>
+				<card
+					v-for="item in aLockedItemsList"
+					:key="item.name"
+					:id="item.id"
+					:name="item.name"
+					:tooltip="item.tooltip"
+					:text="item.text"
+					:src="item.src"
+					:source="item.source"
+					:type="item.type"
+					:color="item.color"
+					:pre="item.pre"
+					:selected="item.selected"
+					:locked="item.locked"
+					@unlock="unlockCard(item)"
+					@select="selectLockedCard(item)"
+				>
+				</card>
+			</div>
+			<div class='flex_row noprint'>
+				<span class='bottomHeader'>Каталог черт ({{aItemsList.length}})</span>
+			</div>
+		</div>
+	
+		<div class="row featContainer" :class="{noprint: aLockedItemsList.length>0}" :data-itemcount="aItemsList.length">
+			<span class='itemCounter noprint' v-show="aLockedItemsList.length<1">{{aItemsList.length}}</span>
+			<card
+				v-for="item in aItemsList"
+				:key="item.name"
+				:id="item.id"
+				:name="item.name"
+				:tooltip="item.tooltip"
+				:text="item.text"
+				:src="item.src"
+				:source="item.source"
+				:type="item.type"
+				:color="item.color"
+				:selected="item.selected"
+				:pre="item.pre"
+				@lock="lockCard(item)"
+				@hide="hideCard(item)"
+				@select="selectCard(item)"
+			>
+			</card>
+		</div>
+		
+		<div id='info_text'>
+			<h1>Черты D&amp;D5</h2>
+			<h2>
+				Что есть
+			</h2>
+			<p>
+				Список черт (feats) D&D5 на русском и английском языках.
+			</p>
+			<p>
+				Черты можно фильтровать по:
+				<ul>
+				  <li>названию</li>
+				  <li>типу</li>
+				  <li>источнику</li>
+				</ul>
+			</p>      
+		
+			<h2>
+				Скрытие черт
+			</h2>
+			<p>
+				Карточку черты можно скрыть из общего списка, если нажать на <i class="fa fa-eye-slash" aria-hidden="true"></i> в правом верхнем углу карточки. В таком случае черта исчезнет из общего списка и ее название будет отображаться в самом низу панели фильтров. Если нажать на название, черта вернется в общий список.
+			</p>
+			<h2>
+				Закрепление черт
+			</h2>
+			<p>
+				Карточки черт можно закреплять - в таком случае они будут отображаться в самом верху списка. Для закрепления нужно нажать на <i class="fa fa-lock" aria-hidden="true"></i> в левом верхнем углу карточки черт. При закреплении черты, она не исчезает из общего списка. Если нажать на заголовок "Закрепленные черты", закрепленные карточки скроются (чтобы не мешать). На закрепленные черты не действуют никакие фильтры.
+			</p>
+
+			<h2>
+				Выделение черт
+			</h2>
+			<p>
+				Чтобы сотворить что-нибудь сразу с несколькими карточками черт, их можно выделить, кликая по ним с зажатой клавишей [CTRL]. Кроме того, сочетание клавиш [CTRL]+[A] выделит все карточки, или уберет выделение со всех карточек, если они и так уже выделены.
+			</p>
+			<p>
+				Когда карточки выделены, массово можно делать следующее:
+				<ul>
+					<li>Закреплять/Откреплять карточки. При клике на иконке замка <i class="fa fa-lock" aria-hidden="true"></i> на любой из карточек будут закреплены все выделенные. Аналогично при откреплении закрепленных карточек. </li>
+					<li>Прятать карточки. При клике на иконке глаза <i class="fa fa-eye-slash" aria-hidden="true"></i> на любой из карточек будут скрыты  все выделенные. </li>
+				</ul>
+			</p>
+
+			<p style="padding: .3em 0; text-align: center">
+				<a class="button" id="showAllItems" href="#" style="display: none">Показать все черты</a>
+			</p>
+
+			<h2>Печать черт</h2>
+			<p>
+				Если есть закрепленные черты, то печататься будут только они.<br>
+				Если вы хотите распечатать черты, лучше всего делать это через Chrome (удобные настройки печати). Для этого надо:
+					<ul>
+						<li>нажать сочетание клавиш [Ctrl]+[P]</li>
+					</ul>
+					И, если все устраивает, нажать кнопку "Печать", либо:
+					<ul>
+						<li>в появившемся окне нажать "Дополнительные настройки"</li>
+						<li>выбрать поля "Персонализированные"</li>
+						<li>перетянуть мышкой поля так, чтобы карточки нормально распределились по листу <small>(помните, что обычно принтер печатает с полями, если сделать поля слишком маленькие, при печати часть карточек может обрезаться)</small></li>
+
+					</ul>
+			</p>
+			<p>
+				Если есть вопросы или предложения - <a style="color: #0288D1" href="https://tentaculus.ru/message?theme=dndfeats">пишите</a>.
+			</p>
+			<p>
+				<a style="color: #0288D1"  href="https://github.com/Etignis/DnD_Feats" target="_blanc">Страница проекта на GitHub.</a>
+			</p>
+		</div>
+		
+	</div>
+	<transition name="fade">
+		<modal-win
+			v-show="bModalWinShow"
+			:content="sModalWinCont"
+			@close="closeMosWin"
+		>
+		</modal-win>
+	</transition>
+</div>
+
+	<script type='text/javascript' src="js/vue.js" defer></script>
+  <script type='text/javascript' src='js/jquery-1.11.3.min.js' defer></script>
+  <!-- <script type='text/javascript' src='https://tentaculus.ru/_js/jquery.mobile.custom.min.js' defer></script> -->
+  <script type='text/javascript' src='data/allItems.js' defer></script>
+  <!--script type='text/javascript' src='js/script.js?v=0.71' defer></script-->
+  <script type='text/javascript' src='js/controller.js' defer></script>
+<!--   <script type='text/javascript' src='https://tentaculus.ru/items/js/update.js' defer></script> -->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter42911239 = new Ya.Metrika({
+                    id:42911239,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/42911239" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

@@ -32,7 +32,10 @@ node_modules/*
 
 /random/.git*
 
-/feats/*
+/feats/.git*
+/feats/.git/*
+/feats/.gitattributes
+/feats/.gitignore
 
 /spells/.git*
 /spells/node*
