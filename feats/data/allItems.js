@@ -965,7 +965,7 @@ var allItems = [
 		},
 		"ru": {
 			"name": "ВОСПРИИМЧИВЫЙ",
-			"text": "<p> Вы развили свои чувства до предела, получив следующие бонусы: </p><ul><li>Увеличьте значение Мудрости на 1, при максимуме 20.</li><li>Вы получаете навык Восприятие. Если вы уже владеете этим навыком, то бонус мастерства удваивается при проверке этого навыка.</li><li>Находясь в затененной области, вы не получаете помех при совершении броска Внимательность (Мудрость), если можете слышать и видеть.</li></ul>"
+			"text": "<p> Вы развили свои чувства до предела, получив следующие бонусы: </p><ul><li>Увеличьте значение Мудрости на 1, при максимуме 20.</li><li>Вы получаете навык Внимательность. Если вы уже владеете этим навыком, то бонус мастерства удваивается при проверке этого навыка.</li><li>Находясь в затененной области, вы не получаете помех при совершении броска Внимательность (Мудрость), если можете слышать и видеть.</li></ul>"
 		}
 	},
 	{
@@ -1019,13 +1019,13 @@ var allItems = [
 	{
 		"en": {
 			"name": "Survivalist",
-			"text": "<p>You master wilderness lore, gaining the following benefits:</p><ul><li>Increase your Wisdom score by 1, to a maximum of 20.</li><li>You gain proficiency in the Survival skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.</li><li>You learn the Alarm spell. You can cast it once without expending a spell slot, and you regain the ability to do so when you finish a long rest.</li></ul>",
+			"text": "<p>You master wilderness lore, gaining the following benefits:</p><ul><li>Increase your Wisdom score by 1, to a maximum of 20.</li><li>You gain proficiency in the Survival skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.</li><li>You learn the a href='https://tentaculus.ru/spells/#q=alarm&view=text'>Alarm</a> spell. You can cast it once without expending a spell slot, and you regain the ability to do so when you finish a long rest.</li></ul>",
 			"source": "UA",
 			"type": "Skill Proficiency"
 		},
 		"ru": {
 			"name": "ВЫЖИВШИЙ",
-			"text": "<p> Вы – знаток дикой природы, который получает следующие преимущества: </p><ul><li>Увеличьте вашу Мудрость на 1 очко, максимум 20.</li><li>Вы получаете навык Выживание. Если вы уже владеете этим навыком, то бонус мастерства удваивается при проверке этого навыка.</li><li>Находясь в затененной области, вы не получаете помех при совершении броска Восприятие (Мудрость), если можете слышать и видеть.</li></ul>"
+			"text": "<p> Вы – знаток дикой природы, который получает следующие преимущества: </p><ul><li>Увеличьте вашу Мудрость на 1 очко, максимум 20.</li><li>Вы получаете навык Выживание. Если вы уже владеете этим навыком, то бонус мастерства удваивается при проверке этого навыка.</li><li>Вы изучаете заклинание <a href='https://tentaculus.ru/spells/#q=alarm&view=text'>Тревога</a>. Вы можете использовать его один раз без затрат ячеек заклинаний. У вас появляется возможность сделать это еще раз после длинного отдыха.</li></ul>"
 		}
 	},
 	{
