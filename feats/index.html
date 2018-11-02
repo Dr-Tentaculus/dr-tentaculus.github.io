@@ -29,7 +29,7 @@
 <body>
 
 <div class='wrap'  id='app' @keyup.ctrl.65="selectAll">
-	<div class='p_side'>
+	<div class='p_side'  v-cloak>
 		<div class="mediaWidth flexParent">
 			<a href="/" class="bt flexChild" title="На главную страницу"><i class="fa fa-home"></i></a>
 			<a href="#" class="bt flexChild" id="bInfo" title="Справка" @click="showInfo"><i class="fa fa-question-circle"></i></a>
@@ -48,24 +48,31 @@
 		<div class='mediaWidth'>
 			<combobox
 				id="TypeCombobox"
+				ref="TypeCombobox"
 				title="Типы"
 				:items="aTypeList"
+				:opened="bTypesOpend"
 				@iclick="onTypeChange($event)"
+				@opened="onTypesToggled($event)"
 			>
 			</combobox>
 		</div>
 		<div class='mediaWidth'>
 			<combobox
 				id="SourceCombobox"
+				ref="SourceCombobox"
 				title="Источники"
 				:items="aSrcList"
+				:opened="bSourcesOpend"
 				@iclick="onSourceChange($event)"
+				@opened="onSourcesToggled($event)"
 			>
 		</combobox>
 		</div>
 		<div class='mediaWidth'>
 			<custom-select
 				id="SortSelect"
+				ref="SortSelect"
 				title="Сортировка"
 				:selected="sSortSelected"
 				:items="aSortList"
@@ -76,6 +83,7 @@
 		<div class='mediaWidth'>
 			<custom-select
 				id="LangSelect"
+				ref="LangSelect"
 				title="Язык"
 				:selected="sLangSelected"
 				:items="aLanguageList"
@@ -102,7 +110,7 @@
 	</div>
 	<div class='p_cont'>
 	
-		<div id='lockedItemsArea' v-show="aLockedItemsList.length>0">
+		<div id='lockedItemsArea' v-show="aLockedItemsList.length>0 && bCardsAreVisible"  v-cloak>
 			<div class='flex_row noprint'>
 				<span class='topHeader'>Закрепленные черты ({{aLockedItemsList.length}})</span>
 				<span class='bUnlockAll' @click="unlockAll">Открепить все</span>
@@ -132,8 +140,8 @@
 			</div>
 		</div>
 	
-		<div class="row featContainer" :class="{noprint: aLockedItemsList.length>0}" :data-itemcount="aItemsList.length">
-			<span class='itemCounter noprint' v-show="aLockedItemsList.length<1">{{aItemsList.length}}</span>
+		<div class="row featContainer" :class="{noprint: aLockedItemsList.length>0}" :data-itemcount="aItemsList.length" v-show="bCardsAreVisible">
+			<span class='itemCounter noprint' v-show="aLockedItemsList.length<1"  v-cloak title='Количество элементов'>{{aItemsList.length}}</span>
 			<card
 				v-for="item in aItemsList"
 				:key="item.name"
@@ -198,10 +206,6 @@
 				</ul>
 			</p>
 
-			<p style="padding: .3em 0; text-align: center">
-				<a class="button" id="showAllItems" href="#" style="display: none">Показать все черты</a>
-			</p>
-
 			<h2>Печать черт</h2>
 			<p>
 				Если есть закрепленные черты, то печататься будут только они.<br>
@@ -217,6 +221,12 @@
 
 					</ul>
 			</p>
+			
+			
+			<p style="padding: 3em 0; text-align: center">
+				<a class="button" id="showAllItems" href="#" v-show="bAppIsReady" @click.stop="showAllItems">Показать все черты</a>
+			</p>
+			
 			<p>
 				Если есть вопросы или предложения - <a style="color: #0288D1" href="https://tentaculus.ru/message?theme=dndfeats">пишите</a>.
 			</p>

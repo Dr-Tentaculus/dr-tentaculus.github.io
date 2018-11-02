@@ -169,7 +169,7 @@ Vue.component('combobox', {
 			type: Array,
 			default: []
 		},
-		bOpen: {
+		opened: {
 			type: Boolean,
 			default: false
 		}
@@ -181,20 +181,24 @@ Vue.component('combobox', {
 	},
 	computed: {
 		isOpen: function(){
-			return (this.open!=null)?this.open : this.bOpen || false;
+			return (this.open!=null)?this.open : this.opened || false;
 		}
 	},
 	methods: {
-		toggle: function(){
-			this.open = !this.open;
+		toggle: function(oEvent, bStat){
+			this.open = (bStat!=undefined)? bStat : !this.open;
 			let el = $("#"+this.id).find(".combo_box_content");
 			if(this.open) {
-				el.slideDown();
+				el.slideDown(400, function(){
+					this.$emit('opened', true);
+				}.bind(this));				
 			} else {
-				el.slideUp();
+				el.slideUp(400, function(){
+					this.$emit('opened', false);
+				}.bind(this));
 			}
 		},
-		itemclick: function(oEvent){ 
+		itemclick: function(oEvent){
 			this.$emit('iclick', oEvent);
 		}
 	},
@@ -422,6 +426,12 @@ Vue.component('card', {
 			aSelectedItems: [],
 			aSelectedLockedItems: [],
 			
+			oConfig: {},
+			bTypesOpend: false,			
+			bSourcesOpend: false,		
+			bCardsAreVisible: false,	
+			bAppIsReady: false,	
+			
 			bModalWinShow: false,
 			sModalWinCont: ""
     },
@@ -599,10 +609,23 @@ Vue.component('card', {
 			
 		},
 		mounted: function() {
-			this.hideInfo();
-			this.getHash();
-			
+			this.loadConfigData();			
 			this.sModalWinCont = $("#info_text").html();
+			
+			let bInfoIsRead = this.getConfig("infoIsRead");
+			if(bInfoIsRead) {
+				this.hideInfo();
+				this.showCards();
+			}
+			
+			this.getHash();			
+			
+			this.$refs.TypeCombobox.toggle(null, this.bTypesOpend);
+			this.$refs.SourceCombobox.toggle(null, this.bSourcesOpend);
+			
+			this.updateHash();
+			
+			this.bAppIsReady = true;
 		},
 		methods: {
 			onSourceChange: function(sKey){
@@ -615,11 +638,14 @@ Vue.component('card', {
 			},
 			onLanguageChange: function(sKey){
 				this.sLang = sKey;
+				this.setConfig("lang", sKey);
+				
 				this.updateHash();
 			},
 			onSortChange: function(sKey){
 				this.sSort = sKey;
 				this.updateHash();
+				this.setConfig("sort", sKey);
 			},
 			onSearchName: function(sValue){
 				this.sSearch = sValue.trim();
@@ -629,6 +655,13 @@ Vue.component('card', {
 				this.sSearch = "";
 				this.sSearch = this.aItemsList[randd(0, this.aItemsList.length-1)].name;
 				this.updateHash();
+			},
+			
+			onTypesToggled: function(bStat){
+					this.setConfig("typesOpend", bStat);
+			},
+			onSourcesToggled: function(bStat){
+					this.setConfig("sourcesOpend", bStat);
 			},
 			
 			hideInfo(){
@@ -649,6 +682,7 @@ Vue.component('card', {
 						this.aLockedItems.push(id);
 					}
 				}
+				this.setConfig("locked", this.aLockedItems);
 			},
 			unlockCard: function(oCard){
 				if(this.aSelectedLockedItems.length>0) {
@@ -665,6 +699,7 @@ Vue.component('card', {
 						this.aLockedItems.splice(nInd, 1);
 					}
 				}
+				this.setConfig("locked", this.aLockedItems);
 			},
 			hideCard: function(oCard){
 				if(this.aSelectedItems.length>0) {
@@ -689,6 +724,7 @@ Vue.component('card', {
 			},
 			unlockAll: function(){
 				this.aLockedItems = [];
+				this.setConfig("locked", this.aLockedItems);
 			},
 			unhideAll: function(){
 				this.aHiddenItems = [];
@@ -801,6 +837,58 @@ Vue.component('card', {
 			print: function(){
 				window.print();
 				return false;
+			},
+			
+			showCards: function(){
+				this.bCardsAreVisible = true;
+			},
+			
+			showAllItems: function(){
+				this.closeMosWin();
+				this.hideInfo();
+				this.showCards();
+				this.setConfig("infoIsRead", true);
+			},
+			
+			setConfig: function (prop, val) {
+				if(prop && val != undefined && this.oConfig) {
+					this.oConfig[prop] = val;
+					localStorage.setItem("feat_config", JSON.stringify(this.oConfig));
+				}
+			},
+			getConfig: function (prop) {
+				this.oConfig = JSON.parse(localStorage.getItem("feat_config")) || {};
+				if(prop!=undefined) {
+					return localStorage.getItem("feat_config")? this.oConfig[prop] : null;
+				}
+				return ""; 
+			},
+			
+			loadConfigData: function(){
+				let sTmpLang = this.getConfig("lang");
+				if(sTmpLang){
+					this.sLang = sTmpLang;					
+				}
+				
+				let sTmpSort = this.getConfig("sort");
+				if(sTmpSort){
+					this.sSort = sTmpSort;					
+				}
+				
+				let aTmpLocked = this.getConfig("locked");
+				if(aTmpLocked) {
+					this.aLockedItems = aTmpLocked;
+				}
+				
+				let bTmpTypesOpend = this.getConfig("typesOpend");
+				if(bTmpTypesOpend != undefined) {
+					this.bTypesOpend = bTmpTypesOpend
+				}
+				
+				let bTMPSourcesOpend = this.getConfig("sourcesOpend");
+				if(bTMPSourcesOpend != undefined) {		
+					this.bSourcesOpend = bTMPSourcesOpend;					
+				}	
 			}
 		}
   });
