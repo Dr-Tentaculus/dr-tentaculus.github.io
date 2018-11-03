@@ -6807,7 +6807,7 @@ var allMonsters = [{
 		"int": "6",
 		"wis": "11",
 		"cha": "7",
-		"resist": "bludgeoning, piercing, and slashing from nonmagical weapons that aren't adamantine",
+		"resist": "дробящий, колющий и рубящий урон от немагических атак, а также от немагического оружия, которое при этом не изготовлено из адамантина",
 		"immune": "poison",
 		"conditionImmune": "истощение, окаменение, отравление",
 		"senses": "темнозрение 12 клеток",
@@ -8521,7 +8521,7 @@ var allMonsters = [{
 			}
 		]
 	}, {
-		"name": "Медуза Горгона (Gorgon)",
+		"name": "Горгона (Gorgon)",
 		"size": "L",
 		"type": "монстр",
 		"source": "MM",
