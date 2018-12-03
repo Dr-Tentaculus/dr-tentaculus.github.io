@@ -213,11 +213,26 @@ function getRandomItem(){
 				return oItem.name == type[1];
 			});
 			if(oGroup && oGroup[0]) {
-				sSource = oGroup[0].title + " - " + oGroup[0].tooltip;
-				if(oGroup[0].url) {
-					sSource = "<a href='"+oGroup[0].url+"'>"+sSource+"</a>";
-				} 
-				sSource = "<div class='source_uderpanel'>Источник: "+sSource+"</div>";
+				if(oGroup[0].title && oGroup[0].tooltip) {
+					sSource = oGroup[0].title + " - " + oGroup[0].tooltip;
+					if(oGroup[0].url) {
+						sSource = "<a href='"+oGroup[0].url+"'>"+sSource+"</a>";
+					} 
+					sSource = "<div class='source_uderpanel'>Источник: "+sSource+"</div>";
+				} else {
+					let aCollectionSources = [];
+					if(oGroup[0].autor) {
+						let oAutor = oGroup[0].autor.split("|");
+						aCollectionSources.push("Автор: "+ (oAutor[1]? "<a href='"+oAutor[1]+"'>"+oAutor[0]+"</a>": oAutor[0]));
+					}
+					if(oGroup[0].translator) {
+						let oTranslator = oGroup[0].translator.split("|");
+						aCollectionSources.push("Переводчик: "+ (oTranslator[1]? "<a href='"+oTranslator[1]+"'>"+oTranslator[0]+"</a>": oTranslator[0]));
+					}
+					if(aCollectionSources.length>0) {
+						sSource = "<div class='source_uderpanel'>"+aCollectionSources.join("<br>")+"</div>";
+					}
+				}
 			}
 		}		
   }
