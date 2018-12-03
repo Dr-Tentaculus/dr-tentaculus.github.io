@@ -1864,7 +1864,7 @@ var RandomItems = {
         },
         {
           "name": "battle_fails_hands",
-          "title": "Промах в бою - рукапашная схватка",
+          "title": "Промах в бою - рукопашная схватка",
           "fArticle": false,
           "tags": "d10, battle, fail",
           "img": "Critical_Miss.jpg",
