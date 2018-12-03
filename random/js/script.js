@@ -200,25 +200,33 @@ function getRandomItem(){
   var table = "";
 
   var aMiddleList = [];
-
+	var sSource = "";
 
   for(var n in sItemsLine) {
-  var type = sItemsLine[n].trim().split(" ");
-  //getNumerousItems(items, type[0], type[1], number);
+		var type = sItemsLine[n].trim().split(" ");
+		aMiddleList = aMiddleList.concat(generateRandomItem(items, type[0], type[1], number));
 
-  /**/
-  //for(var r=0; r<number; r++) {
-    aMiddleList = aMiddleList.concat(generateRandomItem(items, type[0], type[1], number));
-    //table+="<tr><td>"+formatLine(word)+"</td></tr>";
-  //}
-  /**/
+		if(sItemsLine.length == 1) {
+			var oGroup = items.l.filter(function(oItem){
+				return oItem.name == type[0];
+			})[0].list.filter(function(oItem){
+				return oItem.name == type[1];
+			});
+			if(oGroup && oGroup[0]) {
+				sSource = oGroup[0].title + " - " + oGroup[0].tooltip;
+				if(oGroup[0].url) {
+					sSource = "<a href='"+oGroup[0].url+"'>"+sSource+"</a>";
+				} 
+				sSource = "<div class='source_uderpanel'>Источник: "+sSource+"</div>";
+			}
+		}		
   }
   aMiddleList = shuffle(aMiddleList);
   for(var i=0; i<number; i++) {
     //table+="<tr><td>"+formatLine(aMiddleList[i])+"</td></tr>";
     table+="<tr><td>"+aMiddleList[i]+"</td></tr>";
   };
-  table="<table align='center'>"+table+"</table>";
+  table="<table align='center'>"+table+"</table>"+sSource;
   $("#result").html(table);
 
 }
