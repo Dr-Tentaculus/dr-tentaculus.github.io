@@ -13,11 +13,8 @@
 			.substring(1);
 		}
 	
-		var sUserId = localStorage.getItem("UserGUID");
-		if(!sUserId) {
-			sUserId = guid()
-			localStorage.setItem("UserGUID", sUserId);
-		}
+		var sUserId = guid();
+			
 		return sUserId;
 	}
 	

@@ -225,10 +225,10 @@ var oSort = {
 	"typeAlpha": {
 		"text": {
 			"en": {
-				"title": "By type & alphabet"
+				"title": "By level & alphabet"
 			},
 			"ru": {
-				"title": "По типу и алфавиту"
+				"title": "По уровню и алфавиту"
 			}
 		},
 		"checked": true,
