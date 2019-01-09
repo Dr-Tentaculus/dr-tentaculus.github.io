@@ -159,7 +159,7 @@ window.onload = function(){
     var colorSelect = getColors(sColor);//+"<input type='color'>";
     var sForm = "<div class='tabContent' data-tabContent='edit'><div><textarea id='sWinName' data-id='"+sID+"' style='width: 100%;' placeholder='Текст (Имя или еще что)' rows='5'>"+sName+"</textarea></div>\
     <div><input id='sWinInitiative' style='width: 100%;' type='number' placeholder='Инициатива (по умолчаниию \"0\")' value='"+sInitiative+"'></div>\
-    <div>"+colorSelect+"</div><div class='scrollable'>"+getImages(sIco)+"</div></div>"; // <label>Изображение: </label>"
+    <div>"+colorSelect+"</div><div class='scrollable' style='height: 39rem;'>"+getImages(sIco)+"</div></div>"; // <label>Изображение: </label>"
     $(".mod_win_wrapper").remove();
 		var bCross = "<span class='bCloseInfoWin'>×</span>";
     var sTabName = oData? "Редактировать" : "Добавить";
