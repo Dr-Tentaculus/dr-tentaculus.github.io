@@ -10,7 +10,7 @@
 .padding {
   padding: 1rem;
 }
-button,
+/*button, */
 .btn {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
@@ -43,7 +43,6 @@ button,
   -ms-user-select: none;
   user-select: none;
 }
-button:hover,
 .btn:hover {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
@@ -76,7 +75,6 @@ button:hover,
   -ms-user-select: none;
   user-select: none;
 }
-button:active,
 .btn:active {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
