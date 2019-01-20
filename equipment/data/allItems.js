@@ -56,7 +56,7 @@ var oTypes = {
 			"light",
 			"medium",
 			"heavy",
-			"simple"
+			"shield"
 		],
 	"img": "type_armor.jpg"
   },
@@ -277,6 +277,19 @@ var oTypeAdditions = {
         "she": "простая",
         "it": "простое",
         "title": "простое"
+      }
+    }
+  },
+	"shield": {
+    "text": {
+      "en": {
+        "title": "shield"
+      },
+      "ru": {
+        "he": "щит",
+        "she": "щит",
+        "it": "щит",
+        "title": "щит"
       }
     }
   },
