@@ -592,10 +592,12 @@ $(document).ready(function(){
 	}
 
   function getMonsterAbils(oData, sTitle, sClassName) {
+		console.log(sClassName);
     var ret = '';
+    var sText='';
+		var aItems = [];
 		if(Array.isArray(oData)) {
 			for(var i in oData){
-        var sText='';
         var oText = oData[i].text;
         if(Array.isArray(oText)){
           oText.forEach(function(item){
@@ -604,10 +606,15 @@ $(document).ready(function(){
         } else{
           sText = oText;
         }
-				ret+="<div class='"+sClassName+" i4-tipe'>"+
+				// ret+="<li class='"+sClassName+" i4-tipe'>"+
+					// (oData[i].name? "<span class='i2-tipe'>"+oData[i].name.trim()+"</span>" : "")+
+					// sText+
+				// "</li>";
+				aItems.push(
+				"<li class='"+sClassName+" noLi i4-tipe'>"+
 					(oData[i].name? "<span class='i2-tipe'>"+oData[i].name.trim()+"</span>" : "")+
 					sText+
-				"</div>";
+				"</li>");
 			}
 		}
 		else if(typeof oData == "object") {
@@ -615,7 +622,7 @@ $(document).ready(function(){
 				// new
 				//var sLenendaryText = oData.text? "<span class='i2-tipe'>"+oData.text+"</span>" : "";
 				//var sText = oData.text? oData.text : "";
-        var sText='';
+        //var sText='';
         var oText = oData.text;
         if(oText && Array.isArray(oText)){
           oText.forEach(function(item){
@@ -625,23 +632,25 @@ $(document).ready(function(){
           sText = oText;
         }
         
-				ret+= sText+
+				ret+= sText;
 
-					oData.list.map(function(el){
+				aItems = oData.list.map(function(el){
 						var sLeg = "";
+						var sNoLi = "";
 						if(el.name) {
 							sLeg =  "<span class='i2-tipe'>"+el.name+"</span>";
+							sNoLi = " noLi ";
 						}
 						if(el.text) {
 							sLeg += el.text;
 						}
 
-						return "<div class='"+sClassName+" i4-tipe'>"+sLeg+"</div>";
-					}).join("");
+						return "<li class='"+sClassName+sNoLi+" i4-tipe'>"+sLeg+"</li>";
+					});
 
 			} else{
 				// old
-        var sText='';
+        //var sText='';
         var oText = oData.text;
         if(Array.isArray(oText)){
           oText.forEach(function(item){
@@ -650,17 +659,25 @@ $(document).ready(function(){
         } else{
           sText = oText;
         }
-				ret+="<div class='"+sClassName+" i4-tipe'>"+
+				aItems.push("<li class='"+sClassName+" noLi i4-tipe'>"+
 					"<span class='i2-tipe'>"+oData.name.trim()+"</span>"+
 					sText+
-				"</div>";
+				"</li>");
 			}
 
 		}
+		
+		
+		var sList = "";
+		if(aItems.length>0) {
+			sList = "<ul class='abilsList'>"+aItems.join("")+"</ul>";
+		}
+		ret+=sList;
 		if(ret!='' && sTitle) {
-
 			ret= "<div class='"+sClassName+" i3-tipe'>"+sTitle+"</div>"+ret;
-    }
+    } else {
+			ret= sText + ret;
+		}
 
 		return ret;
   }
@@ -687,7 +704,7 @@ $(document).ready(function(){
 		}
 
 		size='<span class="size">' + size + '</span>';
-
+		//if(oMonster.name == "Аболет (Aboleth)") debugger;
 		var trait = getMonsterAbils(oMonster.trait, null, "trait");//getMonsterTraits(oMonster.trait);
 		var reaction = getMonsterAbils(oMonster.reaction, "Реакция", "reaction");//getMonsterReactions(oMonster.reaction);
 		var action = getMonsterAbils(oMonster.action, "Действия", "action");//getMonsterActions(oMonster.action);
@@ -1769,7 +1786,8 @@ $(document).ready(function(){
 	// view
 	$("body").on('change', "#ViewSegmented input", function() {
 		clearTimeout(oTimer);
-		oTimer = setTimeout(function(){
+		oTimer = setTimeout(function(){			
+      updateHash();
 			filterMonsters();
 		}, nTimerSeconds);
 	});
