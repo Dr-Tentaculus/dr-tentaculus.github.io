@@ -370,7 +370,7 @@ window.onload = function(){
 		var nLevelEnd = oParams.nLevelEnd;
 		var aSchools = oParams.aSchools;
 		var aSources = oParams.aSources;
-    var fRitual = oParams.fRitual || /(^|\W)ritual|ритуал/.test(sName);
+    var fRitual = oParams.fRitual || /ritual|ритуал/.test(sName);
 		var sLang = oParams.sLang;
     var sView = oParams.sView;
 
@@ -387,7 +387,7 @@ window.onload = function(){
 		//class
 		var aSpells = [];
 		if(sClass) {
-			if(classSpells[sClass]) {				
+			if(classSpells[sClass]) {
 				aSpells = aSpells.concat(classSpells[sClass].spells);
 				if(classSpells[sClass].subclasses && classSpells[sClass].subclasses[sSubClass]) {
 					if(classSpells[sClass].subclasses[sSubClass].spells)
@@ -396,12 +396,7 @@ window.onload = function(){
 						aSpells = aSpells.concat(classSpells[sClass].subclasses[sSubClass].subclasses[sSubSubClass].spells);
 					}
 				}
-				
-				let undoubledSpells = aSpells.map(el=>el.toLowerCase()).filter(function(item, pos, self) {
-					return self.indexOf(item) == pos;
-				})
-				
-				undoubledSpells.forEach(function(spellName){
+				aSpells.forEach(function(spellName){
 					var fFind = false;
 					for (var i = 0; i<allSpells.length; i++){
 
