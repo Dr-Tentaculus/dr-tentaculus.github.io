@@ -164,6 +164,41 @@ br {
 p {
   margin: 0 0 10.5px;
 }
+.btn {
+  -webkit-border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+  -moz-border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+  border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+  overflow: visible;
+  background: #fff;
+  border: 0px solid #d8d8d8;
+  border-top-width: 0px;
+  /*display: inline-block;*/
+  font-weight: bold;
+  padding: 0.7em;
+  margin: 0.3em;
+  border-width: 1px;
+  border-style: solid;
+  border-bottom-width: 2px;
+  text-decoration: none;
+  border-color: #555555;
+  color: #fff;
+  background: #666666;
+  box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin: 0;
+  padding: 0.5em 0.2em;
+  display: block;
+  font-size: 100%;
+  width: 100%;
+}
+.btn:hover {
+  background: #888888;
+}
 table tr {
   background: #fff;
 }
@@ -885,6 +920,22 @@ table td:first-child {
 .row .cell {
   float: left;
   width: 50%;
+}
+.textCancel,
+.textSave {
+  padding: 0 .5em;
+  font-size: 120%;
+  cursor: pointer;
+  color: #cccccc;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.textCancel:hover {
+  color: #b00;
+}
+.textSave:hover {
+  color: #0b0;
 }
 #lockedItemsArea {
   margin-bottom: .3em;

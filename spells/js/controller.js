@@ -443,6 +443,10 @@ Vue.component('card', {
 		pre: {
 			type: String,
 			default: ""
+		},
+		editable: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data: function(){
@@ -499,6 +503,10 @@ Vue.component('card', {
 		},
 		cardWidthStyle: function(){
 			return (this.cardWidth>0 && this.cardView) ? "width: "+this.cardWidth+"px": "";
+		},
+		
+		editableButtons: function() {
+			return this.editable? "": "display: none";
 		}
 	},
 	mounted: function(){
@@ -532,6 +540,16 @@ Vue.component('card', {
 		onTextMax: function(){
 			this.textSize++;
 		},
+		
+		onTextCancel: function(){
+			this.$emit('cancel', {id: this.id});
+		},
+		onTextSave: function(oEvent){
+			let oEl = this.$refs.itemText;		
+			let sText = oEl.innerHTML;
+			this.$emit('input', {id: this.id, text: sText});
+		},
+		
 		autosizeText: function() {
 			let oEl = this.$refs.itemText;		
 			let style = window.getComputedStyle(oEl, null).getPropertyValue('scrollWidth');
@@ -543,27 +561,6 @@ Vue.component('card', {
 				return false;
 			}
 			
-			//while (this.textSize > 7 && oEl.scrollWidth < oEl.innerWidth) {
-			//let nDiff = oEl.scrollHeight/oEl.offsetHeight;
-			//let nNewFontSize = this.textSize / nDiff;
-			//this.textSize = nNewFontSize<7? 7 : nNewFontSize;
-			/*/
-			function min(){
-				if (this.textSize > 7 && oEl.scrollHeight > oEl.offsetHeight) {
-					this.textSize-=0.3;
-				} else {
-					clearInterval(oTimer);
-				}
-			}
-			
-			var oTimer = setInterval(min.bind(this), 1);
-			/**/
-			/*/
-			while (this.textSize > 7 && oEl.scrollHeight > oEl.offsetHeight) {
-				this.textSize-=0.3;
-
-			}
-			/**/
 		},
 		onCardWidthMax: function() {
 			this.cardWidth+=10;
@@ -604,12 +601,16 @@ Vue.component('card', {
 							</div>
 						</div>
 						<div class="materials">{{materials}}</div>
-						<div class="text" v-html="preparedText" :style="textSizeStyle" ref="itemText">
+						<div class="text" v-html="preparedText" :style="textSizeStyle" ref="itemText" :contenteditable="editable">
 						</div>
 						
 						<div class="sizeButtonsContainer noprint">
-							<a href="#" class="textMin" title="Уменьшить размер текста" @click.stop='onTextMin'>–</a>
-							<a href="#" class="textMax" title="Увеличить размер текста" @click.stop='onTextMax'>+</a>
+							<span class="textMin" title="Уменьшить размер текста" @click.stop='onTextMin'>–</span>
+							
+							<span class="textCancel" title="Отменить" @click.stop='onTextCancel' :style="editableButtons">✖</span>
+							<span class="textSave" title="Сохранить" @click.stop='onTextSave' :style="editableButtons">✔</span>
+							
+							<span class="textMax" title="Увеличить размер текста" @click.stop='onTextMax'>+</span>
 						</div>
 						<b class="class">{{className}}</b>
 						<b class="school">{{level}}, {{school}} <span :title="srcTitle">({{src}})</span></b>
@@ -617,26 +618,33 @@ Vue.component('card', {
 				</div>
 				
 				<div class="inner" v-if="!cardView">
-						<span v-show="locked" class="bUnlockItem" title="Открепить обратно" @click.stop="unlock"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-						<span v-show="!locked" class="bLockItem" title="Закорепить черту (не будут действовать фильтры)" @click.stop="lock"><i class="fa fa-lock" aria-hidden="true"></i></span>
-						<span class="bHideItem" title="Скрыть черту (будет внизу панели фильтров)" @click.stop="hide"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
-            <div class="flex">
-              <div class="flex column primal">
-                <h1 :title="tooltip">{{name}}</h1>          
-                <div class="school_level">{{level}}, {{school}} {{ritualMark}}</div>
-              </div>
-              <div class="flex secondal">
-                <div class="column thirdal">
-                  <div class="cvasi_row"><div class="subtitle">{{castingTimeTitle}}</div> <div>{{castingTime}}</div></div>   
-                  <div class="cvasi_row"><div class="subtitle">{{rangeTitle}}</div> <div>{{range}}</div></div>           
-                </div>
-                <div class="column thirdal">              
-                  <div class="cvasi_row"><div class="subtitle">{{componentsTitle}}</div> <div>{{components}} {{materials?"*":""}}</div></div> 
-                  <div class="cvasi_row"><div class="subtitle">{{durationTitle}}</div> <div>{{duration}}</div></div>       
-                </div> 
-            </div>
-          </div>
-          <div class="text" v-html="preparedText"></div> 
+					<span v-show="locked" class="bUnlockItem noprint" title="Открепить обратно" @click.stop="unlock"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+					<span v-show="!locked" class="bLockItem noprint" title="Закорепить черту (не будут действовать фильтры)" @click.stop="lock"><i class="fa fa-lock" aria-hidden="true"></i></span>
+					<span class="bHideItem noprint" title="Скрыть черту (будет внизу панели фильтров)" @click.stop="hide"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+					<div class="flex">
+						<div class="flex column primal">
+							<h1 :title="tooltip">{{name}}</h1>          
+							<div class="school_level">{{level}}, {{school}} {{ritualMark}}</div>
+						</div>
+						<div class="flex secondal">
+							<div class="column thirdal">
+								<div class="cvasi_row"><div class="subtitle">{{castingTimeTitle}}</div> <div>{{castingTime}}</div></div>   
+								<div class="cvasi_row"><div class="subtitle">{{rangeTitle}}</div> <div>{{range}}</div></div>           
+							</div>
+							<div class="column thirdal">              
+								<div class="cvasi_row"><div class="subtitle">{{componentsTitle}}</div> <div>{{components}} {{materials?"*":""}}</div></div> 
+								<div class="cvasi_row"><div class="subtitle">{{durationTitle}}</div> <div>{{duration}}</div></div>       
+							</div> 
+						</div>
+					</div>
+					<div class="sizeButtonsContainer noprint">
+							
+							<span></span>
+							<span class="textCancel" title="Отменить" @click.stop='onTextCancel' :style="editableButtons" class='noprint'>✖</span>
+							<span class="textSave" title="Сохранить" @click.stop='onTextSave' :style="editableButtons" class='noprint'>✔</span>
+							<span></span>
+					</div>
+          <div class="text" v-html="preparedText" :contenteditable="editable" ref="itemText"></div> 
           <div class="material_components">{{materialsLine}}</div>
 					<div class="source" :title="srcTitle">({{src}})</div>
         </div>
@@ -709,6 +717,7 @@ Vue.component('hiddenitem', {
 			bCardsAreVisible: false,	
 			bAppIsReady: false,	
 			bRitualOnly: false,
+			bEditMode: false,
 			
 			bModalWinShow: false,
 			sModalWinCont: ""
@@ -806,6 +815,9 @@ Vue.component('hiddenitem', {
 			},
 			
 			sSortSelected: function(){
+				if(!(this.aSort[this.sSort])) {
+					this.sSort = Object.keys(this.aSort)[0];
+				}
 				return this.aSort[this.sSort].text[this.sLang].title;
 			},
 			/**/
@@ -962,7 +974,9 @@ Vue.component('hiddenitem', {
 						"color": this.sClass,
 						"view": this.sView,
 						"locked": this.aLockedItems.indexOf(oItem.en.name)>-1,
-						"selected": this.aSelectedItems.indexOf(oItem.en.name)>-1
+						"selected": this.aSelectedItems.indexOf(oItem.en.name)>-1,
+						
+						"editable": this.bEditMode
 					};
 					if(oItem[this.sLang].pre || oItem.en.pre) {
 						o.pre = oItem[this.sLang].pre || oItem.en.pre;
@@ -1470,6 +1484,103 @@ Vue.component('hiddenitem', {
 				if(bTMPSourcesOpend != undefined) {		
 					this.bSourcesOpend = bTMPSourcesOpend;					
 				}	
+			},
+			
+			
+			downloadDB: function() {
+				var oDB = {};
+				oDB.sourceList = this.aSources;
+				oDB.schoolList = this.aSchools;
+				oDB.oLanguages = this.aLanguages;
+				oDB.allSpells = this.aItems;
+				
+				var sData = JSON.stringify(oDB, null, 2);
+				var filename = "DnD5e_spells_BD";
+				var blob = new Blob([sData], {type: "text/plain;charset=utf-8"});
+				saveAs(blob, filename+".dtn");
+			},
+			uploadDB: function() {
+				let oUploader = this.$refs.fileUploader;
+				document.getElementById('fileUploader').click();
+			},
+			fileSelected: function(oEvent){
+				this.handleLocalBDSelect(oEvent);
+			},
+			
+			handleLocalBDSelect: function(evt) {
+				var files = evt.target.files; // FileList object
+
+				var reader = new FileReader();
+				reader.onload = (function(theFile) {
+					return function(e) {
+						var sText = e.target.result;
+						this.parceLocalFile(sText);
+					}.bind(this);
+				}.bind(this))(files[0]);
+
+				// Read in the image file as a data URL.
+				reader.readAsText(files[0]);
+
+			},
+			_completeDB: function(oMainDB, oFileDB){
+				for(var key in oFileDB) {
+					oMainDB[key] = oFileDB[key];
+				}
+			},
+			parceLocalFile: function(sText) {
+				try{
+					var oDB = JSON.parse(sText);
+						
+					this._completeDB(this.aSources, oDB.sourceList);
+					this._completeDB(this.aSchools, oDB.schoolList);
+					this._completeDB(this.aLanguages, oDB.oLanguages);
+					//this._completeDB(this.aItems = oDB.allSpells);
+
+					/*/
+					this.aSources = oDB.sourceList;
+					this.aSchools = oDB.schoolList;
+					this.aLanguages = oDB.oLanguages;
+					/**/
+					this.aItems = oDB.allSpells;
+					
+					let oUploader = this.$refs.fileUploader;
+					document.getElementById('fileUploader').value = "";
+					alert("Вроде как загружено");
+				} catch (err) {
+					document.getElementById('fileUploader').value = "";
+					alert ("Ошибка в структуре файла файла. Воспользуйтесь валидатором JSON.\n\n"+err);
+				}
+			},
+			
+			
+			onEditModePress: function(){
+				//this.showAllItems();
+				
+				this.bEditMode = !this.bEditMode;
+				//this.updateHash();
+			},
+			cancelCard: function(oData){
+				let sId = oData.id;
+				let oItem = this.aItems.find(el => el.en.name.toLowerCase().replace(/\s+/,"") == sId.toLowerCase().replace(/\s+/,""));
+				if(oItem) {
+					let sText = oItem[this.sLang].text + "  ";
+				
+					oItem[this.sLang].text = sText;
+				}
+				
+				return false;
+				
+			},
+			saveCard: function(oData){
+				let sId = oData.id;
+				let sText = oData.text;
+				
+				let oItem = this.aItems.find(el => el.en.name.toLowerCase().replace(/\s+/,"") == sId.toLowerCase().replace(/\s+/,""));
+				if(oItem) {
+					oItem[this.sLang].text = sText;
+				}
+				
+				return false;
 			}
 		}
   });

@@ -510,7 +510,10 @@ Vue.component('card', {
 				return a;
 			},
 			
-			sSortSelected: function(){
+			sSortSelected: function(){				
+				if(!(this.sSort == "alpha")) {
+					this.sSort = "typeAlpha";
+				}
 				return this.aSort[this.sSort].text[this.sLang].title;
 			},
 			
@@ -560,6 +563,7 @@ Vue.component('card', {
 							return 1;						
 						return 0
 					} else {
+						this.sSort = "typeAlpha";
 						if (a.typeNum+a.name.toLowerCase().trim() < b.typeNum+b.name.toLowerCase().trim() )
 							return -1;
 						if (a.typeNum+a.name.toLowerCase().trim() > b.typeNum+b.name.toLowerCase().trim() )
@@ -889,6 +893,53 @@ Vue.component('card', {
 				if(bTMPSourcesOpend != undefined) {		
 					this.bSourcesOpend = bTMPSourcesOpend;					
 				}	
+			},
+			
+			
+			downloadDB: function() {
+				var oDB = {};
+				oDB.sourceList = this.aSources;
+				oDB.typeList = this.aTypes;
+				oDB.oLanguages = this.aLanguages;
+				oDB.allItems = this.aItems;
+				
+				var sData = JSON.stringify(oDB, null, 2);
+				var filename = "DnD5e_feats_BD";
+				var blob = new Blob([sData], {type: "text/plain;charset=utf-8"});
+				saveAs(blob, filename+".dtn");
+			},
+			uploadDB: function() {
+				let oUploader = this.$refs.fileUploader;
+				//debugger;
+				document.getElementById('fileUploader').click();
+			},
+			fileSelected: function(oEvent){
+				this.handleLocalBDSelect(oEvent);
+			},
+			
+			handleLocalBDSelect: function(evt) {
+				var files = evt.target.files; // FileList object
+
+				var reader = new FileReader();
+				reader.onload = (function(theFile) {
+					return function(e) {
+						var sText = e.target.result;
+						this.parceLocalFile(sText);
+					}.bind(this);
+				}.bind(this))(files[0]);
+
+				// Read in the image file as a data URL.
+				reader.readAsText(files[0]);
+
+			},
+			parceLocalFile: function(sText) {
+				var oDB = JSON.parse(sText);
+				//debugger;
+				
+				this.aSources = oDB.sourceList;
+				this.aTypes = oDB.typeList;
+				this.aLanguages = oDB.oLanguages;
+				this.aItems = oDB.allItems;
 			}
 		}
   });

@@ -689,6 +689,12 @@ window.onload = function(){
 
 	function createLockedItemsArea(){
     var sView = $("CardViewSelect label").attr("data-selected-key");
+		if(!sView) {
+			let sHash = location.hash;
+			if(sHash && /view=text/i.test(sHash)) {
+				sView="text";
+			}
+		}
 		var aLocked = [];
 		for (var i in aLockedItems){
 			aLocked.push(i);
@@ -728,6 +734,13 @@ window.onload = function(){
 			$(".ItemContainer").removeClass("noprint");
 		}
 	}
+	
+	function createDbButtons() {
+		var sButtons = "<input type='file' style='display: none' id='fileUploader'>"+
+		"<div class='mediaWidth'><button	id='bDownload' class='btn'	>Скачать</button></div>" +
+		"<div class='mediaWidth'><button	id='bUpload' class='btn'	>Загрузить</button></div>";
+    $(".p_side").append("<div class='mediaWidth'>" + sButtons + "</div>");
+  }
 
 	function createSidebar() {
 		var lang = getConfig("language");
@@ -742,6 +755,7 @@ window.onload = function(){
 		 createLangSelect(lang);
 		 createCardViewSelect(view);
 		 createSortSelect();
+		 createDbButtons();
 
 		$(".p_side").fadeIn();
 	}
@@ -1552,6 +1566,80 @@ window.onload = function(){
   }
   //window.onhashchange = getHash;
 
+	
+	
+	
+	
+	$("body").on("click", "#bDownload", function() {
+		downloadDB();
+	});
+	$("body").on("click", "#bUpload", function() {
+		uploadDB();
+	});
+	$("body").on("change", "#fileUploader", function(oEvent) {
+		fileSelected (oEvent);
+	});
+	
+	
+	function downloadDB() {
+
+		var oDB = {};
+		oDB.sourceList = oSources;
+		oDB.typesList = oTypes;
+		oDB.rarityList = oRarity;
+		oDB.addList = oItemsAddInfo;
+		oDB.minorBenList = aMinorBeneficial;
+		oDB.majorBenList = aMajorBeneficial;
+		oDB.minorDetList = aMinorDetrimenal;
+		oDB.majorBenList = aMajorDetrimental;
+		oDB.itemsList = allItems;
+		
+		var sData = JSON.stringify(oDB, null, 2);
+		var filename = "DnD5e_equipment_BD";
+		var blob = new Blob([sData], {type: "text/plain;charset=utf-8"});
+		saveAs(blob, filename+".dtn");
+	}
+	function uploadDB() {
+		document.getElementById('fileUploader').click();
+	}
+	function fileSelected (oEvent){
+		handleLocalBDSelect(oEvent);
+	}
+	
+	function  handleLocalBDSelect(evt) {
+		var files = evt.target.files; // FileList object
+
+		var reader = new FileReader();
+		reader.onload = (function(theFile) {
+			return function(e) {
+				var sText = e.target.result;
+				parceLocalFile(sText);
+			}.bind(this);
+		}.bind(this))(files[0]);
+
+		// Read in the image file as a data URL.
+		reader.readAsText(files[0]);
+
+	}
+	function parceLocalFile(sText) {
+		var oDB = JSON.parse(sText);
+		
+		oSources = oDB.sourceList;
+		oTypes = oDB.typesList;
+		oRarity = oDB.rarityList;
+		oItemsAddInfo = oDB.addList;
+		aMinorBeneficial = oDB.minorBenList;
+		aMajorBeneficial = oDB.majorBenList;
+		aMinorDetrimenal = oDB.minorDetList;
+		aMajorDetrimental = oDB.majorBenList;
+		allItems = oDB.itemsList;
+		
+		getHash();
+	}
+
+	
+	
+	
 window.onhashchange = getHash;
 // /url filters
 

@@ -1,8 +1,5 @@
 var TENTACULUS_APP_VERSION = "2.1.0";
-String.prototype.replaceAll = function(search, replacement) {
-    var target = this;
-    return target.replace(new RegExp(search, 'g'), replacement);
-};
+
 var oConfig = {}; // global app config data
 function setConfig(prop, val) {
 	if(prop && val != undefined && oConfig) {
@@ -769,16 +766,8 @@ $(document).ready(function(){
 
 		var add = oMonster.add? "<hr>"+oMonster.add : "";
 
-		var aFic=[], sFic="", sSeparator="";
-		if(oMonster.fiction) {
-			oMonster.fiction = oMonster.fiction.replaceAll(/\{\{([\w_-]+)\}\}/ig, function(sFull, sInner){
-				return monsterCommonInfo[sInner]? monsterCommonInfo[sInner] : "";
-			});
-		}
-		if(oMonster.fiction && sFic) {
-			sSeparator="<hr>";
-		}
-		var sFiction = oMonster.fiction? 	'<div class="fiction">'+ oMonster.fiction + sSeparator + sFic + '</div><hr>' : "";
+
+		var sFiction = oMonster.fiction? 	'<div class="fiction">' + oMonster.fiction + '</div><hr>' : "";
 		var sImage = "";
 		if(oMonster.image) {
 			if(typeof oMonster.image == "string") {
@@ -884,9 +873,7 @@ $(document).ready(function(){
       var aName = sName.split(",").map(item => item.trim().toLowerCase());
 			filteredMonsters = filteredMonsters.filter(function(monster){
         for (i=0; i<aName.length; i++) {
-          if (monster.name.toLowerCase().trim().indexOf(aName[i].replace(/_+/g, " "))>=0 || 
-						  monster.nic && monster.nic.toLowerCase().trim().indexOf(aName[i].replace(/_+/g, " "))>=0
-					) {
+          if (monster.name.toLowerCase().trim().indexOf(aName[i].replace(/_+/g, " "))>=0) {
             return true;
           }
         }	
@@ -1336,6 +1323,13 @@ $(document).ready(function(){
     var label = createLabel("Сортировка");
     $(".p_side").append("<div class='mediaWidth'>" + label + classSelect + "</div>");
   }
+	function createDbButtons() {
+		var sButtons = "<input type='file' style='display: none' id='fileUploader'>"+
+		"<div class='mediaWidth'><button	id='bDownload' class='bt' style='width: 100%;'	>Скачать</button></div>" +
+		"<div class='mediaWidth'><button	id='bUpload'  class='bt' style='width: 100%;'	>Загрузить</button></div>";
+    $(".p_side").append("<div class='mediaWidth'>" + sButtons + "</div>");
+  }
+	
 
 	function createSidebar() {
 		$(".p_side").empty();
@@ -1371,6 +1365,9 @@ $(document).ready(function(){
 
     //sort
     createSortSelect();
+		
+		// db
+		createDbButtons();
 
 		$(".p_side").fadeIn();
 	}
@@ -2040,6 +2037,66 @@ $(document).ready(function(){
   function hideMonsterTypeInfo() {
     $("#monsterTypeInfoWindow").fadeOut();
   }
+	
+	
+	$("body").on("click", "#bDownload", function() {
+		downloadDB();
+	});
+	$("body").on("click", "#bUpload", function() {
+		uploadDB();
+	});
+	$("body").on("change", "#fileUploader", function(oEvent) {
+		fileSelected (oEvent);
+	});
+	
+	
+	function downloadDB() {
+
+		var oDB = {};
+		oDB.sourceList = monsterSources;
+		oDB.expaList = monsterExpa;
+		oDB.sizeList = monsterSize;
+		oDB.biomList = aBioms;
+		oDB.dataList = allMonsters;
+		
+		var sData = JSON.stringify(oDB, null, 2);
+		var filename = "DnD5e_monsters_BD";
+		var blob = new Blob([sData], {type: "text/plain;charset=utf-8"});
+		saveAs(blob, filename+".dtn");
+	}
+	function uploadDB() {
+		document.getElementById('fileUploader').click();
+	}
+	function fileSelected (oEvent){
+		handleLocalBDSelect(oEvent);
+	}
+	
+	function  handleLocalBDSelect(evt) {
+		var files = evt.target.files; // FileList object
+
+		var reader = new FileReader();
+		reader.onload = (function(theFile) {
+			return function(e) {
+				var sText = e.target.result;
+				parceLocalFile(sText);
+			}.bind(this);
+		}.bind(this))(files[0]);
+
+		// Read in the image file as a data URL.
+		reader.readAsText(files[0]);
+
+	}
+	function parceLocalFile(sText) {
+		var oDB = JSON.parse(sText);
+		
+		monsterSources = oDB.sourceList;
+		monsterExpa = oDB.expaList;
+		monsterSize = oDB.sizeList;
+		aBioms = oDB.biomList;
+		allMonsters = oDB.dataList;
+		
+		getHash();
+	}
 
 
 function startCatalog() {

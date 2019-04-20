@@ -4,7 +4,7 @@
   <title>Заклинания D&D5</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=0.8">
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=0.9">
   <meta name="description" content="Заклинания D&D5">
   <link href="../_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="favicon.ico" />
@@ -213,6 +213,35 @@
 				>
 				</custom-select>
 			</div>
+			<!--
+		<div class='mediaWidth'>
+			<label></lable>
+		</div>
+		-->
+		<hr>
+		<div class='mediaWidth'>
+			<button class="btn"
+				title="Скачать базу данных в формате JSON"
+				@click="downloadDB"
+			>Скачать</button>
+		</div>
+		<div class='mediaWidth'>
+			<input type="file" style="display: none" ref="fileUploader" id="fileUploader" @change="fileSelected">
+			<button  class="btn"
+				title="Загрузить базу данных в формате JSON"
+				@click="uploadDB">
+				Загрузить</button>
+		</div>
+		<div class='mediaWidth'>
+			<check-button
+				id="EditorCheckbox"
+				title="Редактирование"
+				:checked="bEditMode"
+				@press="onEditModePress"
+			>
+			</check-button>
+		</div>
+		
 			
 		<div class='mediaWidth' v-show="aHiddenItemsList.length>0">
 			<label class="filterLabel">Скрытые заклинания ({{aHiddenItemsList.length}})</label>
@@ -230,7 +259,9 @@
 			</custom-select>
 			</div>
 		</div>
+		
 	</div>
+	
 	<div class='p_cont' ref="cardContainer">
 		<div id='lockedItemsArea' v-show="aLockedItemsList.length>0 && bCardsAreVisible"  v-cloak>
 			<div class='flex_row noprint'>
@@ -266,6 +297,7 @@
 					:selected="item.selected"
 					:locked="item.locked"
 					:pre="item.pre"
+					:editable="item.editable"
 					@unlock="unlockCard(item)"
 					@hide="hideCard(item)"
 					@select="selectLockedCard(item)"
@@ -306,9 +338,12 @@
 				:view="sView"
 				:selected="item.selected"
 				:pre="item.pre"
+				:editable="item.editable"
 				@lock="lockCard(item)"
 				@hide="hideCard(item)"
 				@select="selectCard(item)"
+				@cancel="cancelCard"
+				@input="saveCard"
 			>
 			</card>
 		</div>
@@ -412,11 +447,12 @@
   <script type='text/javascript' src='js/jquery-1.11.3.min.js' defer></script>  
   <script type='text/javascript' src='../_js/jquery.mobile.custom.min.js' defer></script>
   <script type='text/javascript' src='spells/schoolList.js' defer></script>
-  <script type='text/javascript' src='spells/sourceList.js?v=0.41' defer></script>
-  <script type='text/javascript' src='spells/allSpells.js?v=0.48' defer></script>
+  <script type='text/javascript' src='spells/sourceList.js?v=0.42' defer></script>
+  <script type='text/javascript' src='spells/allSpells.js?v=0.51' defer></script>
   <script type='text/javascript' src='spells/ClassSpells.js?v=0.4' defer></script>
   <!-- <script type='text/javascript' src='js/magic.js?v=2.2.9' defer></script> -->
-  <script type='text/javascript' src='js/controller.js?v=0.32' defer></script>
+  <script type='text/javascript' src='js/controller.js?v=0.35' defer></script>
+  <script type='text/javascript' src="js/FileSaver.min.js"></script>
   <!-- <script type='text/javascript' src='js/update.js' defer></script> -->
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
