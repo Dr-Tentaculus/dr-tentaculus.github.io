@@ -515,10 +515,16 @@ a:hover {
   background-size: 300px;
 }
 #footer .flex_left {
-  flex_grow: 9;
+  flex-grow: 9;
 }
 #footer .flex_right {
-  flex_grow: 14;
+  flex-grow: 14;
+}
+#footer h4 {
+  margin-bottom: .5em;
+}
+#footer .padding {
+  padding: 0.5rem;
 }
 #form {
   -webkit-border-radius: 3px 3px 3px 3px;
@@ -1019,11 +1025,3 @@ a:hover {
     border: none;
   }
 }
-/**************/
-/*/
-img,
-.cont .seg,
-.cont .seg .label{
-	transform: scale(-1,1);
-}
-/**/
