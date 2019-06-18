@@ -935,6 +935,35 @@ a:hover {
   white-space: nowrap;
   width: 5rem;
 }
+table {
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+table tr {
+  border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+}
+table tr:hover td {
+  background: rgba(41, 182, 246, 0.09);
+}
+table tr:nth-child(even) td {
+  background: rgba(221, 221, 221, 0.3);
+}
+table tr:nth-child(even):hover td {
+  background: rgba(41, 182, 246, 0.09);
+}
+table td,
+table th {
+  transition: background .3s;
+  padding: .2em;
+}
+table td:first-child,
+table th:first-child {
+  vertical-align: top;
+  padding: .2em .3em;
+  padding-right: .6em;
+  white-space: nowrap;
+  width: 5rem;
+}
 @media only screen and (min-width: 767px) {
   #vk_community_messages {
     right: 20px !important;

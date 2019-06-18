@@ -170,6 +170,43 @@
 	}
 
 }
+table{
+	border-collapse: collapse;
+	margin: 1.5em 0;
+	tr{
+		&:hover{
+			td{
+				background: fade(@color, 9%);
+			}
+		}
+		&:nth-child(even){
+			td{
+				background: fade(@l-gray, 30%);	
+			}
+			&:hover{
+				td{
+					background: fade(@color, 9%);
+				}
+			}
+		}
+		border-bottom: 1px solid fade(@l-gray, 50%);	
+	}
+
+	td, th{
+		transition: background .3s;
+		padding: .2em;
+		//text-align: left;
+		&:first-child{
+			//text-align: center;
+			vertical-align: top;
+			padding: .2em .3em;
+			padding-right: .6em;
+			white-space: nowrap;
+			width: 5rem;
+		}
+	}
+
+}
 
 // #vk_like, #vk_comments{
 // 	display: none;
