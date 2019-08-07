@@ -831,13 +831,13 @@ function addNameLog(oParams) {
 		aNameLog.pop();
 	} 	
 	aNameLog.unshift(oParams);
-	
 }
 function removeNameLog(i){
 	aNameLog.splice(--i,1);
 }
 function updateNameLog() {
 	var aNames = [];
+
 	if($("#nameLog").length) {
 		$("#nameLog").remove();
 	}

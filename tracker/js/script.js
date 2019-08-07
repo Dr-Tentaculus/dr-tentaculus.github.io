@@ -159,14 +159,14 @@ window.onload = function(){
     var colorSelect = getColors(sColor);//+"<input type='color'>";
     var sForm = "<div class='tabContent' data-tabContent='edit'><div><textarea id='sWinName' data-id='"+sID+"' style='width: 100%;' placeholder='Текст (Имя или еще что)' rows='5'>"+sName+"</textarea></div>\
     <div><input id='sWinInitiative' style='width: 100%;' type='number' placeholder='Инициатива (по умолчаниию \"0\")' value='"+sInitiative+"'></div>\
-    <div>"+colorSelect+"</div><div class='scrollable' style='height: 39rem;'>"+getImages(sIco)+"</div></div>"; // <label>Изображение: </label>"
+    <div>"+colorSelect+"</div><div class='scrollable' id='ico_pack'>"+getImages(sIco)+"</div></div>"; // <label>Изображение: </label>"
     $(".mod_win_wrapper").remove();
 		var bCross = "<span class='bCloseInfoWin'>×</span>";
     var sTabName = oData? "Редактировать" : "Добавить";
     var oTop = "<div class='tabs'><span class='tab selected' data-tab='edit'>"+sTabName+"</span> <span class='tab'  data-tab='history'>Недавние</span> <span class='separator'></span> "+bCross+"</div>"
     var sButton = oData?"<button class='bApplay'>Применить</button>":"<button class='bAdd'>Добавить</button>";
     oHistory = getHistoryList();
-		$("body").append("<div class='mod_win_wrapper' "+nIndex+"><div class='mod_win'>"+oTop+"<div class='modWinCont'>"+sForm+oHistory+"</div><div>"+sButton+"</div></div></div>");
+		$("body").append("<div class='mod_win_wrapper' "+nIndex+"><div class='mod_win' id='editor_win'>"+oTop+"<div class='modWinCont' style='max-height: 90%; overflow-y: auto'>"+sForm+oHistory+"</div><div class='footer'>"+sButton+"</div></div></div>");
     $("body").css("overflow-y", "hidden");
     
     if($(".ico_list .selected").length < 1) {
@@ -175,6 +175,17 @@ window.onload = function(){
     if($(".color_list .selected").length < 1) {
       $(".color_list .color_list_item").eq(0).addClass("selected");
     }
+		
+		// count icos height
+		var nGlobalHeight = $("#editor_win").height();
+		var nHeaderHeigth = $("#editor_win .tabs").height();
+		var nFooterHeigth = $("#editor_win .footer").height();
+		
+		var nContHeight = nGlobalHeight - nHeaderHeigth - nFooterHeigth;
+		
+		$("#devlog").text(nGlobalHeight +" "+ nHeaderHeigth +" "+ nFooterHeigth +" "+nContHeight);
+		var nFooterHeigth = $("#editor_win .modWinCont").height(nContHeight+"px");
+		
     
 		$(".mod_win_wrapper").fadeIn();
   }
