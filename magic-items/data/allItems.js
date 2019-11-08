@@ -5993,7 +5993,7 @@ var allItems = [
    "name": "SHIELD OF EXPRESSION",
 	 "img": "SHIELD_OF_EXPRESSION.jpg",
    "type": "Armor",
-   "typeAdditions": "(shie1d)",
+   "typeAdditions": "(shield)",
    "rarity": 1,
    "text": "The front of this shield is shaped in the likeness of aface. While bearing the shield, you can use a bonus ac—tion to alter the faces expression.",
 	 "source": "XGTE"
