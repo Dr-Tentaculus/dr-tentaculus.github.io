@@ -13,7 +13,7 @@ node_modules/*
 /archive/.git*
 /archive/.git/
 /archive/node/
-/archive/source/
+
 !archive/tables/100_wild_magic_effects.html
 
 /magic-items/.git*
