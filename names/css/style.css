@@ -488,6 +488,12 @@ select option {
   background: #cccccc;
   cursor: pointer;
 }
+.combo_box .selectSection ul,
+.combo_box .selectSection li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
 .combo_box .combo_box_content {
   background: #ddd;
   padding: .3em 0;
