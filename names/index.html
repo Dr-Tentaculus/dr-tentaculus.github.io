@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> <!-- for monile -->
   <meta name="description" content="Генератор имен различных рас и народов на основе заданых имен">
   <meta name="Keywords" content="ДнД, имена, люди, орки, гномы, эльфы">
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=0ю1"><!-- include css styles  -->
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=1.0"><!-- include css styles  -->
   <link href="../_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="favicon2.ico" /><!-- include icon for browser -->
     <link rel="canonical" href="https://tentaculus.ru/names" />
@@ -30,9 +30,9 @@
 
 <body>
 <div id='app'>
-	<div id="panel">
-		<a href="/" class="bt"><i class="fa fa-home"></i></a>
-		<a class="bt" id="go" title="Выберите расу">Сгенерировать</a>
+	<div id="panel" v-cloak>
+		<a :href="sHomeLink" class="bt"><i class="fa fa-home"></i></a>
+		<a class="bt" id="go" title="Выберите расу" :disabled="disable_random" @click="generate">Сгенерировать</a>
 		<variants
 			id="nameListSelect" 
 			:items="variants"
@@ -40,12 +40,12 @@
 			@select="select_variant"
 		>
 		</variants>
-		<a class="bt" id="addList" title="Задать список">Задать список</a>
-		<a class="bt" href="/message/?theme=dndnames" target="_blank">Написать отзыв или предложение</a>
-		<a class="bt" id="info"><i class="fa fa-question-circle"></i></a>
+		<a class="bt" id="addList" title="Задать список" @click="openAddWin">Задать список</a>
+		<a class="bt" :href="sMessageLink" target="_blank">Написать отзыв или предложение</a>
+		<a class="bt" id="info" @click="openModWin"><i class="fa fa-question-circle"></i></a>
 	</div>
 	
-	<div class='row'>
+	<div class='row' v-cloak>
 		<div id='names'>
 			<combo
 				:items="combo"
@@ -55,31 +55,107 @@
 				>
 			</combo>
 		</div>
+		
+		<div id='result' >
+			<div id="info_text" style='max-width: 800px' v-show="names.length<1">
+				<h1>
+					Генератор имен
+				</h1>
+				<p>
+					Этот генератор позволяет создавать новые имена по примеру уже существующих. Необходимо выбрать хотя бы одну расу из списка и нажать кнопку [Сгенерировать] в верхней панели. При этом сгенерируется список из пяти имен. Если выбрать несколько рас, будет сгенерировано по пять имен для каждой. 
+				</p>
+				<h2>
+					Виды имен
+				</h2>
+				<p>
+					По умолчанию представлены расы  D&amp;D5 (и, по правде говоря, имен там немного). При желании, можно выбрать другой список рас (в верхней панели выпадающий список после кнопки [Сгенерировать]).
+				</p>
+				
+				<h2>
+					Собственные варианты имен
+				</h2>
+				<p>
+				<p>
+					Есть возможность задавать собственный список имен для примера. Для этого необходимо нажать кнопку [Задать список] в верхей панели, в текстовое поле ввести список имен через запятую (пока что лучше использовать только кириллицу, если есть желание работать на эльфийскои или клингонском - <a style='color: #0288D1' href='https://tentaculus.ru/message?theme=dndnames'>пишите</a>) и нажать кнопку [Применить] внизу окна ввода. После этого, в конце списка рас появится новый элемет "Свой список". Если выбрать его и нажать кнопку [Сгенерировать], будут созданы пять имен по обазцу введенных в списке.
+				</p>
+				<p>
+					Кроме имен генерировать можно, что угодно. Например названия стран или городов. Или еще что-нибудь...
+				</p>
+				<p>
+					Стоит помнить, что имена что-то означают на своем родном языке. А имена, полученные с помощью генератора, могут либо не значить ничего, либо значить что-то не особо хорошее.
+				</p>
+				
+				<h2>
+					Сохранение имен
+				</h2>
+				<p>
+					Справа от имен есть кнопка сохранения. Сохраненные имена отображаются во второй таблице, ниже основной. Можно сохранить до 20 имен.
+				</p>
+			</div>
+		
+			<table align='center' v-show="names.length>0">
+				<tr v-for="item in names">
+					<td v-html="item.sex">
+					</td>
+					<td>
+						{{item.name}}
+					</td>
+					<td>
+						<button class="save_name simple_button" @click="save_name(item)">
+							<i title="Сохранить" class="fa fa-save" aria-hidden="true"></i>
+					  </button>
+					</td>
+				</tr>
+			</table>
+			
+			<table id='nameLog' align='center' v-show="saved_names.length>0">
+				<tr><td colspan="3"><small>Сохраненные имена</small></td></tr>
+				<tr v-for="item in saved_names">
+					<td v-html="item.sex">
+					</td>
+					<td>
+						{{item.name}}
+					</td>
+					<td>
+						<button class="remove_name simple_button" @click="remove_name(item)">
+							<i title="Удалить" class="fa fa-times" aria-hidden="true"></i>
+						</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<small>{{saved_names.length}}/20</small> | <button class="clear_name simple_button" @click="clear_saved_names">Очистить список</button>
+					</td>
+				</tr>
+			</table>
+			
+		</div>
 	</div>
 
-	<div id="info_text" class='center max_width_800'>
-		<h1>
-			Генератор имен
-		</h1>
-		<p>
-			Этот генератор позволяет создавать новые имена по примеру уже существующих. Необходимо выбрать хотя бы одну расу из списка и нажать кнопку [Сгенерировать] в верхней панели. При этом сгенерируется список из пяти имен. Если выбрать несколько рас, будет сгенерировано по пять имен для каждой. 
-		</p>
-		<p>
-			По умолчанию представлены расы  D&amp;D5 (и, по правде говоря, имен там немного). При желании, можно выбрать другой список рас (в верхней панели выпадающий список после кнопки [Сгенерировать]).
-		</p>
-		<p>
-			Есть возможность задавать собственный список имен для примера. Для этого необходимо нажать кнопку [Задать список] в верхей панели, в текстовое поле ввести список имен через запятую (пока что лучше использовать только кириллицу, если есть желание работать на эльфийскои или клингонском - <a style='color: #0288D1' href='https://tentaculus.ru/message?theme=dndnames'>пишите</a>) и нажать кнопку [Применить] внизу окна ввода. После этого, в конце списка рас появится новый элемет "Свой список". Если выбрать его и нажать кнопку [Сгенерировать], будут созданы пять имен по обазцу введенных в списке.
-		</p>
-		<p>
-			Кроме имен генерировать можно, что угодно. Например названия стран или городов. Или еще что-нибудь...
-		</p>
-		<p>
-			Стоит помнить, что имена что-то означают на своем родном языке. А имена, полученные с помощью генератора, могут либо не значить ничего, либо значить что-то не особо хорошее.
-		</p>
-		<p>
-			Справа от имен есть кнопка сохранения. Сохраненные имена отображаются во второй таблице, ниже основной. Можно сохранить до 20 имен.
-		</p>
-	</div>
+	
+	
+	
+	<transition name="fade" v-cloak>
+		<modal-win
+			v-show="bModalInfoShow"
+			:content="sModalInfoCont"
+			width="40rem"
+			@close="closeModWin"
+		>
+		</modal-win>
+	</transition>
+	
+	<transition name="fade" v-cloak>
+		<modal-win
+			title="Введите список имен через запятую: "
+			width="30rem"
+			v-show="bModalAddShow"
+			@close="closeAddWin"
+		>
+			<div id="textarea" contenteditable="true" style="padding: .2em; min-height: 12em; border: 1px solid #999" @input="custom_names_input">{{sСustomNamesString}}</div>
+			<button class="bt" id="bGetList" @click="setCustomNames">Применить</button>
+		</modal-win>
+	</transition>
 
 </div>
   <!-- <script type='text/javascript' src='js/jquery-1.11.3.min.js' defer></script>< -->

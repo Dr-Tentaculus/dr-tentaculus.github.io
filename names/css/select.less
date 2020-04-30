@@ -1,86 +1,78 @@
 .customSelect{    
-    display: inline-block;
-    position: relative;
-    .label{
-       .fr-convex;
-        background: @m-gray;
-        padding: .2em;
-        display: inline-block;
-        cursor: pointer;
-        text-align: center; 
-        padding-right: 2.2em !important;
-        position: relative;
-        &:before{
-            content: "▼";
-            position: absolute;
-            right: .3em;
-            padding: 0 .2em;
-            //border-left: 1px solid @m-gray - #112;
-            transition: color .3s, background .3s;
-        }
-        &:after{
-            content: "";
-            position: absolute;
-            right: 1.7em;
-            height: 1em;
-            border-left: 2px ridge @m-gray + #222;
-        }
-        
-        &:hover{
-            background: @m-gray + #111;    
-            &:before{
-                transform: scale(1.1, 1.1);
-            }
-        }
-        &:active{
-            background:  @m-gray - #111;    
-        }
-    }
-    .list{
-        @arr_w: .5em;
-        display: none;
-        position: absolute;
-        left: 0;
-        right: 0;
-        z-index: 33;
-        background: @l-gray;
-        //border-radius: .2em;
-        border-radius: 0 0 .2em .2em;
-        //overflow: hidden;
-        border: 1px solid @l-gray - #222;
-        //margin: 0  .4em;
-        margin: 0 .2em;
-        padding: .2em 0;
-        box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.3);
-        //margin-top: @arr_w;
-        margin-top: -.2em;
-        /*/
-        &:before{
-            content: "";
-            position: absolute;
-            top: -2 * @arr_w;
-            left: .4em;
-            height: 0;
-            width: 0;
-            border: @arr_w solid transparent;
-            border-bottom-color: @l-gray;
-        }
-        /**/
-    }
-    .option{
-        color: @d-gray;
-        cursor: pointer;
-        padding: .3em .2em;
-        list-style: none;
-        margin: 0;
-        
-        transition: color .3s, background .3s;
-        &:hover{
-           background: @l-gray - #111; 
-        }
-        
-        &:not(:last-child){
-            border-bottom: 1px solid @l-gray - #111;
-        }
-    }
+	display: inline-block;
+	position: relative;
+	.label{
+		.fr-convex;
+		background: @m-gray;
+		padding: .2em;
+		display: inline-block;
+		cursor: pointer;
+		text-align: center; 
+		padding-right: 2.2em !important;
+		position: relative;
+		&:before{
+			content: "▼";
+			position: absolute;
+			right: .3em;
+			padding: 0 .2em;
+			//border-left: 1px solid @m-gray - #112;
+			transition: color .3s, background .3s;
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			right: 1.7em;
+			height: 1em;
+			border-left: 2px ridge @m-gray + #222;
+		}
+		
+		&:hover{
+			background: @m-gray + #111;    
+			&:before{
+				transform: scale(1.1, 1.1);
+			}
+		}
+		&:active{
+			background:  @m-gray - #111;    
+		}
+	}
+		
+	.list{
+		@arr_w: .5em;
+		//display: none;
+		position: absolute;
+		left: 0;
+		right: 0;
+		z-index: 33;
+		background: @l-gray;
+		border-radius: 0 0 .2em .2em;
+	//	border: 1px solid @l-gray - #222;
+		margin: 0 .2em;
+		padding: 0;
+		box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.3);
+		margin-top: -.2em;    
+
+
+		max-height: 95vh;
+		transition: max-height 0.3s ease-in-out;
+    overflow: auto;
+		.scrollbars(3px, darken(@l-gray, 10%), darken(@l-gray, 5%));    
+	}
+		
+	.option{
+		color: @d-gray;
+		cursor: pointer;
+		padding: .3em .2em;
+		list-style: none;
+		margin: 0;
+		
+		transition: color .3s, background .3s;
+		&:hover{
+			background: @l-gray - #111; 
+		}
+		
+		&:not(:last-child){
+			border-bottom: 1px solid @l-gray - #111;
+		}
+	}
 }

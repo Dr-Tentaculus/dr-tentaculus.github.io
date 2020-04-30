@@ -344,6 +344,168 @@
 
 			]
 		},
+		dungeon_world: {
+			title: "Dungeon World",
+			"l": [
+				{
+					"name": "univeresal",
+					"title": "Универсальные",
+					"list": [
+							{
+								"name": "casual",
+								"title": "Обычные",
+								"schemes": [
+									"male",
+									"female"
+								],
+								"src": [
+									{
+										"name": "male",
+										"l": "Агоштон, Арпад, Аттила, Богнар, Денес, Эдмонд,  Эрно, Этель, Фердинанд, Флориан, Геза, Дьюла,  Хуго, Карчи, Конрад, Ласло, Лукаш, Марко,  Миклош, Пети, Роби, Тамас, Ронольд, Виктор,  Золтан, Адибеми, Абойе, Адегоке, Айокунле, Бабаджиде, Бабатунде, Энитан, Феми, Кайин, Кайод, Ланре, Лекан, Монго, Нвачукву, Обан, Огун,  Олукайоде, Олуваланни, Олуватоке, Онипеде,  Сихуаде, Тобен, Утиба, Заки, Зопатан, Аатами,  Армас, Арси, Арви, Ээту, Ханну, Хеймо, Илкка,  Йорма, Каапо, Каин, Кауко, Лари, Ману, Нуутти, Петри, Раймо, Рейма, Ристо, Сакари, Сампса,  Сеппо, Тайто, Терхо, Вилппу, Адэ, Ади, Амазиа,  Айокунле, Ари, Бамбанг, Бима, Буди, Дарма,  Диан, Эли, Гундари, Хартоно, Ирван, Лауита,  Манусама, Окан, Онесимус, Саммин, Тамим, Таная, Тирто, Вирионо, Янди, Зебулун"
+									},
+									{
+										"name": "female",
+										"l": "Абигель, Ализ, Амаля, Андреа, Аранка, Чилла,  Эдит, Эржебет, Гертруда, Грета, Ирэн, Камилла, Лара, Лия, Луиза, Матильда, Ольга, Отилия,  Панна, Роза, Тереза, Тунда, Валерия, Вилма, Виола, Абени, Адэ, Алаба, Боланле, Босаде, Дарая,  Фари, Гбемисола, Ифе, Иге, Лева, Мохисола, Монифа, Олуфеми, Омолара, Они, Ориса, Оса, Ронке, Шанум, Симисола, Татлайо, Йехиде, Йеванде,  Зауна, Айя, Айна, Айникки, Хейни, Илона, Ирья,  Яаана, Кирси, Майя, Марита, Миина, Мимми,  Минья, Мира, Ними, Оути, Пирьё, Пайвикки,  Риика, Сайми, Суома, Суви, Туула, Велламо, Вирпи, Ада, Булан, Кандракусума, Дэви, Ханджойо,  Иман, Итан, Лаксмини, Лестари, Лимийенто,  Мара, Мегавати, Мелати, Надийа, Офра, Рамза, Сафирал, Села, Суминтэн, Тамар, Танджайя,  Тджокро, Три, Ванги, Зензе"
+									}
+								]
+
+							}
+						]
+				},
+				{
+					"name": "human",
+					"title": "Люди",
+					"list": [
+							{
+								"name": "casual",
+								"title": "Люди",
+								"schemes": [
+									"male",
+									"female",
+									"male nic_male",
+									"female nic_female"
+								],
+								"src": [
+									{
+										"name": "male",
+										"l": "Джона, Галек, Брандон, Имори, Шрайк,Таддеус, Августин, Люкс, Кассий, Адриан, Регул, Сангвиний, Титаний, Адур, Игнис, Пётр,Уэсли,Бринтон,Джон,Обелис,Сиобан,Азиз,Харальд,Пелин,Нильс,Вей,Герран,Джек,ФарлибМарло,Эйвон,Морган, Рет, Хоук,Уолтон,Кастор,Аякс,Хоб,Рудигер,Грегор,Балдрик, Данвик, Виллем, Эдвин, Флориан, Серафин, Горм, Си-Йи,Сэн,Люр,Шар,Кармин,Соломон,Тимоти, Калил, Омэн, Йон, Хико, Хоторн,Элис,Кларк,Коррин,Нкоси,Фафнир, Сацер,Барбозар,Кловис,Фраель,Тра-раксес,Силлиус, Овид, Витус,Зено,Кхамиз,Ури,Умлило"
+									},
+									{
+										"name": "female",
+										"l": "Нора, Диана, Валерия, Лючия, Октавия, Яйна,Фатия, Кхалва, Агаша, Элизабет, Далия,Ленора,Элис,Сара,Элана,Сиула, Сибель,Анданна, Марла,Альдра,Зена,Изольда,Брианна,Шанна,Лиена, Серафин, Кворра, Шарлотта, Лили, Рамонда, Кассандра, Си-Йи,Присцилла,Сэн,Ксиа,Аннэйра,Хаефа,Нкоси,Куа,Верцингетто,Кловис,Фраель,Ша-Шенна,Кхамиз,Вей"
+									},
+									{
+										"name": "nic_male",
+										"l": "Славный, Жаждущий, Неистребимый, Непобедимый, Прожорливый, Проклятый, Костяной, Веселый, Меланхоличный, Всемогущий, Гигантский, Победоносный"
+									},
+									{
+										"name": "nic_female",
+										"l": "Славная, Жаждущая, Неистребимая, Непобедимая, Прожорливая, Проклятая, Костяная, Веселая, Меланхоличная, Всемогущая, Гигантская, Победоносная"
+									}
+								]
+
+							}
+						]
+				},
+				{
+					"name": "elf",
+					"title": "Эльфы",
+					"list": [
+							{
+								"name": "casual",
+								"title": "Эльфы",
+								"schemes": [
+									"male",
+									"female"
+								],
+								"src": [
+									{
+										"name": "male",
+										"l": "Трондир, Эльросин, Аранви, Келион, Дамбрат, Лейнет, Гикоракс, Этанви, Синатель, Деманор, Менолиир, Митралан, Таэрос, Эгор, Галадийр,Фенферил,Лиллиейстр,Фиросейл,Энкираш,Элоир,Шарасет,Хазрит,Астрафель, Шеварал,Кадеус,Эльдар,Дэльвин, Китракет,Тэлиан,Ситранель, Эндрель, Меллиандр, Даголиир,Эльвир"
+									},
+									{
+										"name": "female",
+										"l": "Аранви, Астрафель,Хазрит, Фиросейл,Китракет,Фелиана,Тэлиан, Дамарра, Ситранель,Синатель, Эндрель"
+									}
+								]
+
+							}
+						]
+				},
+				{
+					"name": "dwarf",
+					"title": "Дворфы",
+					"list": [
+							{
+								"name": "casual",
+								"title": "Дворфы",
+								"schemes": [
+									"male",
+									"female"
+								],
+								"src": [
+									{
+										"name": "male",
+										"l": "Сиггруг,Драммонд,Рургош,Эльфар,Озрук, Сурт,Янос,Дим, Рундриг, Ярл, Зоток"
+									},
+									{
+										"name": "female",
+										"l": "Фрея, Хельга,Бьёрн,Герда,Дарга,Брунгильда, Анника,Грета,"
+									}
+								]
+
+							}
+						]
+				},
+				{
+					"name": "halfling",
+					"title": "Полурослики",
+					"list": [
+							{
+								"name": "casual",
+								"title": "Полурослики",
+								"schemes": [
+									"male",
+									"female"
+								],
+								"src": [
+									{
+										"name": "male",
+										"l": "Таннер,Робард,Файстль,Пак,Данстан,Робин,Феликс,Омар,Финнеган,Олив, Рандольф, Бартлби,Бальдуин"
+									},
+									{
+										"name": "female",
+										"l": "Роуз,Иви,Мэб,Робин,Бринн,Трикси,Обри,Бекка, Энн, Сира"
+									}
+								]
+
+							}
+						]
+				},
+				{
+					"name": "salamander",
+					"title": "Саламандр",
+					"list": [
+							{
+								"name": "casual",
+								"title": "Саламандр",
+								"schemes": [
+									"any"
+								],
+								"src": [
+									{
+										"name": "any",
+										"type": "array",
+										"l": "Сердце из Серы, Ходящий по Огням, Тлеющая Плеть, Пепельный Коготь, Угольный Изверг, Едкая Смоль, Пламя на Курганах, Опаленная Чешуя, Фитиль, Угольный Клык"
+									}
+								]
+
+							}
+						]
+				}
+
+			]
+		},
 		names_dnd: {
 			title: "Dungeons&Dragons",
 			"l": [
@@ -1713,7 +1875,7 @@
 			for(var j = 0; race.list[j]; j++) {
 				var sbr = race.list[j];
 				for(var k = 0; sbr.src[k]; k++) {
-					var o = sbr.src[k];
+					let o = sbr.src[k];
 					//debugger;
 					if(globalVar && innerVal) {
 						o.path = globalVar+"/"+innerVal+"/l/" + i + "/list/" + j + "/src/" + k;
@@ -1832,9 +1994,9 @@
 		}
 	}
 	
-	function generate_word(source, oParameters) {
+	function generate_word(source, oUpper) {
 		var name;
-		if (source.l && (source.type == 'array' || oParameters && oParameters.type == 'array' || randd(0,3)>0)) {
+		if (source.l && (source.type == 'array' /*|| oParameters && oParameters.type == 'array'*/ || randd(0,3)>0)) {
 			var arr = shuffle(source.l.split(","));
 			name = arr[0].trim();
 		} else {
@@ -1843,6 +2005,8 @@
 
 			// link to annother part of scheme (for castles...)
 			if (sLink){
+				oSource = oUpper.find(el=>el.name == sLink) || {};
+				/*
 				var aPath = oSource.path.split("/");
 				aPath.pop();
 				var vStart = aPath.shift();
@@ -1856,7 +2020,7 @@
 						break;
 					}
 				}
-
+				*/
 			}
 
 			if (source.mod && source.mod.toLowerCase() == "start") {
@@ -1898,7 +2062,7 @@
 	}
 	
 	function make_name2(src, race, subrace) {
-		var name = '', sSex='<i title="Универсальное или неопределенное имя" class="fa fa-genderless fa-fw" aria-hidden="true"></i>';
+		var name = '', sSex='any';//'<i title="Универсальное или неопределенное имя" class="fa fa-genderless fa-fw" aria-hidden="true"></i>';
 
 		for (var t1 in src.l) {
 			if(src.l[t1].name == race){
@@ -1931,7 +2095,7 @@
 							for( var j in source) {
 								if(source[j].name==name_arr[i]) {
 									if (source[j].random? randd(0,source[j].random)==0 : 1) {
-										word = generate_word(source[j]);
+										word = generate_word(source[j], source);
 										var re_match;
 										for ( var m=5;
 												m>0 &&
@@ -1945,7 +2109,7 @@
 												word.match(/[УЕЫАОЭЯИЮЯ]/gi).length<2);
 												m--
 											){
-											word = generate_word(source[j]);
+											word = generate_word(source[j], source);
 										}
 										var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
 										var postfix = source[j].hasOwnProperty('postfix')? getRandomelementFromString(source[j].postfix) : " ";
@@ -1957,8 +2121,8 @@
 							}
 							
 							switch(source[j].name){
-								case "male": sSex = '<i title="Мужское имя" style="font-size: 80%" class="fa fa-mars fa-fw" aria-hidden="true"></i>'; break;
-								case "female": sSex = '<i title="Женское имя" class="fa fa-venus fa-fw" aria-hidden="true"></i>'; break;
+								case "male": sSex = 'male';break;//''<i title="Мужское имя" style="font-size: 80%" class="fa fa-mars fa-fw" aria-hidden="true"></i>'; break;
+								case "female": sSex = 'female';break;//'<i title="Женское имя" class="fa fa-venus fa-fw" aria-hidden="true"></i>'; break;
 							}
 						}
 
@@ -1971,7 +2135,7 @@
 
 		//name = (name.length<5 && randd(0,1)>0)? name =
 
-		return {name: name, sex: sSex};
+		return name? {name: name, sex: sSex}:null;
 	}
 
 		
@@ -1985,7 +2149,9 @@
 			var sRace = aPaths[n].trim().split("/");
 			for(var r=0; r<nCount; r++) {
 				let oName = make_name2(name_groups[sListName], sRace[0], sRace[1]);
-				aList.push(oName);
+				if(oName){
+					aList.push(oName);
+				}
 			}
 		}
 		return aList;
@@ -1999,7 +2165,9 @@
 		let aList = [];
 		for(let i=0; i<nCount; i++) {
 			let oName =  make_name2(name_groups[aPath[0]], aPath[1], aPath[2]);
-			aList.push(oName);
+			if(oName){
+				aList.push(oName);
+			}
 		}
 		
 		return aList;
@@ -2052,10 +2220,39 @@
 		return aStructure;
 	}
 	
+	function _addCustom(sListName, sNames){
+		customList = {
+			"name": "customList",
+			"title": "Свой список",
+			"list": [
+				{
+					"name": "custom",
+					"title": "Свой список",
+					"schemes": [
+							"custom"
+						],
+					"src": [
+						{
+							"name": "custom",
+							"l": sNames
+						}
+					]
+				}
+			]
+		}
+		let oExistList = name_groups[sListName].l.find(el=>el.name=='customList');
+		if(oExistList) {
+			oExistList = customList;
+		} else {
+			name_groups[sListName].l.push(customList);
+		}
+		make_dict2(name_groups[sListName], "name_groups", sListName)
+	}
+	
 	function _prepare_all_dicts(){
 		let oStructure = _getStructure();
 		let aLists = oStructure.map(el=>el.key);
-		aLists.forEach(el=>{make_dict2(name_groups.names, "name_groups", el)});		
+		aLists.forEach(el=>{make_dict2(name_groups[el], "name_groups", el)});		
 	}
 	
 	function _init(){
@@ -2073,6 +2270,8 @@
 		_Lib.getByPath = _getByPath;
 		_Lib.getManyByPath = _getManyByPath;
 		_Lib.getManyFromList = _getManyFromList;
+		
+		_Lib.addCustom = _addCustom;
 
     return _Lib;
   }
