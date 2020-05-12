@@ -113,7 +113,6 @@ Vue.component('variants', {
 </a>`
 });
 
-
 Vue.component('combo_section', {
 	props: {			
 		selected: {
@@ -181,7 +180,6 @@ Vue.component('combo_section', {
 		</div>`
 });
 	
-
 Vue.component('combo', {
 	props: {	
 		items: {
@@ -209,7 +207,21 @@ Vue.component('combo', {
 	},
 	computed: {
 		title: function(){
-			let aTitle= this.items.filter(el=>el.selected).map(el=>el.title);
+			let aTitle = [];
+			let that = this;	
+			this.selected.forEach(function (oRace){
+				let oFullRace = that.items.find(el=>el.key==oRace.key);
+				let sRace = oFullRace.title;
+				 
+				let aSubrace = [];
+				if(oRace.sub) {
+					oRace.sub.forEach(function (sSubrace){
+						let sSubtitle = oFullRace.sub.find(el=>el.key==sSubrace).title;
+						aSubrace.push(sSubtitle);
+					});
+				}
+				aTitle.push(sRace + (aSubrace.length>1? ` (${aSubrace.join(", ")})`: ""));
+			});
 			return aTitle.length? aTitle.join(", ") : "Выберите список";
 		},
 		style: function(){

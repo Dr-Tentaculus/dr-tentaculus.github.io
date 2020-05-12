@@ -29,7 +29,7 @@
 </head>
 
 <body>
-<div id='app'>
+<div id='app' v-on:keyup.enter="generate">
 	<div id="panel" v-cloak>
 		<a :href="sHomeLink" class="bt"><i class="fa fa-home"></i></a>
 		<a class="bt" id="go" title="Выберите расу" :disabled="disable_random" @click="generate">Сгенерировать</a>
@@ -161,9 +161,9 @@
   <!-- <script type='text/javascript' src='js/jquery-1.11.3.min.js' defer></script>< -->
   <!-- <script type='text/javascript' src='js/names.js?v=0.24' defer></script> -->
   <!-- <script type='text/javascript' src='js/script2.js?v=0.31' defer></script> -->
-  <script type='text/javascript' src='js/lib_names_generator.js' defer></script>
-	<script type='text/javascript' src="js/vue.js" defer></script>
-  <script type='text/javascript' src='js/controller.js' defer></script>
+  <script type='text/javascript' src='js/lib_names_generator.js?v=0.1' defer></script>
+	<script type='text/javascript' src='js/vue.js' defer></script>
+  <script type='text/javascript' src='js/controller.js?v=0.1' defer></script>
  <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
