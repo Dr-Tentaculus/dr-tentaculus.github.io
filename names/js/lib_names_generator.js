@@ -484,11 +484,11 @@
 				},
 				{
 					"name": "salamander",
-					"title": "Саламандр",
+					"title": "Саламандры",
 					"list": [
 							{
 								"name": "casual",
-								"title": "Саламандр",
+								"title": "Саламандры",
 								"schemes": [
 									"any"
 								],
@@ -2276,6 +2276,17 @@
 							}
 							oSubNode.sub.push(oSubSubNode);
 						}); 
+						if(oRace.sort == "alhpabet") {
+							oSubNode.sub = oSubNode.sub.sort(function(a,b){
+								if (a.title > b.title) {
+									return 1;
+								}
+								if (a.title < b.title) {
+									return -1;
+								}
+								return 0;
+							});
+						}
 					}
 					
 				if(!oNode.sub) {
@@ -2352,3 +2363,5 @@
     window.lib_random_names = returnLibrary();
   }
 })(window); // We send the window variable withing our function
+
+console.log(lib_random_names.getStructure());
