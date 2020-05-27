@@ -54,9 +54,9 @@ archive/python/*
 three_landscape/
 
 
-/dw_master_helper/.git/
-/dw_master_helper/.gitattributes
-/dw_master_helper/.gitignore
+dw_master_helper/.git/
+dw_master_helper/.gitattributes
+dw_master_helper/.gitignore
 
 /Invocations/.git/
 /Invocations/.gitattributes
