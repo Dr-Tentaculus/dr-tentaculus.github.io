@@ -1,0 +1,3 @@
+[submodule "hackerman"]
+	path = hackerman
+	url = https://github.com/Etignis/Hackerman_Tools.git
