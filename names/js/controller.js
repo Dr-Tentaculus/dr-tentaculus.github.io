@@ -139,7 +139,8 @@ Vue.component('combo_section', {
 	},
 	computed: {
 		_section: function(){
-			return this.selected.find(el=>el.key == this.race.key)?.sub || [];
+			let oData = this.selected.find(el=>el.key == this.race.key);
+			return oData?oData.sub : [];
 		},
 		sectionChecked: function(){
 			return this._section.length == this.race.sub.length;

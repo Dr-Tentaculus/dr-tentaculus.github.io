@@ -889,10 +889,8 @@
 							"name": "normal",
 							"title": "Полуорки",
 							"schemes": [
-								"male surname",
-								"female surname",
-								"male surname2",
-								"female surname2"
+								"male",
+								"female"
 							],
 							"src": [
 							{
