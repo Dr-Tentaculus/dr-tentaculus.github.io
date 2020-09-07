@@ -89,68 +89,6 @@
   -ms-user-select: none;
   user-select: none;
 }
-.customSelect {
-  padding: 0;
-  display: inline-block;
-  cursor: pointer;
-  text-align: center;
-  margin: 0;
-  position: relative;
-  font-size: 100%;
-}
-.customSelect .label {
-  padding-right: 2.2em !important;
-  position: relative;
-  padding: .5em .2em;
-  margin: 0em 0em;
-  text-transform: capitalize;
-}
-.customSelect .label:before {
-  content: "▼";
-  position: absolute;
-  right: .3em;
-  padding: 0 .2em;
-  transition: color .3s, background .3s;
-}
-.customSelect .label:after {
-  content: "";
-  position: absolute;
-  right: 1.7em;
-  top: .2em;
-  bottom: .2em;
-  border-left: 2px ridge #fff;
-}
-.customSelect .list {
-  display: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 33;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 0 0 .2em .2em;
-  border: 1px solid #bbbbbb;
-  margin: 0 .2em;
-  padding: .2em 0;
-  box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.3);
-  margin-top: .25em;
-}
-.customSelect .option {
-  color: #222;
-  cursor: pointer;
-  padding: .3em .2em;
-  list-style: none;
-  margin: 0;
-  text-align: left;
-  font-weight: 400;
-  font-size: 110%;
-  transition: color .3s, background .3s;
-}
-.customSelect .option:hover {
-  background: #cccccc;
-}
-.customSelect .option:not(:last-child) {
-  border-bottom: 1px solid #cccccc;
-}
 * {
   box-sizing: border-box;
 }
@@ -242,19 +180,7 @@ button:hover {
   cursor: default;
   font-weight: normal;
 }
-.dbg {
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 0; */
-  /* bottom: 0; */
-  /* right: 0; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* margin: 0; */
-  /* z-index: 88; */
-  background: rgba(0, 0, 0, 0.7);
-}
-.center_wrapper {
+#dbg {
   position: fixed;
   top: 0;
   left: 0;
@@ -264,51 +190,15 @@ button:hover {
   height: 100%;
   margin: 0;
   z-index: 88;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.center_wrapper .content {
-  -webkit-border-radius: 3px 3px 3px 3px;
-  -moz-border-radius: 3px 3px 3px 3px;
-  border-radius: 3px 3px 3px 3px;
-  overflow: visible;
-  background: #fff;
-  border: 0px solid #d8d8d8;
-  border-bottom-width: 2px;
-  border-top-width: 0px;
-  max-width: 40rem;
-  padding: 1rem;
-  margin: 1em auto;
-  background: #ffffffee;
-  position: relative;
-}
-.center_wrapper .content p {
-  font-size: 120%;
-}
-.center_wrapper .content .cross {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  cursor: pointer;
-  color: #ddd;
-  transition: color .2s;
-}
-.center_wrapper .content .cross:hover {
-  color: #222;
-}
-.center_wrapper .content .cross:before {
-  content: "✖";
-  font-size: 200%;
+  background: rgba(0, 0, 0, 0.7);
 }
 #panel {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 50%, transparent);
   padding-bottom: .2em;
 }
 #panel .bt {
-  text-align: center;
-  min-width: 2.2em;
-  min-height: 2.2em;
+  min-width: 1em;
+  min-height: 1em;
   display: inline-block;
   padding: .4em;
   cursor: pointer;
@@ -423,19 +313,6 @@ button:hover {
     margin: .6em 0;
     text-align: center;
   }
-  #panel .customSelect {
-    display: block;
-  }
-  #panel .customSelect .list {
-    position: fixed;
-    top: 1em;
-    left: 1em;
-    right: 1em;
-    background: white;
-  }
-  #panel .customSelect .list li {
-    font-size: 120%;
-  }
 }
 .m_head {
   font-weight: bold;
@@ -491,12 +368,19 @@ button img,
   filter: blur(5px);
 }
 #confWin {
-  /* .frame(1px); */
-  /* display: table; */
-  /* font-size: 140%; */
-  /* margin: 1em auto; */
-  /* background: white; */
-  /* padding: 1em; */
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  overflow: visible;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-bottom-width: 2px;
+  border-top-width: 0px;
+  display: table;
+  font-size: 140%;
+  margin: 1em;
+  background: white;
+  padding: 1em;
 }
 #confWin label {
   cursor: pointer;
@@ -600,3 +484,5 @@ button img,
     text-align: left;
   }
 }
+
+/*# sourceMappingURL=street.css.map */
