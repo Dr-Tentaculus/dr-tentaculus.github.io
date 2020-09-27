@@ -258,7 +258,22 @@ var app = new Vue({
 	data: {
 		structure: [],
 		variants: [],
+		sex_variants: [
+			{
+				name: 'any',
+				title: 'Как получится'
+			},
+			{
+				name: 'male',
+				title: 'Мужские'
+			},
+			{
+				name: 'female',
+				title: 'Женские'
+			},
+		],
 		selected_variant: "",
+		sex_selected_variant: "any",
 		
 		aSelected: [],
 		
@@ -326,10 +341,16 @@ var app = new Vue({
 			this.structure = lib_random_names.getStructure();
 		},
 		select_variant: function(key){
-			this.selected_variant = key		
+			this.selected_variant = key;
 			this.aSelected=[];
 			
 			this.updateHash();
+		},
+		sex_select_variant: function(key){
+			this.sex_selected_variant = key;
+			//this.aSelected=[];
+			
+			setTimeout(this.updateHash.bind(this), 100);
 		},
 	
 		
@@ -377,8 +398,8 @@ var app = new Vue({
 			});
 			return aList;
 		},
+		
 		generate: function(){
-
 			let sList = this.selected_variant;
 			aPath = [];
 			this.aSelected.forEach(oRace => {
@@ -388,7 +409,7 @@ var app = new Vue({
 				});
 			})
 			let nCount = 5;
-			this.names = this._setSexyIco(lib_random_names.getManyFromList(sList, aPath, nCount));
+			this.names = this._setSexyIco(lib_random_names.getManyFromList(sList, aPath, nCount, this.sex_selected_variant));
 		},
 		
 		save_name: function(oName){
@@ -447,6 +468,9 @@ var app = new Vue({
 			var aHash = [];
 			if(this.selected_variant) {
 				aHash.push(`list=${this.selected_variant}`);
+			}			
+			if(this.sex_selected_variant) {
+				aHash.push(`sex=${this.sex_selected_variant}`);
 			}			
 			
 			if(this.aSelected.length>0) {

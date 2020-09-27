@@ -621,28 +621,28 @@ Vue.component('card', {
 						<span v-show="locked" class="bUnlockItem" title="Открепить обратно" @click.stop="unlock"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
 						<span v-show="!locked" class="bLockItem" title="Закорепить заклинание (не будут действовать фильтры)" @click.stop="lock"><i class="fa fa-lock" aria-hidden="true"></i></span>
 						<span class="bHideItem" title="Скрыть заклинание (будет внизу панели фильтров)" @click.stop="hide"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
-						<h1 :title="tooltip">{{name}} {{ritualMark}}</h1>
+						<h1 :title="tooltip" :contenteditable="editable">{{name}} {{ritualMark}}</h1>
 						<div class="row">
-							<div class="cell castingTime">
+							<div class="cell castingTime" :contenteditable="editable">
 								<b>{{castingTimeTitle}}</b>
 								<span>{{castingTime}}</span>
 							</div>
-							<div class="cell range">
+							<div class="cell range" :contenteditable="editable">
 								<b>{{rangeTitle}}</b>
 								<span>{{range}}</span>
 							</div>
 						</div>
 						<div class="row">
-							<div class="cell components">
+							<div class="cell components" :contenteditable="editable">
 								<b>{{componentsTitle}}</b>
 								<span>{{components}}</span>
 							</div>
-							<div class="cell duration">
+							<div class="cell duration" :contenteditable="editable">
 								<b>{{durationTitle}}</b>
 								<span>{{duration}}</span>
 							</div>
 						</div>
-						<div class="materials">{{materials}}</div>
+						<div class="materials" :contenteditable="editable">{{materials}}</div>
 						<div class="text" v-html="preparedText" :style="textSizeStyle" ref="itemText" :contenteditable="editable">
 						</div>
 						
@@ -665,18 +665,18 @@ Vue.component('card', {
 					<span class="bHideItem noprint" title="Скрыть заклинание (будет внизу панели фильтров)" @click.stop="hide"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
 					<div class="flex">
 						<div class="flex column primal">
-							<h1 :title="tooltip">{{name}}</h1>          
-							<div class="second_name">[{{tooltip}}]</div>
-							<div class="school_level">{{level}}, {{school}} {{ritualMark}}</div>
+							<h1 :title="tooltip" :contenteditable="editable">{{name}}</h1>          
+							<div class="second_name" :contenteditable="editable">[{{tooltip}}]</div>
+							<div class="school_level" :contenteditable="editable">{{level}}, {{school}} {{ritualMark}}</div>
 						</div>
 						<div class="flex secondal">
 							<div class="column thirdal">
-								<div class="cvasi_row"><div class="subtitle">{{castingTimeTitle}}</div> <div>{{castingTime}}</div></div>   
-								<div class="cvasi_row"><div class="subtitle">{{rangeTitle}}</div> <div>{{range}}</div></div>           
+								<div class="cvasi_row"><div class="subtitle" :contenteditable="editable">{{castingTimeTitle}}</div> <div>{{castingTime}}</div></div>   
+								<div class="cvasi_row"><div class="subtitle" :contenteditable="editable">{{rangeTitle}}</div> <div>{{range}}</div></div>           
 							</div>
 							<div class="column thirdal">              
-								<div class="cvasi_row"><div class="subtitle">{{componentsTitle}}</div> <div>{{components}} {{materials?"*":""}}</div></div> 
-								<div class="cvasi_row"><div class="subtitle">{{durationTitle}}</div> <div>{{duration}}</div></div>       
+								<div class="cvasi_row"><div class="subtitle" :contenteditable="editable">{{componentsTitle}}</div> <div>{{components}} {{materials?"*":""}}</div></div> 
+								<div class="cvasi_row"><div class="subtitle" :contenteditable="editable">{{durationTitle}}</div> <div>{{duration}}</div></div>       
 							</div> 
 						</div>
 					</div>
@@ -688,7 +688,7 @@ Vue.component('card', {
 							<span></span>
 					</div>
           <div class="text" v-html="preparedText" :contenteditable="editable" ref="itemText"></div> 
-          <div class="material_components">{{materialsLine}}</div>
+          <div class="material_components" :contenteditable="editable">{{materialsLine}}</div>
 					<div class="source" :title="srcTitle">({{src}})</div>
         </div>
 			</div>`

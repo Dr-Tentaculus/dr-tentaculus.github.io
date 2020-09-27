@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> <!-- for monile -->
   <meta name="description" content="Генератор имен различных рас и народов на основе заданых имен">
   <meta name="Keywords" content="ДнД, имена, люди, орки, гномы, эльфы">
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=1.0"><!-- include css styles  -->
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=1.1"><!-- include css styles  -->
   <link href="../_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="favicon2.ico" /><!-- include icon for browser -->
     <link rel="canonical" href="https://tentaculus.ru/names" />
@@ -38,6 +38,13 @@
 			:items="variants"
 			:selected="selected_variant"
 			@select="select_variant"
+		>
+		</variants>
+		<variants
+			id="sexListSelect" 
+			:items="sex_variants"
+			:selected="sex_selected_variant"
+			@select="sex_select_variant"
 		>
 		</variants>
 		<a class="bt" id="addList" title="Задать список" @click="openAddWin">Задать список</a>
@@ -161,9 +168,9 @@
   <!-- <script type='text/javascript' src='js/jquery-1.11.3.min.js' defer></script>< -->
   <!-- <script type='text/javascript' src='js/names.js?v=0.24' defer></script> -->
   <!-- <script type='text/javascript' src='js/script2.js?v=0.31' defer></script> -->
-  <script type='text/javascript' src='js/lib_names_generator.js?v=0.11' defer></script>
+  <script type='text/javascript' src='js/lib_names_generator.js?v=0.12' defer></script>
 	<script type='text/javascript' src='js/vue.js' defer></script>
-  <script type='text/javascript' src='js/controller.js?v=0.11' defer></script>
+  <script type='text/javascript' src='js/controller.js?v=0.12' defer></script>
  <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
