@@ -76,6 +76,10 @@
 		}
 	}
 	
+	function check1april(){
+		return false;
+	}
+	
 	hideMenu();
 	var sUser = getUserId();
 	user_message(sUser);

@@ -221,6 +221,10 @@ function getRandomItem(){
 					sSource = "<div class='source_uderpanel'>Источник: "+sSource+"</div>";
 				} else {
 					let aCollectionSources = [];
+					if(oGroup[0].source) {
+						let oSource = oGroup[0].source.split("|");
+						aCollectionSources.push("Источник: "+ (oSource[1]? "<a href='"+oSource[1]+"'>"+oSource[0]+"</a>": oSource[0]));
+					}
 					if(oGroup[0].autor) {
 						let oAutor = oGroup[0].autor.split("|");
 						aCollectionSources.push("Автор: "+ (oAutor[1]? "<a href='"+oAutor[1]+"'>"+oAutor[0]+"</a>": oAutor[0]));

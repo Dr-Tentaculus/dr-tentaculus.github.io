@@ -282,6 +282,7 @@ var app = new Vue({
 		//selected_subraces: [],
 		names: [],
 		saved_names: [],
+		extra: [],
 		
 		oConfig: {},
 		sConfigName: "configNames",
@@ -410,6 +411,7 @@ var app = new Vue({
 			})
 			let nCount = 5;
 			this.names = this._setSexyIco(lib_random_names.getManyFromList(sList, aPath, nCount, this.sex_selected_variant));
+			this.extra = lib_random_names.getExtraFromList(sList, aPath);
 		},
 		
 		save_name: function(oName){

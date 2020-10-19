@@ -473,9 +473,11 @@ a:hover {
   color: #444;
 }
 #content a[href*="//"]:not([href*="tentaculus"]):before {
-  content: "\f14c";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 90%;
+  content: "\f35d";
   padding-right: .3em;
-  font: normal normal normal 14px/1 FontAwesome;
 }
 #sidebar {
   display: none;
@@ -525,6 +527,15 @@ a:hover {
 }
 #footer .padding {
   padding: 0.5rem;
+}
+.gsc-search-box table {
+  margin: 0;
+  border-collapse: separate;
+}
+.gsc-search-box table td:first-child,
+.gsc-search-box table th:first-child {
+  width: auto;
+  padding: initial;
 }
 #form {
   -webkit-border-radius: 3px 3px 3px 3px;
@@ -746,6 +757,10 @@ a:hover {
 .cont .hackerman {
   background-color: #504b49;
   background-image: url('../hackerman/img/og.jpg');
+}
+.cont .tftl_hook_generator {
+  background-color: #a1d1eb;
+  background-image: url('../tftl_hook_generator/img/og.jpg');
 }
 .cont .monsters {
   background-color: #6b344b;

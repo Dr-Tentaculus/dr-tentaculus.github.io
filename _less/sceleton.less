@@ -289,9 +289,11 @@ a{
     color: @text-color;
     a[href*="//"]:not([href*="tentaculus"]){
     	&:before{
-    		content:"\f14c";
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 900;
+				font-size: 90%;
+    		content:"\f35d";
     		padding-right: .3em;
-    		font: normal normal normal 14px/1 FontAwesome;
     	}
     }
 }
@@ -354,6 +356,18 @@ a{
 	
 }
 
+
+// search
+.gsc-search-box table{
+	margin: 0;
+	border-collapse: separate;
+	
+	td:first-child,  
+	th:first-child{
+		width: auto;
+		padding: initial;
+	}
+}
 
 .sceleton_media_767(){
     #vk_community_messages{
