@@ -1285,7 +1285,13 @@ Vue.component('hiddenitem', {
 				this.updateHash();
 				this.setConfig("sort", sKey);
 			},
-			onSearchName: function(sValue){
+
+			onSearchName: function (sValue) {
+				if (this.timeout) {
+					clearTimeout(this.timeout); 
+				}
+		  
+			  this.timeout = setTimeout(() => {
 				if(this.bDebug) {
 					alert ("Введенное значение: \r\n"+ sValue);
 				}
@@ -1293,7 +1299,9 @@ Vue.component('hiddenitem', {
 				
 				this.sSearch = sValue.trim();
 				this.updateHash();
+			  }, 500)
 			},
+
 			getRandomItem: function(){
 				this.showAllItems();
 				
