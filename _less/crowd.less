@@ -1,0 +1,54 @@
+.crowd{
+	background: rgb(30,113,183);
+  background: radial-gradient(circle, rgba(30,113,183,1) 0%, rgba(17,69,116,1) 100%);
+	opacity: 0.8;
+	transition: opacity .3s;
+	
+	&:hover{
+		opacity: 1;
+	}
+	
+	a{
+		display: block;
+    padding: 1rem;
+    color: white;
+		opacity: 1;
+		position: relative;
+		overflow: hidden;
+		transition: font-size 1s;
+		
+		&:hover{
+			&::before{
+				transform: rotate(3deg) scale(1.1);
+			}
+			font-size: 105%;
+			
+		}
+		
+		&::before{
+			content: url(../_img/fate_logo.png);
+			height: 70px;
+			position: absolute;
+			top: -1.3rem;
+			right: 20%;
+			transform: rotate(-3deg)scale(0.9);
+			transition: all 1s ease-in-out;
+		}
+		
+		&::after{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 700px;
+			background: rgb(22,70,116);
+			background: linear-gradient(90deg, rgba(22,70,116,0.773546918767507) 54%, rgba(30,113,183,0) 100%);
+		}
+		
+		.max_width{
+			z-index: 9999;
+			position: relative;
+		}
+	}
+}

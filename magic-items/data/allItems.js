@@ -429,7 +429,7 @@ var allItems = [
       "name": "AMMUNITION +1",
       "type": "Weapon",
       "typeAdditions": "(any ammunition)",
-      "rarity": 1,
+      "rarity": 2,
       "text": "You have a bonus +1 to attack and damage rolls made with this piece of magic ammunition. Once it hit a target, the ammunition is no longer magical.",
       "source": "DMG",
       "img": "AMMUNITION.jpg"
@@ -445,7 +445,7 @@ var allItems = [
       "name": "AMMUNITION +2",
       "type": "Weapon",
       "typeAdditions": "(any ammunition)",
-      "rarity": 2,
+      "rarity": 3,
       "text": "You have a bonus +2 to attack and damage rolls made with this piece of magic ammunition.  Once it hit a target, the ammunition is no longer magical.",
       "source": "DMG",
       "img": "AMMUNITION.jpg"
@@ -461,7 +461,7 @@ var allItems = [
       "name": "AMMUNITION +3",
       "type": "Weapon",
       "typeAdditions": "(any ammunition)",
-      "rarity": 3,
+      "rarity": 4,
       "text": "You have a bonus +3 to attack and damage rolls made with this piece of magic ammunition. Once it hit a target, the ammunition is no longer magical.",
       "source": "DMG",
       "img": "AMMUNITION.jpg"

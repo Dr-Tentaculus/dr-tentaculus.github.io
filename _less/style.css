@@ -537,6 +537,53 @@ a:hover {
   width: auto;
   padding: initial;
 }
+.crowd {
+  background: #1e71b7;
+  background: radial-gradient(circle, #1e71b7 0%, #114574 100%);
+  opacity: 0.8;
+  transition: opacity .3s;
+}
+.crowd:hover {
+  opacity: 1;
+}
+.crowd a {
+  display: block;
+  padding: 1rem;
+  color: white;
+  opacity: 1;
+  position: relative;
+  overflow: hidden;
+  transition: font-size 1s;
+}
+.crowd a:hover {
+  font-size: 105%;
+}
+.crowd a:hover::before {
+  transform: rotate(3deg) scale(1.1);
+}
+.crowd a::before {
+  content: url(../_img/fate_logo.png);
+  height: 70px;
+  position: absolute;
+  top: -1.3rem;
+  right: 20%;
+  transform: rotate(-3deg) scale(0.9);
+  transition: all 1s ease-in-out;
+}
+.crowd a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 700px;
+  background: #164674;
+  background: linear-gradient(90deg, rgba(22, 70, 116, 0.77354692) 54%, rgba(30, 113, 183, 0) 100%);
+}
+.crowd a .max_width {
+  z-index: 9999;
+  position: relative;
+}
 #form {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
