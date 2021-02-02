@@ -1658,6 +1658,7 @@ Vue.component('hiddenitem', {
 				oDB.schoolList = this.aSchools;
 				oDB.oLanguages = this.aLanguages;
 				oDB.allSpells = this.aItems;
+				oDB.lockedItems = this.aLockedItems;
 				
 				var sData = JSON.stringify(oDB, null, 2);
 				var filename = "DnD5e_spells_BD";
@@ -1699,6 +1700,7 @@ Vue.component('hiddenitem', {
 					this._completeDB(this.aSources, oDB.sourceList);
 					this._completeDB(this.aSchools, oDB.schoolList);
 					this._completeDB(this.aLanguages, oDB.oLanguages);
+					this._completeDB(this.aLockedItems, oDB.lockedItems);
 					//this._completeDB(this.aItems = oDB.allSpells);
 
 					/*/
