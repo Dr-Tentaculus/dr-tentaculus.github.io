@@ -1135,6 +1135,20 @@ Vue.component('hiddenitem', {
 						o.pre = oItem[this.sLang].pre || oItem.en.pre;
 					}
 					return o;
+				}.bind(this)).sort(function(a, b){
+					if(this.sSort == "alpha") {
+						if (a.name.toLowerCase().trim() < b.name.toLowerCase().trim())
+							return -1;
+						if (a.name.toLowerCase().trim() > b.name.toLowerCase().trim())
+							return 1;						
+						return 0
+					} else {
+						if (a.levelNum+a.name.toLowerCase().trim() < b.levelNum+b.name.toLowerCase().trim() )
+							return -1;
+						if (a.levelNum+a.name.toLowerCase().trim() > b.levelNum+b.name.toLowerCase().trim() )
+							return 1;
+						return 0
+					}
 				}.bind(this));
 			},
 			
@@ -1285,7 +1299,13 @@ Vue.component('hiddenitem', {
 				this.updateHash();
 				this.setConfig("sort", sKey);
 			},
-			onSearchName: function(sValue){
+
+			onSearchName: function (sValue) {
+				if (this.timeout) {
+					clearTimeout(this.timeout); 
+				}
+		  
+			  this.timeout = setTimeout(() => {
 				if(this.bDebug) {
 					alert ("Введенное значение: \r\n"+ sValue);
 				}
@@ -1293,7 +1313,9 @@ Vue.component('hiddenitem', {
 				
 				this.sSearch = sValue.trim();
 				this.updateHash();
+			  }, 500)
 			},
+
 			getRandomItem: function(){
 				this.showAllItems();
 				
