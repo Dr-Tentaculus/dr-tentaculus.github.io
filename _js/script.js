@@ -137,6 +137,8 @@ $(document).ready(function(){
 		var sTitle = "<h4>Поддержать материально</h4>";
 		var sForm = '<iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=' + encodeURIComponent(aTexts[randd(0, aTexts.length)]) +'&targets-hint=&default-sum=50&button-text=12&comment=on&payment-type-choice=on&hint=&successURL=https%3A%2F%2Ftentaculus.ru&quickpay=shop&account=410011808384605" width="100%" height="300" frameborder="0" allowtransparency="true" scrolling="no" style="max-width: 450px"></iframe>';
 		
+		sForm = `<iframe src="https://yoomoney.ru/quickpay/shop-widget?writer=seller&targets=${encodeURIComponent(aTexts[randd(0, aTexts.length)])}&targets-hint=&default-sum=100&button-text=13&payment-type-choice=on&mobile-payment-type-choice=on&hint=&successURL=&quickpay=shop&account=410011808384605&" width="100%" height="300" frameborder="0" allowtransparency="true" scrolling="no" style="max-width: 450px"></iframe>`;
+		
 		$("#footer .greed").html(sTitle + sForm);
 	}
 	$("#menu_toggle").click(function(){

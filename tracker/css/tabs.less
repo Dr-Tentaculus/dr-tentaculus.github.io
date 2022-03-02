@@ -1,0 +1,33 @@
+.tabs{
+	display: flex;
+	flex-direction: column;
+	.tab_titles{
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		.tab_title{
+			margin:0;
+			padding: 1rem;;
+			text-indent: 0;
+			list-style-type: none;
+			cursor :pointer;
+			
+			&:hover{
+				background: silver;
+			}
+			&:active{
+			
+			}
+			
+			&.selected{
+				background: #bebebe;
+			}
+		}
+	}
+	
+	.tab{
+		min-height: 15rem;
+	}
+}

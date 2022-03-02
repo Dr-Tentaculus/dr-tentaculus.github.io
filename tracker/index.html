@@ -28,31 +28,87 @@
 </head>
 <body>
 
-  <div class='wrap'>
+
+  <div class='wrap' id='app'>
+
     <div class='pageColumn'>
-      <div id='selectedOne'>
-        
-      </div>
+			<div class='round_container'>
+				<div class='toolbar'>
+					<button @click="round_back">
+					<
+					</button>
+					<span class='title'>Раунд: </span>
+					<input type='number' v-model="data.round" min='1'>
+					<button @click="round_forward">
+					>
+					</button>
+				</div>
+			</div>
+      <ul id='selectedOne'>
+        <!-- <queue-item	 -->
+					<!-- v-show="selected && selected.ico" -->
+					<!-- :id="selected.id" -->
+					<!-- :name="selected.name" -->
+					<!-- :ico="selected.ico" -->
+					<!-- :initiative="selected.initiative" -->
+					<!-- :color="selected.color" -->
+				<!-- /> -->
+				<queue-item	
+					v-for="(item, index) in firsts"
+					:key="index"
+					:name="item.name"
+					:ico="item.ico"
+					:initiative="item.initiative"
+					:color="item.color"
+					
+					:class="{shown: true, hiding: index==0 && animate}"
+					
+					v-on:remove="listRemove(1, 'queueItem')"
+					v-on:edit="listEdit(1, 'queueItem')"
+				/>
+      </ul>
       
-      <div id='manageButtons' class='manageButtons'>
-        <!-- <a href='#' id='prevOne'> -->
-          <!-- Предыдущий -->
-        <!-- </a>       -->   
-        <a href='#' id='nextOne' class='mButton'>
+      <div id='manageButtons' class='manageButtons' >
+        <a href='#' class='mButton' @click="next_char" v-show="data.list.length>1">
           Следующий
         </a>    
       </div>
       
-      <ul id='allOnes'>
-
-      </ul>
+			<ul id='allOnes'>
+				<component
+					v-for="(item, index) in fullList"
+					:key="index"
+					v-bind:is="item.type"
+					v-bind="item.props"
+					
+					:class="{
+						hiding: (index==1 || index==0)&& animate, 
+						last_appear: (index==fullList.length-2 || index==fullList.length-1)&& animate
+					}"
+					
+					v-on:press="listClick(index, item.type)"
+					v-on:remove="listRemove(index, item.type)"
+					v-on:edit="listEdit(index, item.type)"
+				/>
+			</ul>
 			
+			
+			<!-- <transition-group tag="ul" name="fade"> -->
+				<!-- <queue-item	 -->
+					<!-- v-for="(item, index) in data.list" -->
+					<!-- :key="index" -->
+					<!-- :name="item.name" -->
+					<!-- :ico="item.ico" -->
+					<!-- :initiative="item.initiative" -->
+					<!-- :color="item.color" -->
+				<!-- /> -->
+			<!-- </transition-group> -->
+			<!-- <pre> -->
+				<!-- {{data.list}} -->
+			<!-- </pre> -->
       <div id='subManageButtons' class='manageButtons'>
-        <!-- <a href='#' id='prevOne'> -->
-          <!-- Предыдущий -->
-        <!-- </a>       -->
-        <a href='#' id='sortItems' class='mButton'>
-          Отсортировать
+        <a href='#' id='sortItems' class='mButton' @click="sortItems" v-show="data.list.length>1">
+          Отсортировать (по убыванию)
         </a>      
       </div>
     </div>
@@ -80,6 +136,72 @@
 			<div id='devlog'>
 			</div>
     </div>
+		
+		<modal-win
+			v-show="bModalWinShow"
+			@close="closeModal">	
+			<div slot="content" >
+				<div class='tabs'>
+					<ul class='tab_titles'>
+						<li :class='{tab_title: true, selected: tabs.selected == "editor"}' @click="tab_select('editor')">Редактор</li>
+						<li :class='{tab_title: true, selected: tabs.selected == "history"}' @click="tab_select('history')">История</li>
+					</ul>
+					<div>
+						<tab v-show='tabs.selected == "editor"'>
+							<div>
+								<textarea 
+								id="sWinName" 
+								style="width: 100%;" 
+								placeholder="Текст (Имя или еще что)" 
+								rows="5"
+								v-model="editor.name"
+								 >
+								</textarea>
+							</div>    
+							<div>
+								<input id="sWinInitiative" style="width: 100%;" type="number" placeholder="Инициатива (по умолчаниию &quot;0&quot;)" v-model="editor.initiative">
+							</div>    
+							<div>
+								<ul class="color_list" id="sWinColor">
+									<li v-for='item in aColors'>
+										<div :class="{color_list_item: true, selected: editor.color == item.color}" :data-color="item.color" @click="colorSelected(item.color)"></div>
+									</li>
+								</ul>
+							</div>
+							<div class="scrollable" style="height: 39rem;">
+								<ul class="ico_list" id="sWinIco">
+									<li v-for='item in aIcons'>
+										<div 
+											:class="{ico_list_item: true, selected: editor.ico == item.icon}" 
+											:data-ico="item.icon" 
+											:data-color="editor.ico == item.icon?editor.color:''"
+											@click="iconSelected(item.icon)"></div>
+									</li>
+								</ul>
+							</div>
+						</tab>
+						
+						<tab  v-show='tabs.selected == "history"'>
+							<ul id='sWinHistory'>
+						
+								<queue-item
+									v-for="(item, index) in data.history"
+									:key="index"
+									v-bind="item"
+									
+									v-on:remove="historyRemove(index)"
+									v-on:press="historyClick(index)"
+								/>								
+							</ul>
+						</tab>
+					</div>
+					
+				</div>	
+				
+				<div><button @click='apply'>Применить</button></div> 
+			</div>
+		<modal-win>
+		
   </div>
 	
 	<div style='width: 0; height: 0; position: absolute; overflow: hidden'>
@@ -90,11 +212,10 @@
 		<img src='img/ico_set_05.png'>
 	</div>
 
-  <script type='text/javascript' src='../_js/jquery-1.11.3.min.js'></script>
-  <script type='text/javascript' src='https://tentaculus.ru/_js/jquery.mobile.custom.min.js' defer></script>
-  <script type='text/javascript' src='js/script.js?v=0.47' defer></script>
-  <script type='text/javascript' src='js/Sortable.js'></script><!-- Sortable Drag'n'Drop-->
-<!--   <script type='text/javascript' src='https://tentaculus.ru/items/js/update.js' defer></script> -->
+  <script type='text/javascript' src='js/vue.js' defer></script>
+  <script type='text/javascript' src='js/controller.js' defer></script>
+  <script type='text/javascript' src='js/Sortable.js' defer></script><!-- Sortable Drag'n'Drop-->
+
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {

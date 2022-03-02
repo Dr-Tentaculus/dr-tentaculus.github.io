@@ -1,0 +1,489 @@
+<!doctype html>
+<html>
+<head>
+  <title>Новости</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta name="description" content="Генератор нвостей">
+  <link href="../_fonts/FortAwesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="canonical" href="https://tentaculus.ru/news_generator" />
+	
+  <meta property="og:image" content="img/bg2.jpg" />
+  <meta property="og:image" content="img/og.jpg" />
+  <meta property="og:title" content="Генератор новостей" />
+  <meta property="og:title" content="Генератор новостей" />
+  <meta property="og:description" content="Генератор нвостей" />
+	
+  <!-- IE must understand HTML5: -->
+  <!--[if IE]>
+   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <style>
+   article, aside, details, figcaption, figure, footer,header,
+   hgroup, menu, nav, section, div { display: block; }
+  </style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Flow+Rounded&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class='wrap' id='app' v-cloak>
+	<transition name="fade">
+	<div id='editor' :class="oConfig.width" v-show='bAppIsReady' key='editor'>
+		<div id='form'>
+			<div>
+				<div class='serv_panel'>
+					<a href="/" class="bt flexChild" title="На главную страницу"><i class="fa fa-home"></i></a>
+					<a href="#" class="bt flexChild" title="Справка" @click='show_info'><i class="fa fa-question-circle"></i></a>
+					<a href="#" class="bt flexChild"  title="Распечатать" @click="print"><i class="fa fa-print" aria-hidden="true"></i></a>
+				</div>
+				<div class='subpanel'>
+					<label>Шаблон:</label>
+					<select v-model="pageSettings.template">
+						<option v-for="temp in pageSettings.templateList" 
+							:key="temp.key" 
+							:value="temp.key" 
+							>{{temp.title}}</option>		
+					</select>
+				</div>
+				
+				<div class='subpanel'>
+					<label>
+						<input type='checkbox' v-model="editor.a4">
+						Ограничить лист размером А4
+					</label>
+				</div>
+
+				<div class='subpanel'>
+					<label>Шрифт колонтитулов</label>				
+					<br>
+					
+					<input 
+						type="text" 
+						list="font_list_colons"  
+						placeholder="serif"
+						v-model="pageSettings.colons.font"> 
+					<button @click="clear_colons_font">Х</button>
+					<datalist id="font_list_colons">	
+						<option v-for="font in pageSettings.fontList" :key="font.name" :value="font.name" :style="{fontFamily: font.name}">{{font.name}}</option>		
+					</datalist>
+					<br>
+					
+					<input id="colon_size" type="range" min="8" max="72" v-model="pageSettings.colons.size">
+					<label for="colon_size">{{pageSettings.colons.size}}</label>
+					
+				</div>
+				
+				<div class='subpanel'>
+					<label>Шрифт заголовока газеты</label>
+					<br>
+					
+					<input 
+						type="text" 
+						list="font_list_colons"   
+						placeholder="CyrillicGoth"
+						v-model="pageSettings.title.font">  <button @click="clear_title_font">Х</button>
+					<br>
+					
+					
+					<input id="title_size" type="range" min="24" max="122" v-model="pageSettings.title.size">
+					<label for="title_size">{{pageSettings.title.size}}</label>
+				</div>
+				<!-- <div> -->
+					<!-- <label>Дата выпуска</label> -->
+					<!-- <input v-model="raw.date" type='date'/> -->
+				<!-- </div> -->
+				<!-- <div> -->
+					<!-- <label>Номер выпуска Газеты</label> -->
+					<!-- <input v-model="raw.number"/> -->
+				<!-- </div> -->
+			</div>
+				
+			<div  v-show="editor.id && editor.id.length>0">
+			
+			<hr>
+			
+				<div class='subpanel'>
+					<label>Заголовок новости:</label>				
+					<br>
+					<input type="text" v-model="editor.header" @input="onSaveFromEditor"> <br>
+					
+					<input type="text" list="font_list_colons" :value="editor.header_font" @input="editor_header_font_changed"> 	 <button @click="clear_header_font">Х</button>					
+				<br>		
+					
+					<input id="header_size" type="range" min="8" max="72" :value="editor.header_size" @input="editor_header_size_changed">
+					<label for="header_size">{{editor.header_size}}</label>
+				</div>
+				
+				<!-- <div> -->
+					<!-- <label>Автор новости</label> -->
+					<!-- <input  v-model="editor.author"/> -->
+				<!-- </div> -->
+				<div  class='subpanel'>
+					<label>Текст новости:</label>				
+					<br>
+					<textarea type="text" v-model="editor.text" class='text_editor' @input="onSaveFromEditor"> </textarea> <br>
+					
+					<input type="text" list="font_list_colons" :value="editor.text_font" @input="editor_text_font_changed"> 	 <button @click="clear_text_font">Х</button>						
+				<br>	
+					
+					<input id="text_size" type="range" min="8" max="72" :value="editor.text_size" @input="editor_text_size_changed">
+					<label for="text_size">{{editor.text_size}}</label>
+				</div>
+				
+				<div  class='subpanel'>
+					<label>Изображение:</label>
+					<div class='img_editor'>
+						<div>
+								<input  v-model="editor.img" placeholder="url или скопированный файл" @input="onImageFromUrl" @paste="onImagePaste"/> <br>
+								или<br>
+								<input type='file' @change="onImageSelected">
+						</div>
+						<div>
+						<button @click="onRemoveImage" class=''>❌ Убрать изображение</button>
+						</div>
+					</div>				
+				</div>
+				
+				<div class='flex_row subpanel'>
+					<!-- <button @click="add_news" v-if="!editor.id">Добавить</button> -->
+					<!-- <button @click="save_news" v-if="editor.id">Сохранить</button> -->
+					<!-- <button @click="cancel_news" v-if="editor.id">Отменить</button> -->
+					<button @click="randomise_news" v-if="editor.id">🎲 Случайный текст</button>
+					<button @click="remove_news" v-if="editor.id">❌ Удалить новость</button>
+				</div>
+				<hr>
+			
+			</div>
+					
+				<div class='flex_row subpanel'>
+					<button @click="save2pic">🖼️ Сгенерировать изображение</button>
+				</div>
+		<!-- <pre>{{editor}}</pre> -->
+		<!-- <pre>{{news_Main}}</pre> -->
+		</div>
+	</div>
+	
+	</transition>
+	
+	<transition name="fade">
+	<div id='result_holder' v-show='bAppIsReady' key='result_holder'>
+		<div id='result'>
+			<div id='result_source'>
+					<!-- <svg class=" svg_texture noise"> -->
+						<!-- <filter id="noise"> -->
+							<!-- <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="1" stitchTiles="stitch" /> -->
+							<!-- <feColorMatrix type="saturate" values="0" /> -->
+						<!-- </filter> -->
+						<!-- <rect width="100%" height="100%" filter="url(#noise)" /> -->
+					<!-- </svg> -->
+					<!-- <svg class=" svg_texture paper_edge"> -->
+						<!-- <filter id="wavy2"> -->
+							<!-- <feturbulence x="0" y="0" baseFrequency="0.02" numOctaves="2" :seed="rand"></feturbulence> -->
+							<!-- <feDisplacementMap in="SourceGraphic" scale="5" /> -->
+						<!-- </filter> -->
+						
+					<!-- </svg> -->
+				<div id="result_preview" class='news_page' :class="oConfig.width" :style="page_style">
+					<!-- <div id="parchment"></div> -->
+					<header>
+						<div class='abtitle' :style="colon_style">
+							<div contenteditable>{{raw.ableft}}</div>
+							<div contenteditable>{{raw.abmid}}</div>
+							<div contenteditable>{{raw.ablright}}</div>
+						</div>
+						<h1 class='title' contenteditable :style="title_style">
+							{{raw.title}}
+						</h1>
+						<div class='subtitle' :style="colon_style">
+							<div contenteditable>{{pretty_date}}</div>
+							<div contenteditable>{{pretty_number}}</div>
+						</div>
+					</header>
+					<main>
+					
+						<!-- <content class='temp_4col_site' v-if="raw.template == 'temp_4col_site'"> -->
+							<!-- <div class='main'  v-if="raw.main.length"> -->
+								<!-- <news_item v-for="(item, i) in raw.main" :key="i" class='news_item' -->
+										<!-- :header="item.header" -->
+										<!-- :text="item.text" -->
+									<!-- /> -->
+							<!-- </div> -->
+							
+							<!-- <div class='side'> -->
+								<!-- <div> -->
+									<!-- И еще -->
+								<!-- </div> -->
+								<!-- <div> -->
+									<!-- <news_item v-for="(item, i) in raw.side" :key="i" class='news_item' -->
+										<!-- :header="item.header" -->
+										<!-- :text="item.text" -->
+									<!-- />							 -->
+								<!-- </div> -->
+							<!-- </div> -->
+							
+						<!-- </content>  -->
+						
+						<content class='temp_firstPage' v-if="pageSettings.template == 'temp_firstPage'">
+							<div class='main'>
+								<div  class='main_news_place'>
+								
+										<!-- :header_size="Number(news_Main.header_size)" -->
+										<!-- :text_size="Number(news_Main.text_size)" -->
+									<news_item 
+										class="main_news"
+										:id="news_Main.id"
+										:header="news_Main.header"
+										:author="news_Main.author"
+										:text="news_Main.text"
+										:img="news_Main.img"
+										
+										:header_font="news_Main.header_font"
+										:text_font="news_Main.text_font"
+										:header_size="news_Main.header_size"
+										:text_size="news_Main.text_size"
+										
+										
+										@edit="onEditNews(news_Main)"
+										@edited="onSaveEditNews"
+										@random="onRandom(news_Main)"
+										
+										draggable
+										@dragstart="startDrag($event, item)"
+										@drop="onDrop($event, 1)"
+									/>
+								</div>
+								<div class='other_news'>
+									<news_item v-for="(item, i) in news_Other" :key="i" 
+										:id="item.id"
+										:header="item.header"
+										:author="item.author"
+										:text="item.text"
+										:img="item.img"
+										
+										:header_font="item.header_font"
+										:text_font="item.text_font"
+										:header_size="item.header_size"
+										:text_size="item.text_size"
+										
+										
+										@edit="onEditNews(item)"
+										@edited="onSaveEditNews"
+										@random="onRandom(item)"
+										@remove="onRemove(item)"
+										
+										draggable
+										@dragstart="startDrag($event, item)"
+										@drop="onDrop($event, 1)"
+									/>
+								</div>
+								<div class='panel'>
+									<button @click="add_in_main">➕</button>
+								</div>
+							</div>
+							
+							<div class='side'>
+								<!-- <div contenteditable> -->
+									<!-- Мелким текстом -->
+								<!-- </div> -->
+								<div v-if="raw.side.length">
+									<news_item v-for="(item, i) in raw.side" :key="i" 
+										:id="item.id"
+										:header="item.header"
+										:author="item.author"
+										:text="item.text"
+										:img="item.img"
+										
+										:header_font="item.header_font"
+										:text_font="item.text_font"
+										:header_size="item.header_size"
+										:text_size="item.text_size"
+										
+										
+										@edit="onEditNews(item)"
+										@edited="onSaveEditNews"
+										@random="onRandom(item)"
+										@remove="onRemove(item)"
+										
+										draggable
+										v-on:drag="startDrag($event, item)"
+										v-on:dragstart="startDrag($event, item)"
+										v-on:on:dragend="startDrag($event, item)"
+										v-on:on:dragenter="startDrag($event, item)"
+										@drop="onDrop($event, 1)"
+									/>							
+								</div>
+								<div class='panel'>
+									<button @click="add_in_side">➕</button>
+								</div>
+								<!-- <pre> -->
+								<!-- {{raw.side}} -->
+								<!-- </pre> -->
+							</div>
+							
+						</content> 
+						
+						<content class='temp_4col' v-if="pageSettings.template == 'temp_4col'">
+						
+								<div class='all_news'>
+									<news_item v-for="(item, i) in raw.list" :key="i" 
+										:id="item.id"
+										:header="item.header"
+										:author="item.author"
+										:text="item.text"
+										:img="item.img"
+										
+										:header_font="item.header_font"
+										:text_font="item.text_font"
+										:header_size="item.header_size"
+										:text_size="item.text_size"
+										
+										
+										@edit="onEditNews(item)"
+										@edited="onSaveEditNews"
+										@random="onRandom(item)"
+										@remove="onRemove(item)"
+										
+										draggable
+										@dragstart="startDrag($event, item)"
+										@drop="onDrop($event, 1)"
+									/>
+								</div>
+								<div class='panel'>
+									<button @click="add_in_main">➕</button>
+								</div>
+							
+						</content> 
+					
+					</main>
+					
+					<footer contenteditable  :style="colon_style">
+					 {{raw.footer_text}}
+					</footer>
+					
+				</div>
+				
+				
+			</div>
+		</div>
+			
+		<div id='result_image' v-show="result_show">
+				<h3>Сгенерированное изображение:</h3>
+				<img v-bind:src="'data:image/png;base64,'+result_img.src">
+		</div>
+	
+	</div>
+	
+	</transition>
+	
+	
+	<transition name="fade">
+		<modal-win
+			v-show="bModalWinShow"
+			:content="sModalWinCont"
+			@close="closeMosWin"
+		>
+			<div class='dialog_content'>
+				<h1>Справка</h1>
+				<p>
+					Инструмент предназначен для создания "газет". Можно выбирать шаблон страницы, шрифты, добавлять текст и картинки.
+				</p>
+				
+				<h2>Общие настройки</h2>
+				<ul>
+					<li>Селектор шаблона позволяет выбрать как будут отображаться новостные статьи.</li>
+					<li>Чекбокс "Ограничить лист размером А4" позволяет задать жесткие размеры шаблона, чтоб результат поместился на листе А4</li>
+					<li>В разделе "Шрифты колонтитулов" можно выбрать сам шрифт, либо из спbска, либо вставить название шрифта установленного на устройстве. Это повлияет на отображение "служебой" информации над и под заголовком газеты и в футере страницы. Полpунок размера шрифта устанавливает значение для всех этих надписей.</li>
+					<li>Аналогично работает раздел "Шрифт заголовка газеты", но задает настройки только для одной позиции.</li>
+				</ul>
+				
+				<h2>Редактирование отдельных новостей</h2>
+				<p>
+					Чтобы изменить конкретнцю новость, нужно в нее тыкнуть. В форме редактирвоания появятся соответствующие поля. Там можно менять шрифт/размеры заголовка и текста новости и добавить картинку.
+				</p>
+				<p>
+					Изображение можно добавить тремя способами:
+					<ul>
+						<li>
+							Вставить в строку прямую ссылку на изображение. Может работать не всегда, не все сайты позволяют использовать их изображения.
+						</li>
+						<li>
+							Вставить в строку саму картинку, предварительно ее скопировав где то  на сайте, или на локальном устройстве.
+						</li>
+						<li>
+							Можно выбрать файл через стандартный диалог.
+						</li>
+					</ul>
+				</p>
+				
+				<p>
+					Убрать изображение из новости можно нажав на кнопку "Убрать изображение".
+				</p>
+				
+				<h2>Прочее</h2>
+				<p>
+					Так же новсти можно удалить соответсвующей кнопкой в редакторе. Можно добавить еще новость с помощью кнопок на газете. Можно задать новости случайный текст с помощью кнопки "Случайный текст"
+				</p>
+				
+				<h2>Cохранение результата непосильных трудов</h2>
+				<p>
+					Чтобы сохранить полученную газету есть два способа.
+					<ul>
+						<li>
+							Распечатать либо с помощью кнопки вверху редактора, либо сочетанием клавиш [Ctrl]+[P]. Там традиционно можно либо просто распечатать, лиюбо сохранить PDF (особенности зависят от конкретного браузера)
+						</li>
+						<li>
+							Можно сохранить как изображенгие, для этого нужно нажать кнопку "Сгенерировать изображение" внизу редактора и ниже газеты отрисуется изображенрие, которое можно сохранить или скопировать.
+						</li>						
+					</ul>
+				</p>
+				
+			</div>
+		</modal-win>
+	</transition>
+</div>
+
+  <!-- <script type='text/javascript' src='js/autosize.min.js' defer></script> -->
+  <script type='text/javascript' src='js/html2canvas.min.js' defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+	<script type='text/javascript' src="js/vue.js" defer></script>
+  <script type='text/javascript' src='js/controller.js' defer></script>
+	
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter42911239 = new Ya.Metrika({
+                    id:42911239,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/42911239" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

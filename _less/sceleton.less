@@ -289,11 +289,21 @@ a{
     color: @text-color;
     a[href*="//"]:not([href*="tentaculus"]){
     	&:before{
-				font-family: 'Font Awesome 5 Free';
-				font-weight: 900;
-				font-size: 90%;
-    		content:"\f35d";
-    		padding-right: .3em;
+				/*font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 90%;
+  content: "\f35d";
+  padding-right: .3em;*/
+	
+	display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+	content: "\f0c1";
+  padding-right: .3em;
     	}
     }
 }

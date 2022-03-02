@@ -8,6 +8,56 @@
   display: flex;
   margin-bottom: 0.3rem;
 }
+.round_container{
+	color: @l-gray;
+	.toolbar{
+		max-width: 35rem;
+		margin: .1rem auto;
+	}
+}
+.toolbar{
+	display: flex;
+	font-size: 130%;
+	.title{
+		margin-left: .8em;
+		margin-right: .3em;
+	}
+	
+	button,
+	input,
+	span{
+		color: @m-gray;
+		font-size: 130%;
+		background: none;
+		border-width: 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	input{
+		text-align: center;
+		padding: .5rem;
+		max-width: 6em;
+		
+		&:active,
+		&:focus {
+			background: @l-gray;
+			color: @d-gray; 
+			
+			&:hover{
+				color: @d-gray;
+			}
+		}
+	}
+	button,
+	input{
+		cursor: pointer;
+		
+		&:hover{
+			color: @l-gray;
+		}
+	}
+}
 
 #selectedOne{
   .i_item {
@@ -29,7 +79,7 @@
   display: flex;
   border-radius: 0.5rem;
   overflow: hidden;
-  margin: 1.6rem 0.5rem;
+  margin: 1.6rem 0.5rem .9rem;
   .button(){
     padding: 0.9rem;
     background: @m-gray;
@@ -46,6 +96,7 @@
   }
 	.mButton{
 		.button();
+		width: 100%;
 	}
   #prevOne{
     //display: block;
@@ -64,18 +115,42 @@
   margin: 0;
   padding: 0;
   position: relative;
-  // text-align: right;
+	max-height: 11rem;
+	overflow: hidden;
 }
+.separator.hiding,
+.place.hiding{
+	max-height: 0;
+	transition: max-height .4s;	
+}
+
+@keyframes growing { 
+	0% { 
+		max-height: 0; 
+	} 
+ 
+	100% { 
+		max-height: 11rem; 
+	}  
+}
+.last_appear{
+	animation-name: growing;
+	animation-duration: .4s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
 .i_item{
   text-align: left;
   .card();
   min-height: 5rem;
 }
+#selectedOne,
 #allOnes{
   list-style-type: none;
   margin: 0;
   padding: 0;
-  padding-bottom: 2rem;
+ // padding-bottom: 2rem;
 }
 
 .scale_80{
@@ -96,15 +171,21 @@
   border-radius: 0.5rem;
   .initiative{
     position: absolute;
-    display: block;
+    display: flex;
+		align-items: center;
+		justify-content: center;
     bottom: 0;
     right: 0;
     text-align: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background: @d-gray;//white;
+    min-width: 4rem;
+    height: 4rem;
+		padding: .8rem;
+		font-size: 150%;
+		font-weight: bold;
+    border-radius: 2rem;
+    background: fade(@d-gray, 80%);//white;
     color: @l-gray;//black;
+		cursor: default;
   }
 }
 .bord_red{
@@ -523,18 +604,40 @@ div[data-ico=ico_05_15]{
 
 .separator{
   position: relative;
-  height: 2px;
+  height: 2rem;
+	//width: 100%;
   margin-left: 14rem;
   margin-right: 0.9rem;
   transition: background .3s;
   background: fade(@l-gray, 0%);
+	display: flex;	
+  align-items: center;
+  cursor: pointer;
+	overflow: hidden;
+	
+	&::before{
+		content: "";
+		height: 2px;
+		transition: background .3s;
+		flex-grow: 99;
+    background: linear-gradient(to left, @l-gray, fade(@l-gray, 0%));
+		opacity: 0;
+		transition: opacity .2s;
+	}
+	
+  &:hover::before{
+		opacity: 1;
+  }
+  &:hover .simbol{
+		background: @l-gray;
+  }
   .simbol{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    /*position: absolute;
     right: 0rem;
-    top: -1.0rem;
+    top: -1.0rem;*/
     height: 2rem;
     width: 2rem;
     font-weight: bold;
@@ -542,18 +645,14 @@ div[data-ico=ico_05_15]{
     color: @d-gray;
     background: @m-gray;
     border-radius: 3px;
-    cursor: pointer;
     z-index: 99;
+		transition: background .2s;
 
     &:hover{
       background: @l-gray;
     }
   }
 
-  &:hover{
-    //background: @l-gray;
-    background: linear-gradient(to left, @l-gray, fade(@l-gray, 0%));
-  }
 }
 
 
@@ -579,6 +678,7 @@ div[data-ico=ico_05_15]{
     flex-basis: 100px;
     cursor: pointer;
     transition: background .2s;
+		margin: .5rem;
     &:hover{
       //outline: @d-gray solid 2px;
       background: @l-gray;
@@ -659,35 +759,6 @@ div[data-color=color_11]{
   background-color: #009688;
 }
 
-.tabs{
-  display: flex;
-  //margin-bottom: 0.3em;
-  background: darken(@l-gray, 5%);
-  margin: -0.6em -0.7em 0.3em;
-  flex-shrink: 0;
-  .tab{
-    padding: 0.3em;
-    margin-right: 0.3em;
-    background: darken(@l-gray, 0%);
-    color: @m-gray;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color .2s, background, .2s;
-    &:hover{
-      color: @d-gray;
-    }
-  }
-  .selected{
-    background: @white - #111;
-  }
-  .separator{
-    flex-grow: 99;
-  }
-  .bCloseInfoWin{
-    top: -0.45em;
-  }
-
-}
 #sWinHistory{
   list-style-type: none;
   margin: 0;

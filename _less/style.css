@@ -473,10 +473,19 @@ a:hover {
   color: #444;
 }
 #content a[href*="//"]:not([href*="tentaculus"]):before {
-  font-family: 'Font Awesome 5 Free';
+  /*font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   font-size: 90%;
   content: "\f35d";
+  padding-right: .3em;*/
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+  content: "\f0c1";
   padding-right: .3em;
 }
 #sidebar {
@@ -808,6 +817,10 @@ a:hover {
 .cont .tftl_hook_generator {
   background-color: #a1d1eb;
   background-image: url('../tftl_hook_generator/img/og.jpg');
+}
+.cont .news_generator {
+  background-color: #efe7cf;
+  background-image: url('../news_generator/img/og.jpg');
 }
 .cont .monsters {
   background-color: #6b344b;
